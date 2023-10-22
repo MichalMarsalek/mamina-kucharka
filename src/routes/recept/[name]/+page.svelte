@@ -10,7 +10,7 @@
 	<div>
 		<Row>
 			<Col xs="12" lg="6">
-				<Image fluid src="/foto/Recept.jpg" alt={recipe.Recept} />
+				<Image fluid src="/foto/{recipe.key}.jpg" alt={recipe.Recept} />
 			</Col>
 			<Col xs="12" lg="6">
 				<div out:fade={{ duration: 150 }} in:fade={{ delay: 150 }}>
