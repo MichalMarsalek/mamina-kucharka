@@ -35,7 +35,9 @@
 						<option value="dark">Dark theme</option>
 						<option value="auto">Auto theme</option>
 					</Input>
+					<Button on:click={randomRecipe}>&lt;</Button>
 					<Button on:click={randomRecipe}>Náhodný recept</Button>
+					<Button on:click={randomRecipe}>&gt;</Button>
 					<hr />
 					<Row>
 						<Col>
