@@ -1,3 +1,9 @@
+interface Line {
+	indent: number;
+	key: string;
+	value: string;
+}
+
 export function parseMfcf(source: string): object[] {
 	const result = [];
 	let lastObject: any = {};
@@ -18,4 +24,8 @@ export function parseMfcf(source: string): object[] {
 	}
 	result.push(lastObject);
 	return result;
+}
+
+function getLines(source: string): Line[] {
+	return source.split("\n").map(line =>)
 }
