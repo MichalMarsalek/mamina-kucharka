@@ -1,8 +1,8 @@
 export const ssr = false;
 
 export async function load({ params, parent }: any) {
-	const { recipes } = await parent();
-	const recipe = recipes.find((x: any) => x.key === params.name);
-	const index = recipes.findIndex((x: any) => x.key === params.name) ?? -1;
-	return { name, recipe };
+	const data = await parent();
+	const recipe = data.Kapitoly.flatMap(x => x.Recepty).find((x: any) => x.key === params.name);
+	console.log({recipe})
+	return { recipe };
 }

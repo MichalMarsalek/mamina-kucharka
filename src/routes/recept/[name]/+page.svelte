@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Col, Image, Row } from 'sveltestrap';
+	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
 	import { fade } from 'svelte/transition';
 
 	export let data: { name: string; recipe: object };
@@ -10,11 +10,11 @@
 	<div>
 		<Row>
 			<Col xs="12" lg="6">
-				<Image fluid src="/foto/{recipe.key}.jpg" alt={recipe.Recept} />
+				<Image fluid src="/foto/{recipe.key}.jpg" alt={recipe.Nadpis} />
 			</Col>
 			<Col xs="12" lg="6">
 				<div out:fade={{ duration: 150 }} in:fade={{ delay: 150 }}>
-					<h1>{recipe.Recept ?? data.name}</h1>
+					<h1>{recipe.Nadpis ?? data.name}</h1>
 					{#if recipe}
 						{#if recipe.Tagy}
 							Tagy: {recipe.Tagy}<br />
@@ -27,7 +27,7 @@
 								Ingredience:
 							{/if}
 							<ul>
-								{#each recipe.Ingredience.split('\n') as item}
+								{#each recipe.Ingredience as item}
 									<li>{item}</li>
 								{/each}
 							</ul>
@@ -36,7 +36,7 @@
 						{#if recipe.Postup}
 							Postup:
 							<ul>
-								{#each recipe.Postup.split('\n') as item}
+								{#each recipe.Postup as item}
 									<li>{item}</li>
 								{/each}
 							</ul>
