@@ -7,6 +7,6 @@
 
 <ul>
 	{#each data.recipes as item}
-		<li><a href={'/recept/' + item.key}>{item.Nadpis}</a></li>
+		<li><a href={'/recept/' + item.slug}>{item.Nadpis}</a></li>
 	{/each}
 </ul>

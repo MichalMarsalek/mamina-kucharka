@@ -2,23 +2,24 @@
 	import { Button, Col, Container, Input, Nav, NavItem, NavLink, Row, Styles } from '@sveltestrap/sveltestrap';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { isRecipe, type Content } from '$lib/content';
 
-	export let data: { recipes: any[] };
+	export let data: Content;
 
 	let theme = 'auto' as const;
 
-	$: recipes = data.Kapitoly.flatMap(x => x.Recepty)
+	$: recipes = data.pages.filter(isRecipe)
 	$: pageName = $page.params?.name;
-	$: randomRecipe = recipes.filter((x) => x.key !== pageName)[
+	$: randomRecipe = recipes.filter((x) => x.slug !== pageName)[
 		Math.floor(Math.random() * (recipes.length - 1))
-	].key;
-	$: currentPageOrder = recipes.findIndex((x) => x.key === pageName);
+	].slug;
+	$: currentPageOrder = recipes.findIndex((x) => x.slug === pageName);
 	$: prevRecipe =
 		recipes[
 			currentPageOrder >= 0 ? (currentPageOrder + recipes.length - 1) % recipes.length : 0
-		].key;
+		].slug;
 	$: nextRecipe =
-		recipes[currentPageOrder >= 0 ? (currentPageOrder + 1) % recipes.length : 0].key;
+		recipes[currentPageOrder >= 0 ? (currentPageOrder + 1) % recipes.length : 0].slug;
 
 	function onKeyDown(e: any) {
 		if (e.keyCode === 37) {
@@ -65,8 +66,8 @@
 							<Nav class="flex-column">
 								{#each recipes as item}
 									<NavItem
-										><NavLink href={'/recept/' + item.key}
-											><span class:active={pageName === item.key}>{item.Nadpis}</span></NavLink
+										><NavLink href={'/recept/' + item.slug}
+											><span class:active={pageName === item.slug}>{item.title}</span></NavLink
 										></NavItem
 									>
 								{/each}

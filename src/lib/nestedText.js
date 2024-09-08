@@ -252,7 +252,7 @@ function parseDictionaryItem(input, index, result) {
         key += input[index];
         index += 1;
     }
-    result.key = key.trim();
+    result.slug = key.trim();
     if (input[index] !== ":") {
         throwError(result.startIndex + result.indent, result, "Expected ':'");
     }
@@ -433,7 +433,7 @@ function collectIntoDictionary(lines, indentLevel) {
             let value = null;
             if (lines[0].type === ParsedLineType.DICTIONARY_ITEM) {
                 lines.shift();
-                key = keyLine.key;
+                key = keyLine.slug;
                 value = keyLine.value;
             }
             else if (lines[0].type === ParsedLineType.KEY_ITEM) {
