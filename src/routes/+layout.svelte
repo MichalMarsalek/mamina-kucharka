@@ -8,26 +8,27 @@
 
 	let theme = 'auto' as const;
 
-	$: recipes = data.pages.filter(isRecipe)
+	$: pages = data.pages;
+	$: recipes = pages.filter(isRecipe)
 	$: pageName = $page.params?.name;
 	$: randomRecipe = recipes.filter((x) => x.slug !== pageName)[
 		Math.floor(Math.random() * (recipes.length - 1))
 	].slug;
-	$: currentPageOrder = recipes.findIndex((x) => x.slug === pageName);
-	$: prevRecipe =
-		recipes[
-			currentPageOrder >= 0 ? (currentPageOrder + recipes.length - 1) % recipes.length : 0
+	$: currentPageOrder = pages.findIndex((x) => x.slug === pageName);
+	$: prevPage =
+		pages[
+			currentPageOrder >= 0 ? (currentPageOrder + pages.length - 1) % pages.length : 0
 		].slug;
-	$: nextRecipe =
-		recipes[currentPageOrder >= 0 ? (currentPageOrder + 1) % recipes.length : 0].slug;
+	$: nextPage =
+		pages[currentPageOrder >= 0 ? (currentPageOrder + 1) % pages.length : 0].slug;
 
 	function onKeyDown(e: any) {
 		if (e.keyCode === 37) {
-			goto(`/recept/${prevRecipe}`);
+			goto(`/${prevPage}`);
 			e.preventDefault();
 		}
 		if (e.keyCode === 39) {
-			goto(`/recept/${nextRecipe}`);
+			goto(`/${nextPage}`);
 			e.preventDefault();
 		}
 	}
@@ -57,16 +58,16 @@
 						<option value="dark">Tmavý motiv</option>
 						<option value="auto">Automatický motiv</option>
 					</Input>
-					<a href="/recept/{prevRecipe}"><Button>&lt;</Button></a>
-					<a href="/recept/{randomRecipe}"><Button>Náhodný recept</Button></a>
-					<a href="/recept/{nextRecipe}"><Button>&gt;</Button></a>
+					<a href="/{prevPage}"><Button>&lt;</Button></a>
+					<a href="/{randomRecipe}"><Button>Náhodný recept</Button></a>
+					<a href="/{nextPage}"><Button>&gt;</Button></a>
 					<hr />
 					<Row>
 						<Col>
 							<Nav class="flex-column">
-								{#each recipes as item}
+								{#each pages as item}
 									<NavItem
-										><NavLink href={'/recept/' + item.slug}
+										><NavLink href={'/' + item.slug}
 											><span class:active={pageName === item.slug}>{item.title}</span></NavLink
 										></NavItem
 									>
