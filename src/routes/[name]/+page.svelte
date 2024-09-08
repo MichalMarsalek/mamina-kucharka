@@ -6,7 +6,9 @@
 	export let data: Recipe;
 	$: recipe = data;
 
-	$: console.log({recipe})
+	function isLink(x: string) {
+		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(x)
+	}
 </script>
 
 {#key recipe.slug}
@@ -17,11 +19,10 @@
 			</Col>
 			<Col xs="12" lg="6">
 				<div out:fade={{ duration: 150 }} in:fade={{ delay: 150 }}>
-					<h1>{recipe.title}</h1>
+					<h1>{recipe.title}{#each recipe.tags as tag}
+						<span class='badge badge-primary'>{tag}</span>
+					{/each}</h1>
 					{#if recipe}
-						{#if recipe.tags}
-							Tagy: {recipe.tags}<br />
-						{/if}
 
 						{#if recipe.ingredients}
 							{#if recipe.portions}
@@ -49,7 +50,13 @@
 							{field.name}:
 							<ul>
 								{#each field.values as value}
-									<li>{value}</li>
+									<li>
+										{#if isLink(value)}
+											<a href={value} target="_blank">{value}</a>
+										{:else}
+											{value}
+										{/if}
+									</li>
 								{/each}
 							</ul>
 						{/each}
@@ -61,3 +68,9 @@
 		</Row>
 	</div>
 {/key}
+
+<style>
+	h1 .badge {
+		font-size: initial
+	}
+</style>
