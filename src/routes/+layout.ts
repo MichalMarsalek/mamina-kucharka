@@ -1,12 +1,479 @@
-import { parseMfcf } from './mfcf';
+var ParsedLineType;
+(function (ParsedLineType) {
+    ParsedLineType["BLANK"] = "B";
+    ParsedLineType["COMMENT"] = "C";
+    ParsedLineType["DICTIONARY_ITEM"] = "D";
+    ParsedLineType["INLINE"] = "I";
+    ParsedLineType["LIST_ITEM"] = "L";
+    ParsedLineType["STRING_ITEM"] = "S";
+    ParsedLineType["KEY_ITEM"] = "K";
+})(ParsedLineType || (ParsedLineType = {}));
+function parse(input) {
+    let parsed = {
+        column: 1,
+        indent: 0,
+        line: 0,
+        nextIndex: 0,
+        startIndex: 0,
+        type: ParsedLineType.BLANK,
+        value: ""
+    };
+    const lines = [];
+    // Pass 1: parse lines into a data structure
+    do {
+        parsed = parseLine(input, parsed.nextIndex, parsed.line + 1, parsed.column);
+        lines.push(parsed);
+    } while (parsed.nextIndex < input.length);
+    // Pass 2: remove comments and blank lines
+    for (let i = lines.length - 1; i >= 0; i -= 1) {
+        if (lines[i].type === ParsedLineType.BLANK ||
+            lines[i].type === ParsedLineType.COMMENT) {
+            lines.splice(i, 1);
+        }
+    }
+    // Pass 3: combine multi-line tokens into one and detect indentation problems
+    let i = 0;
+    while (i < lines.length - 1) {
+        const before = lines[i];
+        const after = lines[i + 1];
+        let merge = false;
+        if (before.type === ParsedLineType.KEY_ITEM) {
+            if (after.indent < before.indent) {
+                throwError(before.startIndex + before.indent, before, "Expected value");
+            }
+            if (after.type === before.type) {
+                if (before.indent > after.indent) {
+                    throwError(after.startIndex, after, "Unexpected indentation");
+                }
+                if (before.indent === after.indent) {
+                    merge = true;
+                }
+            }
+        }
+        if (before.type === ParsedLineType.STRING_ITEM &&
+            after.type === before.type) {
+            if (before.indent < after.indent) {
+                throwError(after.startIndex + before.indent, after, "Unexpected indentation");
+            }
+            if (before.indent > after.indent) {
+                throwError(after.startIndex, after, "Unexpected indentation");
+            }
+            merge = true;
+        }
+        if (before.type === ParsedLineType.LIST_ITEM) {
+            if (after.type === ParsedLineType.LIST_ITEM &&
+                before.indent < after.indent &&
+                before.value) {
+                throwError(after.startIndex + before.indent, after, "Unexpected indentation");
+            }
+            if (before.indent === after.indent &&
+                after.type !== ParsedLineType.LIST_ITEM) {
+                throwError(after.startIndex + after.indent, after, "Incorrect type embedded within a list");
+            }
+        }
+        if (merge) {
+            before.value += "\n" + after.value;
+            lines.splice(i + 1, 1);
+        }
+        else {
+            i += 1;
+        }
+    }
+    let result = null;
+    if (!lines.length) {
+        return result;
+    }
+    if (lines[0].indent) {
+        throwError(lines[0].startIndex, lines[0], "Unexpected indentation");
+    }
+    // Pass 3: build data structures
+    if (lines[0].type === ParsedLineType.INLINE) {
+        if (lines.length > 1) {
+            throwError(null, lines[1], "Unexpected line after inline");
+        }
+        result = lines[0].value;
+    }
+    else if (lines[0].type === ParsedLineType.STRING_ITEM) {
+        result = lines[0].value;
+    }
+    else {
+        result = collect(lines, 0);
+        if (lines.length) {
+            throwError(null, lines[0], "Unexpected line after dictionary or list");
+        }
+    }
+    return result;
+}
+function parseLine(input, index, line, column) {
+    let result = {
+        column: column,
+        indent: 0,
+        line: line,
+        nextIndex: index,
+        startIndex: index,
+        type: ParsedLineType.BLANK,
+        value: ""
+    };
+    while (input[index] === " ") {
+        index += 1;
+        result.indent += 1;
+    }
+    if (isWhitespace(input[index]) && !isNewlineOrEnd(input[index])) {
+        throwError(index, result, `Only ASCII spaces are allowed as indentation, not ${JSON.stringify(input[index])}`);
+    }
+    if (isNewlineOrEnd(input[index])) {
+        return conclude(input, index, result);
+    }
+    if (input[index] === "#") {
+        return parseComment(input, index, result);
+    }
+    if (input[index] === ">" && (input[index + 1] === " " || isNewlineOrEnd(input[index + 1]))) {
+        return parseStringItem(input, index, result);
+    }
+    if (input[index] === "-" &&
+        (input[index + 1] === " " || isNewlineOrEnd(input[index + 1]))) {
+        return parseListItem(input, index, result);
+    }
+    if (input[index] === ":" &&
+        (input[index + 1] === " " || isNewlineOrEnd(input[index + 1]))) {
+        return parseKeyItem(input, index, result);
+    }
+    if (input[index] === "[" || input[index] === "{") {
+        return parseInline(input, index, result);
+    }
+    if (input[index]) {
+        return parseDictionaryItem(input, index, result);
+    }
+    result.value = null;
+    return result;
+}
+function isNewlineOrEnd(char) {
+    return char === "\r" || char === "\n" || !char;
+}
+function isWhitespace(char) {
+    return /\s/.test(char);
+}
+function throwError(index, result, message) {
+    const line = result.line;
+    let error;
+    if (index !== null) {
+        const column = result.column + index - result.startIndex;
+        error = new Error(`Line ${line}, column ${column}: ${message}`);
+        error.lineno = line - 1; // Odd zero-based indexing for tests
+        error.colno = column - 1; // Odd zero-based indexing for tests
+    }
+    else {
+        error = new Error(`Line ${line}: ${message}`);
+        error.lineno = line - 1; // Odd zero-based indexing for tests
+        error.colno = null;
+    }
+    throw error;
+}
+function conclude(input, index, result) {
+    if (input[index] === "\r" && input[index + 1] === "\n") {
+        result.nextIndex = index + 2;
+    }
+    else {
+        result.nextIndex = index + 1;
+    }
+    return result;
+}
+function parseComment(input, index, result) {
+    result.type = ParsedLineType.COMMENT;
+    index += 1;
+    while (!isNewlineOrEnd(input[index])) {
+        index += 1;
+    }
+    return conclude(input, index, result);
+}
+function parseStringItem(input, index, result) {
+    result.type = ParsedLineType.STRING_ITEM;
+    index += 1;
+    if (isNewlineOrEnd(input[index])) {
+        return conclude(input, index, result);
+    }
+    if (input[index] !== " ") {
+        throwError(index, result, "Expected space after '>'");
+    }
+    index += 1;
+    while (!isNewlineOrEnd(input[index])) {
+        result.value += input[index];
+        index += 1;
+    }
+    return conclude(input, index, result);
+}
+function parseListItem(input, index, result) {
+    result.type = ParsedLineType.LIST_ITEM;
+    index += 1;
+    if (isNewlineOrEnd(input[index])) {
+        return conclude(input, index, result);
+    }
+    if (input[index] !== " ") {
+        throwError(index, result, "Expected space after '-'");
+    }
+    index += 1;
+    while (!isNewlineOrEnd(input[index])) {
+        result.value += input[index];
+        index += 1;
+    }
+    return conclude(input, index, result);
+}
+function parseKeyItem(input, index, result) {
+    result.type = ParsedLineType.KEY_ITEM;
+    index += 1;
+    if (isNewlineOrEnd(input[index])) {
+        return conclude(input, index, result);
+    }
+    if (input[index] !== " ") {
+        throwError(index, result, "Expected space after ':'");
+    }
+    index += 1;
+    while (!isNewlineOrEnd(input[index])) {
+        result.value += input[index];
+        index += 1;
+    }
+    return conclude(input, index, result);
+}
+function isDictionaryKeyChar(char, next) {
+    if (isNewlineOrEnd(char)) {
+        return false;
+    }
+    if (char === ':') {
+        if (next === ' ' || isNewlineOrEnd(next)) {
+            return false;
+        }
+    }
+    return true;
+}
+function parseDictionaryItem(input, index, result) {
+    result.type = ParsedLineType.DICTIONARY_ITEM;
+    let key = "";
+    while (isDictionaryKeyChar(input[index], input[index + 1])) {
+        key += input[index];
+        index += 1;
+    }
+    result.key = key.trim();
+    if (input[index] !== ":") {
+        throwError(result.startIndex + result.indent, result, "Expected ':'");
+    }
+    index += 1;
+    if (input[index] === " ") {
+        index += 1;
+        while (!isNewlineOrEnd(input[index])) {
+            result.value += input[index];
+            index += 1;
+        }
+    }
+    else if (!isNewlineOrEnd(input[index])) {
+        throwError(index, result, "Expected space after key");
+    }
+    else {
+        result.value = null;
+    }
+    return conclude(input, index, result);
+}
+function parseInline(input, index, result) {
+    result.type = ParsedLineType.INLINE;
+    if (input[index] === "[") {
+        const { value, nextIndex } = parseInlineList(input, index, result);
+        result.value = value;
+        result.nextIndex = nextIndex;
+    }
+    else {
+        const { value, nextIndex } = parseInlineDict(input, index, result);
+        result.value = value;
+        result.nextIndex = nextIndex;
+    }
+    if (!isNewlineOrEnd(input[result.nextIndex])) {
+        throwError(result.nextIndex, result, "Expected newline or end of file");
+    }
+    return conclude(input, result.nextIndex, result);
+}
+function parseInlineList(input, index, result) {
+    const value = [];
+    index += 1;
+    if (input[index] === "]") {
+        return { value, nextIndex: index + 1 };
+    }
+    while (true) {
+        const { str, nextIndex } = parseInlineString(input, index, ",[]{}");
+        let v = str;
+        index = nextIndex;
+        if (input[index] === "[" && !str) {
+            const { value: inlineList, nextIndex } = parseInlineList(input, index, result);
+            index = nextIndex;
+            v = inlineList;
+        }
+        else if (input[index] === "{" && !str) {
+            const { value: inlineDict, nextIndex } = parseInlineDict(input, index, result);
+            index = nextIndex;
+            v = inlineDict;
+        }
+        else if ("[{}".indexOf(input[index]) >= 0) {
+            throwError(index, result, `Unexpected '${input[index]}'`);
+        }
+        value.push(v);
+        if (input[index] === "]") {
+            index += 1;
+            while (isWhitespace(input[index]) &&
+                !isNewlineOrEnd(input[index])) {
+                index += 1;
+            }
+            return { value, nextIndex: index };
+        }
+        if (input[index] !== ",") {
+            throwError(index, result, "Expected ',' or ']'");
+        }
+        index += 1;
+    }
+}
+function parseInlineDict(input, index, result) {
+    const value = {};
+    const prohibited = ",[]{}:";
+    index += 1;
+    if (input[index] === "}") {
+        return { value, nextIndex: index + 1 };
+    }
+    while (true) {
+        const { str: key, nextIndex: next1 } = parseInlineString(input, index, prohibited);
+        index = next1;
+        if (input[index] !== ":") {
+            throwError(index, result, "Expected ':'");
+        }
+        index += 1;
+        const { str, nextIndex: next2 } = parseInlineString(input, index, prohibited);
+        index = next2;
+        let v = str;
+        if (input[index] === "[" && !str) {
+            const { value: inlineArray, nextIndex } = parseInlineList(input, index, result);
+            index = nextIndex;
+            v = inlineArray;
+        }
+        else if (input[index] === "{" && !str) {
+            const { value: inlineDict, nextIndex } = parseInlineDict(input, index, result);
+            index = nextIndex;
+            v = inlineDict;
+        }
+        else if ("[]{".indexOf(input[index]) >= 0) {
+            throwError(index, result, `Unexpected '${input[index]}'`);
+        }
+        value[key] = v;
+        if (input[index] === "}") {
+            index += 1;
+            while (isWhitespace(input[index]) &&
+                !isNewlineOrEnd(input[index])) {
+                index += 1;
+            }
+            return { value, nextIndex: index };
+        }
+        if (input[index] !== ",") {
+            throwError(index, result, "Expected ',' or '}'");
+        }
+        index += 1;
+    }
+}
+function parseInlineString(input, index, prohibited) {
+    let value = "";
+    while (prohibited.indexOf(input[index]) === -1 &&
+        !isNewlineOrEnd(input[index])) {
+        value += input[index];
+        index += 1;
+    }
+    return { str: value.trim(), nextIndex: index };
+}
+function collect(lines, indentLevel) {
+    let result;
+    if (lines[0].type === ParsedLineType.LIST_ITEM) {
+        result = collectIntoList(lines, indentLevel);
+    }
+    else if (lines[0].type === ParsedLineType.DICTIONARY_ITEM ||
+        lines[0].type === ParsedLineType.KEY_ITEM) {
+        result = collectIntoDictionary(lines, indentLevel);
+    }
+    else if (lines[0].type === ParsedLineType.STRING_ITEM ||
+        lines[0].type === ParsedLineType.INLINE) {
+        result = lines.shift().value;
+    }
+    else {
+        throwError(lines[0].startIndex, lines[0], "Expected dictionary, list, string, or inline");
+    }
+    return result;
+}
+function collectIntoList(lines, indentLevel) {
+    const result = [];
+    while (lines.length) {
+        const line = lines[0];
+        if (line.indent < indentLevel) {
+            return result;
+        }
+        if (line.type !== ParsedLineType.LIST_ITEM) {
+            console.log(JSON.stringify(line), indentLevel);
+            throwError(line.startIndex, line, "Expected list item");
+        }
+        let v = lines.shift().value;
+        if (!v && lines[0] && lines[0].indent > line.indent) {
+            v = collect(lines, lines[0].indent);
+            if (lines[0] && lines[0].indent > indentLevel) {
+                throwError(lines[0].startIndex, lines[0], "Unexpected indentation");
+            }
+        }
+        result.push(v);
+    }
+    return result;
+}
+function collectIntoDictionary(lines, indentLevel) {
+    const result = {};
+    while (lines.length) {
+        if (lines[0].indent < indentLevel) {
+            return result;
+        }
+        if (lines[0].indent === indentLevel) {
+            let keyLine = lines[0];
+            let key = null;
+            let value = null;
+            if (lines[0].type === ParsedLineType.DICTIONARY_ITEM) {
+                lines.shift();
+                key = keyLine.key;
+                value = keyLine.value;
+            }
+            else if (lines[0].type === ParsedLineType.KEY_ITEM) {
+                lines.shift();
+                key = keyLine.value;
+            }
+            else {
+                throwError(lines[0].startIndex, lines[0], "Expected dictionary key");
+            }
+            if (value === null && lines[0] && lines[0].indent > indentLevel) {
+                value = collect(lines, lines[0].indent);
+                if (lines[0] && lines[0].indent > indentLevel) {
+                    throwError(lines[0].startIndex, lines[0], "Unexpected indentation");
+                }
+            }
+            if (result.hasOwnProperty(key)) {
+                throwError(keyLine.startIndex + keyLine.indent, keyLine, `Duplicate key '${key}'`);
+            }
+            result[key] = value || "";
+        }
+        else {
+            throwError(lines[0].startIndex, lines[0], "Unexpected indentation");
+        }
+    }
+    return result;
+}
 
 export const ssr = false;
 
 export async function load({ fetch }: any) {
-	const data = await (await fetch('/recipes.mfcf')).text();
-	const recipes = parseMfcf(data) as any;
-	for (const recipe of recipes) {
-		recipe.key = recipe.Recept.replaceAll(' ', '-');
+	const data = parse(await (await fetch('/recepty.nt')).text());
+	function addKeys(x: any) {
+		if (Array.isArray(x)) {
+			for(const v of x) addKeys(v)
+		}
+		if (typeof x === "object"){
+			if("Nadpis" in x) x.key = x.Nadpis.replaceAll(' ', '-');
+			for(const v of Object.values(x)) addKeys(v);
+		}
 	}
-	return { recipes };
+	addKeys(data);
+	return data;
 }
