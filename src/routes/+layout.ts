@@ -1,7 +1,6 @@
 import { parseNestedText } from "$lib/nestedText";
 
 export const ssr = false;
-export const prerender = true;
 
 export async function load({ fetch }: any) {
 	const data = parseNestedText(await (await fetch('/recepty.nt')).text());
