@@ -462,6 +462,7 @@ function collectIntoDictionary(lines, indentLevel) {
 }
 
 export const ssr = false;
+export const prerender = true;
 
 export async function load({ fetch }: any) {
 	const data = parse(await (await fetch('/recepty.nt')).text());
