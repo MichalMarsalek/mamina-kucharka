@@ -86,6 +86,7 @@ function getPage(x: unknown): Page {
         steps: getArray(y.Postup)?.map(getString),
         pages: getArray(y.Kapitoly ?? y.Recepty)?.map(getPage),
     }
+    if (!res.title) console.log("missing title", {res})
     for(const [k,v] of Object.entries(y)) {
         if (!["Nadpis", "Podtitul", "Fotek", "Strana", "Porce", "Ingredience", "Postup", "Kapitoly", "Recepty", "Typ"].includes(k)){
             res.customFields.push({name: k, values: (typeof v === "string" ? [v] : getArray(v)?.map(x => getString(x)!) ?? [])})
