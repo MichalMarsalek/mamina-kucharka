@@ -76,7 +76,7 @@ function getPage(x: unknown): Page {
     const res: Page = {
         slug: "",
         title: getString(y.Nadpis),
-        subtitle: getString(y.Podtitul),
+        subtitle: getString(y.Podnadpis),
         photoCount: getNumber(y.Fotek),
         page: getNumber(y.Strana),
         tags: typeof y.Typ === "string" ? y.Typ.split(",") : getArray(y.Typ)?.map(getString),
@@ -88,7 +88,7 @@ function getPage(x: unknown): Page {
     }
     if (!res.title) console.log("missing title", {res})
     for(const [k,v] of Object.entries(y)) {
-        if (!["Nadpis", "Podtitul", "Fotek", "Strana", "Porce", "Ingredience", "Postup", "Kapitoly", "Recepty", "Typ"].includes(k)){
+        if (!["Nadpis", "Podnadpis", "Fotek", "Strana", "Porce", "Ingredience", "Postup", "Kapitoly", "Recepty", "Typ"].includes(k)){
             res.customFields.push({name: k, values: (typeof v === "string" ? [v] : getArray(v)?.map(x => getString(x)!) ?? [])})
         }
     }
