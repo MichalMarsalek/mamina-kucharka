@@ -1,3 +1,4 @@
+import { getIngredientsInText } from "./ingredients"
 import { parseNestedText } from "./nestedText"
 
 export interface Content {
@@ -23,7 +24,7 @@ export interface Recipe extends Page {
     parent: Chapter
     portions?: number
     tags: string[]
-    ingredients: string[]
+    ingredients: {raw: string, normalized: string[]}[]
     steps: string[]
 }
 
@@ -82,7 +83,7 @@ function getPage(x: unknown): Page {
         tags: typeof y.Typ === "string" ? y.Typ.split(",") : getArray(y.Typ)?.map(getString),
         customFields: [],
         portions: getNumber(y.Porce),
-        ingredients: getArray(y.Ingredience)?.map(getString),
+        ingredients: getArray(y.Ingredience)?.map(getString)?.map(raw => ({raw, normalized: getIngredientsInText(raw!)})),
         steps: getArray(y.Postup)?.map(getString),
         pages: getArray(y.Kapitoly ?? y.Recepty)?.map(getPage),
     }

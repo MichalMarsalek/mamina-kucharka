@@ -32,7 +32,7 @@
 							{/if}
 							<ul>
 								{#each recipe.ingredients as item}
-									<li>{item}</li>
+									<li title={item.normalized}>{item.raw}</li>
 								{/each}
 							</ul>
 						{/if}
