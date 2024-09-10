@@ -3,6 +3,8 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { isRecipe, type Content } from '$lib/content';
+	import SimpleAutocomplete from "simple-svelte-autocomplete";
+	import { ingredients as _ingredients } from '$lib/ingredients';
 
 	export let data: Content;
 
@@ -21,6 +23,9 @@
 		].slug;
 	$: nextPage =
 		pages[currentPageOrder >= 0 ? (currentPageOrder + 1) % pages.length : 0].slug;
+	
+	const allIngredients = _ingredients.map(x => x.name);
+	$: selectedIngredients = [] as string[]
 
 	function onKeyDown(e: any) {
 		if (e.keyCode === 37) {
@@ -61,6 +66,7 @@
 					<a href="/{prevPage}"><Button>&lt;</Button></a>
 					<a href="/{randomRecipe}"><Button>Náhodný recept</Button></a>
 					<a href="/{nextPage}"><Button>&gt;</Button></a>
+					<!-- <SimpleAutocomplete items={allIngredients} bind:selectedItem={selectedIngredients} multiple={true}/> -->
 					<hr />
 					<Row>
 						<Col>

@@ -1,4 +1,4 @@
-const ingredients = `
+export const ingredients = `
 sůl/sol
 pepř
 cibul|e

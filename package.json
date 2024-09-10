@@ -32,6 +32,7 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltestrap/sveltestrap": "^6.2.7",
+		"simple-svelte-autocomplete": "^2.5.2",
 		"nestedtext": "^1.1.1"
 	}
 }
