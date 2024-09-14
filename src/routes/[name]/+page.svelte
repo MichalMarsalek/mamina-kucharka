@@ -14,15 +14,20 @@
 {#key recipe.slug}
 	<div>
 		<Row>
-			<Col xs="12" lg="6">
-				<Image fluid src="/foto/{recipe.slug}.jpg" alt={recipe.title} />
-			</Col>
-			<Col xs="12" lg="6">
+			{#if recipe == null || recipe.photos.length > 0}
+				<Col xs="12" lg="6">
+					{#each recipe.photos as photo}
+						<Image fluid src="/foto/{photo}.jpg" alt={recipe.title} />
+					{/each}
+				</Col>
+			{/if}
+			<Col>
 				<div out:fade={{ duration: 150 }} in:fade={{ delay: 150 }}>
 					<h1>{recipe.title}{#each recipe.tags as tag}
 						<span class='badge badge-primary'>{tag}</span>
 					{/each}</h1>
 					{#if recipe}
+						<div style="margin-bottom: 1rem">#{recipe.page}</div>
 
 						{#if recipe.ingredients}
 							{#if recipe.portions}

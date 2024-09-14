@@ -23,6 +23,7 @@ export interface Chapter extends Page {
 export interface Recipe extends Page {
     parent: Chapter
     portions?: number
+    photos: string[]
     tags: string[]
     ingredients: {raw: string, normalized: string[]}[]
     steps: string[]
@@ -56,6 +57,12 @@ function getString(x: unknown): string | undefined {
     if (typeof x !== "string") throw new Error("Not a string.")
     return x;
 }
+function getAsStringArray(x: unknown): string[] | undefined {
+    if (x == null) return undefined
+    if (typeof x === "string") return [x];
+    if (Array.isArray(x) && x.every(x => typeof x === "string")) return x;
+    throw new Error("Not a string array.");
+}
 function getArray(x: unknown): unknown[] | undefined {
     if (x == null) return undefined
     if (!Array.isArray(x)) throw new Error("Not an array.")
@@ -71,6 +78,10 @@ function getNumber(x: unknown): number | undefined {
     return isNaN(res) ? undefined : res
 }
 
+function slugify(x: string) {
+    return x.replaceAll(/[^ \p{L}\d]/gu,"").replaceAll(/ +/g, "-")
+}
+
 function getPage(x: unknown): Page {
     const y = getObject(x)
     if (y === undefined) throw new Error("Not page.");
@@ -78,7 +89,7 @@ function getPage(x: unknown): Page {
         slug: "",
         title: getString(y.Nadpis),
         subtitle: getString(y.Podnadpis),
-        photoCount: getNumber(y.Fotek),
+        photos: getAsStringArray(y.Foto ?? [])!.map(slugify),
         page: getNumber(y.Strana),
         tags: typeof y.Typ === "string" ? y.Typ.split(",") : getArray(y.Typ)?.map(getString),
         customFields: [],
@@ -89,13 +100,13 @@ function getPage(x: unknown): Page {
     }
     if (!res.title) console.log("missing title", {res})
     for(const [k,v] of Object.entries(y)) {
-        if (!["Nadpis", "Podnadpis", "Fotek", "Strana", "Porce", "Ingredience", "Postup", "Kapitoly", "Recepty", "Typ"].includes(k)){
+        if (!["Nadpis", "Podnadpis", "Foto", "Strana", "Porce", "Ingredience", "Postup", "Kapitoly", "Recepty", "Typ"].includes(k)){
             res.customFields.push({name: k, values: (typeof v === "string" ? [v] : getArray(v)?.map(x => getString(x)!) ?? [])})
         }
     }
     if (isChapter(res)) for(const child of res.pages){
         child.parent = res;
     }
-    res.slug = res.title!.replaceAll(" ", "-")
+    res.slug = slugify(res.title!)
     return res;
 }
