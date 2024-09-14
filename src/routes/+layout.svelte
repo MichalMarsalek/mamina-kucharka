@@ -38,7 +38,7 @@
 		}
 	}
 
-	function level(page: Page){
+	function level(page: Page): number {
 		return page.parent == null ? 0 : 1 + level(page.parent)
 	}
 </script>
