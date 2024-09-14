@@ -2,7 +2,7 @@
 	import { Button, Col, Container, Input, Nav, NavItem, NavLink, Row, Styles } from '@sveltestrap/sveltestrap';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { isRecipe, type Content } from '$lib/content';
+	import { isRecipe, type Content, type Page } from '$lib/content';
 	import SimpleAutocomplete from "simple-svelte-autocomplete";
 	import { ingredients as _ingredients } from '$lib/ingredients';
 
@@ -37,16 +37,20 @@
 			e.preventDefault();
 		}
 	}
+
+	function level(page: Page){
+		return page.parent == null ? 0 : 1 + level(page.parent)
+	}
 </script>
 
 <Styles {theme} />
-<div class="my-5">
+<div>
 	<Container fluid>
 		<Row>
 			<Col xs="auto">
-				<div style="width: 250px">
+				<div class="menu">
 					<Row>
-						<Col class="d-flex justify-content-center">
+						<Col class="d-flex justify-content-center mt-3">
 							<a href="/"
 								><img
 									src="/foto/Logo.jpg"
@@ -68,23 +72,27 @@
 					<a href="/{nextPage}"><Button>&gt;</Button></a>
 					<!-- <SimpleAutocomplete items={allIngredients} bind:selectedItem={selectedIngredients} multiple={true}/> -->
 					<hr />
-					<Row>
-						<Col>
-							<Nav class="flex-column">
-								{#each pages as item}
-									<NavItem
-										><NavLink href={'/' + item.slug}
-											><span class:active={pageName === item.slug}>{item.title}</span></NavLink
-										></NavItem
-									>
-								{/each}
-							</Nav>
-						</Col>
-					</Row>
+					<div class="content-items">
+						<Row>
+							<Col>
+								<Nav class="flex-column">
+									{#each pages as item}
+										<NavItem
+											><NavLink href={'/' + item.slug}
+												><div class:active={pageName === item.slug} style="margin-left: {level(item)*15}px">{item.title}</div></NavLink
+											></NavItem
+										>
+									{/each}
+								</Nav>
+							</Col>
+						</Row>
+					</div>
 				</div>
 			</Col>
 			<Col>
-				<slot />
+				<div class="mt-2">
+					<slot />
+				</div>
 			</Col>
 		</Row>
 	</Container>
@@ -95,6 +103,22 @@
 <style>
 	.active {
 		font-weight: bold;
-		margin-left: 15px;
+	}
+
+	.content-items {
+		height: calc(max(300px, 100vh - 316px));
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	.menu {
+		width: 250px;
+		position: sticky;
+		top: 0;
+	}
+
+	:global(.nav-link) {
+		padding: 0 !important;
+		padding-bottom: .5rem !important;
 	}
 </style>

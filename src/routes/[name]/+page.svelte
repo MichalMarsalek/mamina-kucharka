@@ -27,7 +27,7 @@
 						<span class='badge badge-primary'>{tag}</span>
 					{/each}</h1>
 					{#if recipe}
-						<div style="margin-bottom: 1rem">#{recipe.page}</div>
+						<div class="mb-2">#{recipe.page}</div>
 
 						{#if recipe.ingredients}
 							{#if recipe.portions}
