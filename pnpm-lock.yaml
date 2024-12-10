@@ -11,9 +11,6 @@ importers:
       '@sveltestrap/sveltestrap':
         specifier: ^6.2.7
         version: 6.2.7(svelte@5.10.0)
-      nestedtext:
-        specifier: ^1.1.1
-        version: 1.1.1
       simple-svelte-autocomplete:
         specifier: ^2.5.2
         version: 2.5.2
@@ -978,9 +975,6 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  nestedtext@1.1.1:
-    resolution: {integrity: sha512-0fVBC1mcw6QKm3U4dWGpp4eMkZqFcDUzKhoXFCcnl1eh8M1F+hfIiHlHJJ4bh0eAo4HRkehkL7VBEyYLWMzilw==}
-
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
@@ -1079,9 +1073,6 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
-
-  read-input@0.3.1:
-    resolution: {integrity: sha512-J1ZkWCnB4altU7RTe+62PSfa21FrEtfKyO9fuqR3yP8kZku3nIwaw2Krj383JC7egAIl5Zyz2w+EOu9uXH5HZw==}
 
   readdirp@4.0.2:
     resolution: {integrity: sha512-yDMz9g+VaZkqBYS/ozoBJwaBhTbZo3UNYQHNRw1D3UFQB8oHB4uS/tAODO+ZLjGWmUbKnIlOWO+aaIiAxrUWHA==}
@@ -1429,6 +1420,7 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
+    optional: true
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
@@ -1632,6 +1624,7 @@ snapshots:
   '@types/node@20.17.9':
     dependencies:
       undici-types: 6.19.8
+    optional: true
 
   '@types/semver@7.5.8': {}
 
@@ -1781,7 +1774,8 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  buffer-from@1.1.2: {}
+  buffer-from@1.1.2:
+    optional: true
 
   callsites@3.1.0: {}
 
@@ -1804,7 +1798,8 @@ snapshots:
     dependencies:
       delayed-stream: 1.0.0
 
-  commander@2.20.3: {}
+  commander@2.20.3:
+    optional: true
 
   concat-map@0.0.1: {}
 
@@ -2169,13 +2164,6 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  nestedtext@1.1.1:
-    dependencies:
-      '@types/node': 20.17.9
-      read-input: 0.3.1
-      rollup: 4.28.1
-      terser: 5.37.0
-
   once@1.4.0:
     dependencies:
       wrappy: 1.0.2
@@ -2254,8 +2242,6 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  read-input@0.3.1: {}
-
   readdirp@4.0.2: {}
 
   resolve-from@4.0.0: {}
@@ -2325,8 +2311,10 @@ snapshots:
     dependencies:
       buffer-from: 1.1.2
       source-map: 0.6.1
+    optional: true
 
-  source-map@0.6.1: {}
+  source-map@0.6.1:
+    optional: true
 
   strip-ansi@6.0.1:
     dependencies:
@@ -2382,6 +2370,7 @@ snapshots:
       acorn: 8.14.0
       commander: 2.20.3
       source-map-support: 0.5.21
+    optional: true
 
   text-table@0.2.0: {}
 
@@ -2410,7 +2399,8 @@ snapshots:
 
   typescript@5.7.2: {}
 
-  undici-types@6.19.8: {}
+  undici-types@6.19.8:
+    optional: true
 
   universal-user-agent@6.0.1: {}
 
