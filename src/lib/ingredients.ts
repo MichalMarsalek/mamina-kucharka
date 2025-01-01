@@ -86,7 +86,7 @@ med
 králičí/králík
 koriandr
 Granko
-dýně
+dýně/dýňová/dýňové
 citron
 Niva
 žampion|y

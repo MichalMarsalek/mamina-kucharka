@@ -49,7 +49,22 @@
 		const byName = favouritePages
 			.filter((page) => (' ' + page.title.toLowerCase()).includes(' ' + search.toLowerCase()))
 			.map((page) => ({ page }));
-		return [...byName, ...byIngredients] as {
+		const byRawIngredients = favouritePages
+			.filter(isRecipe)
+			.filter((recipe) =>
+				search
+					.toLowerCase()
+					.split(' ')
+					.some((w) =>
+						recipe.ingredients
+							.flatMap((x) => x.raw)
+							.join()
+							.toLowerCase()
+							.includes(w)
+					)
+			)
+			.map((page) => ({ page }));
+		return [...byName, ...byIngredients, ...byRawIngredients] as {
 			page: Page;
 			matchedIngredients?: string[];
 			addedIngredients?: string[];
