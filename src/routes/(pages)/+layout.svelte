@@ -70,7 +70,7 @@
 		if (Math.abs(xDiff) > Math.abs(yDiff)) {
 			if (xDiff > 50) {
 				goto(`/${prevPage}`);
-			} else {
+			} else if (xDiff < -50) {
 				goto(`/${nextPage}`);
 			}
 		}
