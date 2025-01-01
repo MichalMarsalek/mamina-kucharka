@@ -114,11 +114,9 @@
 		}
 	}
 
-	.star {
-		width: 30px;
-	}
+	
 
 	.title {
-		max-width: calc(100% - 20px);
+		max-width: calc(100% - 30px);
 	}
 </style>
