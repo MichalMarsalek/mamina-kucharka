@@ -41,7 +41,7 @@
 		pages[currentPageOrder >= 0 ? (currentPageOrder + 1) % pages.length : 0].slug
 	);
 
-	function onkeydown(e: any) {
+	function onkeydown(e: KeyboardEvent) {
 		if (e.keyCode === 37) {
 			goto(`/${prevPage}`);
 			e.preventDefault();
@@ -55,22 +55,24 @@
 	let touchstartX: number | undefined;
 	let touchstartY: number | undefined;
 
-	function touchstart(e: any) {
-		touchstartX = e.screenX;
-		touchstartY = e.screenY;
-	}
-
-	function touchend(e: any) {
-		if (!touchstartX || !touchstartY) {
+	function ontouchstart(e: TouchEvent) {
+		if (e.changedTouches.length !== 1) {
 			return;
 		}
-		const xDiff = touchstartX - e.screenX;
-		const yDiff = touchstartY - e.screenY;
+		touchstartX = e.changedTouches[0].screenX;
+		touchstartY = e.changedTouches[0].screenY;
+	}
 
+	function ontouchend(e: TouchEvent) {
+		if (!touchstartX || !touchstartY || e.changedTouches.length !== 1) {
+			return;
+		}
+		const xDiff = touchstartX - e.changedTouches[0].screenX;
+		const yDiff = touchstartY - e.changedTouches[0].screenY;
 		if (Math.abs(xDiff) > Math.abs(yDiff)) {
-			if (xDiff > 50) {
+			if (xDiff < -50) {
 				goto(`/${prevPage}`);
-			} else if (xDiff < -50) {
+			} else if (xDiff > 50) {
 				goto(`/${nextPage}`);
 			}
 		}
@@ -158,7 +160,8 @@
 	</Container>
 </div>
 
-<svelte:window {onkeydown} {ontouchstart} {ontouchend} />
+<svelte:window {onkeydown} />
+<svelte:document {ontouchstart} {ontouchend} />
 
 <style>
 	.active {
