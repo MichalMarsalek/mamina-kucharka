@@ -91,7 +91,7 @@ function getNumber(x: unknown): number | undefined {
 }
 
 function slugify(x: string) {
-	return x.replaceAll(/[^ \p{L}\d]/gu, '').replaceAll(/ +/g, '-');
+	return x.replaceAll(/[^ \p{L}\d-]/gu, '').replaceAll(/ +/g, '-');
 }
 
 function getPage(x: unknown): Page {
@@ -102,7 +102,7 @@ function getPage(x: unknown): Page {
 		title: getString(y.Nadpis),
 		subtitle: getString(y.Podnadpis),
 		text: getString(y.text),
-		photos: (typeof y.Foto === 'object'
+		photos: (typeof y.Foto === 'object' && !Array.isArray(y.Foto)
 			? (Object.entries(y.Foto) as [string, string][])
 			: getAsStringArray(y.Foto ?? [])!.map((x) => [undefined, x] as const))!.map(([k, v]) => [
 			k,

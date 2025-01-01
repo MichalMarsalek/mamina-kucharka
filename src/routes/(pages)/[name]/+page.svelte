@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isValuesField, type Page, type Recipe } from '$lib/content';
+	import { isChapter, isValuesField, type Page } from '$lib/content';
 	import { Col, Image, Row, Icon } from '@sveltestrap/sveltestrap';
 	import { fade } from 'svelte/transition';
 	import SvelteMarkdown from 'svelte-markdown';
@@ -7,26 +7,26 @@
 	import FavouriteStar from '$lib/favourite-star.svelte';
 
 	interface Props {
-		data: { recipe: Recipe };
+		data: { page: Page };
 	}
 
 	let { data }: Props = $props();
-	let recipe = $derived(data.recipe);
+	let page = $derived(data.page);
 
 	function isLink(x: string) {
 		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(x);
 	}
 </script>
 
-{#key recipe?.slug}
+{#key page?.slug}
 	<div>
 		<Row>
-			{#if recipe}
-				{#if recipe.photos.length > 0}
+			{#if page}
+				{#if page.photos.length > 0}
 					<Col xs="12" lg="6">
-						{#each recipe?.photos ?? [] as [photoName, photoSlug]}
+						{#each page?.photos ?? [] as [photoName, photoSlug]}
 							<figure class="photo">
-								<Image fluid src="/foto/{photoSlug}.jpg" alt={photoName ?? recipe.title} />
+								<Image fluid src="/foto/{photoSlug}.jpg" alt={photoName ?? page.title} />
 								{#if photoName}
 									<figcaption>{photoName}</figcaption>
 								{/if}
@@ -35,59 +35,67 @@
 					</Col>
 				{/if}
 				<Col>
-					<div out:fade={{ duration: 150 }} in:fade={{ delay: 150 }}>
-						<h1 class="d-flex justify-content-between">
-							<div class="title">
-								{recipe.title}{#each recipe.tags as tag}
-									<span class="badge badge-primary">{tag}</span>
-								{/each}
-							</div>
-							<div class="star"><FavouriteStar slug={recipe.slug} /></div>
-						</h1>
-						<div class="mb-2">#{recipe.page}</div>
+					<div
+						out:fade={{ duration: 150 }}
+						in:fade={{ delay: 150 }}
+						class:chapter={isChapter(page)}
+					>
+						<div>
+							<h1 class="d-flex justify-content-between">
+								<div class="title">
+									{page.title}
+									{#if page.subtitle}<br />{page.subtitle}{/if}
+									{#each page.tags as tag}
+										<span class="badge badge-primary">{tag}</span>
+									{/each}
+								</div>
+								<div class="star"><FavouriteStar slug={page.slug} /></div>
+							</h1>
+							{#if page.page}<div class="mb-2">str. {page.page}</div>{/if}
 
-						{#if recipe.ingredients}
-							{#if recipe.portions}
-								Na {recipe.portions} porce:
-							{:else}
-								Ingredience:
-							{/if}
-							<ul>
-								{#each recipe.ingredients as item}
-									<li title={item.normalized}>{item.raw}</li>
-								{/each}
-							</ul>
-						{/if}
-
-						{#if recipe.ingredients}
-							Postup:
-							<ul>
-								{#each recipe.steps as item}
-									<li>{item}</li>
-								{/each}
-							</ul>
-						{/if}
-
-						{#each recipe.customFields as field}
-							{#if field.name}
-								{field.name}:
-							{/if}
-							{#if isValuesField(field)}
+							{#if page.ingredients}
+								{#if page.portions}
+									Na {page.portions} {page.portions == 1 ? 'porci' : 'porce'}:
+								{:else}
+									Ingredience:
+								{/if}
 								<ul>
-									{#each field.values as value}
-										<li>
-											{#if isLink(value)}
-												<a href={value} target="_blank">{value}</a>
-											{:else}
-												{value}
-											{/if}
-										</li>
+									{#each page.ingredients as item}
+										<li title={item.normalized.join(', ')}>{item.raw}</li>
 									{/each}
 								</ul>
-							{:else}
-								<SvelteMarkdown source={field.markdown} renderers={{ link: AnchorRenderer }} />
 							{/if}
-						{/each}
+
+							{#if page.ingredients}
+								Postup:
+								<ul>
+									{#each page.steps as item}
+										<li>{item}</li>
+									{/each}
+								</ul>
+							{/if}
+
+							{#each page.customFields as field}
+								{#if field.name}
+									{field.name}:
+								{/if}
+								{#if isValuesField(field)}
+									<ul>
+										{#each field.values as value}
+											<li>
+												{#if isLink(value)}
+													<a href={value} target="_blank">{value}</a>
+												{:else}
+													{value}
+												{/if}
+											</li>
+										{/each}
+									</ul>
+								{:else}
+									<SvelteMarkdown source={field.markdown} renderers={{ link: AnchorRenderer }} />
+								{/if}
+							{/each}
+						</div>
 					</div>
 				</Col>
 			{:else}
@@ -106,6 +114,10 @@
 		.photo {
 			max-height: 30vh;
 			overflow: hidden;
+			display: none;
+		}
+		.photo:first-child {
+			display: initial
 		}
 		:global(.photo img) {
 			max-height: 30vh;
@@ -114,9 +126,33 @@
 		}
 	}
 
-	
-
 	.title {
 		max-width: calc(100% - 30px);
+	}
+
+	:global(.right) {
+		text-align: right;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	:global(.center) {
+		text-align: center;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.chapter {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		margin-top: 100px;
+	}
+
+	.chapter > div {		
+		min-width: 25vw;
+	}
+
+	.chapter h1 {
+		width: 100%;
 	}
 </style>

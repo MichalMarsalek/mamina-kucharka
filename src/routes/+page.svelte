@@ -27,7 +27,7 @@
 	}
 
 	div {
-		background-image: url('/foto/Obálka.jpg');
+		background-image: url('/foto/Přední-obálka.jpg');
 		height: 100vh;
 		background-repeat: no-repeat;
 		background-size: contain;

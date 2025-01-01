@@ -10,39 +10,122 @@ Stránky:
       >
       > Mezi stránkami je možné přecházet šipkami na klávesnici.
   -
+    Nadpis: Předmluva
+    Strana: 3
+    Markdown:
+      > <div class="right">… 29. září 2017 (ke jmeninám):</div>
+      >
+      > Milý Míšo!
+      > Nějak moc rychle jsi vyrostl a než jsem se nadála, bylo po maturitě 
+      > a přihláška na vysokou mířila až do Prahy…
+      > Ze začátku to šlo, jezdil jsi domů každý týden, takže ses musel postarat jen o snídaně a večeře. Jenže po krátkém čase jsi co druhý víkend zůstával v Praze na kolejích a menza funguje jen v pracovní dny. Udělali jsme tedy první lekce rychlokurzu vaření… docela Tě to bavilo, vzpomínáš? 
+      > Ale nic se nemá uspěchat. Tedy pár základních informací a malou praxi sis odvezl hned další týden, ale těch informací, jak co uvařit, přibývalo. Navíc jsem zjistila, že na kolejích v kuchyňce máš jen 2 plotýnky a nemáš troubu, která řeší mnohá jednoduchá jídla. Začala jsem tedy uvažovat, 
+      > co Tě učit vařit, aby to šlo připravit v minimalizovaných „kolejních“ podmínkách. Začala jsem i hledat recepty za tímto účelem a zjistila jsem, že na trhu zcela chybí něco jako „Kuchařka na koleje“. 
+      > A ejhle! Nápad byl na světě…
+      > V ruce držíš první vlaštovku, z receptů, které většinou dobře znáš z domova a kterou Ti budu s láskou postupně rozšiřovat, protože umět vařit je fajn a můžeš tím i někomu udělat radost…
+      > 
+      > <div class="right">… máma</div>
+      >
+      >
+      >
+      > *(Tenkrát měla tato „Kuchařka na koleje“ asi 20 receptů a byl to takový bloček bez fotek. Pamatuješ?)*
+      >
+      >
+      > ## A co jsem přitom měla na paměti?
+      >
+      > To vystihují následující zásady, na které jsem narazila po 2 letech 
+      > při upgradu této kuchařky:
+      > - „Student možná nikdy nevařil. Třeba má IQ 160, ale nikde není psáno, že ví, jak se rozklepne vejce.
+      > - Student nemá rád vágní vyjadřování. Termíny jako „kousek másla“ nebo „chvilku povařte“ pochopí jen ten, kdo už ví, co dělá.
+      > - Student nechce přípravou večeře zabít celé odpoledne. Má spoustu práce se sledováním seriálů, hraním her a sezením s přáteli.  
+      > A pak se taky učí!
+      > - Student nemá mnoho peněz. A když jich hodně má, tak nikdy ne dlouho. 
+      > - Student nemá úplné kuchyňské vybavení. Většinou má spirálový vařič a rychlovarnou konvici. Ti šťastnější mají vařič dvouplotýnkový a nevelikou mikrovlnnou troubu.  
+      > Potomci šlechticů mívají i remosku.“
+      >
+      > <div class="right">… září roku 2022:</div>
+      >
+      > Když jsem chtěla „svoji“ kuchařku opět upgradovat zhruba po dalších dvou letech, po zkušenostech z lockdownu s každodenním vařením 
+      > a s vařením vegetariánských jídel ve větším rozsahu, protože v té době 
+      > s námi bydlela i Míšova Lenka, vegetariánka, řekl mi Honza: 
+      > „To může být i pro mne, ta kuchařka?“
+      > Wow! To pro mne bylo velkým potěšením!
+      >
+      > Takže, Míšo, Honzo, jedeme dál…
+      > Přidala jsem tedy další recepty a také fotografie, které by v žádné správné kuchařce neměly chybět. Mám radost, že některé z nich jste nafotili vy už při vašem vaření, některé babička. 
+      > Stále jsem se však držela myšlenky, aby to netrvalo dlouho a aby to bylo jednoduché. Žádné složité vyvařování!
+      > A protože čas běží, Míša už nebydlí na kolejích, ale ve svém bytečku s Leňou, zatímco Honzík se právě chystá na studia v Brně, kde si taky bude muset vařit, v bytečku s Valinkou, upgraduju i název na
+      >
+      > <h3 class="center">Mámina Kuchařka<br>aneb<br>Když kluci vyletí z hnízda.</h2>
+      > P. S. A v kuchyni v každém bytečku už je i elektrická trouba!
+  - 
+    Nadpis: Užitečné odkazy
+    Strana: 5
+    Markdown:
+      >
+      > Tyto stránky a blogy o vaření mám ráda, často se v nich inspiruju 
+      > a některé recepty z nich, které jsem už několikrát vařila, jsem dala 
+      > i do této kuchařky. 
+      > 
+      > I bezlepkové, i dost vege receptů:  
+      > https://jimezdrave.cz/recepty/podle-kategorie/
+      >
+      > https://www.apetitonline.cz/
+      >
+      > Hodně vege receptů:  
+      > https://www.snedeno.cz/kategorie/
+      >
+      > https://www.kucharkaprodceru.cz/recepty/
+      >
+      > I bezlepkové:  
+      > https://kitchenette.cz/kategorie/recepty
+      >
+      > Čistě bezlepkové:  
+      > https://mariajurkova.cz/recepty/
+      >
+      > Spousta dobrých nápadů a rad od profi kuchařů:  
+      > https://www.ceskatelevize.cz/porady/10084897100-kluci-v-akci/1137-recepty/
+      >
+      > Tady jsem našla ten nejlepší popis na přípravu vepřové panenky, která se mi od té doby vždy povedla. Je jasný a zvládne to podle něj každý – poprvé zkusíš a podruhé se už poučíš ze zkušenosti z minula. 
+      > Nic jiného odtud neznám:  
+      > http://www.matyhochalka.cz/panenka-pecena-do-ruzova/
+      >
+      > Facebooková skupina s radami a s recepty na bezlepkové pečení:  
+      > https://www.facebook.com/groups/518843438126490
+
+  -
     Nadpis: Máminy dobré rady
     Strana: 6
-    Rady:
-      - Vař s pokličkou. Šetříš tak energii, také voda dříve zavaří a ingredience se pěkně pečou v uzavřeném prostoru.
-      - Chceš-li vkládat ingredienci do vařící vody, uvař si vodu ve varné konvici – je to rychlejší.
-      - Vývar = voda, ve které se dostatečně dlouho vařilo dostatečné množství masa a kostí (masový vývar) nebo zeleniny (zeleninový vývar). Když si ho budeš vařit, budeš ho mít asi více než na jedno požití, tak si ho dej zamrazit v menších krabičkách pro příští použití. Domácí vývar můžeš nahradit zeleninovým nebo slepičím bujonem v kostce či masoxem. 
-      - Vaříš čaj a chceš ho pít za okamžik? Nezalévej ho vroucí vodou celý hrnek, ale jen 3/4. Po vylouhování čaje ho dolij studenou pitnou vodou.
-      - Vajíčku natvrdo oťukej skořápku kolem dokola úplně po celé ploše a nechej vychladnout ve studené vodě. Bude se snadněji loupat.
-      - Do snídaňové kaše nalij aspoň trochu mléka – kaše bude jemnější.
-      - Volské oko smaž jen na malé trošce oleje, na mírném plameni, raději déle. Vejce se při rychlém smažení přichytává zespodu a nahoře a uvnitř zůstává syrové. Při pomalém se pěkně usmaží tak akorát a není chytnuté vespod. Smažení můžeš podpořit pokličkou.
-      - Téměř všechny přebytky hotových jídel můžeš zamrazit v potřebných porcích. Určitě ale nezamrazuj jídla s bramborami a těstovinami. Ty si uvař vždy čerstvé. I v polévce uvařené brambory mají po rozmrazení „zvláštní“ konzistenci.
-      - Nikdy nenalévej do horkého skla studené ingredience. To neustojí ani varná konvice. Sklo praskne.
-      - Chceš-li do jídla přidat chuť cibule, ale nechceš při jídle vnímat cibulové kousky, rozmixuj ji na kaši. Zejména ve směsích a rozmixovaných polévkách je takováto cibule téměř nepostřehnutelná.
-      - Na krájení zejména zeleniny a bylinek na malé kousíčky používej velký šéfkuchařský nůž. Krájení na kousky velkým nožem je mnohem jednodušší a rychlejší. Jen pozor na prsty.
-      -
-        > Opatrně při krájení batátů – jsou velmi tvrdé a jak jsou velké a oblé, tak jde to těžce a hrozí, že se při krájení pohnou.
-        > Mám na to takový grif:
-        > Oloupu škrabkou na brambory a pak batát rozkrojím po kratší straně na 2 půlky. Postavím na rovný řez (tím batát pevně stojí) a opět rozkrojím na půl. Opět položím na ten nový řez a teď už to jde docela dobře.
-      - Skvělý pro naučení se a okoukání dobrých rad a kuchařských činností je pořad „Kluci v akci“. Spousta dobrých nápadů a vysvětlování při práci.
-      - Plechy a formy na pečení je třeba vymazat máslem a vysypat moukou. Mouku lze třeba u bábovek nahradit strouhaným kokosem. Vymazávání je možno nahradit vystříkáním olejem ve spreji nebo vyložením pečícím papírem. Ten, když ho pořádně zmačkáš, tak zjemní natolik, že s ním vykryješ jakoukoliv formu.
-      - Při obalování do trojobalu (mouka, vejce, strouhanka) u žampionů a květáku prostřední talíř na vejce nahrazuju miskou – je hlubší a užší a lépe se v ní vajíčkem obalují tyto kulovité tvary.
-      - Před vařením si dobře zkontroluj ingredience. O některých věcech si člověk myslí, že je má doma pořád. Ale všechno jednou dojde. Několikrát se mi stalo, že mi chyběla běžná potravina. 
+    Markdown:
+      > - Vař s pokličkou. Šetříš tak energii, také voda dříve zavaří a ingredience se pěkně pečou v uzavřeném prostoru.
+      > - Chceš-li vkládat ingredienci do vařící vody, uvař si vodu ve varné konvici – je to rychlejší.
+      > - Vývar = voda, ve které se dostatečně dlouho vařilo dostatečné množství masa a kostí (masový vývar) nebo zeleniny (zeleninový vývar). Když si ho budeš vařit, budeš ho mít asi více než na jedno požití, tak si ho dej zamrazit v menších krabičkách pro příští použití. Domácí vývar můžeš nahradit zeleninovým nebo slepičím bujonem v kostce či masoxem. 
+      > - Vaříš čaj a chceš ho pít za okamžik? Nezalévej ho vroucí vodou celý hrnek, ale jen 3/4. Po vylouhování čaje ho dolij studenou pitnou vodou.
+      > - Vajíčku natvrdo oťukej skořápku kolem dokola úplně po celé ploše a nechej vychladnout ve studené vodě. Bude se snadněji loupat.
+      > - Do snídaňové kaše nalij aspoň trochu mléka – kaše bude jemnější.
+      > - Volské oko smaž jen na malé trošce oleje, na mírném plameni, raději déle. Vejce se při rychlém smažení přichytává zespodu a nahoře a uvnitř zůstává syrové. Při pomalém se pěkně usmaží tak akorát a není chytnuté vespod. Smažení můžeš podpořit pokličkou.
+      > - Téměř všechny přebytky hotových jídel můžeš zamrazit v potřebných porcích. Určitě ale nezamrazuj jídla s bramborami a těstovinami. Ty si uvař vždy čerstvé. I v polévce uvařené brambory mají po rozmrazení „zvláštní“ konzistenci.
+      > - Nikdy nenalévej do horkého skla studené ingredience. To neustojí ani varná konvice. Sklo praskne.
+      > - Chceš-li do jídla přidat chuť cibule, ale nechceš při jídle vnímat cibulové kousky, rozmixuj ji na kaši. Zejména ve směsích a rozmixovaných polévkách je takováto cibule téměř nepostřehnutelná.
+      > - Na krájení zejména zeleniny a bylinek na malé kousíčky používej velký šéfkuchařský nůž. Krájení na kousky velkým nožem je mnohem jednodušší a rychlejší. Jen pozor na prsty.
+      >
+      > - Opatrně při krájení batátů – jsou velmi tvrdé a jak jsou velké a oblé, tak jde to těžce a hrozí, že se při krájení pohnou.  
+      > Mám na to takový grif:  
+      > Oloupu škrabkou na brambory a pak batát rozkrojím po kratší straně na 2 půlky. Postavím na rovný řez (tím batát pevně stojí) a opět rozkrojím na půl. Opět položím na ten nový řez a teď už to jde docela dobře.
+      > - Skvělý pro naučení se a okoukání dobrých rad a kuchařských činností je pořad „Kluci v akci“. Spousta dobrých nápadů a vysvětlování při práci.
+      > - Plechy a formy na pečení je třeba vymazat máslem a vysypat moukou. Mouku lze třeba u bábovek nahradit strouhaným kokosem. Vymazávání je možno nahradit vystříkáním olejem ve spreji nebo vyložením pečícím papírem. Ten, když ho pořádně zmačkáš, tak zjemní natolik, že s ním vykryješ jakoukoliv formu.
+      > - Při obalování do trojobalu (mouka, vejce, strouhanka) u žampionů a květáku prostřední talíř na vejce nahrazuju miskou – je hlubší a užší a lépe se v ní vajíčkem obalují tyto kulovité tvary.
+      > - Před vařením si dobře zkontroluj ingredience. O některých věcech si člověk myslí, že je má doma pořád. Ale všechno jednou dojde. Několikrát se mi stalo, že mi chyběla běžná potravina. 
   -
     Nadpis: Snídaně
+    Podnadpis: … a podle chuti klidně i večeře
     Číslo: 1
-    Strana: 19
+    Strana: 18
     Stránky:
       -
         Nadpis: Jednoduché snídaně
-        Strana: 20
+        Strana: 19
         Ingredience:
-          []
-        Postup:
           []
         Třeba:
           - CEREÁLIE S MLÉKEM ČI JOGURTEM
@@ -65,7 +148,7 @@ Stránky:
         Foto: Vaječina ze žlutého domečku
         Typ: se slaninou nebo bezmasé
         Porce: 1
-        Strana: 21
+        Strana: 20
         Ingredience:
           - 2-3 vejce
           - lžička oleje
@@ -85,7 +168,7 @@ Stránky:
         Foto: Fazolky se slaninou a vejcem
         Typ: se slaninou nebo bezmasé
         Porce: 2
-        Strana: 22
+        Strana: 21
         Ingredience:
           - plechovka fazolek v rajčatové omáčce
           - 2 - 4 vejce
@@ -103,7 +186,7 @@ Stránky:
         Typ: se slaninou nebo bezmasé
         Intro: „Snídaňový sandwich se od ostatních liší hlavně použitím vajíček. Chuť vajíček je totiž pro snídani naprosto typická. V tomto receptu ho připravíme jako volské oko.“
         Porce: 1
-        Strana: 23
+        Strana: 22
         Ingredience:
           - bílý toustový chleba (2 krajíce)
           - baby špenát
@@ -126,7 +209,7 @@ Stránky:
         Foto: Ham and eggs
         Typ: se slaninou nebo bezmasé
         Porce: 1
-        Strana: 24
+        Strana: 23
         Ingredience:
           - 2 až 3 vejce (záleží, jaký máš hlad )
           - 1/4 cibule (není nezbytná)
@@ -144,8 +227,22 @@ Stránky:
   -
     Nadpis: Polévky
     Číslo: 2
-    Strana: 25
+    Strana: 24
     Stránky:
+      -
+        Nadpis: Vložky do polévek
+        Jíška = zásmažka:
+          - V kastrůlku dej zahřát lžíci oleje, přidej a rozmíchej lžíci hladké mouky a zalij decilitrem vlažné vody. Dále zahřívej a dobře míchej. Zhoustne to. Je-li to husté moc, přilij ještě trochu vody a znovu míchej. Celé to trvá chvilku a je hotovo. Nikdy neodcházej a nepřestávej míchat! Vytvořily by se žmolky!Přilij zásmažku do vařící se polévky, chvilku míchej a nechej provařit.
+          - Zásmažka se používá i na zahuštění omáček.
+
+        Záklechtka:
+          - Dává se do jídel, do kterých už nechceš přidávat další olej, protože už tam nějaký je, a do mléčných jídel.
+          - V hrnečku vidličkou rozmíchej lžičku hladké mouky ve trošce vlažné vody. U mléčných jídel se místo vody dává mléko. Přilij záklechtku do vařící se polévky, chvilku míchej a nechej provařit.
+          - Záklechtka se používá i na zahušťování omáček. Jen se dělá trochu hustší nebo trochu více než do polévky.
+
+        Bezlepkové zahuštění:
+          - V troše vlažné vody vidličkou rozmíchej lžičku Solamylu = bramborový škrob. 
+          - Stejně můžeš použít škrob kukuřičný. Pak to vmíchej do horké polévky či omáčky, dobře rozmíchej a nechej povařit cca 2 minuty.
       -
         Nadpis: Rajčátková polévka
         Foto: Rajčátková polévka
@@ -1197,7 +1294,7 @@ Stránky:
           - Podávej s vařenými nebo pečenými bramborami.
       -
         Nadpis: Brokolice zapečená s bramborami A NIVOU
-        Foto: Brokolice zapečená s bramborami A NIVOU
+        Foto: Brokolice zapečená s bramborami a nivou
         Podnadpis: (v troubě)
         Typ: bezmasé
         Strana: 103
@@ -1496,7 +1593,7 @@ Stránky:
       -
         Strana: 125
         Nadpis: Brambory pečené s dýní, cibulí a rajčaty s česnekem a další zeleninou
-        Foto: Brambory pečené s dýní, cibulí a rajčaty s česnekem a další zeleninou
+        Foto: Brambory pečené s dýní a rajčaty
         Typ: bezmasé
         Porce: 2
         Ingredience:
@@ -1544,7 +1641,7 @@ Stránky:
       -
         Strana: 129
         Nadpis: Smažené žampiony s vařenými bramborami
-        Foto: Smažené žampiony s vařenými bramborami
+        Foto: Smažené žampiony
         Typ: bezmasé  
         Porce: 1
         Ingredience:
@@ -1569,7 +1666,7 @@ Stránky:
       -
         Strana: 131
         Nadpis: Smetanová houbovka s bramborami
-        Foto: Smetanová houbovka s bramborami
+        Foto: Smetanová houbovka
         Typ: bezmasé
         Porce: 3
         Ingredience:
@@ -1878,7 +1975,7 @@ Stránky:
       -
         Strana: 153
         Nadpis: Dušená mrkev s bramborem a vařeným či pečeným masem (nebo tempehem)
-        Foto: Dušená mrkev s bramborem a vařeným či pečeným masem (nebo tempehem)
+        Foto: Dušená mrkev
         Typ: bezmasé i masové (hovězí) 
         Porce: 2
         Ingredience:
@@ -1976,7 +2073,7 @@ Stránky:
       -
         Strana: 161
         Nadpis: Halušky se zelím tzv. Střapačky
-        Foto: Halušky se zelím tzv. Střapačky
+        Foto: Halušky se zelím
         Podnadpis: (je třeba síto na halušky nebo lžičku a trpělivost)
         Typ: bezmasé i masové (anglická slanina)
         Porce: 2
@@ -2050,7 +2147,7 @@ Stránky:
       -
         Strana: 167
         Nadpis: Tempeh na smetaně + brokolice a kedlub nebo pórek
-        Foto: Tempeh na smetaně + brokolice a kedlub nebo pórek
+        Foto: Tempeh na smetaně
         Typ: bezmasé i masové (kuřecí)
         Porce: 2
         Ingredience:
@@ -2073,8 +2170,8 @@ Stránky:
           - Podávej s opečenými bramborami (najdeš ve 4. kapitole, Přílohy).
       -
         Strana: 169
-        Nadpis: Kotlety pana voka
-        Foto: Kotlety pana voka
+        Nadpis: Kotlety pana Voka
+        Foto: Kotlety pana Voka
         Podnadpis: (v troubě)
         Typ: bezmasé i masové (vepřové nebo tempeh)
         Porce: 2
@@ -2183,7 +2280,7 @@ Stránky:
       -
         Strana: 177
         Nadpis: Makaróny (špagety) s lososem
-        Foto: Makaróny (špagety) s lososem
+        Foto: Makaróny s lososem
         Typ: ryba
         Porce: 1
         Ingredience:
@@ -2209,7 +2306,7 @@ Stránky:
       -
         Strana: 179
         Nadpis: Těstoviny s lososem, zakysankou a kapkou vodky
-        Foto: Těstoviny s lososem, zakysankou a kapkou vodky
+        Foto: Těstoviny s lososem
         Typ: ryba
         Porce: 2
         Ingredience:
@@ -2233,7 +2330,7 @@ Stránky:
       -
         Strana: 181
         Nadpis: Pečený kapr, pstruh, okoun, candát či jiná bílá ryba
-        Foto: Pečený kapr, pstruh, okoun, candát či jiná bílá ryba
+        Foto: Pečený okoun
         Typ: ryba
         Porce: 2
         Ingredience:
@@ -2417,7 +2514,7 @@ Stránky:
       -
         Strana: 195
         Nadpis: Kuřecí maso s rajčátky a baby špenátem se smetanou a s gnocchi nebo brambory
-        Foto: Kuřecí maso s rajčátky a baby špenátem se smetanou a s gnocchi nebo brambory
+        Foto: Gnocchi s kuřecím a baby špenátem s rajčaty
         Typ: kuřecí
         Porce: 2
         Ingredience:
@@ -2443,7 +2540,7 @@ Stránky:
       -
         Strana: 197
         Nadpis: Kuřecí maso na slanině se sýrovou omáčkou a s gnocchi nebo brambory
-        Foto: Kuřecí maso na slanině se sýrovou omáčkou a s gnocchi nebo brambory
+        Foto: Gnocchi s kuřecím a baby špenátem s rajčaty
         Typ: kuřecí
         Porce: 2
         Ingredience:
@@ -2470,7 +2567,9 @@ Stránky:
       -
         Strana: 199
         Nadpis: Marinované kuřecí nudličky se zeleninou
-        Foto: Marinované kuřecí nudličky se zeleninou
+        Foto:
+          Marinované kuřecí nudličky s kedlubnou: Nudličky s kedlubnou
+          S paprikou: Nudličky s paprikou
         Podnadpis: (nakládané přes noc)
         Typ: kuřecí
         Porce: 2
@@ -2505,7 +2604,7 @@ Stránky:
       -
         Strana: 201
         Nadpis: Bramborový kastrol s kuřecím masem
-        Foto: Bramborový kastrol s kuřecím masem
+        Foto: Bramborový hrnec s kuřecím masem
         Podnadpis: (v troubě)
         Typ: kuřecí
         Porce: 2
@@ -2583,7 +2682,7 @@ Stránky:
       -
         Strana: 207
         Nadpis: Hovězí po burgundsku se šťouchanými brambory
-        Foto: Hovězí po burgundsku se šťouchanými brambory
+        Foto: Hovězí po burgundsku
         Typ: hovězí
         Poznámka: trochu delší vaření, ale jednoduché
         Porce: 2
@@ -2777,7 +2876,7 @@ Stránky:
       -
         Strana: 221
         Nadpis: Králík na smetaně či tempeh
-        Foto: Králík na smetaně či tempeh
+        Foto: Králík na smetaně
         Podnadpis: (tzv. svíčková omáčka)
         Typ: králík či tempeh
         Porce: 2
@@ -2942,9 +3041,8 @@ Stránky:
           - Toto neplatí, pokud chcete z „výpeku“  ladit nějakou omáčku. V tomto případě pánev necháme na sporáku a panenku přendáme na pekáč ideálně vystlaný pečícím papírem. Do pánve pak nalijeme víno, vývar apod. Prostě něco čím odvaříme výpek a z čeho chceme dělat omáčku.
           - Pokud se vám to poprvé nepovede na 100%, tak věřte, že podruhé to už určitě klapne :)“
       -
-        Strana: 233
+        Strana: 232
         Nadpis: Slaninové fazolky
-        Foto: Slaninové fazolky
         Porce: 3
         Ingredience:
           - 3 hrsti zelených fazolových lusků krájených na cca 5 cm (i mražených)
@@ -3027,6 +3125,7 @@ Stránky:
       -
         Nadpis: Mrkev jako vynikající příloha
         Strana: 237
+        Foto: Přílohová mrkev
         Postup:
           - Hodí se snad ke všem druhům masa, tofu, tempehu, k různým karbanátkům všeho druhu atd.
           - Oloupanou mrkev nakrájej na kolečka cca 2 cm široká a dej povařit do čisté vody do mírného změknutí.
