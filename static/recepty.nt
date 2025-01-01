@@ -2,7 +2,13 @@ Stránky:
   -
     Nadpis: O elektronické verzi
     Markdown:
-      > Vytvořil Michal pomocí Typescript, Svelte, Bootstrap, NestedText. Tento web je vygenerován ze souboru [/recepty.nt](/recepty.nt).
+      > Vytvořil Michal pomocí Typescript, Svelte, Bootstrap, NestedText. Obsah se čte ze souboru [/recepty.nt](/recepty.nt).
+      >
+      > V obsahu je možné prohledávat recepty dle názvu a ingrediencí.
+      >
+      > Oblíbené recepty je možné označit hvězdičkou.
+      >
+      > Mezi stránkami je možné přecházet šipkami na klávesnici.
   -
     Nadpis: Máminy dobré rady
     Strana: 6

@@ -1,9 +1,18 @@
 <script lang="ts">
-	import { Button, Col, Container, Input, Nav, NavItem, NavLink, Row, Styles } from '@sveltestrap/sveltestrap';
+	import {
+		Button,
+		Col,
+		Container,
+		Input,
+		Nav,
+		NavItem,
+		NavLink,
+		Row,
+		Styles
+	} from '@sveltestrap/sveltestrap';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { isRecipe, type Content, type Page } from '$lib/content';
-	import SimpleAutocomplete from "simple-svelte-autocomplete";
 	import { ingredients as _ingredients } from '$lib/ingredients';
 	import type { Snippet } from 'svelte';
 
@@ -17,21 +26,20 @@
 	let theme = $state('auto' as const);
 
 	let pages = $derived(data.pages);
-	let recipes = $derived(pages.filter(isRecipe))
+	let recipes = $derived(pages.filter(isRecipe));
 	let pageName = $derived($page.params?.name);
-	let randomRecipe = $derived(recipes.filter((x) => x.slug !== pageName)[
-		Math.floor(Math.random() * (recipes.length - 1))
-	].slug);
+	let pageId = $derived($page.route.id);
+	let randomRecipe = $derived(
+		recipes.filter((x) => x.slug !== pageName)[Math.floor(Math.random() * (recipes.length - 1))]
+			.slug
+	);
 	let currentPageOrder = $derived(pages.findIndex((x) => x.slug === pageName));
-	let prevPage =
-		$derived(pages[
-			currentPageOrder >= 0 ? (currentPageOrder + pages.length - 1) % pages.length : 0
-		].slug);
-	let nextPage =
-		$derived(pages[currentPageOrder >= 0 ? (currentPageOrder + 1) % pages.length : 0].slug);
-	
-	const allIngredients = _ingredients.map(x => x.name);
-	let selectedIngredients = $derived([] as string[])
+	let prevPage = $derived(
+		pages[currentPageOrder >= 0 ? (currentPageOrder + pages.length - 1) % pages.length : 0].slug
+	);
+	let nextPage = $derived(
+		pages[currentPageOrder >= 0 ? (currentPageOrder + 1) % pages.length : 0].slug
+	);
 
 	function onkeydown(e: any) {
 		if (e.keyCode === 37) {
@@ -45,7 +53,7 @@
 	}
 
 	function level(page: Page): number {
-		return page.parent == null ? 0 : 1 + level(page.parent)
+		return page.parent == null ? 0 : 1 + level(page.parent);
 	}
 </script>
 
@@ -75,32 +83,43 @@
 					</Input>
 					<div class="d-flex w-100 gap-1">
 						<a href="/{prevPage}"><Button>&lt;</Button></a>
-						<a href="/{randomRecipe}" class="flex-grow-1"><Button class="w-100">Náhodný <span class="d-none d-sm-inline">recept</span></Button></a>
+						<a href="/{randomRecipe}" class="flex-grow-1"
+							><Button class="w-100">Náhodný <span class="d-none d-sm-inline">recept</span></Button
+							></a
+						>
 						<a href="/obsah" class="flex-grow-1 d-sm-none"><Button class="w-100">Obsah</Button></a>
 						<a href="/{nextPage}"><Button>&gt;</Button></a>
 					</div>
-					<!-- <SimpleAutocomplete items={allIngredients} bind:selectedItem={selectedIngredients} multiple={true}/> -->
-					<hr />
-					<div class="content-items d-none d-sm-block">
-						<Row>
-							<Col>
-								<Nav class="flex-column">
-									<NavItem
-											><NavLink href="/obsah"
-												><div class:active={pageName === 'obsah'} style="margin-left: 0px">Obsah</div></NavLink
-											></NavItem
-										>
-									{#each pages as item}
+					{#if !(pageId??"").endsWith('/obsah')}
+						<hr />
+						<div class="content-items d-none d-sm-block">
+							<Row>
+								<Col>
+									<Nav class="flex-column">
 										<NavItem
-											><NavLink href={'/' + item.slug}
-												><div class:active={pageName === item.slug} style="margin-left: {level(item)*15}px">{item.title}</div></NavLink
+											><NavLink href="/obsah"
+												><div class:active={pageName === 'obsah'} style="margin-left: 0px">
+													Obsah
+												</div></NavLink
 											></NavItem
 										>
-									{/each}
-								</Nav>
-							</Col>
-						</Row>
-					</div>
+										{#each pages as item}
+											<NavItem
+												><NavLink href={'/' + item.slug}
+													><div
+														class:active={pageName === item.slug}
+														style="margin-left: {level(item) * 15}px"
+													>
+														{item.title}
+													</div></NavLink
+												></NavItem
+											>
+										{/each}
+									</Nav>
+								</Col>
+							</Row>
+						</div>
+					{/if}
 				</div>
 			</Col>
 			<Col>
@@ -130,7 +149,6 @@
 		top: 0;
 	}
 
-	
 	@media screen and (min-width: 576px) {
 		.menu {
 			width: 250px;
@@ -139,7 +157,7 @@
 
 	:global(.nav-link) {
 		padding: 0 !important;
-		padding-bottom: .5rem !important;
+		padding-bottom: 0.5rem !important;
 	}
 
 	:global(figcaption) {

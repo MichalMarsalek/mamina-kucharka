@@ -4,7 +4,6 @@
 	import { Col, Row } from '@sveltestrap/sveltestrap';
 
 	let {data}: {data:Content} = $props()
-	$inspect(data)
 	let keyFrequencies = $derived(frequencies(data.pages.flatMap(x => [...Object.keys(x), ...(x?.customFields ?? []).map(x => x.name)])))
 	const processedWords = "nebo cca lžíce stroužky lžička ale pro zeleninového malá větší bude plátky kaši bez kousek lžičky nejlépe půlka vynechat koření šlehání chuť parmazánového anglické lepší kostky můžeš malý plechovky stavu kousky Honzu menší baby suchém střední vaření nakrájená být velká krájených podle nebudeš vědět omáček nakrájené najemno trochu malé typu dle chuti balení špetka hladké nemusí špenátu Leňu lepku dát hrnek jarní omáčky tak sladké více klidně čerstvého bílého rozmixovaná hrst olivový plechovka".split(" ");
 	let ingrediences = $derived(frequencies(data.pages.filter(isRecipe).flatMap(x => x.ingredients.map(x => x.raw).flatMap(x => x.match(/\p{L}{3,}/gu) ?? [])).filter(x => getIngredientsInText(x).length < 1 && !processedWords.includes(x))))
