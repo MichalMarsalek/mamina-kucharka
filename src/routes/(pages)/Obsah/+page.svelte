@@ -101,7 +101,9 @@
 								{#if item.number}<span>{item.number}.&nbsp;</span>{/if}{item.title}
 							</span>
 						</div>
-						<div>{#if item.page}<span class="d-none d-sm-inline">str.&nbsp;</span>{item.page}{/if}</div></NavLink
+						<div>
+							{#if item.page}<span class="d-none d-sm-inline">str.&nbsp;</span>{item.page}{/if}
+						</div></NavLink
 					></NavItem
 				>
 			{/each}

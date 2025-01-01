@@ -58,25 +58,25 @@
 	function touchstart(e: any) {
 		touchstartX = e.screenX;
 		touchstartY = e.screenY;
-	};
+	}
 
 	function touchend(e: any) {
 		if (!touchstartX || !touchstartY) {
-            return;
-        }
+			return;
+		}
 		const xDiff = touchstartX - e.screenX;
-        const yDiff = touchstartY - e.screenY;
+		const yDiff = touchstartY - e.screenY;
 
-        if ( Math.abs(xDiff) > Math.abs(yDiff) ) {
-            if ( xDiff > 50 ) {
-                goto(`/${prevPage}`);
-            } else {
-                goto(`/${nextPage}`);
-            }
-        }
+		if (Math.abs(xDiff) > Math.abs(yDiff)) {
+			if (xDiff > 50) {
+				goto(`/${prevPage}`);
+			} else {
+				goto(`/${nextPage}`);
+			}
+		}
 
-        touchstartX = undefined;
-        touchstartY = undefined
+		touchstartX = undefined;
+		touchstartY = undefined;
 	}
 
 	function level(page: Page): number {

@@ -13,7 +13,7 @@
 	let { data }: Props = $props();
 	let page = $derived(data.page);
 
-	$inspect(page)
+	$inspect(page);
 
 	function isLink(x: string) {
 		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(x);
@@ -156,7 +156,7 @@
 		margin-top: 100px;
 	}
 
-	.chapter > div {		
+	.chapter > div {
 		min-width: 25vw;
 	}
 
