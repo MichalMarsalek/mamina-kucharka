@@ -5,29 +5,35 @@
 	import { isRecipe, type Content, type Page } from '$lib/content';
 	import SimpleAutocomplete from "simple-svelte-autocomplete";
 	import { ingredients as _ingredients } from '$lib/ingredients';
+	import type { Snippet } from 'svelte';
 
-	export let data: Content;
+	interface Props {
+		data: Content;
+		children?: Snippet;
+	}
 
-	let theme = 'auto' as const;
+	let { data, children }: Props = $props();
 
-	$: pages = data.pages;
-	$: recipes = pages.filter(isRecipe)
-	$: pageName = $page.params?.name;
-	$: randomRecipe = recipes.filter((x) => x.slug !== pageName)[
+	let theme = $state('auto' as const);
+
+	let pages = $derived(data.pages);
+	let recipes = $derived(pages.filter(isRecipe))
+	let pageName = $derived($page.params?.name);
+	let randomRecipe = $derived(recipes.filter((x) => x.slug !== pageName)[
 		Math.floor(Math.random() * (recipes.length - 1))
-	].slug;
-	$: currentPageOrder = pages.findIndex((x) => x.slug === pageName);
-	$: prevPage =
-		pages[
+	].slug);
+	let currentPageOrder = $derived(pages.findIndex((x) => x.slug === pageName));
+	let prevPage =
+		$derived(pages[
 			currentPageOrder >= 0 ? (currentPageOrder + pages.length - 1) % pages.length : 0
-		].slug;
-	$: nextPage =
-		pages[currentPageOrder >= 0 ? (currentPageOrder + 1) % pages.length : 0].slug;
+		].slug);
+	let nextPage =
+		$derived(pages[currentPageOrder >= 0 ? (currentPageOrder + 1) % pages.length : 0].slug);
 	
 	const allIngredients = _ingredients.map(x => x.name);
-	$: selectedIngredients = [] as string[]
+	let selectedIngredients = $derived([] as string[])
 
-	function onKeyDown(e: any) {
+	function onkeydown(e: any) {
 		if (e.keyCode === 37) {
 			goto(`/${prevPage}`);
 			e.preventDefault();
@@ -99,14 +105,14 @@
 			</Col>
 			<Col>
 				<div class="mt-2">
-					<slot />
+					{@render children?.()}
 				</div>
 			</Col>
 		</Row>
 	</Container>
 </div>
 
-<svelte:window on:keydown={onKeyDown} />
+<svelte:window {onkeydown} />
 
 <style>
 	.active {

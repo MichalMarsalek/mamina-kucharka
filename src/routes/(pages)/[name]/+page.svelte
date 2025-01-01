@@ -4,8 +4,12 @@
 	import { fade } from 'svelte/transition';
   	import SvelteMarkdown from 'svelte-markdown'
 
-	export let data: Recipe;
-	$: recipe = data;
+	interface Props {
+		data: Recipe;
+	}
+
+	let { data }: Props = $props();
+	let recipe = $derived(data);
 
 	function isLink(x: string) {
 		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(x)
@@ -58,7 +62,7 @@
 						{/if}
 
 						{#each recipe.customFields as field}
-							{#if field.name } {field.name}: {/if}
+							{#if field.name} {field.name}: {/if}
 							{#if isValuesField(field)}
 							<ul>
 								{#each field.values as value}

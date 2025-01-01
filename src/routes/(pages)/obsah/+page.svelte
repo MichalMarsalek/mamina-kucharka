@@ -2,10 +2,15 @@
 	import { Button, Col, Container, Input, Nav, NavItem, NavLink, Row, Styles } from '@sveltestrap/sveltestrap';
 	import type { Content, Page, Recipe } from '$lib/content';
 
-	export let data: Content;
-	$: pages = data.pages;
+	interface Props {
+		data: Content;
+	}
 
-	$: search = "";
+	let { data }: Props = $props();
+	let pages = $derived(data.pages);
+
+	let search = $state("");
+	
 	
 	function level(page: Page): number {
 		return page.parent == null ? 0 : 1 + level(page.parent)
