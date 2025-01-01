@@ -16,8 +16,8 @@
 	}
 </script>
 
-<div class="star"
-	><Icon name={favourites.has(slug) ? 'star-fill' : 'star'} onclick={toggleStar} /></div
+<span class="star"
+	><Icon name={favourites.has(slug) ? 'star-fill' : 'star'} onclick={toggleStar} /></span
 >
 
 <style>

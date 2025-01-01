@@ -95,11 +95,13 @@
 			{#each favouritePages as item}
 				<NavItem
 					><NavLink href={'/' + item.slug} class="d-flex gap-3">
-						<div><FavouriteStar slug={item.slug} /></div>
-						<div class="page" style="padding-left: {level(item) * 15}px">
-							{#if item.number}<span>{item.number}.&nbsp;</span>{/if}{item.title}
+						<div class="d-flex gap-2">
+							<span class="star"><FavouriteStar slug={item.slug} /></span>
+							<span class="page" style="padding-left: {level(item) * 15}px">
+								{#if item.number}<span>{item.number}.&nbsp;</span>{/if}{item.title}
+							</span>
 						</div>
-						{#if item.page}<div>str.&nbsp;{item.page}</div>{/if}</NavLink
+						<div>{#if item.page}<span class="d-none d-sm-inline">str.&nbsp;</span>{item.page}{/if}</div></NavLink
 					></NavItem
 				>
 			{/each}
@@ -115,7 +117,20 @@
 	@media screen and (min-width: 1200px) {
 		.contents {
 			column-count: 2;
+			column-gap: 4rem;
 		}
+	}
+
+	@media screen and (max-width: 576px) {
+		.star {
+			display: none;
+		}
+		.page {
+			width: initial;
+		}
+	}
+	:global(.nav-link) {
+		justify-content: space-between;
 	}
 
 	h1 {
