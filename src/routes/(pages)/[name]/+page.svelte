@@ -1,7 +1,8 @@
 <script lang="ts">
-	import type { Page, Recipe } from '$lib/content';
+	import { isValuesField, type Page, type Recipe } from '$lib/content';
 	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
 	import { fade } from 'svelte/transition';
+  	import SvelteMarkdown from 'svelte-markdown'
 
 	export let data: Recipe;
 	$: recipe = data;
@@ -16,8 +17,13 @@
 		<Row>
 			{#if recipe == null || recipe.photos.length > 0}
 				<Col xs="12" lg="6">
-					{#each recipe.photos as photo}
-						<Image fluid src="/foto/{photo}.jpg" alt={recipe.title} />
+					{#each recipe.photos as [photoName, photoSlug]}
+						<figure class="photo">
+							<Image fluid src="/foto/{photoSlug}.jpg" alt={photoName ?? recipe.title} />
+							{#if photoName}
+								<figcaption>{photoName}</figcaption>
+							{/if}
+						</figure>
 					{/each}
 				</Col>
 			{/if}
@@ -52,7 +58,8 @@
 						{/if}
 
 						{#each recipe.customFields as field}
-							{field.name}:
+							{#if field.name } {field.name}: {/if}
+							{#if isValuesField(field)}
 							<ul>
 								{#each field.values as value}
 									<li>
@@ -64,6 +71,9 @@
 									</li>
 								{/each}
 							</ul>
+							{:else}
+								<SvelteMarkdown source={field.markdown}/>
+							{/if}
 						{/each}
 					{:else}
 						Tento recept tady bohužel nemáme.

@@ -13,6 +13,7 @@ export interface Page {
     subtitle?: string
     photoCount?: number
     page: number
+    number?: string
     customFields: CustomField[]
 }
 
@@ -23,16 +24,21 @@ export interface Chapter extends Page {
 export interface Recipe extends Page {
     parent: Chapter
     portions?: number
-    photos: string[]
+    photos: [string | undefined, string][]
     tags: string[]
     ingredients: {raw: string, normalized: string[]}[]
     steps: string[]
 }
 
-export interface CustomField {
+export interface ValuesField {
     name: string;
-    values: string[]
+    values: string[];
 }
+export interface MarkdownField {
+    name: string | undefined;
+    markdown: string;
+}
+export type CustomField = ValuesField | MarkdownField
 
 export function isChapter(x: Page): x is Chapter {
     return "pages" in x && x.pages !== undefined
@@ -40,10 +46,16 @@ export function isChapter(x: Page): x is Chapter {
 export function isRecipe(x: Page): x is Recipe {
     return "ingredients" in x && x.ingredients !== undefined && "steps" in x && x.steps !== undefined
 }
+export function isValuesField(x: CustomField): x is ValuesField {
+    return "values" in x;
+}
+export function isMarkdownField(x: CustomField): x is MarkdownField {
+    return "markdown" in x;
+}
 
 export function parseContent(nestedText: string): Content {
     const raw = parseNestedText(nestedText);
-    const rootPages: Page[] = raw.Kapitoly.map(getPage)
+    const rootPages: Page[] = raw["Stránky"].map(getPage)
     function flatten(x: Page): Page[] {
         return isChapter(x) ? [x, ...x.pages.flatMap(flatten)] : [x]
     }
@@ -89,19 +101,33 @@ function getPage(x: unknown): Page {
         slug: "",
         title: getString(y.Nadpis),
         subtitle: getString(y.Podnadpis),
-        photos: getAsStringArray(y.Foto ?? [])!.map(slugify),
+        text: getString(y.text),
+        photos: (typeof y.Foto === "object" ? Object.entries(y.Foto) as [string, string][] : getAsStringArray(y.Foto ?? [])!.map(x => [undefined, x] as const))!.map(([k, v]) => [k, slugify(v)]),
         page: getNumber(y.Strana),
         tags: typeof y.Typ === "string" ? y.Typ.split(",") : getArray(y.Typ)?.map(getString),
         customFields: [],
         portions: getNumber(y.Porce),
         ingredients: getArray(y.Ingredience)?.map(getString)?.map(raw => ({raw, normalized: getIngredientsInText(raw!)})),
         steps: getArray(y.Postup)?.map(getString),
-        pages: getArray(y.Kapitoly ?? y.Recepty)?.map(getPage),
+        pages: getArray(y["Stránky"])?.map(getPage),
+        number: getString(y["Číslo"]),
+    }
+    if (res.ingredients || res.steps) {
+        res.ingredients ??= [];
+        res.steps ??= [];
     }
     if (!res.title) console.log("missing title", {res})
     for(const [k,v] of Object.entries(y)) {
-        if (!["Nadpis", "Podnadpis", "Foto", "Strana", "Porce", "Ingredience", "Postup", "Kapitoly", "Recepty", "Typ"].includes(k)){
-            res.customFields.push({name: k, values: (typeof v === "string" ? [v] : getArray(v)?.map(x => getString(x)!) ?? [])})
+        if (!["Nadpis", "Podnadpis", "Foto", "Strana", "Porce", "Ingredience", "Postup", "Stránky", "Stránky", "Typ", "Číslo"].includes(k)){
+            if (k === "Markdown") {
+                res.customFields.push({name: undefined, markdown: getString(v) ?? ""})
+            }
+            else if (typeof v === "object" && v != null && "Markdown" in v){
+                res.customFields.push({name: k, markdown: getString(v.Markdown)!})
+            }
+            else {
+                res.customFields.push({name: k, values: (typeof v === "string" ? [v] : getArray(v)?.map(x => getString(x)!) ?? [])})
+            }
         }
     }
     if (isChapter(res)) for(const child of res.pages){

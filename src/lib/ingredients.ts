@@ -10,13 +10,13 @@ brambor|a
 vejce/vajec/vajíčk/žlout
 vod|a
 bujón
-sýr
+sýr|a
 mas|o
 smetan|a
 paprik|a
 parmazán
 slanin|a
-rajč|e
+rajč|e/ata
 polévka
 olivový olej
 hověz|í
@@ -105,6 +105,8 @@ hlíva ústřičná/hlívy ústřičné
 strouhan|ka
 grilovací koření/grilovacího koření
 krůt|í
+chléb/chleb|a
+pór|ek/ku
 `.trim().split("\n").map(x => {
     let variants = x.split("/")
     const name = variants[0].replaceAll("|", "")

@@ -1,4 +1,8 @@
-Kapitoly:
+Stránky:
+  -
+    Nadpis: O elektronické verzi
+    Markdown:
+      > Vytvořil Michal pomocí Typescript, Svelte, Bootstrap, NestedText. Tento web je vygenerován ze souboru [/recepty.nt](/recepty.nt).
   -
     Nadpis: Máminy dobré rady
     Strana: 6
@@ -21,11 +25,12 @@ Kapitoly:
       - Skvělý pro naučení se a okoukání dobrých rad a kuchařských činností je pořad „Kluci v akci“. Spousta dobrých nápadů a vysvětlování při práci.
       - Plechy a formy na pečení je třeba vymazat máslem a vysypat moukou. Mouku lze třeba u bábovek nahradit strouhaným kokosem. Vymazávání je možno nahradit vystříkáním olejem ve spreji nebo vyložením pečícím papírem. Ten, když ho pořádně zmačkáš, tak zjemní natolik, že s ním vykryješ jakoukoliv formu.
       - Při obalování do trojobalu (mouka, vejce, strouhanka) u žampionů a květáku prostřední talíř na vejce nahrazuju miskou – je hlubší a užší a lépe se v ní vajíčkem obalují tyto kulovité tvary.
-      - Před vařením si dobře zkontroluj ingredience. O některých věcech si člověk myslí, že je má doma pořád. Ale všechno jednou dojde. Několikrát se mi stalo, že mi chyběla běžná potravina. 
+      - Před vařením si dobře zkontroluj ingredience. O některých věcech si člověk myslí, že je má doma pořád. Ale všechno jednou dojde. Několikrát se mi stalo, že mi chyběla běžná potravina. 
   -
     Nadpis: Snídaně
+    Číslo: 1
     Strana: 19
-    Recepty:
+    Stránky:
       -
         Nadpis: Jednoduché snídaně
         Strana: 20
@@ -132,8 +137,9 @@ Kapitoly:
           - Vynecháním šunky vznikne jen vaječná omeleta.
   -
     Nadpis: Polévky
+    Číslo: 2
     Strana: 25
-    Recepty:
+    Stránky:
       -
         Nadpis: Rajčátková polévka
         Foto: Rajčátková polévka
@@ -182,7 +188,7 @@ Kapitoly:
           - Podle požadovaného množství polévky přilij vody (na 2 porce cca 500 až 600 ml).
           - Přidej bobkový list, nové koření, skořici, cukr a přiveď k varu.
           - Když zavaří, přidej rajčatový protlak, případně trochu sladkého kečupu a nechej chvilku povařit. Dochuť.
-          - Podávej s vařenými nudlemi: 
+          - Podávej s vařenými nudlemi:
           - Dej je až do vroucí osolené vody, ve studené by ti vzniklo „nudlepidlo“ . Vař cca 5-10 minut (podle návodu na obalu). 
           - Po té je propláchni studenou vodou. 
           - Nudle přidávej do polévky až na talíři.
@@ -345,15 +351,15 @@ Kapitoly:
           - Přidej sůl, kari, sladkou papriku a ještě 2 minutky restuj společně. Zalij vývarem (jinými slovy: zalij horkou vodou a přidej čtvrt kostky zeleninového bujónu) a pod pokličkou vař asi 15 minut
           - na mírném ohni do změknutí zeleniny.
           - Když je zelenina měkká, přidej cizrnu a rajský protlak a povař ještě 5 minut.
-          - Můžeš a nemusíš: 
+          - Můžeš a nemusíš:
           - Část polévky s dostatkem zeleninové hmoty odeber stranou (cca 2 třetiny) a zbytek ve vývaru rozmixuj. Obě části polévky smíchej a máš hotovo.
   
         Odkazy: 7 Dní bez lepku, mléka a cukru s. 79
       -
         Nadpis: Zeleninová polévka
         Foto:
-          - Zeleninová polévka
-          - Zeleninová polévka 2
+          Zeleninová polévka Voďana: Zeleninová polévka
+          Částečně rozmixovaná: Zeleninová polévka 2
         Podnadpis: taťka jí říká Voďana
         Typ: bezmasé
         Porce: 2
@@ -1063,19 +1069,16 @@ Kapitoly:
           - Hotovou polévku dochuť a posypej petrželkou.
   -
     Nadpis: Hlavní jídla
+    Číslo: 3
     Strana: 92
-    Text:
-      > Mnohá zde uvedená bezmasá jídla jsou plnohodnotnými Vegetariánskými obědy. 
-      > Některá jsou jen proměnou masa za tempeh nebo tofu – ta jsou tady pojmenována jako
-      > masové i bezmasé verze.
-      > Ráda bych však podotkla, že si myslím, že u většiny masových jídel se dá Vegetariánská verze udělat záměnou masa za již zmíněný tempeh či tofu, 
-      > nebo také za dobře upravenou sóju, 
-      > případně již marinovanou sóju = Ďobáčky.
-      > Tempeh je prý nejkvalitnější náhradou masa
-      > a dá se i marinovat a nakládat jako maso (tofu také).
+    Markdown:
+      > Mnohá zde uvedená bezmasá jídla jsou plnohodnotnými Vegetariánskými obědy.  
+      > Některá jsou jen proměnou masa za tempeh nebo tofu – ta jsou tady pojmenována jako masové i bezmasé verze.  
+      > Ráda bych však podotkla, že si myslím, že u většiny masových jídel se dá Vegetariánská verze udělat záměnou masa za již zmíněný tempeh či tofu, nebo také za dobře upravenou sóju, případně již marinovanou sóju = Ďobáčky.  
+      > Tempeh je prý nejkvalitnější náhradou masa a dá se i marinovat a nakládat jako maso (tofu také).  
       > Úplně mnoho vege receptů je na blogu „Snědeno.cz“.
 
-    Recepty:
+    Stránky:
       -
         Nadpis: Příprava luštěnin
         Strana: 93
@@ -1088,7 +1091,7 @@ Kapitoly:
             > a pak 30 minut vař do změknutí). Solit a ochucovat se doporučuje až před koncem vaření, jinak hůře měkne. Nikdy během vaření nedolévej studenou vodu, když tak horkou (z varné konvice).
             > Ale mám i tu zkušenost, že ji není třeba namáčet, když se pak nechá déle vařit (cca 1 a půl hodiny až 2 hodiny).
           -
-            > Červená: 
+            > Červená:
             > Stačí propláchnout bez namáčení, vložit do vody a vařit přibližně 10 až 15 minut do měkka. Solit a ochucovat se doporučuje
             > až před koncem vaření. Červená čočka po uvaření mění barvu
             > na žlutou a má tendenci se rozvařit na kaši, což je skvělé 
@@ -1227,7 +1230,7 @@ Kapitoly:
           - sůl
           - rostlinný olej na smažení (slunečnicový či řepkový)
           - 2 větší nebo 5 menších brambor
-          - kmín (pro Honzu, prosím vynech )
+          - kmín (pro Honzu, prosím vynech)
         
         Postup:
           - Květáku odřízni listy, okrájej škaredé tmavší skvrny, omyj, rozeber ho na větší růžičky.  Nechej okapat. Občas se uvádí povařit, ale to je úplně zbytečné!
@@ -1235,7 +1238,7 @@ Kapitoly:
           - Do pánve (pekáčku) si připrav olej, dej více – cca 2 cm, aby byl květák zpola v oleji (smažení je pak jednodušší). Obalený květák vkládej do rozpáleného oleje, smaž do zlatova, pak květáky otoč a zase smaž do zlatova. Zkontroluj všechny strany květáků. NEODCHÁZEJ OD SMAŽENÍ! A nesmaž moc dlouho.
           - Hotové květáky vyndávej na talíř s vrstvou 3 papírových utěrek, aby vsákly přebytečný tuk. Pak až servíruj s vařenými bramborami.
         
-        Přílohy: šťouchané brambory s bylinkami, vařené brambory s máslem, kompot, přesnídávka, nakládaná červená řepa, okurkový či rajčatový salát
+        Přílohy: šťouchané brambory s bylinkami, vařené brambory s máslem, kompot, přesnídávka, nakládaná červená řepa, okurkový či rajčatový salát
       -
         Nadpis: Květákový mozeček
         Foto: Květákový mozeček
@@ -1288,7 +1291,7 @@ Kapitoly:
           - Do hrnce k čočce nejdříve přidej mrkev, cuketu či celer a česnek. Rajčata dej až na posledních 10 minut.
           - Během vaření čočky si připrav vejce natvrdo (Vejce vlož do vroucí vody a vař cca 10 minut.) nebo volské oko (Nechej rozpálit olej a rozklepni na něj vejce, které trošku posol. Smaž cca 1 – 2 minuty.)
           - Ochutnej čočku a podle chuti dosol, opepři.
-          - Je-li málo hustá, můžeš trochu zahustit záklechtkou nebo můžeš v troše vody rozmíchat lžičku bramborového či kukuřičného škrobu a vlít do vroucí kaše, rozmíchat a chvilku provařit. To je bezlepkové zahuštění. 
+          - Je-li málo hustá, můžeš trochu zahustit záklechtkou nebo můžeš v troše vody rozmíchat lžičku bramborového či kukuřičného škrobu a vlít do vroucí kaše, rozmíchat a chvilku provařit. To je bezlepkové zahuštění. 
       -
         Nadpis: Červeno-čočkový dhal s cizrnou
         Foto: Červeno-čočkový dhal s cizrnou
@@ -1345,7 +1348,7 @@ Kapitoly:
           - Brambor oloupej a nastrouhej na hrubém struhadle do misky, přidej malou lžičku soli (opatrně – přidat můžeš vždycky, ale už neubereš), majoránku, kmín, pepř, rozmačkaný česnek, trošku hladké mouky, vajíčko a zamíchej. Pokud by těsto bylo moc řídké, přidej hladkou mouku.
           - Na pánvičce nechej rozpálit olej a do něj dej naběračku těsta. Smaž do chvíle, kdy jde placek konečně otočit. Otoč a pak si hlídej zlatavou barvu. Můžeš zmírnit plamen. 
           - OD SMAŽENÍ NEODCHÁZEJ!!!
-          - Hotový placek polož na talíř s vrstvou 3 papírových utěrek, aby nasákly přebytečný tuk. Zároveň ho přikryj shora papírovou utěrkou (ze stejného důvodu).
+          - Hotový placek polož na talíř s vrstvou 3 papírových utěrek, aby nasákly přebytečný tuk. Zároveň ho přikryj shora papírovou utěrkou (ze stejného důvodu).
       -
         Strana: 115
         Nadpis: Fazolky na smetaně
@@ -1505,7 +1508,7 @@ Kapitoly:
           - Brambory oloupej a nakrájej na kostky, vlož do mísy, přidej sůl, sladkou papriku, rozmačkaný česnek a trošku oleje. Přiklop pokličkou a protřepej. Koření se krásně promísí a obalí všechny kousky brambor. Dej na plech či pekáč vyložený pečícím papírem a dej péct do trouby předehřáté na 200°C.
           - Mezitím omyj dýni, oloupej slupku (kromě dýně Hokaido, ta se neloupe) a nakrájej na kostičky. V míse promíchej s kapkou oleje a trošičkou chilli. Brokolici oloupej a rozděl na růžičky, pak ji v míse promíchej s olejem, aby nebyla suchá a lépe se opekla, jinak osychá. Každou růžičku rukou vytřu v trošce oleje. Papriku očisti a nakrájej na proužky, osol. Všechno přidej do trouby k bramborám.
           - Rajčata omyj a nakrájej na větší kousky a přidej k ostatní zelenině. Opékej do měkka brambor, cca 20 až 30 minut od začátku pečení. Kontroluj. Občas promíchej.
-          - Mezitím oloupej cibuli a nakrájej ji na větší kousky, které opeč na troše oleje. Opečenou cibuli pak promíchej s hotovou zeleninovou směsí a posypej hoblinkami parmazánu. Stejně tak můžeš použít horkovzdušnou fritézu místo trouby.
+          - Mezitím oloupej cibuli a nakrájej ji na větší kousky, které opeč na troše oleje. Opečenou cibuli pak promíchej s hotovou zeleninovou směsí a posypej hoblinkami parmazánu. Stejně tak můžeš použít horkovzdušnou fritézu místo trouby.
       -
         Strana: 127
         Nadpis: Žampiony na smetaně
@@ -1775,7 +1778,7 @@ Kapitoly:
           - Těstoviny dej vařit do vroucí osolené vody, cca 15 minut (pro přesnější čas koukni na obal). Sceď vodu.
           - Přendej do větší mísy a přidej povolenou nebo okapanou kukuřici, ananas, sýr nakrájený na kousky, majonézu a promíchej. Dochuť solí a pepřem. 
           - Do hotového salátu přimíchej šunku nakrájenou na malé kostičky a nakrájenou cibulku či pórek (nebo šunku vynechej nebo ji přidej jen do poloviny salátu).
-          - Při servírování ještě posypej kroužky jarní cibulky či pórku na ozdobu.                                                                                         
+          - Při servírování ještě posypej kroužky jarní cibulky či pórku na ozdobu.                                                                                         
       -
         Strana: 147
         Nadpis: Bulgurová rychlovka
@@ -1822,7 +1825,7 @@ Kapitoly:
           - Zeleninu nakrájej na malé kostičky, pršut na nudličky.
           - Opatrně při krájení batátů – jsou velmi tvrdé a jak jsou velké a oblé, tak to jde těžce a hrozí, že se při krájení pohnou.
           -
-            > Mám na to takový grif: 
+            > Mám na to takový grif:
             > Oloupu škrabkou na brambory a pak batát rozkrojím po kratší straně na 2 půlky. Postavím na rovný řez (tím batát pevně stojí) a opět rozkrojím na půl. Opět položím na ten nový řez a teď už to jde docela dobře.
           - Na oleji nejdříve opeč batáty cca 10 minut, pak přidej papriku a zase chvilku opeč do změknutí batátů. Následně přidej pršut (nebo uzený sýr) a rajčata, trošičku chilli a pepře. Kdyby to vypadalo suché, podlij trošičku vodou.
           - Ke konci pečení batátů si připrav volská oka: Nechej rozpálit olej a rozklepni na něj vejce, které trošku posol. Volské oko smaž jen na malé trošce oleje, na mírném plameni, raději déle.
@@ -1888,7 +1891,7 @@ Kapitoly:
             > V hrnečku vidličkou rozmíchej trošku hladké mouky nebo bramborový či kukuřičný škrob ve troše studené vody. Vlij do mrkve, dobře promíchej a nechej chvilku provařit. Pokud je to pak moc husté, zalij trochou horké vody.
           - Mrkev dochuť cukrem, solí a trochou citronové šťávy.
           - Podávej s vařenými brambory a vařeným či pečeným masem (hodí se vepřová kotleta i hovězí zadní). V tom případě můžeš i mrkev dochutit trochou šťávy zpod masa. Nebo podávej s opečeným tempehem. 
-          - Připečení masa cca co 10 minut kontroluj, zda má maso dost šťávy a nesuší se (horní kraj masa by měl být stále zároveň s hladinou šťávy), bez ní by maso bylo vysušené a taky cibulka by se bez ní rychle spálila.
+          - Připečení masa cca co 10 minut kontroluj, zda má maso dost šťávy a nesuší se (horní kraj masa by měl být stále zároveň s hladinou šťávy), bez ní by maso bylo vysušené a taky cibulka by se bez ní rychle spálila.
         Foto autor: babushka
       -
         Strana: 155
@@ -1916,7 +1919,7 @@ Kapitoly:
         
         Hovězí maso:
           - Maso naklepej, trošku nařízni okraje a z obou stran tak akorát osol a opepři.
-          - Cibuli nakrájej na malé kousíčky a chvilku osmahni na oleji (či sádle). Jakmile „zesklovatí“ dej na ni maso a z obou stran opeč. Maso pustí šťávu. Tu kontroluj, zda je jí dostatek, když ubude, podlij vodou (tak, aby maso bylo ve šťávě, ale neplavalo), zakryj pokličkou a nechej dusit. Hovězí maso se bude dělat cca hodinku, někdy více.
+          - Cibuli nakrájej na malé kousíčky a chvilku osmahni na oleji (či sádle). Jakmile „zesklovatí“ dej na ni maso a z obou stran opeč. Maso pustí šťávu. Tu kontroluj, zda je jí dostatek, když ubude, podlij vodou (tak, aby maso bylo ve šťávě, ale neplavalo), zakryj pokličkou a nechej dusit. Hovězí maso se bude dělat cca hodinku, někdy více.
       -
         Strana: 157
         Nadpis: Špenát
@@ -2087,7 +2090,7 @@ Kapitoly:
             > Mezitím uvař podle návodu cca 360 g Gnocchi (jinak dej do vroucí osolené vody a vař cca 3 minuty, jakmile vyplavou, jsou hotové).
             > POZOR: Opravdu nevař déle! Vznikla by nechutná „mňága“!  
           - Taky můžeš udělat halušky: připrav podle návodu na krabici (většinou do 200 g těsta nalij 200 ml vody, dobře promíchej, vypracuj polotuhé těsto a nechej 3 minuty stát).
-          - V kastrolku přiveď k varu osolenou vodu a pak do ní přes síto na halušky protlačuj těsto. Nebo lžičkou ukrajuj malé nočky. Jakmile vyplavou na povrch, jsou hotové.
+          - V kastrolku přiveď k varu osolenou vodu a pak do ní přes síto na halušky protlačuj těsto. Nebo lžičkou ukrajuj malé nočky. Jakmile vyplavou na povrch, jsou hotové.
       -
         Strana: 171
         Nadpis: Šlehačkové kotlety
@@ -2277,7 +2280,7 @@ Kapitoly:
           - dušenou mrkví
           - mrkvovým salátem
           - grilovanou či pečenou zeleninou
-          - kompotem.
+          - kompotem.
       -
         Strana: 185
         Nadpis: Pečené maso
@@ -2296,7 +2299,7 @@ Kapitoly:
           - Nejrychleji bude hotové kuřecí (cca 20 minut), nejdéle se bude dělat hovězí maso (i dvě hodiny). Maso na nudličky je rychleji.
           - Přitom cca co 10 minut kontroluj, zda má maso dost šťávy (horní kraj masa by měl být stále zároveň s hladinou šťávy, aby maso nebylo vysušené a taky cibulka by se bez šťávy rychle spálila). Podlévej vodou.
           - Maso je hotové, když je krásně měkké. Dej pozor, abys měl na závěr pod masem dost šťávy, ať si můžeš maso na talíři polít cibulkou se šťávou.
-          - Mrkev nakrájenou na kolečka můžeš také přidat k pečícímu se masu, stejně jako hrášek, kukuřici, brokolici, papriku, rajče. Výsledné jídlo pak bude pokaždé trochu jiné. Možná je pak lepší na začátku nakrájet maso na nudličky.
+          - Mrkev nakrájenou na kolečka můžeš také přidat k pečícímu se masu, stejně jako hrášek, kukuřici, brokolici, papriku, rajče. Výsledné jídlo pak bude pokaždé trochu jiné. Možná je pak lepší na začátku nakrájet maso na nudličky.
       -
         Strana: 187
         Nadpis: Masové rizoto
@@ -2567,7 +2570,7 @@ Kapitoly:
           - Česnek prolisuj nebo bokem velkého nože zmáčkni naplacato a zatlač dlaní, pak ho ještě pokrájej najemno.
           - Nechej rozehřát tuk a maso s cibulí a česnekem na něm společně orestuj cca 10 minut. Když maso pustí šťávu, přidej brokolici a kukuřici, nechej prohřát cca 10 minut (stále kontroluj, že je maso ve šťávě, v případě potřeby podlij malým množstvím vody).
           -
-            > Zalij smetanou, míchej a zahusti nejlépe strouhaným parmazánem. Nemáš-li, použij záklechtku: 
+            > Zalij smetanou, míchej a zahusti nejlépe strouhaným parmazánem. Nemáš-li, použij záklechtku:
             > V hrnečku vidličkou rozmíchej lžičku hladké mouky ve trošce vlažného mléka. Přilij záklechtku do horké omáčky, chvilku míchej a nechej provařit. Neodcházej od míchání (mohlo by se zdrcnout nebo udělat šmolky). 
             > Pokud bys zahustil moc, můžeš zase zředit trochou mléka. 
           - Podávej s vařenými bramborami, s rýží nebo s rýžovými nudlemi. Do rýže můžeš přidat kari, ona získá trochu žlutou barvu.
@@ -2836,7 +2839,7 @@ Kapitoly:
           - Na pánvi rozehřej olej a kotlety na něm po obou stranách opeč pod pokličkou do měkka. Bude to trvat maximálně hodinku. Hlídej si šťávu, ať se maso nevysuší. Dle potřeby podlévej.
           - Mezitím si uvař brambory.
           - Poté maso vyndej a uchovej v teple (stačí přikrýt alobalem).
-          - Do výpeku vsypej nakrájenou slaninu a cibuli a orestuj cca 5 minut. Pak přidej hořčici a zalij smetanou. Omáčku prohřej, vrať do ní maso k ohřátí a servíruj třeba se šťouchanými bramborami. Dozdobit můžeš jarní cibulkou.
+          - Do výpeku vsypej nakrájenou slaninu a cibuli a orestuj cca 5 minut. Pak přidej hořčici a zalij smetanou. Omáčku prohřej, vrať do ní maso k ohřátí a servíruj třeba se šťouchanými bramborami. Dozdobit můžeš jarní cibulkou.
       -
         Strana: 227
         Nadpis: Prišímašská specialita
@@ -2945,5 +2948,641 @@ Kapitoly:
           - sůl, pepř
         Postup:
           - Slaninu osmahni na rozpáleném oleji, pak přidej fazolky a koření.
+  -
+    Nadpis: Přílohy
+    Číslo: 4
+    Strana: 233
+    Stránky:
+      -
+        Nadpis: Vařené brambory s máslem
+        Strana: 234
+        Postup:
+          - Brambory oloupej, nakrájej na kousky, dej vařit se solí a kmínem (Honzovi bez kmínu, voda musí být na chuť slaná „jako moře“), vař cca 15 až 20 minut. Čím menší kousky brambor, tím rychleji se uvaří. Na talíři na brambory polož plátek másla.
+      -
+        Nadpis: Šťouchané brambory
+        Strana: 234
+        Postup:
+          - Uvařené brambory (viz výše) rozmačkej spolu s velkou lžící másla.
+          - Vylepšit můžeš vmícháním osmažené cibulky, nasekanými bylinkami či pórkem i nakrájenou anglickou slaninou.
+      -
+        Nadpis: Pečené brambory i jiná zelenina (batáty, dýně, mrkev, celer, cuketa, lilek, paprika, rajčata, kukuřice, žampiony, cibule, …)
+        Strana: 234
+        Postup:
+          - Brambory nebo jinou zeleninu očisti, omyj nebo oloupej a nakrájej na kousky podle libosti. 
+          - Dej do mísy, přisypej sůl a pepř, nebo sůl a bylinky, nebo směs třeba „Staročeské brambory“, zalij troškou oleje (klidně olivového), zakryj pokličkou a celou mísu protřepáváním promíchej. Každý kousek se krásně obalí kořením i olejem.
+          - Vysypej na plech s pečícím papírem a peč v troubě cca 20 minut na 200°C.
+      -
+        Nadpis: Těstoviny
+        Strana: 234
+        Postup:
+          - Podle návodu na sáčku nebo vař cca 10 - 15 minut ve vroucí osolené vodě s kapkou oleje. Opravdu do vroucí vody, jinak ti vznikne „Nudlepidlo s chroupákem“. Cca 60 g na porci. Po tomto čase sceď přes síto.
+      -
+        Nadpis: Vařená rýže
+        Strana: 235
+        Postup:
+          - Do hrnce dej vařit osolenou vodu (musí být na chuť slaná „jako moře“), rýži předem propláchni v teplé vodě a dej ji až do vroucí vody, cca 60 g na porci. Můžeš přidat kapku oleje a chceš-li rýži žlutou, přidej plnou lžičku kari koření. Vař podle návodu cca 10 minut. Po odstavení z plamene (horké plotýnky) nechej chvilku stát v horké vodě a pak sceď.
+          - Vaříš-li si rýži až na další den, propláchni ji hned studenou vodou, aby rychle vychladla. Rýže pro ohřev nemá být dlouho teplá.
+      -
+        Nadpis: Rýže Arborio (originál na rizoto)
+        Strana: 235
+        Postup:
+          - Na oleji osmahni najemno pokrájenou (na kaši rozsekanou) cibulku do sklovita. Pak vsypej rýži a míchej tak dlouho, až se všechna rýže obalí tukem a jakoby zprůsvitní.
+          - Podlij vínem (vodou) a míchej, dokud se všechna tekutina neodpaří.
+          - Postupně podlévej horkým vývarem nebo horkou vodou, vždy 1 až 2 naběračky, a další přilévej, až se předchozí várka vstřebá do rýže. Rýže je zalitá akorát. STÁLE MÍCHEJ! S podléváním pokračuj až do uvaření rýže (cca 30 minut).
+          - Během vaření dochuť solí a pepřem. Na závěr důkladně vmíchej máslo. Hotovou rýži rozhrň vidličkou.
+      -
+        Nadpis: Kuskus
+        Strana: 235
+        Postup:
+          - Kuskus zalij horkou vodou v poměru 1:2 (1 díl kuskusu a 2 díly vody), cca 50 g na porci. Pak ho nechej asi 8 až 10 minut odstát pod pokličkou. Osol, zakápni olivovým olejem a pečlivě načechrej vidličkou. Dál už pokračuj podle receptu nebo vlastní fantazie.
+      -
+        Nadpis: Bulgur
+        Strana: 235
+        Postup:
+          - Dej vařit do mírně osolené vody a vař cca 15-20 minut, zkoušej měkkost. Dobrá vychytávka je přidat k vaření kousek kostky bujónu.
+      -
+        Nadpis: Quinoa
+        Strana: 236
+        Postup:
+          - Dobře uvařená quinoa by se strukturou měla podobat rýži. Dodrží-li se klíčové zásady, výsledkem bude světlá a načechraná pochoutka s ořechově nahořklým aroma. 
+          - Nejprve je třeba nechat quinou odstát přibližně dvě minuty v misce se studenou vodou. Cca 50 g na porci.
+          - Potom ji po dobu 30 sekund studenou vodou proplachuj. Díky tomu quinoa při vaření nezhořkne. Slij přebytečnou vodu a přendej do kastrůlku na vaření.
+          - Vař pod pokličkou v poměru 2:1, tedy 2 díly vody na 1 díl quinoy, a jakmile začne voda vřít, stáhni její teplotu do mírného probublávání. Počkej, dokud quinoa neabsorbuje všechnu vodu. Trvá to cca 15 až 20 minut. Dodržení pomalého vaření je důležité, aby se z quinoy neztrácely základní živiny.
+      -
+        Nadpis: Pohanka
+        Strana: 236
+        Postup:
+          - Pohanku prober, propláchni v teplé vodě a pak vař cca 20 minut. Cca 50 g na porci. Solí se a ochutí až potom.
+      -
+        Nadpis: Jáhly
+        Strana: 236
+        Postup:
+          - ⦁	Jáhly propláchni ve studené vodě a spař vroucí vodou, aby ztratily případnou nahořklou a natrpklou chuť. Na 250 g jáhel přidej 1 kávovou lžičku soli, 1 lžičku oleje (aby se jáhly nepřipalovaly), zalij 750 ml studené vody (poměr jáhel a vody je tedy 1:3), zamíchej a přiklop pokličkou. V průběhu vaření již nemíchej. Na velmi mírném ohni vař do změknutí cca 15 – 20 minut.Pokud chceš jáhelnou kaši či základ na jáhelník, vař o něco déle – cca 30 minut.Po uvaření by měla být všechna voda vstřebaná. Jinak přeceď.
+      -
+        Nadpis: Mrkev jako vynikající příloha
+        Strana: 237
+        Postup:
+          - Hodí se snad ke všem druhům masa, tofu, tempehu, k různým karbanátkům všeho druhu atd.
+          - Oloupanou mrkev nakrájej na kolečka cca 2 cm široká a dej povařit do čisté vody do mírného změknutí.
+          - Následně sceď vodu, do mrkve přisypej trochu cukru, osol, opepři a vlož kousek másla, na kterém to vše promíchej a opeč ještě cca 3 minuty.
+          - Celé to můžeš místo na másle opéct na šťávě z masa, ke kterému si přílohovou mrkev chystáš.
+      -
+        Nadpis: Hrášek jako vynikající příloha
+        Strana: 237
+        Postup:
+          - Skvělý přílohový hrášek uděláš ze zmrazeného i z čerstvého zeleného hrášku stejným způsobem jako výše zmíněnou mrkev. Jen ho nemusíš loupat a krájet na kolečka. 
+      -
+        Nadpis: Rajčatový salát
+        Strana: 238
+        Postup:
+          - 2 větší rajčata umyj, nakrájej na malé kousíčky, menší cibuli očisti od slupek, nakrájej nadrobno, v míse smíchej se solí (opatrně, vždycky můžeš přidat, ale ubrat ne), trochou pepře, lžičkou octu či citronové šťávy, lžící cukru moučka (prášek) a dej vychladit do lednice.
+      -
+        Nadpis: Okurkový salát
+        Strana: 238
+        Postup:
+          - Salátovou okurku oloupej ze slupky, nastrouhej na hrubém struhadle, v míse promíchej se solí (opatrně, vždycky můžeš přidat, ale ubrat ne), trochou pepře, lžičkou octu či citronové šťávy, lžící cukru moučka (prášek) a dej vychladit do lednice
+      -
+        Nadpis: Ledový salát s okurkou a rajčaty (nebo i s kukuřicí)
+        Strana: 239
+        Postup:
+          - 1 rajče umyj, nakrájej na malé kousíčky, kousek salátové okurky omyj a nakrájej na tenké nudličky i se slupkou, ledový salát ober a nakrájej na tenké proužky.
+          - Vše promíchej v míse se solí (opatrně, vždycky můžeš přidat, ale ubrat ne), trochou pepře, lžičkou octu či citronové šťávy,  lžící cukru moučka (prášek) a dej vychladit do lednice.
+          - Jindy třeba přidej kukuřici.
+  -
+    Nadpis: Večeře
+    Číslo: 5
+    Podnadpis: a podle chuti klidně i snídaně
+    Strana: 241
+    Stránky:
+      -
+        Nadpis: Vafle
+        Foto: Těstoviny s olivami a rajčaty
+        Typ: bezmasé, s lepkem, bezlepkové
+        Porce: 2
+        Strana: 242
+        Ingredience:
+          - 1 hrnek hladké mouky (na bezlepkovou verzi pohankové)
+          - hrnek = obyčejný čajový hrnek o objemu 250 ml
+          - 1/4 hrnku krupicového cukru (klidně třtinového)
+          - 1/2 balíčku prášku do pečiva
+          - 1 žloutek
+          - sníh z 1 bílku
+          - 3/4 hrnku vlažného mléka
+          - 38 g rozpuštěného másla
+          - špetička soli
+          - vaflovač
+        Na dozdobení a dochucení:
+          - bílý jogurt
+          - tvaroh
+          - Pribiňáček
+          - Nutela
+          - marmeláda
+          - šlehačka
+          - banán
+          - jahody
+          - maliny
+          - borůvky
+        Postup:
+          - Smíchej mouku, cukr a prášek do pečiva.
+          - Přidej mléko, žloutek a rozpuštěné máslo a dobře rozmíchej.
+          - Nakonec pomalu a opatrně vmíchej ušlehaný sníh a špetičku soli.
+          - Do rozpáleného vaflovače nalévej těsto pomocí menší naběračky. Množství je nejlepší zkusit na prvním kousku, pak už budeš vědět.
+          - To stejné platí i o čase pečení. V průměru je to 2 až 5 minut – záleží na stroji, na teplotě, na velikosti. Pokud vafle ještě nejde vyndat, nechej ji. Až bude propečená, odskočí od plotýnky snadno. Pomáhej si dřevěnou lopatičkou či kleštičkami. Někde jsem četla, že je možné vaflovač potřít troškou kokosového oleje, že vydrží vyšší teplotu (zatím jsem to nezkoušela).
+          - Dozdob podle chuti.
+        Odkazy:
+          - https://www.knakousnuti.cz/recepty/pohankove-bezlepkove-wafle-po-kterych-se-zaprasi/
+      -
+        Nadpis: Krupice
+        Podnadpis: aneb Pohádka mládí
+        Typ: bezmasé
+        Porce: 1
+        Strana: 245
+        Ingredience:
+          - 1 hrnek mléka
+          - hrnek = obyčejný čajový hrnek o objemu 250 ml 
+          - cca 4 lžíce Dětské krupičky
+          - 1 lžíce másla
+          - Granko
+          - skořice
+          - … případně dle chuti marmelád, Nutela, jahody, tvaroh
+        Postup:
+          - Do kastrůlku dej studené mléko a krupici a rozmíchej. 
+          - Teď rovnou přidej kousek másla a mléko za stálého míchání přiveď k varu.
+          - Stále míchej a vař, až krupice zhoustne podle tvých představ. Pokud zhoustla moc, chce to zředit mlékem – dolij trochu mléka a zase rozmíchej. Toto jde bez problémů. Opačně by to bylo horší – přidaná krupice by v teplém mléce okamžitě udělala žmolky, které nejdou rozmíchat.
+          - Krupici nalij do hlubokého talíře, posypej Grankem, skořicí, nebo přidej marmeládu či Nutelu či tvaroh a ovoce.
 
+        Poznámka: Není to chyba – cukr opravdu do krupice nedávám a rozpuštěným máslem ji nepolévám.
+      -
+        Nadpis: Grilled cheese sandwich
+        Podnadpis: (Honzův sýrový sendvič)
+        Typ: bezmasé
+        Porce: 1
+        Strana: 246
+        Ingredience:
+          - 2 krajíce bílého toustového chleba
+          - kousek povoleného másla
+          - 100 g sýru, typicky Čedar, popř. sýr parmazánového typu
+        Postup:
+          - Každý chleba z jedné strany namaž máslem.
+          - Namazanou stranou polož na rozpálenou pánev (bez oleje). Na takto připravený kousek nasypej nastrouhaný sýr a přiklop druhým chlebem (nenamazanou stranou).
+          - Zhruba po dvou minutách otoč a opékej zase cca 2 minuty.
 
+        Tip: Když chleba obracečkou hned po otočení diagonálně přepůlíš, sýr se stihne znovu spojit a potom, až budeš sendvič jíst, budeš mít krásný efekt roztaženého sýru.
+        Odkazy:
+          - http://honza.maršálek.eu/grilled-cheese/
+      -
+        Nadpis: Vajíčkový chleba
+        Typ: bezmasé
+        Porce: 2
+        Ingredience:
+          - 2 vejce
+          - 2 krajíce chleba
+          - sůl, pepř
+          - 1 lžička oregana
+          - 1 plátek sýru či 2, nakrájený na proužky
+          - olej na smažení
+          - papírové utěrky na odsátí tuku
+          - kečup
+        Postup:
+          - Vajíčka rozklepni a rozkvedlej v hlubokém talíři, přidej trochu soli, malinko pepře a oregano. Krajíce chleba obal ve vajíčku a nechej je tam trošičku válet, aby vajíčko pěkně vsáklo. 
+          - Na pánvičce rozpal trošku oleje a nechej obalené krajíce z každé strany osmažit. Zbytek vejce z talíře nalij na chleba na pánvičce.
+          - Z pánvičky přendej na talíř s vrstvou 2 papírových utěrek, přikryj další utěrkou, lehce přitlač rukou a odsaj přebytečný tuk.
+          - Servírování i chuť můžeš zpestřit kečupem i zeleninou a ještě teplý chleba můžeš pokrýt proužky sýru, který teplem pěkně povolí.
+      -
+        Nadpis: Tousty (v toustovači)
+        Typ: bezmasé
+        Porce: 1  
+        Ingredience:
+          - 4 plátky toustového chleba
+          - Rama nebo změklé máslo
+          - kečup
+          - 2 plátky šunky
+          - 2 plátky tvrdého sýra
+          - 1/2 cibule nakrájená na plátky (není nezbytná)
+        Postup:
+          - Zapni toustovač a vyčkej na jeho správné zahřátí (většinou se rozsvítí zelená kontrolka).
+          - Toustový chleba z jedné strany lehce namaž Ramou či máslem.
+          - Do toustovače pokládej chleba máslem dolů, na něj kečup, šunku, cibuli (nebo ne), sýr, chleba máslem nahoru.
+          - Nechej cca 1 – 2 minuty opékat, kontroluj. K vytahování používám dřevěné kleštičky. 
+          - Hotové tousty nechej chvilinku zchladnout, pak se dají na prkénku pohodlně rozkrojit ve sváru.
+      -
+        Nadpis: Houbová směs na topinky
+        Typ: bezmasé
+        Porce: 2
+        Ingredience:
+          - 400 – 600 g čerstvých hub (nebo mražených), nebo 2 velké hrsti sušených hub 
+          - čerstvá bazalka
+          - 1 jarní cibulka nebo kousek pórku
+          - 1 cibule
+          - 2 až 3 stroužky česneku
+          - 1 vejce
+          - sušená rajčata
+          - sůl, pepř, drcený kmín
+          - olej
+        Postup:
+          - Sušené houby namoč do vody a nechej nabobtnat cca 30 minut. Pak nakrájej na kousíčky. Čerstvé a rozmražené nakrájej rovnou.
+          - Na oleji osmahni najemno nakrájenou cibuli, přidej houby, mletý kmín, rozmačkaný česnek a nasekanou jarní cibulku či pórek.
+          - Trošičku podlij vodou (opravdu jen malinko), osol a pod pokličkou podus cca 15 až 20 minut.
+          - Na závěr přidej vejce, zamíchej, přimíchej bazalku nasekanou na kousky a nahrubo nakrájená sušená rajčata.
+          - Namaž na opečené tousty.
+      -
+        Nadpis: Pažitková pomazánka
+        Podnadpis: (tzv. Rozhuda)
+        Typ: bezmasé
+        Porce: 4 
+        Ingredience:
+          - 250 g tvarohu 
+          - čerstvá pažitka (větší svazek)
+          - 75 g změklého másla
+          - 1 smetana ke šlehání
+          - sůl, pepř
+        Postup:
+          - Máslo utři do pěny anebo jen vařečkou rozmíchej v míse. 
+          - Přimíchej tvaroh a podle potřeby pomazánku zřeď smetanou do požadované konzistence.
+          - Dochuť solí a troškou pepře.
+          - Nakonec přimíchej na drobno nasekanou pažitku.
+          - Natři na čerstvé pečivo nebo podávej jako dip k pečeným bramborám.
+      -
+        Nadpis: Topinka s volským okem
+        Typ: bezmasé
+        Porce: 1
+        Ingredience:
+          - 2 krajíce chleba (nebo toustového chleba či veky)
+          - trocha oleje
+          - 2 – 3 vejce
+          - sůl
+          - 2 – 3 stroužky česneku
+        Postup:
+          - Na pánvičce rozehřej trošku oleje a pak na něm osmahni krajíce chleba z obou stran do zlatova. Stále kontroluj, abys nespálil. Netrvá to dlouho. Krajíce rozhodně nemají být tmavé a tvrdé, ale jen zlaté a střívko je stále měkké. Usmažené topinky vyndej na talíř se 3 papírovými utěrkami, které nasáknou přebytečný tuk.
+          - Zdravější verze je opéct chleba v topinkovači.
+          - Na pánvičce na volská oka či na jiné rozpal trošku oleje, rozklepnivejce, které trošku posol. Smaž cca 4 minuty na slabo (rychlým smažením by se vejce zespodu brzy připékalo, ale bílek uvnitř a nahoře by byl stále měkký). Pečení můžeš podpořit pokličkou.
+          - Každou topinku potři česnekovým stroužkem (jako bys chtěl česnek na chlebu strouhat). Pak na ni polož volské oko.
+          - Můžeš dozdobit kečupem nebo sýrem.
+      -
+        Nadpis: Universal supreme sandwich
+        Podnadpis: (Honzův slaninový sendvič)
+        Typ: slanina
+        Intro:
+          - Tohle je ten sendvič, kterým Honzova sendvičová vášeň začala. Ten, který je promyšlený do posledního detailu a stojí za ním seriózní vývoj. Hodí se převážně na večeři a kvůli jeho šťavnatosti k okamžité spotřebě.
+          - Pořadí surovin je následující: opečený chleba, majonéza, baby špenát či ledový salát, slanina, rajče, sůl a pepř, oregano, ocet, sýr, cibule, opečený chleba.“
+        Porce: 1
+        Ingredience:
+          - bílý toustový chléb (2 krajíce)
+          - ledový salát či baby špenát
+          - majonéza
+          - slanina (3 velké plátky)
+          - sýr Čedar (2 plátky)
+          - rajče (3 plátky)
+          - oregano
+          - balzamikový ocet (do tohoto sendviče ideálně bílý)
+          - olivový olej
+
+        Postup:
+          - Opečte chleba, jak chcete, toustovač je naprosto v pořádku, pokud se cítíte fancy, namažte ho máslem a opečte na pánvi.
+          - Předehřejte troubu na 180 stupňů a dejte do ní slaninu rozloženou na pečícím papíře. Bude to přibližně za 15 minut.
+          - Na pánvi s olivovým olejem lehce osmažte cibuli nakrájenou na kroužky, dokud nebude měkká.
+          - Rajče doporučuji nakrájet na tři plátky, protože dva nerozložíte rovnoměrně, a čtyři jsou už moc a budou vypadávat. Ostatních surovin můžete ubrat nebo přidat podle chuti, dobrý poměr rajčat se dá regulovat tloušťkou plátků, vždycky by tam ale měly být 3!
+          - Na rajče, protože je vlhké je vhodné dát všechno koření. Já vím, že slanina je slaná, ale věřte mi, že když to rajče osolíte, bude to rozdíl! Zde je samozřejmě možno s kořením experimentovat, mi nejvíce chutná oregano.
+          - Taky ocet dávám na rajčata, a to z důvodu rovnoměrného umístění. Jednoduše vyliju trošičku na každý plátek rajčete a ono se to samo pěkně rozteče. Balzamiko jde nahradit i jiným octem, třeba jablečným, použít jde taky citrónová nebo limetková šťáva. Jde o kyselost, která vyzdvihuje chutě ostatních ingrediencí.
+          - Dva plátky sýru doporučuju položit tak, aby byl jeden otočený o 45°, pokryje tak větší plochu až se rozteče.“
+      -
+        Nadpis: Ťuňáková pomazánka
+        Typ: ryba
+        Porce: 2
+        Ingredience:
+          - 1 malá plechovka tuňáka, cca 80 g
+          - cca 10 cm pórku nebo hrst pažitky
+          - cca 20 g másla
+          - cca 130g měkkého tvarohu
+
+        Postup:
+          - V míse rozmíchej vidličkou tuňáka, tvaroh a změklé máslo. 
+          - Pórek či pažitku nakrájej na malé kousíčky a vmíchej do pomazánky.
+          - Na bagetce či chlebu můžeš dozdobit rajčátkem.
+      -
+        Nadpis: Sendvič s tuňákem a avokádem
+        Typ: ryba
+        Porce: 2
+        Ingredience:
+          - 2 nebo 4 toustové chleby (na přiklopení)
+          - 1 plechovka tuňáka nejlépe ve vlastní šťávě
+          - 1 zralé avokádo
+          - kousek salátové okurky
+          - 1 vejce natvrdo
+          - máslo
+          - sůl, pepř
+        Postup:
+          - Toustový chleba namaž máslem, trochu opepři, naskládej tenké plátky okurky, jemně osol, na to naskládej okapaného tuňáka (klidně ho položím na papírovou utěrku).
+          - Avokádo rozřízni na půl, zasekni nůž do pecky a vykruť ji ven. Lžící podeber dužinu avokáda a odděl od slupky. Avokádo nakrájej na plátky a ty poskládej hustě na tuňáka. Nebo ho můžeš nejprve rozmačkat. Následují plátky vejce, které opět jemně osol.
+          - Můžeš i přiklopit dalším toustem.
+          - Je to fakt dobrá kombinace chutí!                                                                                  
+      - 
+        Nadpis: Vajíčková pomazánka
+        Typ: se šunkou nebo bezmasé
+        Porce: 2
+        Ingredience:
+          - 3 vejce 
+          - trocha plnotučné hořčice (podle chuti)
+          - lžíce másla nebo Ramy
+          - sůl
+          - půlka cibule rozmixované na kaši (fakt dodá
+          - jídlu výraznější chuť )
+          - 1 trojúhelníček nebo obdélníček mazacího sýra
+          - 2 plátky tvrdého sýra
+          - pečivo
+          - popřípadě paprika nebo kyselá okurka
+        Postup:
+          - Vejce uvař natvrdo (vař cca 8 – 10 minut), po vychladnutí oloupej a nastrouhej na hrubém struhadle nebo rozmačkej vidličkou. 
+          - Cibulku nakrájej na velmi jemno nebo rozmixuj na kaši, šunku na kousíčky a spolu s hořčicí, máslem a sýry přidej k vajíčkům. Trochu osol a vše zamíchej.
+          - Přidat můžeš i papriku či nakládanou kyselou okurku nakrájenou na kousíčky. Namaž na pečivo.
+      -
+        Nadpis: Caprese salát
+        Typ: bezmasé
+
+        Porce: 2
+        Ingredience:
+          - cca 250 g mozzarelly
+          - 4 velká rajčata nebo 16 malých cherry rajčat
+          - čerstvá bazalka (běžně se dá koupit v květináčku u zeleniny)
+          - olivový olej
+          - sůl
+          - pečivo
+        Postup:
+          - Omytá rajčata i mozzarellu nakrájej na plátky či kousky, na talířek prokládej i s lístky bazalky, zakápni olivovým olejem, trochu osol. Můžeš použít i balzamikový ocet (viz foto).
+          - Podávej s bagetkou, toustem nebo jiným pečivem.
+          - Barevnost má připomínat italskou vlajku.
+      -
+        Nadpis: Brokolice s rajčaty, vejci
+        Podnadpis: a tofu … nebo se sýrem feta
+        Porce: 2
+        Ingredience:
+          - cca 1/2 brokolice
+          - 3 rajčata
+          - 2 vejce natvrdo
+          - 1 balení Tofu nebo sýru Feta
+          - 1 cibule 
+          - troška oleje a troška másla
+          - sůl, pepř
+          - troška sójové omáčky (ale nemusí být)
+          - pečivo
+
+        Postup:
+          - Brokolici rozeber na menší růžičky, nožem odtrhej slupku, nakrájej i stvol a v osolené vroucí vodě povař asi 3 minuty. Potom ihned zchlaď ve studené vodě. Zůstane tak krásně zelená. 
+          - Sýr Feta nakrájej na kousky – Tofu taky nakrájej a na trošce oleje opeč. Fetu neopékej. 
+          - Na pánvičku přidej okapanou brokolici, nakrájená rajčata, osol, opepři a chviličku společně orestuj (používáš-li Fetu, restuj bez ní). 
+          - Na jiné pánvičce na másle s troškou oleje zpěň cibulku nakrájenou na proužky.
+          - Nakonec přidej nakrájená vajíčka, kapku sójové omáčky a na úplný závěr Fetu.
+          - Podávej s pečivem a posypané restovanou cibulkou či bez ní.
+          - Pokud přidáš vařené či pečené brambory, máš dobrý oběd. 
+      -
+        Nadpis: Carpaccio z červené řepy
+        Podnadpis: (v troubě)    
+        Porce: 2
+        Ingredience:
+          - předvařená červená řepa vakuovaná (prodává se v 500 g balení)
+          - balíček rukoly či polníčku
+          - cca 50 g kozího sýra s medem či čistého a k tomu med
+          - hrst ořechů (vlašské nebo kešu)
+          - sušený česnek
+          - troška oleje
+          - hustý balzamikový ocet (nemusí být)
+
+        Postup:
+          - Troubu rozehřej na 200°C.
+          - Řepu nakrájej na plátky silné zhruba 5 mm a rozlož na plech s pečícím papírem. Pokapej olejem, posypej sušeným česnekem. 
+          - Nebo zkus tento trik na promíchání krájené zeleniny:
+          - Nakrájenou zeleninu dej do mísy, přidej sušený česnek a trochu polij olejem. Uzavři pokličkou a celé protřepej a tím promíchej. Každý kousek se krásně obalí kořením i olejem. Pak rozlož na pečící papír na plech.
+          - Peč cca 20 minut.
+          - Stejně připravené můžeš dát i do horkovzdušné trouby.
+          - Na talíř servíruj prostřídáváním kousků řepy, rukoly a do toho nalámej na kousky kozí sýr. Je-li čistý, pokapej medem.
+          - Dozdobit můžeš hustým balzamikovým octem.
+          - Posypej ořechy a teď už dobrou chuť!
+      -
+        Nadpis: Těstovinový salát s tuňákem
+        Typ: ryba
+        Porce: 1
+        Ingredience:
+          - hrst těstovin, cca 50 g
+          - 2 rajčata 
+          - olej
+          - 80 g tuňáka v oleji či vlastní šťávě
+          - 1 lahůdková cibulka (jarní) nebo pažitka
+          - kousek salátové okurky
+          - hrst mražené kukuřice
+          - hrst zelené petrželky
+          - kousek chilli papričky
+          - pepř, sůl
+          - případně 1 paprika
+          - zakysaná smetana
+        Postup:
+          - Těstoviny uvař ve vroucí osolené vodě s kapkou oleje 10 – 15 minut, pak slij, propláchni studenou vodou a nechej okapat.
+          - Tuňáka vytáhni z plechovky do mísy bez oleje a rozděl na menší kousky.
+          - Okurku, cibulku, rajčata a případně papriku nakrájej na malé kousky. Přidej do misky a promíchej.
+          - Mraženou kukuřici povař v osolené vodě asi 2 minuty, slij a taky dej do misky.
+          - Dle chuti osol (ale tuňák už je slaný!), opepři, přidej požadované množství těstovin a případně chilli papričku. Zakápni troškou oleje či šťávy z plechovky, přimíchej petrželku, promíchej a dej vychladit.
+          - Můžeš podávat s kopečkem zakysané smetany.
+      -
+        Nadpis: Tuňákový salát
+        Typ: ryba
+        Porce: 2
+        Ingredience:
+          - 1 plechovka tuňáka ve vlastní šťávě
+          - 1 natvrdo uvařené vejce
+          - malá cibule nebo jarní cibulka
+          - salát (rukola nebo polníček nebo mix, i baby špenát)
+          - kukuřice (mražená nebo v plechovce)
+          - 10 malých cherry rajčátek
+
+        Postup:
+          - Tuňáka opatrně vyndej z plechovky (ať nepoliješ šťávou cokoliv, je to mastné) a rozmačkej na kousíčky, přidej na kousíčky nakrájené vejce, hrst až dvě salátu, na poloviny rozkrojená cherry rajčátka a větší hrst kukuřice (z plechovky přímo, ale bez nálevu, mraženou kukuřici nejprve zalij horkou vodou a nechej chvilku rozmrazit).
+          - Promíchej, případně dochuť bylinkami či pepřem.
+          - Jez s pečivem, fajn chutná také s opečený toustem.
+        Poznámka: Plechovku od tuňáka vyhazuj zabalenou v sáčku.
+      -
+        Nadpis: Salát s pršutem
+        Typ: se šunkou nebo bezmasé
+        Porce: 1
+        Ingredience:
+          - 50 g schwarzwaldské šunky (ale můžeš dát i normální šunku)
+          - část balíčku rukoly, polníčku či míchaných salátků
+          - cherry rajčátka
+          - 1/2  Hermelínu, Camembertu nebo Brie
+          - česnek sušený nebo prolisovaný
+          - olej (olivový virgin či extra virgin, ale úplně nejlepší byl cedrový z jihu Itálie)
+          - 2 sušená rajčata
+          - bagetka či toustový chleba
+
+        Postup:
+          - Rajčátka, šunku, Hermelín a sušená rajčata nakrájej na kousky, promíchej se zeleným salátkem, posypej česnekem a zakápni (trošku) olejem. Dozdobit můžeš balzamikovým octem.
+          - Vezmi si k němu bílé pečivo či opečený toust (lehce opeč na pánvičce s minimem oleje nebo nasucho v topinkovači).
+      -
+        Nadpis: Zeleninový salát
+        Podnadpis: (pokaždé jinak)
+        Typ: bezmasé i masové
+        Intro:
+          - Salát můžeš mít pokaždé jiný podle toho, co zrovna máš v ledničce, nebo na co máš právě chuť.
+          - Vždycky ho pak zalij troškou olivového oleje, posol, opepři a dle chuti přidej koření nebo česnek (i v podobě sušeného koření) anebo trochu cukru a vinného octu, případně trošičku chilli.
+
+        Porce: 1
+        Ingredience:
+          - základ zeleninových salátů většinou tvoří salát ledový
+          - rajčata (cherry rajčátka)
+          - paprika
+          - salátová okurka
+          - ředkvičky
+          - kedluben
+          - mrkev
+          - tvrdý sýr
+          - Hermelín
+          - Niva
+          - Mozzarella
+          - sušená rajčata
+          - vejce natvrdo                                                                                   
+          - listový salát (rukola, polníček, baby špenát, …)
+          - kukuřice (z plechovky či rozmrazená zrna)
+          - hrášek (z plechovky či rozmrazená zrna)
+          - brokolice (čerstvá i spařená vřelou vodou)
+          - olivy
+          - cibulka (zelená nať i čerstvá bulva)
+          - šunka
+          - anglická slanina 
+          - často kousky vařeného či pečeného masa…
+          - … a určitě Tě ještě napadne něco dalšího 
+        Postup:
+          - Všechno, co si vybereš, nakrájej na malé kousky, zamíchej, ochuť kořením (nepřeháněj) a zakápni olivovým olejem (nebo normálním rostlinným, nemáš-li olivový).
+          - Vhodnou přílohou je bílé pečivo či opečený toust z bílého pečiva.
+      -
+        Nadpis: Knedlík s vajíčkem
+        Typ: bezmasé
+        Intro:
+          - Tohle jídlo jsem jako malá holka měla moc ráda.
+          - Je to taková rychlá nouzovka, když potřebuješ jídlo rychlé a levné, 
+          - nebo záchrana, když nevíš co se zbytkem knedlíku od minulého oběda. 
+          - Může to být i nenáročný malý oběd třeba před večerním grilováním.
+        Porce: 1
+        Ingredience:
+          - cca 4 plátky houskového knedlíku
+          -  2-3 vejce
+          - trocha oleje
+          - sůl
+          - kečup
+          - kyselé okurky
+          - … a třeba i tvrdý sýr či baby špenát
+
+        Postup:
+          - Plátky knedlíku nakrájej na malé kostičky a dej osmahnout na trochu rozpáleného oleje na pánvičku – než se jakoby opečou dozlatova, cca 5 minut, míchej. Kdybys knedlík neosmahl, anebo olej by nebyl rozpálený, a hned bys k němu nalil vajíčka, vše by vsáklo do knedlíku a nebylo by to moc chutné.
+          - Rozkvedlej vajíčka, trochu osol a nalij k opečenému knedlíku. Míchej, jako když děláš vaječinu, jen dej vajíčku více času, aby knedlíky obalilo a opeklo se do zlatavé krusty. Výsledek nemá být měkký jako vaječina, ale trošku jako opečená veka.
+          - Můžeš přidat i trochu tvrdého sýru či baby špenátu.
+          - Podávej s kečupem a kyselou okurkou.
+      -
+        Nadpis: Lečo
+        Typ: bezmasé
+        Porce: 2
+        Ingredience:
+          - 2 bílé papriky
+          - 2 větší rajčata
+          - 4 vejce
+          - 1/2 cibule
+          - dle chuti chilli
+          - pepř, sůl
+          - olej
+        Postup:
+          - Spař rajčata: Nakroj každému rajčeti slupku do kříže, zalij je vroucí vodou, můžeš i minutku nechat povařit, pak vytáhni, nechej zchladnout a nožem od křížů stáhni slupku. Pak je nakrájej na kousky. Jde to ale i z rajčat se slupkou (jen se tam bude motat).
+          - Cibuli a papriku očisti a nakrájej na kousky.
+          - Rozklepni vejce do hrnečku, osol je, opepři a vidličkou našlehej.
+          - Na pánvi rozehřej trochu oleje a orestuj na něm cibuli. Přisypej nakrájenou papriku a chvíli opékej. Pak přidej rajčata a hned i vejce.
+          - Za stálého míchání nechej vejce ztuhnout a máš hotovo.
+          - Dobře chutná s jakýmkoliv pečivem.
+      -
+        Nadpis: Vajíčkový salát
+        Typ: bezmasé
+        Porce: 2
+        Ingredience:
+          - 4 vejce natvrdo
+          - 1 brambor uvařený ve slupce, cca 100 g
+          - 1/2 cibule (nakrájená najemno či rozmixovaná na kaši)
+          - kyselé okurky, cca 60 g
+          - 3- 4 lžíce majonézy, cca 40 g
+          - 2 lžíce plnotučná hořčice, cca 10 g
+          - 1 lžička octu
+          - sůl
+        Postup:
+          - Studená vejce a oloupané brambory nakrájej na stejně velké kostičky, max. 1x1 cm. Brambory se lépe krájejí úplně vychlazené.
+          - Okurky nakrájej na malinké kousíčky (najemno).
+          - Vše promíchej s majonézou, hořčicí a kapkou octu (OPATRNĚ! Přidat můžeš vždy, ale už neubereš!), vejce přidej jako poslední.
+          - Hotový salát nechej aspoň hodinku odležet v lednici.
+          - Podávej s pečivem.
+      -
+        Nadpis: Tlačenka s cibulí 
+        Podnadpis: nebo S HOŘČICÍ
+        Typ: masové
+        Porce: 1
+        Ingredience:
+          - 2 plátky kuřecí či vepřové tlačenky od řezníka nebo 1 balená 
+          - hotová kuřecí tlačenka (cca 500 g)
+          - půlka menší cibule
+          - 1 dcl vody
+          - 1 lžička octu
+          - nebo hořčice
+          - pečivo
+        Postup:
+          - Tlačenku dej na talíř, balenou nakrájej na kolečka cca 15 mm a dej na talíř.
+          - Cibulku nakrájej najemno a posypej jí tlačenku.
+          - Ocet smíchej s vodou a polej přes cibuli a tlačenku.
+          - NEBO: Cibuli a ocet s vodou neřeš a k tlačence si dej hořčici.
+          - Obě verze zakusuj pečivem.
+      -
+        Nadpis: Těstoviny s masem a zeleninou
+        Typ: masové
+        Na 1 porci:
+          - cca 100 g těstovin
+          - 150 až 200 g masa (kuřecí, vepřová kotleta-pečeně)
+          - 1 cibule
+          - sůl, pepř, olej
+          - červené pesto
+          - rajče, paprika, sušená rajčata
+          - cca 50 g parmazánového sýru
+        Postup:
+          - Ve vroucí osolené vodě s kapkou oleje uvař těstoviny, cca 15 minut (záleží na velikosti), měkkost zkoušej ochutnáním.
+          - Cibuli nakrájej nadrobno, dej ji osmahnout na troše oleje, přidej na kousky nakrájené osolené maso, osmahni, míchej, podlévej vodou, ať máš dost šťávy, hlídej. Můžeš trochu opepřit. Zhruba po 20 minutách zkus měkkost masa.
+          - K masu přidej uvařené těstoviny, pesto a na kousky nakrájenou zeleninu. Ještě nechej společně prohřát a před podáváním posypej strouhaným parmazánem. 
+          - Vhodné i jako oběd.
+      -
+        Nadpis: Bulgur s krevetami a mangem
+        Typ: krevety 
+        Porce: 1
+        Ingredience:
+          - cca 80 g bulguru
+          - 1 balení předvařených krevet (minimálně 200 g)
+          - bílé víno 
+          - mango, 3 stroužky česneku
+          - sůl, pepř, olej, citronová šťáva, čerstvá petrželová nať
+        Postup:
+          - Do vroucí vody (kolik vody, tolik vína) si dej vařit krevety cca 20 minut, zatím bez soli. Do druhého hrnce dej vařit bulgur dle návodu na obalu (v mírně osolené vodě cca 15-20 minut).   
+          - Oloupej česnek, bokem nože zmáčkni naplacato a zatlač dlaní, pak ho ještě pokrájej najemno. Nebo prolisuj.
+          - Okapané krevety dej chvilku osmahnout na trošce oleje, přidej česnek a míchej. Trochu osol, trochu opepři. Stačí chvilku, aby nebyly tuhé. Odstav krevety z ohně, přidej do nich okapaný bulgur a nechej ho nasáknout šťávu z krevet.
+          - Oloupej a na kostičky nakrájej mango, vše smíchej dohromady v míse či hrnci (na pánvičce by se Ti to míchalo špatně), dochuť citronovou šťávou, vmíchej nakrájenou petrželku.
+          - Na dochucení můžeš použít i med, chilli, brusinky, semínka. 
+      -
+        Nadpis: Jednoduché večeře s pečivem         
+        Hotová paštika:
+          - Namaž na pečivo s máslem, dozdob zeleninou. Já miluju bruselskou s brusinkami a s brusinkami.
+        Obložený talířek:
+          - Takzvaně „co dům dal“. 
+        Párek - Známá klasika:
+          - Vař asi 10 minut na slabém plameni, aby neprasknul. Potom můžeš nechat 5 minut v té horké vodě pod pokličkou bez plamene.
+          - Doplň hořčicí, kečupem nebo obojím.
+
+        Párek trochu jinak:
+          - Uvařený párek podélně rozkroj na rozevření, ale ne úplně napůl (aby jedna podélná strana zůstala spojená).
+          - Do rozkrojeného prostoru vlož pásek plátkového sýru přeložený na úzko.
+          - Dej do mikrovlnky zahřát jen na chvilku, jen na rozměknutí sýru. Párek se tím rozevře, ale jde snadno zpátky zavřít rukou, a když ho na chvíli zatížíš, zase bude držet zavřený.
+          - Podávej s pečivem.
+          - S tímto receptem přišel kdysi děda při koupi jejich první mikrovlnky. 
+        
+        Poznámka: Dnes už jsou i vegetariánské párky. 
+        Rybičky – tuňák ve vlastní šťávě:
+          - Nandej na pečivo, dozdob cibulkou, pórkem či pažitkou.
+
+        Tuňákový salát na mexický a jiný způsob:
+          - Nandej do misky a zakusuj pečivem.

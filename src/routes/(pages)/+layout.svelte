@@ -47,7 +47,7 @@
 <div>
 	<Container fluid>
 		<Row>
-			<Col xs="auto">
+			<Col sm="auto">
 				<div class="menu">
 					<Row>
 						<Col class="d-flex justify-content-center mt-3">
@@ -62,20 +62,28 @@
 						</Col>
 					</Row>
 					<hr />
-					<Input type="select" bind:value={theme} class="mb-2">
+					<Input type="select" bind:value={theme} class="mb-2 d-none d-sm-block">
 						<option value="light">Světlý motiv</option>
 						<option value="dark">Tmavý motiv</option>
 						<option value="auto">Automatický motiv</option>
 					</Input>
-					<a href="/{prevPage}"><Button>&lt;</Button></a>
-					<a href="/{randomRecipe}"><Button>Náhodný recept</Button></a>
-					<a href="/{nextPage}"><Button>&gt;</Button></a>
+					<div class="d-flex w-100 gap-1">
+						<a href="/{prevPage}"><Button>&lt;</Button></a>
+						<a href="/{randomRecipe}" class="flex-grow-1"><Button class="w-100">Náhodný <span class="d-none d-sm-inline">recept</span></Button></a>
+						<a href="/obsah" class="flex-grow-1 d-sm-none"><Button class="w-100">Obsah</Button></a>
+						<a href="/{nextPage}"><Button>&gt;</Button></a>
+					</div>
 					<!-- <SimpleAutocomplete items={allIngredients} bind:selectedItem={selectedIngredients} multiple={true}/> -->
 					<hr />
-					<div class="content-items">
+					<div class="content-items d-none d-sm-block">
 						<Row>
 							<Col>
 								<Nav class="flex-column">
+									<NavItem
+											><NavLink href="/obsah"
+												><div class:active={pageName === 'obsah'} style="margin-left: 0px">Obsah</div></NavLink
+											></NavItem
+										>
 									{#each pages as item}
 										<NavItem
 											><NavLink href={'/' + item.slug}
@@ -112,13 +120,24 @@
 	}
 
 	.menu {
-		width: 250px;
 		position: sticky;
 		top: 0;
+	}
+
+	
+	@media screen and (min-width: 576px) {
+		.menu {
+			width: 250px;
+		}
 	}
 
 	:global(.nav-link) {
 		padding: 0 !important;
 		padding-bottom: .5rem !important;
+	}
+
+	:global(figcaption) {
+		display: flex;
+		justify-content: center;
 	}
 </style>
