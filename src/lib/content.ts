@@ -91,7 +91,7 @@ function getNumber(x: unknown): number | undefined {
 }
 
 function slugify(x: string) {
-	return x.replaceAll(/[^ \p{L}\d-]/gu, '').replaceAll(/ +/g, '-');
+	return x.replaceAll(/[^\s\p{L}\d-]/gu, '').replaceAll(/\s+/g, '-');
 }
 
 function getPage(x: unknown): Page {

@@ -163,5 +163,6 @@
 	:global(figcaption) {
 		display: flex;
 		justify-content: center;
+		font-style: italic;
 	}
 </style>

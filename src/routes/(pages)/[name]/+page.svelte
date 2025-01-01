@@ -13,6 +13,8 @@
 	let { data }: Props = $props();
 	let page = $derived(data.page);
 
+	$inspect(page)
+
 	function isLink(x: string) {
 		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(x);
 	}
@@ -110,19 +112,21 @@
 		font-size: initial;
 	}
 
-	@media screen and (max-width: 576px) {
+	@media screen and (max-width: 992px) {
 		.photo {
 			max-height: 30vh;
 			overflow: hidden;
-			display: none;
-		}
-		.photo:first-child {
-			display: initial
 		}
 		:global(.photo img) {
 			max-height: 30vh;
 			object-fit: cover;
 			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 576px) {
+		.photo:not(:first-child) {
+			display: none;
 		}
 	}
 
