@@ -44,8 +44,8 @@
 					>
 						<div>
 							<h1 class="d-flex justify-content-between">
-								<div class="title">
-									{page.title}
+								<div class="header">
+									<span class="title">{page.title}</span>
 									{#if page.subtitle}<br />{page.subtitle}{/if}
 									{#each page.tags as tag}
 										<span class="badge badge-primary">{tag}</span>
@@ -130,8 +130,12 @@
 		}
 	}
 
-	.title {
+	.header {
 		max-width: calc(100% - 30px);
+	}
+
+	.header .title {
+		text-transform: uppercase;
 	}
 
 	:global(.right) {

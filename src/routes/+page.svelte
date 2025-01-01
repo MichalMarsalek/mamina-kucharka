@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { Container } from '@sveltestrap/sveltestrap';
 </script>
 
-<a href="/obsah">
+<a href="/Obsah">
 	<div class="d-flex flex-column justify-content-between">
 		<h1 class="d-flex justify-content-center"><span>Mámina<br />kuchařka</span></h1>
 		<h2 class="d-flex justify-content-center"><span>aneb<br />Když kluci vyletí z hnízda</span></h2>

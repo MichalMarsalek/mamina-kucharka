@@ -87,18 +87,18 @@
 							><Button class="w-100">Náhodný <span class="d-none d-sm-inline">recept</span></Button
 							></a
 						>
-						<a href="/obsah" class="flex-grow-1 d-sm-none"><Button class="w-100">Obsah</Button></a>
+						<a href="/Obsah" class="flex-grow-1 d-sm-none"><Button class="w-100">Obsah</Button></a>
 						<a href="/{nextPage}"><Button>&gt;</Button></a>
 					</div>
-					{#if !(pageId ?? '').endsWith('/obsah')}
+					{#if !(pageId ?? '').endsWith('/Obsah')}
 						<hr />
 						<div class="content-items d-none d-sm-block">
 							<Row>
 								<Col>
 									<Nav class="flex-column">
 										<NavItem
-											><NavLink href="/obsah"
-												><div class:active={pageName === 'obsah'} style="margin-left: 0px">
+											><NavLink href="/Obsah"
+												><div class:active={pageId?.endsWith('Obsah')} style="margin-left: 0px">
 													Obsah
 												</div></NavLink
 											></NavItem

@@ -117,4 +117,8 @@
 			column-count: 2;
 		}
 	}
+
+	h1 {
+		text-transform: uppercase;
+	}
 </style>
