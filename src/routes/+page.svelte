@@ -25,9 +25,12 @@
 		text-shadow: 1px 1px 2px #000000;
 	}
 
+	:global(html, body) {
+		height: 100%;
+	}
 	div {
 		background-image: url('/foto/Přední-obálka.jpg');
-		height: 100vh;
+		height: 100%;
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
