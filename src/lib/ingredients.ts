@@ -107,13 +107,18 @@ grilovací koření/grilovacího koření
 krůt|í
 chléb/chleb|a
 pór|ek/ku
-`.trim().split("\n").map(x => {
-    let variants = x.split("/")
-    const name = variants[0].replaceAll("|", "")
-    variants = variants.map(x => x.split("|")[0])
-    return {name, variants}
-})
+`
+	.trim()
+	.split('\n')
+	.map((x) => {
+		let variants = x.split('/');
+		const name = variants[0].replaceAll('|', '');
+		variants = variants.map((x) => x.split('|')[0]);
+		return { name, variants };
+	});
 
 export function getIngredientsInText(text: string) {
-    return ingredients.filter(x => x.variants.some(variant => text.includes(variant))).map(x => x.name)
+	return ingredients
+		.filter((x) => x.variants.some((variant) => text.includes(variant)))
+		.map((x) => x.name);
 }

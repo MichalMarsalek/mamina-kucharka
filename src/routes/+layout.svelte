@@ -3,13 +3,12 @@
 	import { ingredients as _ingredients } from '$lib/ingredients';
 	import type { Snippet } from 'svelte';
 
-	let { children }: {children: Snippet} = $props()
+	let { children }: { children: Snippet } = $props();
 </script>
 
-<Styles theme="auto"/>
+<Styles theme="auto" />
 
 {@render children()}
 
 <style>
-	
 </style>

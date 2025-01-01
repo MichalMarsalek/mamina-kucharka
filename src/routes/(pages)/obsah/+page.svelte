@@ -15,8 +15,8 @@
 	let search = $state('');
 	let searchIngredients = $derived(getIngredientsInText(search));
 
-	let favouritesOnly = $state(localStorage.getItem('favouritesOnly') == "true");
-	$effect(() => localStorage.setItem('favouritesOnly', favouritesOnly ? "true" : "false"));
+	let favouritesOnly = $state(localStorage.getItem('favouritesOnly') == 'true');
+	$effect(() => localStorage.setItem('favouritesOnly', favouritesOnly ? 'true' : 'false'));
 
 	let favouritePages = $derived(
 		favouritesOnly ? pages.filter((x) => favourites.has(x.slug)) : pages
@@ -70,40 +70,41 @@
 <Input bind:value={search} placeholder="Hledat pomocí kombinace ingrediencí nebo názvu" autofocus />
 <Input bind:checked={favouritesOnly} type="switch" label="Pouze oblíbené" class="mb-5" />
 <div class="contents">
-<Nav class="flex-column">
-	{#if search}
-		{#each searchResults as result}
-			<NavItem
-				><NavLink href={'/' + result.page.slug} class="d-flex"
-					><div class="page" style="padding-left: {level(result.page) * 15}px">
-						{#if result.page.number}<span>{result.page.number}.&nbsp;</span>{/if}{result.page.title}
-					</div>
-					{#if 'matchedIngredients' in result}
-						<div>
-							{result.matchedIngredients!.join(', ')}{#if result.addedIngredients!.length}, {result
-									.addedIngredients!.length} další
-							{/if}
+	<Nav class="flex-column">
+		{#if search}
+			{#each searchResults as result}
+				<NavItem
+					><NavLink href={'/' + result.page.slug} class="d-flex"
+						><div class="page" style="padding-left: {level(result.page) * 15}px">
+							{#if result.page.number}<span>{result.page.number}.&nbsp;</span>{/if}{result.page
+								.title}
 						</div>
-					{/if}
-				</NavLink></NavItem
-			>
+						{#if 'matchedIngredients' in result}
+							<div>
+								{result.matchedIngredients!.join(', ')}{#if result.addedIngredients!.length}, {result
+										.addedIngredients!.length} další
+								{/if}
+							</div>
+						{/if}
+					</NavLink></NavItem
+				>
 			{:else}
 				Žádné recepty
-		{/each}
-	{:else}
-		{#each favouritePages as item}
-			<NavItem
-				><NavLink href={'/' + item.slug} class="d-flex gap-3">
-					<div><FavouriteStar slug={item.slug} /></div>
-					<div class="page" style="padding-left: {level(item) * 15}px">
-						{#if item.number}<span>{item.number}.&nbsp;</span>{/if}{item.title}
-					</div>
-					{#if item.page}<div>str.&nbsp;{item.page}</div>{/if}</NavLink
-				></NavItem
-			>
-		{/each}
-	{/if}
-</Nav>
+			{/each}
+		{:else}
+			{#each favouritePages as item}
+				<NavItem
+					><NavLink href={'/' + item.slug} class="d-flex gap-3">
+						<div><FavouriteStar slug={item.slug} /></div>
+						<div class="page" style="padding-left: {level(item) * 15}px">
+							{#if item.number}<span>{item.number}.&nbsp;</span>{/if}{item.title}
+						</div>
+						{#if item.page}<div>str.&nbsp;{item.page}</div>{/if}</NavLink
+					></NavItem
+				>
+			{/each}
+		{/if}
+	</Nav>
 </div>
 
 <style>

@@ -1,4 +1,4 @@
-import type { Content } from "$lib/content";
+import type { Content } from '$lib/content';
 
 export const ssr = false;
 

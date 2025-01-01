@@ -26,11 +26,11 @@
 	}
 	.star {
 		cursor: pointer;
-        transition: transform 0.5s;
-        transform: rotate(0deg);
-        overflow: hidden;
+		transition: transform 0.5s;
+		transform: rotate(0deg);
+		overflow: hidden;
 	}
 	.star:hover {
-        transform: rotate(72deg);
+		transform: rotate(72deg);
 	}
 </style>

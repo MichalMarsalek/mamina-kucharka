@@ -90,7 +90,7 @@
 						<a href="/obsah" class="flex-grow-1 d-sm-none"><Button class="w-100">Obsah</Button></a>
 						<a href="/{nextPage}"><Button>&gt;</Button></a>
 					</div>
-					{#if !(pageId??"").endsWith('/obsah')}
+					{#if !(pageId ?? '').endsWith('/obsah')}
 						<hr />
 						<div class="content-items d-none d-sm-block">
 							<Row>
