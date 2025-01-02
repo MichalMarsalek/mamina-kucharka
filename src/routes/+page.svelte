@@ -41,7 +41,7 @@
 		height: 100%;
 	}
 	div {
-		background-image: url('/foto/Přední-obálka.jpg');
+		background-image: url('/foto/Přední-obálka.webp');
 		height: 100%;
 		background-repeat: no-repeat;
 		background-size: contain;

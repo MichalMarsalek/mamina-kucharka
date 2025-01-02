@@ -28,7 +28,7 @@
 					<Col xs="12" lg="6">
 						{#each page?.photos ?? [] as [photoName, photoSlug]}
 							<figure class="photo">
-								<Image fluid src="/foto/{photoSlug}.jpg" alt={photoName ?? page.title} />
+								<Image fluid src="/foto/{photoSlug}.webp" alt={photoName ?? page.title} />
 								{#if photoName}
 									<figcaption>{photoName}</figcaption>
 								{/if}

@@ -96,7 +96,7 @@
 						<Col class="d-flex justify-content-center mt-3">
 							<a href="/"
 								><img
-									src="/foto/Logo.jpg"
+									src="/foto/Logo.webp"
 									class="rounded-circle"
 									style="width: 150px;"
 									alt="Logo"
