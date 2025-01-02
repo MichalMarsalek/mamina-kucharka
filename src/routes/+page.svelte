@@ -21,14 +21,21 @@
 	h1 {
 		font-size: calc(min(10vh, 15vw));
 		text-transform: uppercase;
-		text-align: center;
-		text-shadow: 1px 1px 2px #000000;
+
 	}
 	h2 {
 		font-size: calc(min(5vh, 7.5vw));
+	}
+	h1, h2 {
 		text-align: center;
 		text-shadow: 1px 1px 2px #000000;
 	}
+	@media screen and (orientation: landscape) {
+		h1, h2 {
+			color: white;
+		}
+	}
+
 
 	:global(html, body) {
 		height: 100%;
