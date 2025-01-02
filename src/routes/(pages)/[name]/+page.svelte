@@ -21,7 +21,7 @@
 </script>
 
 {#key page?.slug}
-	<div>
+	<main>
 		<Row>
 			{#if page}
 				{#if page.photos.length > 0}
@@ -104,7 +104,7 @@
 				Tento recept tady bohužel nemáme.
 			{/if}
 		</Row>
-	</div>
+	</main>
 {/key}
 
 <style>
@@ -124,9 +124,16 @@
 		}
 	}
 
-	@media screen and (max-width: 576px) {
+	@media screen and (max-width: 576px) and (orientation: portrait) {
 		.photo:not(:first-child) {
 			display: none;
+		}
+		.photo {
+			height: 30vh;
+			overflow: hidden;
+		}
+		main {
+			min-height: calc(100vh - 10px);
 		}
 	}
 

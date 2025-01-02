@@ -41,13 +41,13 @@
 		pages[currentPageOrder >= 0 ? (currentPageOrder + 1) % pages.length : 0].slug
 	);
 
+	function swipe(direction: -1 | 1) {
+		goto(`/${direction === -1 ? prevPage : nextPage}`, { noScroll: true });
+	}
+
 	function onkeydown(e: KeyboardEvent) {
-		if (e.keyCode === 37) {
-			goto(`/${prevPage}`);
-			e.preventDefault();
-		}
-		if (e.keyCode === 39) {
-			goto(`/${nextPage}`);
+		if (e.keyCode === 37 || e.keyCode === 39) {
+			swipe((e.keyCode - 38) as -1 | 1);
 			e.preventDefault();
 		}
 	}
@@ -71,9 +71,9 @@
 		const yDiff = touchstartY - e.changedTouches[0].screenY;
 		if (Math.abs(xDiff) > Math.abs(yDiff)) {
 			if (xDiff < -50) {
-				goto(`/${prevPage}`);
+				swipe(-1);
 			} else if (xDiff > 50) {
-				goto(`/${nextPage}`);
+				swipe(1)
 			}
 		}
 
