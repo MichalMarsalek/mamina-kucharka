@@ -160,6 +160,11 @@
 	</Container>
 </div>
 
+<svelte:head>
+	{#each recipes.flatMap(x => x.photos).map(x => x[1]) as photoSlug}
+		<link rel="preload" href="/foto/{photoSlug}.webp" as="image" />
+	{/each}
+</svelte:head>
 <svelte:window {onkeydown} />
 <svelte:document {ontouchstart} {ontouchend} />
 
