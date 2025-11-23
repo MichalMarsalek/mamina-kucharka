@@ -56,11 +56,13 @@
 							{#if page.page}<div class="mb-2">str. {page.page}</div>{/if}
 
 							{#if page.ingredients}
-								{#if page.portions}
-									Na {page.portions} {page.portions == 1 ? 'porci' : 'porce'}:
-								{:else}
-									Ingredience:
-								{/if}
+								<h2>
+									{#if page.portions}
+										Na {page.portions} {page.portions == 1 ? 'porci' : 'porce'}:
+									{:else}
+										Ingredience:
+									{/if}
+								</h2>
 								<ul>
 									{#each page.ingredients as item}
 										<li title={item.normalized.join(', ')} style="list-style-type: '✔️ '">
@@ -71,7 +73,7 @@
 							{/if}
 
 							{#if page.ingredients}
-								Postup:
+								<h2>Postup:</h2>
 								<ul>
 									{#each page.steps as item}
 										<li style="list-style-type: '▶️ '">{item}</li>
@@ -81,7 +83,7 @@
 
 							{#each page.customFields as field}
 								{#if field.name}
-									{field.name}:
+									<h2>{field.name}:</h2>
 								{/if}
 								{#if isValuesField(field)}
 									<ul>
@@ -112,6 +114,10 @@
 <style>
 	h1 .badge {
 		font-size: initial;
+	}
+
+	h2 {
+		font-size: 1rem;
 	}
 
 	@media screen and (max-width: 992px) {
