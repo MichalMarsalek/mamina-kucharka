@@ -109,7 +109,7 @@
 		{:else}
 			{#each favouritePages as item}
 				<NavItem
-					><NavLink href={item.slug} class="d-flex gap-3">
+					><NavLink href={item.slug} class="d-flex gap-3" style="margin-top: {level(item) * -5}px">
 						<div class="d-flex gap-2">
 							<span class="star"><FavouriteStar slug={item.slug} /></span>
 							<span class="page" style="padding-left: {level(item) * 15}px">
