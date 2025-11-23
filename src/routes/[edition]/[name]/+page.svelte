@@ -79,7 +79,7 @@
 								</h2>
 								<ul>
 									{#each page.ingredients as item}
-										<li title={item.normalized.join(', ')} style="list-style-type: '✔️ '">
+										<li title={item.normalized.join(', ')} style="list-style-type: '✓  '">
 											{item.raw}
 										</li>
 									{/each}
@@ -90,7 +90,7 @@
 								<h2>Postup:</h2>
 								<ul>
 									{#each page.steps as item}
-										<li style="list-style-type: '▶️ '">{item}</li>
+										<li style="list-style-type: '⮞  '">{item}</li>
 									{/each}
 								</ul>
 							{/if}
