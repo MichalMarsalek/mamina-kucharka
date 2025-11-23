@@ -63,7 +63,9 @@
 								{/if}
 								<ul>
 									{#each page.ingredients as item}
-										<li title={item.normalized.join(', ')}>{item.raw}</li>
+										<li title={item.normalized.join(', ')} style="list-style-type: '✔️ '">
+											{item.raw}
+										</li>
 									{/each}
 								</ul>
 							{/if}
@@ -72,7 +74,7 @@
 								Postup:
 								<ul>
 									{#each page.steps as item}
-										<li>{item}</li>
+										<li style="list-style-type: '▶️ '">{item}</li>
 									{/each}
 								</ul>
 							{/if}
