@@ -15,7 +15,6 @@
 	import { isRecipe, type Content, type Page } from '$lib/content';
 	import { ingredients as _ingredients } from '$lib/ingredients';
 	import type { Snippet } from 'svelte';
-	import editions from '$lib/editions';
 
 	interface Props {
 		data: Content;
@@ -53,7 +52,7 @@
 	);
 
 	function swipe(direction: -1 | 1) {
-		goto(`/${direction === -1 ? prevPage : nextPage}`, { noScroll: true });
+		goto(`${direction === -1 ? prevPage : nextPage}`, { noScroll: true });
 	}
 
 	function onkeydown(e: KeyboardEvent) {
@@ -127,13 +126,13 @@
 						{/each}
 					</Input> -->
 					<div class="d-flex w-100 gap-1">
-						<a href="/{prevPage}"><Button>&lt;</Button></a>
-						<a href="/{randomRecipe}" class="flex-grow-1"
+						<a href={prevPage}><Button>&lt;</Button></a>
+						<a href={randomRecipe} class="flex-grow-1"
 							><Button class="w-100">Náhodný <span class="d-none d-sm-inline">recept</span></Button
 							></a
 						>
-						<a href="/Obsah" class="flex-grow-1 d-sm-none"><Button class="w-100">Obsah</Button></a>
-						<a href="/{nextPage}"><Button>&gt;</Button></a>
+						<a href="Obsah" class="flex-grow-1 d-sm-none"><Button class="w-100">Obsah</Button></a>
+						<a href={nextPage}><Button>&gt;</Button></a>
 					</div>
 					{#if !(pageId ?? '').endsWith('/Obsah')}
 						<hr />
@@ -142,7 +141,7 @@
 								<Col>
 									<Nav class="flex-column">
 										<NavItem
-											><NavLink href="/Obsah"
+											><NavLink href="Obsah"
 												><div class:active={pageId?.endsWith('Obsah')} style="margin-left: 0px">
 													Obsah
 												</div></NavLink
@@ -153,7 +152,8 @@
 												><NavLink href={item.slug}
 													><div
 														class:active={pageName === item.slug}
-														style="margin-left: {level(item) * 15}px"
+														style="margin-left: {level(item) * 15}px; margin-top: {level(item) *
+															-5}px"
 													>
 														{item.title}
 													</div></NavLink
