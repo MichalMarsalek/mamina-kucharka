@@ -11,6 +11,9 @@ importers:
       '@sveltestrap/sveltestrap':
         specifier: ^6.2.7
         version: 6.2.7(svelte@5.43.14)
+      didyoumean:
+        specifier: ^1.2.2
+        version: 1.2.2
       svelte-markdown:
         specifier: ^0.4.1
         version: 0.4.1(svelte@5.43.14)
@@ -24,6 +27,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.4
         version: 4.0.4(svelte@5.43.14)(vite@5.4.11(@types/node@20.17.9)(terser@5.37.0))
+      '@types/didyoumean':
+        specifier: ^1.2.2
+        version: 1.2.3
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.21.0
         version: 6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1)(typescript@5.7.2)
@@ -466,6 +472,9 @@ packages:
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
 
+  '@types/didyoumean@1.2.3':
+    resolution: {integrity: sha512-jmogYbzJs7gehniakiGVlKCxrEqVfYL5oKdV2/026DGMGlhbYJWuO88oM4RcncgoZp0p/rCO7ipiYaxYxWedow==}
+
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
 
@@ -674,6 +683,9 @@ packages:
 
   devalue@5.1.1:
     resolution: {integrity: sha512-maua5KUiapvEwiEAe+XnlZ3Rh0GD+qI1J/nb9vrJc3muPXvcF/8gXYTWF76+5DAqHyDUtOIImEuo0YKE9mshVw==}
+
+  didyoumean@1.2.2:
+    resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
 
   dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
@@ -1614,6 +1626,8 @@ snapshots:
 
   '@types/cookie@0.6.0': {}
 
+  '@types/didyoumean@1.2.3': {}
+
   '@types/estree@1.0.6': {}
 
   '@types/json-schema@7.0.15': {}
@@ -1821,6 +1835,8 @@ snapshots:
   deprecation@2.3.1: {}
 
   devalue@5.1.1: {}
+
+  didyoumean@1.2.2: {}
 
   dir-glob@3.0.1:
     dependencies:
