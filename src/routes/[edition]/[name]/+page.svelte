@@ -5,6 +5,7 @@
 	import SvelteMarkdown from 'svelte-markdown';
 	import AnchorRenderer from '$lib/anchor-renderer.svelte';
 	import FavouriteStar from '$lib/favourite-star.svelte';
+	import { page as sveltePage } from '$app/stores';
 
 	interface Props {
 		data: { page: Page };
@@ -17,6 +18,11 @@
 
 	function isLink(x: string) {
 		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(x);
+	}
+
+	function onTitleClick() {
+		const url = `${'https://recepty.radka.maršálková.eu'}/${$sveltePage.params.edition}/${page.slug}${window.location.search}`;
+		navigator.clipboard.writeText(url);
 	}
 </script>
 
@@ -45,7 +51,15 @@
 						<div>
 							<h1 class="d-flex justify-content-between">
 								<div class="header">
-									<span class="title">{page.title}</span>
+									<!-- svelte-ignore a11y_click_events_have_key_events -->
+									<span
+										class="title"
+										onclick={onTitleClick}
+										style="cursor: copy"
+										title="Kliknutím zkopírujete odkaz na tuto stránku"
+									>
+										{page.title}
+									</span>
 									{#if page.subtitle}<br />{page.subtitle}{/if}
 									{#each page.tags as tag}
 										<span class="badge badge-primary">{tag}</span>
