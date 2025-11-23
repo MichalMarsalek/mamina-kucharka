@@ -121,11 +121,11 @@
 						<option value="dark">Tmavý motiv</option>
 						<option value="auto">Automatický motiv</option>
 					</Input>
-					<Input type="select" bind:value={edition} class="mb-2 d-none d-sm-block">
+					<!-- <Input type="select" bind:value={edition} class="mb-2 d-none d-sm-block">
 						{#each Object.entries(editions) as [key, label]}
 							<option value={key}>{label}</option>
 						{/each}
-					</Input>
+					</Input> -->
 					<div class="d-flex w-100 gap-1">
 						<a href="/{prevPage}"><Button>&lt;</Button></a>
 						<a href="/{randomRecipe}" class="flex-grow-1"
