@@ -2,7 +2,7 @@ Stránky:
   -
     Nadpis: O elektronické verzi
     Markdown:
-      > Vytvořil Michal pomocí Typescript, Svelte, Bootstrap, NestedText. Obsah se čte ze souboru [/recepty.nt](/recepty.nt).
+      > Vytvořil Michal pomocí Typescript, Svelte, Bootstrap, NestedText. Obsah se čte ze souboru [/recepty_1.nt](/recepty_1.nt).
       >
       > V obsahu je možné prohledávat recepty dle názvu a ingrediencí.
       >

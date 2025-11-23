@@ -15,6 +15,7 @@
 	import { isRecipe, type Content, type Page } from '$lib/content';
 	import { ingredients as _ingredients } from '$lib/ingredients';
 	import type { Snippet } from 'svelte';
+	import editions from '$lib/editions';
 
 	interface Props {
 		data: Content;
@@ -22,6 +23,16 @@
 	}
 
 	let { data, children }: Props = $props();
+
+	let edition = $state($page.params.edition);
+	$effect(() => {
+		localStorage.setItem('edition', edition);
+		const currentPath = $page.url.pathname;
+		const newPath = currentPath.replace(`/${$page.params.edition}/`, `/${edition}/`);
+		if (currentPath !== newPath) {
+			goto(newPath, { replaceState: true });
+		}
+	});
 
 	let theme = $state('auto' as const);
 
@@ -73,7 +84,7 @@
 			if (xDiff < -50) {
 				swipe(-1);
 			} else if (xDiff > 50) {
-				swipe(1)
+				swipe(1);
 			}
 		}
 
@@ -110,6 +121,11 @@
 						<option value="dark">Tmavý motiv</option>
 						<option value="auto">Automatický motiv</option>
 					</Input>
+					<Input type="select" bind:value={edition} class="mb-2 d-none d-sm-block">
+						{#each Object.entries(editions) as [key, label]}
+							<option value={key}>{label}</option>
+						{/each}
+					</Input>
 					<div class="d-flex w-100 gap-1">
 						<a href="/{prevPage}"><Button>&lt;</Button></a>
 						<a href="/{randomRecipe}" class="flex-grow-1"
@@ -134,7 +150,7 @@
 										>
 										{#each pages as item}
 											<NavItem
-												><NavLink href={'/' + item.slug}
+												><NavLink href={item.slug}
 													><div
 														class:active={pageName === item.slug}
 														style="margin-left: {level(item) * 15}px"
@@ -161,7 +177,7 @@
 </div>
 
 <svelte:head>
-	{#each recipes.flatMap(x => x.photos).map(x => x[1]) as photoSlug}
+	{#each recipes.flatMap((x) => x.photos).map((x) => x[1]) as photoSlug}
 		<link rel="preload" href="/foto/{photoSlug}.webp" as="image" />
 	{/each}
 </svelte:head>

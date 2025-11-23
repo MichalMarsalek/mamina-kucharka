@@ -135,7 +135,6 @@ function getPage(x: unknown): Page {
 				'Ingredience',
 				'Postup',
 				'Stránky',
-				'Stránky',
 				'Typ',
 				'Číslo'
 			].includes(k)

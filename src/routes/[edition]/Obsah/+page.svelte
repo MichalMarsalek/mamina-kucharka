@@ -89,7 +89,7 @@
 		{#if search}
 			{#each searchResults as result}
 				<NavItem
-					><NavLink href={'/' + result.page.slug} class="d-flex"
+					><NavLink href={result.page.slug} class="d-flex"
 						><div class="page" style="padding-left: {level(result.page) * 15}px">
 							{#if result.page.number}<span>{result.page.number}.&nbsp;</span>{/if}{result.page
 								.title}
@@ -109,7 +109,7 @@
 		{:else}
 			{#each favouritePages as item}
 				<NavItem
-					><NavLink href={'/' + item.slug} class="d-flex gap-3">
+					><NavLink href={item.slug} class="d-flex gap-3">
 						<div class="d-flex gap-2">
 							<span class="star"><FavouriteStar slug={item.slug} /></span>
 							<span class="page" style="padding-left: {level(item) * 15}px">
