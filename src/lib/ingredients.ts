@@ -1,86 +1,86 @@
 export const ingredients = `
 sůl/sol
 pepř
-cibul|e
+cibule/cibul
 česnek
 olej
-másl|o
+máslo/másl
 vývar
-brambor|a
+brambor/brambora
 vejce/vajec/vajíčk/žlout
-vod|a
+voda
 bujón
-sýr|a
-mas|o
-smetan|a
-paprik|a
+sýr
+maso
+smetana/smetan
+paprika/paprik
 parmazán
-slanin|a
-rajč|e/ata
+slanina/slanin
+rajče/rajč
 polévka
 olivový olej
-hověz|í
+hovězí/hověz
 brokolice
 kmín
-rýž|e
+rýže/rýž
 baby špenát
 cukr
 tymián
-oregan|o
+oregano/oregan
 chilli
-mrk|ev
-mouk|a
+mrkev/mrkve
+mouka/mouk
 kukuřičný škrob/kukuřičného škrob
 špenát
-kuřec|í
-vepřov|é
-šunk|a
-bazalk|a
-těstovin|y
-pečiv|o
-majonéz|a
+kuřecí/kuře
+vepřové/vepřov
+šunka/šunk
+bazalka/bazalk
+těstoviny/těstovin
+pečivo/pečiv
+majonéza/majonéz
 čedar
 kečup
 bobkový list/bobkové listy
 nové koření/nového koření
-skořic|e
+skořice/skořic
 nudle
-čočk|a
-Veget|a/Podravk
+čočka/čočk
+Vegeta/Veget/Podravk
 ocet/oct
-hráš|ek
+hrášek/hráš
 petržel
 toust
-cizrn|a
+cizrna/cizrn
 Tamari omáčka/Tamari omáčky
 kari
 rajský protlak/rajského protlaku
 celer
 zelenina
-fazol|e
-cuket|a
-houb|y/hříb/hřib/hub/žampion
-majorán|ka
+fazole/fazol
+cuketa/cuket
+houby/hříb/hřib/hub/žampion
+majoránka/majorán
 zázvor
 pomeranč
 chřest
 muškátový oříšek/muškátového oříšku/muškátový květ/muškátového květu
 chřest
-kedlub|en
-batát|y
+kedluben/kedlub
+batát
 slunečnicová semínka/slunečnicových semínek
-rukol|a
+rukola/rukol
 červené víno/červeného vína
 worcester
 dýňová semínka/dýňových semínek
 okurka/okurky/okurek
 kopr
 květák
-kukuřic|e
-mlék|o
+kukuřice/kukuřic
+mléko/mlék
 červená řepa/červené řepy
 tvaroh
-ořech|y
+ořechy/ořech
 mozzarella
 med
 králičí/králík
@@ -89,36 +89,35 @@ Granko
 dýně/dýňová/dýňové
 citron
 Niva
-žampion|y
+žampiony/žampion
 hořčice
 tofu
 rozmarýn
 losos
-vín|o
+víno/vín
 lilek/lilku
 bulgur
-haluš|ky/Haluš
+halušky/haluš/Haluš
 kysané zelí/kysaného zelí
 sójová omáčka/sójové omáčky
-špaget|y
+špagety|špaget
 hlíva ústřičná/hlívy ústřičné
-strouhan|ka
+strouhanka/strouhan
 grilovací koření/grilovacího koření
-krůt|í
-chléb/chleb|a
-pór|ek/ku
+krůtí/krůt
+chléb/chleba
+pórek/pór
 `
 	.trim()
 	.split('\n')
 	.map((x) => {
-		let variants = x.split('/');
-		const name = variants[0].replaceAll('|', '');
-		variants = variants.map((x) => x.split('|')[0]);
-		return { name, variants };
+		const variants = x.split('/');
+		return { name: variants[0], variants };
 	});
 
 export function getIngredientsInText(text: string) {
-	return ingredients
+	const res = ingredients
 		.filter((x) => x.variants.some((variant) => text.includes(variant)))
 		.map((x) => x.name);
+	return res;
 }
