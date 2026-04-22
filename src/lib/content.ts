@@ -1,4 +1,4 @@
-import { getIngredientsInText } from './ingredients';
+import { ingredients, normalizeIngredient, parseIngredientItem } from './ingredients';
 import { parseNestedText } from './nestedText';
 
 export interface Content {
@@ -26,7 +26,8 @@ export interface Recipe extends Page {
 	portions?: number;
 	photos: [string | undefined, string][];
 	tags: string[];
-	ingredients: { raw: string; normalized: string[] }[];
+	ingredients: (string | [string])[][];
+	normalizedIngredients: string[];
 	steps: string[];
 }
 
@@ -114,13 +115,22 @@ function getPage(x: unknown): Page {
 		portions: getNumber(y.Porce),
 		ingredients: getArray(y.Ingredience)
 			?.map(getString)
-			?.map((raw) => ({ raw, normalized: getIngredientsInText(raw!) })),
+			?.map((x) => parseIngredientItem(x)),
+		normalizedIngredients: getArray(y.Ingredience)
+			?.map(getString)
+			?.flatMap((x) =>
+				parseIngredientItem(x)
+					.filter((s) => typeof s !== 'string')
+					.flat()
+					.map((s) => normalizeIngredient(s))
+			),
 		steps: getArray(y.Postup)?.map(getString),
 		pages: getArray(y['Stránky'])?.map(getPage),
 		number: getString(y['Číslo'])
 	};
 	if (res.ingredients || res.steps) {
 		res.ingredients ??= [];
+		res.normalizedIngredients ??= [];
 		res.steps ??= [];
 	}
 	if (!res.title) console.log('missing title', { res });
