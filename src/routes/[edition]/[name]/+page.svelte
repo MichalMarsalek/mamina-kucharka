@@ -15,7 +15,12 @@
 	let page = $derived(data.page);
 
 	function isLink(x: string) {
-		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/(\w[\w#!:.?+=&%!/-]))/.test(x);
+		try {
+			const url = new URL(x);
+			return url.protocol === 'http:' || url.protocol === 'https:';
+		} catch {
+			return false;
+		}
 	}
 
 	function onTitleClick() {
