@@ -89,7 +89,7 @@
 			{#each pages as item (item.slug)}
 				<div class="embla__slide">
 					<div class="mt-2">
-						<PageContent page={item} {edition} interactive={false} />
+						<PageContent page={item} {edition} />
 					</div>
 				</div>
 			{/each}
