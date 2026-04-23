@@ -66,7 +66,7 @@
 										<span class="badge badge-primary">{tag}</span>
 									{/each}
 								</div>
-								<div class="star"><FavouriteStar slug={page.slug} /></div>
+								<div class="star"><FavouriteStar slug={page.slug} large /></div>
 							</h1>
 							{#if page.page}<div class="mb-2">str. {page.page}</div>{/if}
 
