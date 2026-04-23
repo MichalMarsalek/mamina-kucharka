@@ -87,8 +87,8 @@
 							{#if page.ingredients}
 								<h2>Postup:</h2>
 								<ul>
-									{#each page.steps as item, i (i)}
-										<li style="list-style-type: '⮞  '">{item}</li>
+									{#each page.steps as item}
+										<li style="list-style-type: '❯  '">{item}</li>
 									{/each}
 								</ul>
 							{/if}
