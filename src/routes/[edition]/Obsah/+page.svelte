@@ -87,7 +87,7 @@
 <div class="contents">
 	<Nav class="flex-column">
 		{#if search}
-			{#each searchResults as result (result.page.slug)}
+			{#each searchResults as result}
 				<NavItem
 					><NavLink href={result.page.slug} class="d-flex"
 						><div class="page" style="padding-left: {level(result.page) * 15}px">
@@ -107,7 +107,7 @@
 				Žádné recepty
 			{/each}
 		{:else}
-			{#each favouritePages as item (item.slug)}
+			{#each favouritePages as item}
 				<NavItem
 					><NavLink href={item.slug} class="d-flex gap-3" style="margin-top: {level(item) * -5}px">
 						<div class="d-flex gap-2">

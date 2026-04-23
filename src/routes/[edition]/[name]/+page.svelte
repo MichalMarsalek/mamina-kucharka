@@ -1,198 +1,118 @@
 <script lang="ts">
-	import { isChapter, isValuesField, type Page } from '$lib/content';
-	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
-	import { fade } from 'svelte/transition';
-	import SvelteMarkdown from 'svelte-markdown';
-	import AnchorRenderer from '$lib/anchor-renderer.svelte';
-	import FavouriteStar from '$lib/favourite-star.svelte';
+	import { goto } from '$app/navigation';
 	import { page as sveltePage } from '$app/stores';
+	import { onMount } from 'svelte';
+	import emblaCarouselSvelte from 'embla-carousel-svelte';
+	import type { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
+	import PageContent from '$lib/page-content.svelte';
+	import type { Page } from '$lib/content';
 
 	interface Props {
-		data: { page: Page };
+		data: { page: Page; pages: Page[]; edition: string };
 	}
 
 	let { data }: Props = $props();
-	let page = $derived(data.page);
+	let currentPage = $derived(data.page);
+	let pages = $derived(data.pages);
+	let edition = $derived(data.edition);
+	let pageName = $derived(data.page?.slug ?? '');
+	let currentIndex = $derived(pages.findIndex((x) => x.slug === pageName));
 
-	function isLink(x: string) {
-		try {
-			const url = new URL(x);
-			return url.protocol === 'http:' || url.protocol === 'https:';
-		} catch {
-			return false;
+	let isMobile = $state(false);
+	let emblaApi = $state<EmblaCarouselType | undefined>();
+	let isSyncingFromRoute = $state(false);
+
+	let emblaConfig = $state<{ options: EmblaOptionsType; plugins: [] }>({
+		options: {
+			align: 'start',
+			loop: false,
+			containScroll: 'trimSnaps',
+			startIndex: 0
+		},
+		plugins: []
+	});
+
+	function onEmblaSettle(api: EmblaCarouselType) {
+		if (!isMobile || isSyncingFromRoute) {
+			return;
 		}
+
+		const selectedSnap = api.selectedScrollSnap();
+		const selectedPage = pages[selectedSnap];
+		if (!selectedPage || selectedPage.slug === pageName) {
+			return;
+		}
+
+		goto(`/${edition}/${selectedPage.slug}${$sveltePage.url.search}`, {
+			noScroll: true
+		});
 	}
 
-	function onTitleClick() {
-		const url = `${'https://recepty.radka.maršálková.eu'}/${$sveltePage.params.edition}/${page.slug}${window.location.search}`;
-		navigator.clipboard.writeText(url);
+	function onemblaInit(event: CustomEvent<EmblaCarouselType>) {
+		emblaApi?.off('settle', onEmblaSettle);
+		emblaApi = event.detail;
+		emblaApi.on('settle', onEmblaSettle);
 	}
+
+	$effect(() => {
+		const index = currentIndex;
+		if (emblaApi && isMobile && index >= 0) {
+			isSyncingFromRoute = true;
+			emblaApi.scrollTo(index, true);
+			queueMicrotask(() => {
+				isSyncingFromRoute = false;
+			});
+		}
+	});
+
+	onMount(() => {
+		const mediaQuery = window.matchMedia('(max-width: 575.98px)');
+		const updateIsMobile = () => {
+			isMobile = mediaQuery.matches;
+		};
+
+		// Set startIndex before isMobile=true so the carousel renders at the right slide immediately.
+		emblaConfig.options.startIndex = currentIndex >= 0 ? currentIndex : 0;
+		updateIsMobile();
+		mediaQuery.addEventListener('change', updateIsMobile);
+
+		return () => {
+			emblaApi?.off('settle', onEmblaSettle);
+			mediaQuery.removeEventListener('change', updateIsMobile);
+		};
+	});
 </script>
 
-{#key page?.slug}
-	<main>
-		<Row>
-			{#if page}
-				{#if page.photos.length > 0}
-					<Col xs="12" lg="6">
-						{#each page?.photos ?? [] as [photoName, photoSlug] (photoSlug)}
-							<figure class="photo">
-								<Image fluid src="/foto/{photoSlug}.webp" alt={photoName ?? page.title} />
-								{#if photoName}
-									<figcaption>{photoName}</figcaption>
-								{/if}
-							</figure>
-						{/each}
-					</Col>
-				{/if}
-				<Col>
-					<div
-						out:fade={{ duration: 150 }}
-						in:fade={{ delay: 150 }}
-						class:chapter={isChapter(page)}
-					>
-						<div>
-							<h1 class="d-flex justify-content-between">
-								<div class="header">
-									<!-- svelte-ignore a11y_click_events_have_key_events -->
-									<span
-										class="title"
-										onclick={onTitleClick}
-										style="cursor: copy"
-										title="Kliknutím zkopírujete odkaz na tuto stránku"
-									>
-										{page.title}
-									</span>
-									{#if page.subtitle}<br />{page.subtitle}{/if}
-									{#each page.tags as tag (tag)}
-										<span class="badge badge-primary">{tag}</span>
-									{/each}
-								</div>
-								<div class="star"><FavouriteStar slug={page.slug} /></div>
-							</h1>
-							{#if page.page}<div class="mb-2">str. {page.page}</div>{/if}
-
-							{#if page.ingredients}
-								<h2>
-									{#if page.portions}
-										Na {page.portions} {page.portions == 1 ? 'porci' : 'porce'}:
-									{:else}
-										Ingredience:
-									{/if}
-								</h2>
-								<ul>
-									{#each page.ingredients as item, i (i)}
-										<li title={item.normalized.join(', ')} style="list-style-type: '✓  '">
-											{item.raw}
-										</li>
-									{/each}
-								</ul>
-							{/if}
-
-							{#if page.ingredients}
-								<h2>Postup:</h2>
-								<ul>
-									{#each page.steps as item}
-										<li style="list-style-type: '❯  '">{item}</li>
-									{/each}
-								</ul>
-							{/if}
-
-							{#each page.customFields as field, i (i)}
-								{#if field.name}
-									<h2>{field.name}:</h2>
-								{/if}
-								{#if isValuesField(field)}
-									<ul>
-										{#each field.values as value, j (j)}
-											<li>
-												{#if isLink(value)}
-													<a href={value} target="_blank">{value}</a>
-												{:else}
-													{value}
-												{/if}
-											</li>
-										{/each}
-									</ul>
-								{:else}
-									<SvelteMarkdown source={field.markdown} renderers={{ link: AnchorRenderer }} />
-								{/if}
-							{/each}
-						</div>
+{#if isMobile}
+	<div class="embla" use:emblaCarouselSvelte={emblaConfig} {onemblaInit}>
+		<div class="embla__container">
+			{#each pages as item (item.slug)}
+				<div class="embla__slide">
+					<div class="mt-2">
+						<PageContent page={item} {edition} interactive={false} />
 					</div>
-				</Col>
-			{:else}
-				Tento recept tady bohužel nemáme.
-			{/if}
-		</Row>
-	</main>
-{/key}
+				</div>
+			{/each}
+		</div>
+	</div>
+{:else}
+	<PageContent page={currentPage} {edition} />
+{/if}
 
 <style>
-	h1 .badge {
-		font-size: initial;
-	}
-
-	h2 {
-		font-size: 1rem;
-	}
-
-	@media screen and (max-width: 992px) {
-		.photo {
-			max-height: 30vh;
-			overflow: hidden;
-		}
-		:global(.photo img) {
-			max-height: 30vh;
-			object-fit: cover;
-			width: 100%;
-		}
-	}
-
-	@media screen and (max-width: 576px) and (orientation: portrait) {
-		.photo:not(:first-child) {
-			display: none;
-		}
-		.photo {
-			height: 30vh;
-			overflow: hidden;
-		}
-		main {
-			min-height: calc(100vh - 10px);
-		}
-	}
-
-	.header {
-		max-width: calc(100% - 30px);
-	}
-
-	.header .title {
-		text-transform: uppercase;
-	}
-
-	:global(.right) {
-		text-align: right;
+	.embla {
+		overflow: hidden;
 		width: 100%;
-		margin-bottom: 20px;
-	}
-	:global(.center) {
-		text-align: center;
-		width: 100%;
-		margin-bottom: 20px;
+		touch-action: pan-y pinch-zoom;
 	}
 
-	.chapter {
-		text-align: center;
+	.embla__container {
 		display: flex;
-		justify-content: center;
-		margin-top: 100px;
+		gap: 1rem;
 	}
 
-	.chapter > div {
-		min-width: 25vw;
-	}
-
-	.chapter h1 {
-		width: 100%;
+	.embla__slide {
+		flex: 0 0 100%;
+		min-width: 0;
 	}
 </style>
