@@ -13,7 +13,6 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { isRecipe, type Content, type Page } from '$lib/content';
-	import { ingredients as _ingredients } from '$lib/ingredients';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
@@ -147,7 +146,7 @@
 												</div></NavLink
 											></NavItem
 										>
-										{#each pages as item}
+										{#each pages as item (item.slug)}
 											<NavItem
 												><NavLink href={item.slug}
 													><div

@@ -1,7 +1,7 @@
 import { SvelteSet } from 'svelte/reactivity';
 
-let favourites = $state(
-	new SvelteSet((localStorage.getItem('favourites') ?? '').split('\n').filter(Boolean))
+const favourites = new SvelteSet(
+	(localStorage.getItem('favourites') ?? '').split('\n').filter(Boolean)
 );
 $effect.root(() => {
 	$effect(() => localStorage.setItem('favourites', [...favourites].join('\n')));
