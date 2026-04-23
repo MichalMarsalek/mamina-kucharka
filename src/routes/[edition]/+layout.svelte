@@ -61,35 +61,6 @@
 		}
 	}
 
-	let touchstartX: number | undefined;
-	let touchstartY: number | undefined;
-
-	function ontouchstart(e: TouchEvent) {
-		if (e.changedTouches.length !== 1) {
-			return;
-		}
-		touchstartX = e.changedTouches[0].screenX;
-		touchstartY = e.changedTouches[0].screenY;
-	}
-
-	function ontouchend(e: TouchEvent) {
-		if (!touchstartX || !touchstartY || e.changedTouches.length !== 1) {
-			return;
-		}
-		const xDiff = touchstartX - e.changedTouches[0].screenX;
-		const yDiff = touchstartY - e.changedTouches[0].screenY;
-		if (Math.abs(xDiff) > Math.abs(yDiff)) {
-			if (xDiff < -50) {
-				swipe(-1);
-			} else if (xDiff > 50) {
-				swipe(1);
-			}
-		}
-
-		touchstartX = undefined;
-		touchstartY = undefined;
-	}
-
 	function level(page: Page): number {
 		return page.parent == null ? 0 : 1 + level(page.parent);
 	}
@@ -181,7 +152,6 @@
 	{/each}
 </svelte:head>
 <svelte:window {onkeydown} />
-<svelte:document {ontouchstart} {ontouchend} />
 
 <style>
 	.active {
