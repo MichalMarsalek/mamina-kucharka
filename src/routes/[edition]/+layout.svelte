@@ -126,13 +126,13 @@
 						{/each}
 					</Input> -->
 					<div class="d-flex w-100 gap-1">
-						<a href={prevPage}><Button>⮜</Button></a>
+						<a href={prevPage}><Button>⮘</Button></a>
 						<a href={randomRecipe} class="flex-grow-1"
 							><Button class="w-100">Náhodný <span class="d-none d-sm-inline">recept</span></Button
 							></a
 						>
 						<a href="Obsah" class="flex-grow-1 d-sm-none"><Button class="w-100">Obsah</Button></a>
-						<a href={nextPage}><Button>⮞</Button></a>
+						<a href={nextPage}><Button>⮚</Button></a>
 					</div>
 					{#if !(pageId ?? '').endsWith('/Obsah')}
 						<hr />
