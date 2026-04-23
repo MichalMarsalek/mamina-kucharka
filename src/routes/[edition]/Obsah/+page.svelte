@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Input, Nav, NavItem, NavLink } from '@sveltestrap/sveltestrap';
-	import { isRecipe, type Content, type Page, type Recipe } from '$lib/content';
+	import { isRecipe, type Content, type Page } from '$lib/content';
 	import { getIngredientsInText } from '$lib/ingredients';
 	import FavouriteStar from '$lib/favourite-star.svelte';
 	import favourites from '$lib/favourites.svelte';
@@ -87,7 +87,7 @@
 <div class="contents">
 	<Nav class="flex-column">
 		{#if search}
-			{#each searchResults as result}
+			{#each searchResults as result (result.page.slug)}
 				<NavItem
 					><NavLink href={result.page.slug} class="d-flex"
 						><div class="page" style="padding-left: {level(result.page) * 15}px">
@@ -107,7 +107,7 @@
 				Žádné recepty
 			{/each}
 		{:else}
-			{#each favouritePages as item}
+			{#each favouritePages as item (item.slug)}
 				<NavItem
 					><NavLink href={item.slug} class="d-flex gap-3" style="margin-top: {level(item) * -5}px">
 						<div class="d-flex gap-2">

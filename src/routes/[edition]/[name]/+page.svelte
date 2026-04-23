@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { isChapter, isValuesField, type Page } from '$lib/content';
-	import { Col, Image, Row, Icon } from '@sveltestrap/sveltestrap';
+	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
 	import { fade } from 'svelte/transition';
 	import SvelteMarkdown from 'svelte-markdown';
 	import AnchorRenderer from '$lib/anchor-renderer.svelte';
@@ -14,10 +14,8 @@
 	let { data }: Props = $props();
 	let page = $derived(data.page);
 
-	$inspect(page);
-
 	function isLink(x: string) {
-		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/.test(x);
+		return /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/(\w[\w#!:.?+=&%!/-]))/.test(x);
 	}
 
 	function onTitleClick() {
@@ -32,7 +30,7 @@
 			{#if page}
 				{#if page.photos.length > 0}
 					<Col xs="12" lg="6">
-						{#each page?.photos ?? [] as [photoName, photoSlug]}
+						{#each page?.photos ?? [] as [photoName, photoSlug] (photoSlug)}
 							<figure class="photo">
 								<Image fluid src="/foto/{photoSlug}.webp" alt={photoName ?? page.title} />
 								{#if photoName}
@@ -61,7 +59,7 @@
 										{page.title}
 									</span>
 									{#if page.subtitle}<br />{page.subtitle}{/if}
-									{#each page.tags as tag}
+									{#each page.tags as tag (tag)}
 										<span class="badge badge-primary">{tag}</span>
 									{/each}
 								</div>
@@ -78,7 +76,7 @@
 									{/if}
 								</h2>
 								<ul>
-									{#each page.ingredients as item}
+									{#each page.ingredients as item, i (i)}
 										<li title={item.normalized.join(', ')} style="list-style-type: '✓  '">
 											{item.raw}
 										</li>
@@ -89,19 +87,19 @@
 							{#if page.ingredients}
 								<h2>Postup:</h2>
 								<ul>
-									{#each page.steps as item}
+									{#each page.steps as item, i (i)}
 										<li style="list-style-type: '⮞  '">{item}</li>
 									{/each}
 								</ul>
 							{/if}
 
-							{#each page.customFields as field}
+							{#each page.customFields as field, i (i)}
 								{#if field.name}
 									<h2>{field.name}:</h2>
 								{/if}
 								{#if isValuesField(field)}
 									<ul>
-										{#each field.values as value}
+										{#each field.values as value, j (j)}
 											<li>
 												{#if isLink(value)}
 													<a href={value} target="_blank">{value}</a>

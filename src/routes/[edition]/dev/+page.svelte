@@ -30,6 +30,7 @@
 	);
 
 	function frequencies(items: string[]) {
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity
 		const resMap = new Map<string, number>();
 		for (const item of items) {
 			resMap.set(item, (resMap.get(item) ?? 0) + 1);
@@ -42,18 +43,18 @@
 
 <Row>
 	<Col>
-		{#each keyFrequencies as [key, freq]}
+		{#each keyFrequencies as [key, freq] (key)}
 			<li>{key}: {freq}</li>
 		{/each}
 	</Col>
 	<Col>
-		{#each ingrediences as [key, freq]}
+		{#each ingrediences as [key, freq] (key)}
 			<li>{key}: {freq}</li>
 		{/each}
 	</Col>
 	<Col>
 		COUNT = {unusedIngredienceLines.length}
-		{#each unusedIngredienceLines as line}
+		{#each unusedIngredienceLines as line, i (i)}
 			<li>{line}</li>
 		{/each}
 	</Col>

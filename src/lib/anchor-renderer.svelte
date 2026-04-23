@@ -3,7 +3,7 @@
 
 	interface Props {
 		href?: string;
-		title?: any;
+		title?: string;
 		children?: Snippet;
 	}
 
