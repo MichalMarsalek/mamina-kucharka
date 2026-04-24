@@ -204,7 +204,7 @@
 										<button
 											class="scaler-btn"
 											onclick={() => adjustPortion(portionMultiplier > 1 ? -1 : -0.5)}
-											disabled={portionMultiplier <= 0.5}>−</button
+											disabled={portionMultiplier <= 0.5 || recipePortions === 1}>−</button
 										>
 										<span class="multiplier-badge">
 											{portionMultiplier === 0.5 ? '×½' : `×${portionMultiplier}`}
