@@ -41,10 +41,13 @@
 	let recipes = $derived(pages.filter(isRecipe));
 	let pageName = $derived($page.params?.name);
 	let pageId = $derived($page.route.id);
-	let randomRecipe = $derived(
-		recipes.filter((x) => x.slug !== pageName)[Math.floor(Math.random() * (recipes.length - 1))]
-			.slug
-	);
+	let randomRecipe = $derived.by(() => {
+		const candidates = recipes.filter((x) => x.slug !== pageName);
+		if (candidates.length > 0) {
+			return candidates[Math.floor(Math.random() * candidates.length)].slug;
+		}
+		return recipes[0]?.slug ?? 'Obsah';
+	});
 	let currentPageOrder = $derived(pages.findIndex((x) => x.slug === pageName));
 	let prevPage = $derived(
 		pages[currentPageOrder >= 0 ? (currentPageOrder + pages.length - 1) % pages.length : 0].slug
@@ -58,8 +61,8 @@
 	}
 
 	function onkeydown(e: KeyboardEvent) {
-		if (e.keyCode === 37 || e.keyCode === 39) {
-			swipe((e.keyCode - 38) as -1 | 1);
+		if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+			swipe(e.key === 'ArrowLeft' ? -1 : 1);
 			e.preventDefault();
 		}
 	}
@@ -76,27 +79,17 @@
 	// Reading progress bar
 	let scrollY = $state(0);
 	let scrollProgress = $state(0);
-
-	function updateProgress() {
+	$effect(() => {
+		void scrollY;
 		const el = document.documentElement;
 		const scrollable = el.scrollHeight - el.clientHeight;
 		scrollProgress = scrollable > 0 ? (scrollY / scrollable) * 100 : 0;
-	}
-
-	$effect(() => {
-		void scrollY;
-		updateProgress();
 	});
 
 	// Scroll to top
 	let showScrollTop = $derived(scrollY > 300);
 
-	function scrollToTop() {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}
-
-	// Logo hover
-	let logoHovered = $state(false);
+	// Cover-to-logo transition
 	let logoElement = $state<HTMLImageElement | null>(null);
 	let showLogoLaunch = $state(false);
 	let logoLaunchStyle = $state('');
@@ -187,17 +180,11 @@
 					<div class="snap-page-start">
 						<Row>
 							<Col class="d-flex justify-content-center mt-3">
-								<a
-									href="/"
-									class="logo-link"
-									onmouseenter={() => (logoHovered = true)}
-									onmouseleave={() => (logoHovered = false)}
-								>
+								<a href="/" class="logo-link">
 									<img
 										src="/foto/Logo.webp"
 										bind:this={logoElement}
 										class="rounded-circle logo-img"
-										class:hovered={logoHovered}
 										class:morphing={hideRealLogoForMorph}
 										style="width: 150px;"
 										alt="Logo"
@@ -372,7 +359,7 @@
 		visibility: hidden;
 	}
 
-	.logo-img.hovered {
+	.logo-link:hover .logo-img:not(.morphing) {
 		transform: scale(1.06) rotate(2deg);
 		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 	}

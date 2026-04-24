@@ -115,6 +115,11 @@
 		return page.parent == null ? 0 : 1 + level(page.parent);
 	}
 
+	function previewUrl(page: Page): string | undefined {
+		if (!isRecipe(page) || page.photos.length === 0) return undefined;
+		return `/foto1/${page.photos[0][1]}.webp`;
+	}
+
 	function except(a: string[], b: string[]) {
 		return a.filter((x) => !b.includes(x));
 	}
@@ -164,7 +169,7 @@
 
 {#if viewMode === 'cards' && !search}
 	<!-- Card / grid view -->
-	{#each cardGroups as group}
+	{#each cardGroups as group (group.chapter?.slug ?? '__ungrouped')}
 		{#if group.chapter}
 			<a
 				href={group.chapter.slug}
@@ -177,7 +182,7 @@
 		{/if}
 		{@const groupMostlyPhotoless = mostlyPhotoless(group.cards)}
 		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
-			{#each group.cards as item}
+			{#each group.cards as item (item.slug)}
 				{@const hasPhoto = isRecipe(item) && item.photos.length > 0}
 				{@const compact = groupMostlyPhotoless && !hasPhoto}
 				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
@@ -210,11 +215,8 @@
 	<div class="contents">
 		<Nav class="flex-column">
 			{#if search}
-				{#each searchResults as result}
-					{@const r = isRecipe(result.page) ? result.page : null}
-					<PhotoTooltip
-						photoUrl={r && r.photos.length > 0 ? `/foto1/${r.photos[0][1]}.webp` : undefined}
-						side="left"
+				{#each searchResults as result, i (`${result.page.slug}-${i}`)}
+					<PhotoTooltip photoUrl={previewUrl(result.page)} side="left"
 						><NavItem
 							><NavLink href={result.page.slug} class="d-flex"
 								><div class="page" style="padding-left: {level(result.page) * 15}px">
@@ -235,13 +237,8 @@
 					Žádné recepty
 				{/each}
 			{:else}
-				{#each favouritePages as item}
-					{@const recipe = isRecipe(item) ? item : null}
-					<PhotoTooltip
-						photoUrl={recipe && recipe.photos.length > 0
-							? `/foto1/${recipe.photos[0][1]}.webp`
-							: undefined}
-						side="left"
+				{#each favouritePages as item (item.slug)}
+					<PhotoTooltip photoUrl={previewUrl(item)} side="left"
 						><NavItem
 							><NavLink
 								href={item.slug}
@@ -505,23 +502,6 @@
 			border-color 0.18s ease;
 		background: var(--bs-body-bg, white);
 		position: relative;
-	}
-
-	.recipe-card.favourite {
-		border-color: color-mix(
-			in srgb,
-			var(--bs-warning, #ffc107) 30%,
-			var(--bs-border-color, #dee2e6)
-		);
-		background: color-mix(in srgb, var(--bs-warning, #ffc107) 4%, var(--bs-body-bg, white));
-	}
-
-	.recipe-card.favourite:hover {
-		border-color: color-mix(
-			in srgb,
-			var(--bs-primary, #0d6efd) 30%,
-			var(--bs-border-color, #dee2e6)
-		);
 	}
 
 	.recipe-card:hover {

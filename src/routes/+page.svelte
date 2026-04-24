@@ -3,10 +3,7 @@
 	import { defaultEdition } from '$lib/editions';
 	import { onMount } from 'svelte';
 
-	let edition = $state(defaultEdition);
-	$effect(() => {
-		edition = localStorage.getItem('edition') ?? edition;
-	});
+	let edition = $state(localStorage.getItem('edition') ?? defaultEdition);
 	let contentPath = $derived(`/${edition}/Obsah`);
 
 	function markCoverMorph() {

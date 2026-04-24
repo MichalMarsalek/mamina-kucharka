@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { isChapter, isRecipe, isValuesField, type Page } from '$lib/content';
 	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
+	import { SvelteSet } from 'svelte/reactivity';
 	import { fade, fly } from 'svelte/transition';
 	import SvelteMarkdown from 'svelte-markdown';
 	import AnchorRenderer from '$lib/anchor-renderer.svelte';
@@ -13,9 +14,59 @@
 
 	let { page, edition = '' }: Props = $props();
 
+	const FRACTION_DENOMINATORS = [2, 3, 4, 5, 6, 8, 10, 12, 16];
+
+	function gcd(a: number, b: number): number {
+		return b === 0 ? a : gcd(b, a % b);
+	}
+
+	function formatDecimal(value: number): string {
+		if (Number.isInteger(value)) return String(value);
+		const s = value.toFixed(2).replace('.', ',');
+		if (s.endsWith(',00')) return s.slice(0, -3);
+		if (s.endsWith('0')) return s.slice(0, -1);
+		return s;
+	}
+
+	function formatFraction(value: number): string {
+		const whole = Math.floor(value);
+		const frac = value - whole;
+		if (Math.abs(frac) < 1e-8) return String(whole);
+
+		let bestNum = 0;
+		let bestDen = 1;
+		let bestDiff = Infinity;
+
+		for (const den of FRACTION_DENOMINATORS) {
+			const num = Math.round(frac * den);
+			const diff = Math.abs(frac - num / den);
+			if (diff < bestDiff) {
+				bestDiff = diff;
+				bestNum = num;
+				bestDen = den;
+			}
+		}
+
+		if (bestDiff > 1e-6 || bestNum === 0) return formatDecimal(value);
+
+		const d = gcd(bestNum, bestDen);
+		const simpNum = bestNum / d;
+		const simpDen = bestDen / d;
+
+		if (whole === 0) return `${simpNum}/${simpDen}`;
+		return `${whole} ${simpNum}/${simpDen}`;
+	}
+
+	function formatScaled(value: number): string {
+		return value < 1 ? formatFraction(value) : formatDecimal(value);
+	}
+
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const markdownRenderers = { link: AnchorRenderer as any };
+
 	// Interactive recipe state
-	let checkedIngredients = $state(new Set<number>());
-	let completedSteps = $state(new Set<number>());
+	let checkedIngredients = new SvelteSet<number>();
+	let completedSteps = new SvelteSet<number>();
 	let portionMultiplier = $state(1);
 	let recipePortions = $derived(
 		page && isRecipe(page) && page.portions ? page.portions * portionMultiplier : null
@@ -24,64 +75,21 @@
 	$effect(() => {
 		// Reset when page changes
 		void page?.slug;
-		checkedIngredients = new Set<number>();
-		completedSteps = new Set<number>();
+		checkedIngredients.clear();
+		completedSteps.clear();
 		portionMultiplier = 1;
 	});
 
 	function toggleIngredient(i: number) {
-		const next = new Set(checkedIngredients);
-		if (!next.delete(i)) next.add(i);
-		checkedIngredients = next;
+		if (!checkedIngredients.delete(i)) checkedIngredients.add(i);
 	}
 
 	function toggleStep(i: number) {
-		const next = new Set(completedSteps);
-		if (!next.delete(i)) next.add(i);
-		completedSteps = next;
+		if (!completedSteps.delete(i)) completedSteps.add(i);
 	}
 
 	function scaleIngredient(raw: string, multiplier: number): string {
 		if (multiplier === 1) return raw;
-
-		const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
-
-		const formatDecimal = (value: number): string => {
-			if (Number.isInteger(value)) return String(value);
-			const s = value.toFixed(2).replace('.', ',');
-			if (s.endsWith(',00')) return s.slice(0, -3);
-			if (s.endsWith('0')) return s.slice(0, -1);
-			return s;
-		};
-
-		const formatFraction = (value: number): string => {
-			const whole = Math.floor(value);
-			const frac = value - whole;
-			if (Math.abs(frac) < 1e-8) return String(whole);
-
-			let bestNum = 0;
-			let bestDen = 1;
-			let bestDiff = Infinity;
-
-			for (const den of [2, 3, 4, 5, 6, 8, 10, 12, 16]) {
-				const num = Math.round(frac * den);
-				const diff = Math.abs(frac - num / den);
-				if (diff < bestDiff) {
-					bestDiff = diff;
-					bestNum = num;
-					bestDen = den;
-				}
-			}
-
-			if (bestDiff > 1e-6 || bestNum === 0) return formatDecimal(value);
-
-			const d = gcd(bestNum, bestDen);
-			const simpNum = bestNum / d;
-			const simpDen = bestDen / d;
-
-			if (whole === 0) return `${simpNum}/${simpDen}`;
-			return `${whole} ${simpNum}/${simpDen}`;
-		};
 
 		const fractionTokens: string[] = [];
 		let result = raw.replace(/\b(\d+)\s*\/\s*(\d+)\b/g, (_, n, d) => {
@@ -90,14 +98,13 @@
 			if (!Number.isFinite(num) || !Number.isFinite(den) || den === 0) return `${n}/${d}`;
 			const scaled = (num / den) * multiplier;
 			const token = `__FRACTION_${'x'.repeat(fractionTokens.length + 1)}__`;
-			fractionTokens.push(scaled < 1 ? formatFraction(scaled) : formatDecimal(scaled));
+			fractionTokens.push(formatScaled(scaled));
 			return token;
 		});
 
 		result = result.replace(/\d+(?:[.,]\d+)?/g, (match) => {
 			const num = parseFloat(match.replace(',', '.'));
-			const scaled = num * multiplier;
-			return scaled < 1 ? formatFraction(scaled) : formatDecimal(scaled);
+			return formatScaled(num * multiplier);
 		});
 
 		return result.replace(/__FRACTION_(x+)__/g, (_, xs) => fractionTokens[xs.length - 1] ?? _);
@@ -148,7 +155,7 @@
 				{#if recipe && recipe.photos.length > 0}
 					<Col xs="12" lg="6">
 						<div class="photos">
-							{#each recipe.photos as [photoName, photoSlug]}
+							{#each recipe.photos as [photoName, photoSlug] (photoSlug)}
 								<div class="photo">
 									<Image fluid src="/foto/{photoSlug}.webp" alt={photoName ?? page.title} />
 									{#if photoName}
@@ -169,7 +176,6 @@
 							<div class="snap-recipe-title"></div>
 							<h1 class="d-flex justify-content-between align-items-start">
 								<div class="header">
-									<!-- svelte-ignore a11y_click_events_have_key_events -->
 									<span
 										class="title"
 										onclick={onTitleClick}
@@ -225,25 +231,26 @@
 									{#if checkedIngredients.size > 0}
 										<button
 											class="clear-btn"
-											onclick={() => (checkedIngredients = new Set())}
+											onclick={() => checkedIngredients.clear()}
 											title="Zrušit zaškrtnutí">Zrušit výběr</button
 										>
 									{/if}
 								</div>
 								<ul class="ingredient-list">
-									{#each recipe.ingredients as item, i}
-										<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-										<li
-											class="ingredient-item"
-											class:checked={checkedIngredients.has(i)}
-											title={item.normalized.join(', ')}
-											onclick={() => toggleIngredient(i)}
-											onkeydown={(e) => e.key === 'Enter' && toggleIngredient(i)}
-										>
-											<span class="check-icon">{checkedIngredients.has(i) ? '✓' : '○'}</span>
-											<span class="ingredient-text"
-												>{scaleIngredient(item.raw, portionMultiplier)}</span
+									{#each recipe.ingredients as item, i (i)}
+										<li>
+											<button
+												type="button"
+												class="ingredient-item"
+												class:checked={checkedIngredients.has(i)}
+												title={item.normalized.join(', ')}
+												onclick={() => toggleIngredient(i)}
 											>
+												<span class="check-icon">{checkedIngredients.has(i) ? '✓' : '○'}</span>
+												<span class="ingredient-text"
+													>{scaleIngredient(item.raw, portionMultiplier)}</span
+												>
+											</button>
 										</li>
 									{/each}
 								</ul>
@@ -268,22 +275,23 @@
 									{#if completedSteps.size > 0}
 										<button
 											class="clear-btn"
-											onclick={() => (completedSteps = new Set())}
+											onclick={() => completedSteps.clear()}
 											title="Zrušit zaškrtnutí kroků">Zrušit</button
 										>
 									{/if}
 								</div>
 								<ol class="step-list">
-									{#each recipe.steps as item, i}
-										<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-										<li
-											class="step-item"
-											class:completed={completedSteps.has(i)}
-											onclick={() => toggleStep(i)}
-											onkeydown={(e) => e.key === 'Enter' && toggleStep(i)}
-										>
-											<span class="step-icon">❯</span>
-											<span class="step-text">{item}</span>
+									{#each recipe.steps as item, i (i)}
+										<li>
+											<button
+												type="button"
+												class="step-item"
+												class:completed={completedSteps.has(i)}
+												onclick={() => toggleStep(i)}
+											>
+												<span class="step-icon">❯</span>
+												<span class="step-text">{item}</span>
+											</button>
 										</li>
 									{/each}
 								</ol>
@@ -292,13 +300,13 @@
 								{/if}
 							{/if}
 
-							{#each page.customFields as field}
+							{#each page.customFields as field, i (`${field.name ?? ''}-${i}`)}
 								{#if field.name}
 									<h2>{field.name}:</h2>
 								{/if}
 								{#if isValuesField(field)}
 									<ul>
-										{#each field.values as value}
+										{#each field.values as value, j (`${value}-${j}`)}
 											<li>
 												{#if isLink(value)}
 													<a href={value} target="_blank">{value}</a>
@@ -309,11 +317,7 @@
 										{/each}
 									</ul>
 								{:else}
-									<!-- svelte-ignore -->
-									<SvelteMarkdown
-										source={field.markdown}
-										renderers={{ link: AnchorRenderer as any }}
-									/>
+									<SvelteMarkdown source={field.markdown} renderers={markdownRenderers} />
 								{/if}
 							{/each}
 						</div>
@@ -502,7 +506,12 @@
 		display: flex;
 		align-items: baseline;
 		gap: 0.5rem;
+		width: 100%;
 		padding: 3px 6px;
+		border: none;
+		background: transparent;
+		text-align: left;
+		font: inherit;
 		border-radius: 6px;
 		cursor: pointer;
 		transition:
@@ -591,7 +600,12 @@
 		display: flex;
 		align-items: baseline;
 		gap: 0.5rem;
+		width: 100%;
 		padding: 3px 6px;
+		border: none;
+		background: transparent;
+		text-align: left;
+		font: inherit;
 		border-radius: 6px;
 		cursor: pointer;
 		transition:

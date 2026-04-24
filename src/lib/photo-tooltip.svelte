@@ -23,6 +23,16 @@
 	let hostElement = $state<HTMLDivElement | null>(null);
 
 	const gap = 12;
+	const viewportPadding = 8;
+	const tooltipAspectRatio = 3 / 4;
+
+	function clamp(value: number, min: number, max: number): number {
+		return Math.max(min, Math.min(value, max));
+	}
+
+	function tooltipHeight() {
+		return width * tooltipAspectRatio;
+	}
 
 	function computeX() {
 		if (!hostElement) return 0;
@@ -38,22 +48,19 @@
 					? alignLeft + gap
 					: rect.right + gap;
 		nx += offsetX;
-		return Math.max(8, Math.min(nx, window.innerWidth - width - 8));
+		return clamp(nx, viewportPadding, window.innerWidth - width - viewportPadding);
 	}
 
-	function onDocMove(e: MouseEvent) {
-		const tooltipHeight = width * 0.75;
-		y = Math.max(
-			8,
-			Math.min(e.clientY - tooltipHeight / 2, window.innerHeight - tooltipHeight - 8)
-		);
+	function placeVerticallyAt(clientY: number) {
+		const h = tooltipHeight();
+		y = clamp(clientY - h / 2, viewportPadding, window.innerHeight - h - viewportPadding);
 	}
 
 	function show(e: MouseEvent) {
 		if (!photoUrl) return;
 		if (!hostElement) return;
 		x = computeX();
-		onDocMove(e);
+		placeVerticallyAt(e.clientY);
 		visible = true;
 	}
 
@@ -63,7 +70,7 @@
 
 	function move(e: MouseEvent) {
 		if (!visible) return;
-		onDocMove(e);
+		placeVerticallyAt(e.clientY);
 	}
 
 	function showFromFocus() {
@@ -73,14 +80,7 @@
 		const rect = (
 			(hostElement.firstElementChild as HTMLElement | null) ?? hostElement
 		).getBoundingClientRect();
-		const tooltipHeight = width * 0.75;
-		y = Math.max(
-			8,
-			Math.min(
-				rect.top + rect.height / 2 - tooltipHeight / 2,
-				window.innerHeight - tooltipHeight - 8
-			)
-		);
+		placeVerticallyAt(rect.top + rect.height / 2);
 		visible = true;
 	}
 
