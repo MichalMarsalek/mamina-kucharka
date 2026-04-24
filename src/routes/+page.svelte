@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { defaultEdition } from '$lib/editions';
+	import { onMount } from 'svelte';
 
 	let edition = $state(defaultEdition);
 	$effect(() => {
@@ -8,15 +9,69 @@
 	});
 	let contentPath = $derived(`/${edition}/Obsah`);
 
-	function ontouchstart() {
-		goto(contentPath);
+	function markCoverMorph() {
+		sessionStorage.setItem('coverMorphPending', String(Date.now()));
+	}
+
+	function onclick() {
+		markCoverMorph();
+	}
+
+	function nonPassiveTouch(node: HTMLElement) {
+		function handler(e: TouchEvent) {
+			e.preventDefault();
+			markCoverMorph();
+			goto(contentPath);
+		}
+		node.addEventListener('touchstart', handler, { passive: false });
+		return {
+			destroy() {
+				node.removeEventListener('touchstart', handler);
+			}
+		};
+	}
+
+	let mounted = $state(false);
+	onMount(() => {
+		requestAnimationFrame(() => {
+			mounted = true;
+		});
+	});
+
+	let tiltX = $state(0);
+	let tiltY = $state(0);
+
+	function onmousemove(e: MouseEvent) {
+		const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+		const cx = rect.left + rect.width / 2;
+		const cy = rect.top + rect.height / 2;
+		tiltX = ((e.clientY - cy) / rect.height) * 20;
+		tiltY = -((e.clientX - cx) / rect.width) * 20;
+	}
+
+	function onmouseleave() {
+		tiltX = 0;
+		tiltY = 0;
 	}
 </script>
 
-<a href={contentPath} {ontouchstart}>
-	<div class="d-flex flex-column justify-content-between">
-		<h1 class="d-flex justify-content-center"><span>Mámina<br />kuchařka</span></h1>
-		<h2 class="d-flex justify-content-center"><span>aneb<br />Když kluci vyletí z hnízda</span></h2>
+<a href={contentPath} {onclick} use:nonPassiveTouch>
+	<div
+		class="cover"
+		{onmousemove}
+		{onmouseleave}
+		style:--tilt-x="{tiltX}deg"
+		style:--tilt-y="{tiltY}deg"
+		role="presentation"
+	>
+		<div class="tilt-inner">
+			<div class="overlay"></div>
+			<div class="text-content">
+				<h1 class:show={mounted}><span>Mámina</span><br /><span>kuchařka</span></h1>
+				<h2 class:show={mounted}><span>aneb</span><br /><span>Když kluci vyletí z hnízda</span></h2>
+				<p class="hint" class:show={mounted}>↵ kliknutím otevřít</p>
+			</div>
+		</div>
 	</div>
 </a>
 
@@ -24,34 +79,120 @@
 	a {
 		color: initial;
 		text-decoration: none;
-	}
-	h1 {
-		font-size: calc(min(10vh, 15vw));
-		text-transform: uppercase;
-	}
-	h2 {
-		font-size: calc(min(5vh, 7.5vw));
-	}
-	h1,
-	h2 {
-		text-align: center;
-		text-shadow: 1px 1px 2px #000000;
-	}
-	@media screen and (orientation: landscape) {
-		h1,
-		h2 {
-			color: white;
-		}
+		display: block;
+		height: 100%;
 	}
 
 	:global(html, body) {
 		height: 100%;
 	}
-	div {
-		background-image: url('/foto/Přední-obálka.webp');
+
+	.cover {
 		height: 100%;
+		background-image: url('/foto/Přední-obálka.webp');
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
+		perspective: 900px;
+		cursor: pointer;
+		overflow: hidden;
+	}
+
+	.tilt-inner {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	.overlay {
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.12) 100%);
+		pointer-events: none;
+	}
+
+	.text-content {
+		position: relative;
+		height: 100%;
+		padding: 0;
+		transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+		transition: transform 0.12s ease-out;
+		will-change: transform;
+	}
+
+	h1 {
+		position: absolute;
+		top: max(0.5rem, env(safe-area-inset-top));
+		left: 50%;
+		width: min(92vw, 1100px);
+		font-size: clamp(2rem, min(10vh, 15vw), 8rem);
+		text-transform: uppercase;
+		text-align: center;
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
+		opacity: 0;
+		transform: translate(-50%, -24px);
+		transition:
+			opacity 0.9s ease,
+			transform 0.9s ease;
+		margin: 0;
+	}
+
+	h1.show {
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+
+	h2 {
+		position: absolute;
+		bottom: max(0.5rem, env(safe-area-inset-bottom));
+		left: 50%;
+		width: min(92vw, 1100px);
+		font-size: clamp(1rem, min(5vh, 7.5vw), 4rem);
+		text-align: center;
+		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.45);
+		opacity: 0;
+		transform: translate(-50%, 24px);
+		transition:
+			opacity 0.9s ease 0.35s,
+			transform 0.9s ease 0.35s;
+		margin: 0;
+	}
+
+	h2.show {
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+
+	.hint {
+		position: absolute;
+		right: 1rem;
+		bottom: max(0.5rem, env(safe-area-inset-bottom));
+		text-align: center;
+		font-size: clamp(0.7rem, 2vw, 0.95rem);
+		letter-spacing: 0.12em;
+		opacity: 0;
+		transition: opacity 1.2s ease 1.1s;
+		margin: 0;
+		white-space: nowrap;
+	}
+
+	.hint.show {
+		opacity: 0.45;
+	}
+
+	@media screen and (orientation: landscape) {
+		h1,
+		h2,
+		.hint {
+			color: white;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		h2 {
+			bottom: calc(max(0.5rem, env(safe-area-inset-bottom)) + 2.5rem);
+		}
 	}
 </style>
