@@ -70,7 +70,7 @@
 							</h1>
 							{#if page.page}<div class="mb-2">str. {page.page}</div>{/if}
 
-							{#if page.ingredients}
+							{#if page.ingredients && page.ingredients.length > 0}
 								<h2>
 									{#if page.portions}
 										Na {page.portions} {page.portions == 1 ? 'porci' : 'porce'}:
