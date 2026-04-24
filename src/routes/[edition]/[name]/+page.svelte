@@ -19,6 +19,7 @@
 	let currentIndex = $derived(pages.findIndex((x) => x.slug === pageName));
 
 	let isMobile = $state(false);
+	let showMobileCarousel = $state(false);
 	let emblaApi = $state<EmblaCarouselType | undefined>();
 	let isSyncingFromRoute = $state(false);
 
@@ -31,9 +32,10 @@
 		},
 		plugins: []
 	});
+	let cancelCarouselActivation = () => {};
 
 	function onEmblaSettle(api: EmblaCarouselType) {
-		if (!isMobile || isSyncingFromRoute) {
+		if (!showMobileCarousel || isSyncingFromRoute) {
 			return;
 		}
 
@@ -56,7 +58,7 @@
 
 	$effect(() => {
 		const index = currentIndex;
-		if (emblaApi && isMobile && index >= 0) {
+		if (emblaApi && showMobileCarousel && index >= 0) {
 			isSyncingFromRoute = true;
 			emblaApi.scrollTo(index, true);
 			queueMicrotask(() => {
@@ -65,10 +67,44 @@
 		}
 	});
 
+	$effect(() => {
+		if (!isMobile) {
+			showMobileCarousel = false;
+		}
+	});
+
 	onMount(() => {
 		const mediaQuery = window.matchMedia('(max-width: 575.98px)');
+		const activateCarousel = () => {
+			cancelCarouselActivation();
+
+			if (!mediaQuery.matches) {
+				return;
+			}
+
+			if ('requestIdleCallback' in window) {
+				const idleId = window.requestIdleCallback(() => {
+					showMobileCarousel = true;
+				});
+				cancelCarouselActivation = () => window.cancelIdleCallback(idleId);
+				return;
+			}
+
+			const timeoutId = globalThis.setTimeout(() => {
+				showMobileCarousel = true;
+			}, 150);
+			cancelCarouselActivation = () => globalThis.clearTimeout(timeoutId);
+		};
+
 		const updateIsMobile = () => {
+			const wasMobile = isMobile;
 			isMobile = mediaQuery.matches;
+			if (!isMobile) {
+				cancelCarouselActivation();
+				showMobileCarousel = false;
+			} else if (!wasMobile && !showMobileCarousel) {
+				activateCarousel();
+			}
 		};
 
 		// Set startIndex before isMobile=true so the carousel renders at the right slide immediately.
@@ -77,20 +113,19 @@
 		mediaQuery.addEventListener('change', updateIsMobile);
 
 		return () => {
+			cancelCarouselActivation();
 			emblaApi?.off('settle', onEmblaSettle);
 			mediaQuery.removeEventListener('change', updateIsMobile);
 		};
 	});
 </script>
 
-{#if isMobile}
+{#if showMobileCarousel}
 	<div class="embla" use:emblaCarouselSvelte={emblaConfig} {onemblaInit}>
 		<div class="embla__container">
 			{#each pages as item (item.slug)}
 				<div class="embla__slide">
-					<div class="mt-2">
-						<PageContent page={item} {edition} />
-					</div>
+					<PageContent page={item} {edition} />
 				</div>
 			{/each}
 		</div>
