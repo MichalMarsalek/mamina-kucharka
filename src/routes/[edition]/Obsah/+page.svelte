@@ -25,86 +25,35 @@
 	);
 	$effect(() => localStorage.setItem('tocView', viewMode));
 
-	let favouritePages = $derived(
-		favouritesOnly ? pages.filter((x) => favourites.has(x.slug)) : pages
+	function filterPages(pages: Page[]): Page[] {
+		return pages
+			.map((x) => (isChapter(x) ? { ...x, pages: filterPages(x.pages) } : x))
+			.filter(
+				(x) =>
+					((!favouritesOnly || favourites.has(x.slug)) && (search === '' || isPageMatch(x))) ||
+					(isChapter(x) && x.pages.length > 0)
+			);
+	}
+
+	function isPageMatch(page: Page) {
+		if (search === '') return true;
+		const searchLower = search.toLowerCase();
+
+		if (page.title.toLowerCase().includes(searchLower)) return true;
+
+		if (!isRecipe(page)) return false;
+
+		const matchingIngredients = page.ingredients
+			.flatMap((x) => x.normalized)
+			.filter((x) => searchIngredients.includes(x));
+
+		return matchingIngredients.length * 2 > searchIngredients.length;
+	}
+
+	let filteredPages = $derived(filterPages(data.rootPages));
+	let listItemCount = $derived(
+		filteredPages.reduce((n, p) => n + 1 + (isChapter(p) ? p.pages.length : 0), 0)
 	);
-
-	let searchResults = $derived.by(() => {
-		const byIngredients = favouritePages
-			.filter(isRecipe)
-			.map((recipe) => ({
-				page: recipe,
-				matchedIngredients: recipe.ingredients
-					.flatMap((x) => x.normalized)
-					.filter((x) => searchIngredients.includes(x)),
-				addedIngredients: except(
-					recipe.ingredients.flatMap((x) => x.normalized),
-					searchIngredients
-				),
-				removedIngredients: except(
-					searchIngredients,
-					recipe.ingredients.flatMap((x) => x.normalized)
-				)
-			}))
-			.filter((x) => x.matchedIngredients.length > 0);
-		byIngredients.sort(
-			(a, b) =>
-				a.addedIngredients.length +
-				a.removedIngredients.length -
-				(b.addedIngredients.length + b.removedIngredients.length)
-		);
-		const byName = favouritePages
-			.filter((page) => (' ' + page.title.toLowerCase()).includes(' ' + search.toLowerCase()))
-			.map((page) => ({ page }));
-		const byRawIngredients = favouritePages
-			.filter(isRecipe)
-			.filter((recipe) =>
-				search
-					.toLowerCase()
-					.split(' ')
-					.some((w) =>
-						recipe.ingredients
-							.flatMap((x) => x.raw)
-							.join()
-							.toLowerCase()
-							.includes(w)
-					)
-			)
-			.map((page) => ({ page }));
-		return [...byName, ...byIngredients, ...byRawIngredients] as {
-			page: Page;
-			matchedIngredients?: string[];
-			addedIngredients?: string[];
-			removedIngredients?: string[];
-		}[];
-	});
-
-	// Pages grouped by chapter for card view (ungrouped top-level pages first, then chapters)
-	let cardGroups = $derived.by(() => {
-		const ungrouped = favouritePages.filter((p) => !p.parent && !isChapter(p));
-		const chapters = data.rootPages
-			.filter(isChapter)
-			.map((chapter) => {
-				const cards = chapter.pages.filter((p) => favouritePages.includes(p));
-				const photoless =
-					cards.filter((p) => isRecipe(p) && p.photos.length > 0).length < cards.length / 2;
-				return {
-					chapter: chapter as typeof chapter | null,
-					cards: photoless
-						? [...cards].sort((a, b) => {
-								const aHas = isRecipe(a) && a.photos.length > 0 ? 0 : 1;
-								const bHas = isRecipe(b) && b.photos.length > 0 ? 0 : 1;
-								return aHas - bHas;
-							})
-						: cards
-				};
-			})
-			.filter((g) => g.cards.length > 0);
-		const result = [];
-		if (ungrouped.length > 0) result.push({ chapter: null, cards: ungrouped });
-		result.push(...chapters);
-		return result;
-	});
 
 	function mostlyPhotoless(cards: Page[]): boolean {
 		const withPhoto = cards.filter((p) => isRecipe(p) && p.photos.length > 0).length;
@@ -167,22 +116,48 @@
 	class="mb-3 d-none d-sm-block"
 />
 
-{#if viewMode === 'cards' && !search}
-	<!-- Card / grid view -->
-	{#each cardGroups as group (group.chapter?.slug ?? '__ungrouped')}
-		{#if group.chapter}
-			<a
-				href={group.chapter.slug}
-				class="chapter-header"
-				class:favourite={favourites.has(group.chapter.slug)}
-			>
-				<span>{group.chapter.title}</span>
-				<span class="chapter-star"><FavouriteStar slug={group.chapter.slug} /></span>
-			</a>
-		{/if}
-		{@const groupMostlyPhotoless = mostlyPhotoless(group.cards)}
+{#if viewMode === 'cards'}
+	<!-- Card / grid view TODO needs cleaning up -->
+	{@const ungrouped = filteredPages.filter((p) => !isChapter(p))}
+	{#if ungrouped.length > 0}
+		{@const groupMostlyPhotoless = mostlyPhotoless(ungrouped)}
 		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
-			{#each group.cards as item (item.slug)}
+			{#each ungrouped as item (item.slug)}
+				{@const hasPhoto = isRecipe(item) && item.photos.length > 0}
+				{@const compact = groupMostlyPhotoless && !hasPhoto}
+				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
+				<a
+					href={item.slug}
+					class="recipe-card"
+					class:favourite={favourites.has(item.slug)}
+					class:compact
+					class:span-two={spanTwo}
+				>
+					{#if hasPhoto}
+						<div class="card-img-wrap" class:stretch-img={spanTwo}>
+							<img src="/foto1/{item.photos[0][1]}.webp" alt={item.title} loading="lazy" />
+						</div>
+					{:else if !compact}
+						<div class="card-img-placeholder">
+							<i class="bi bi-journal-richtext"></i>
+						</div>
+					{/if}
+					<div class="card-body">
+						<span class="card-title">{item.title}</span>
+						<span class="card-star"><FavouriteStar slug={item.slug} /></span>
+					</div>
+				</a>
+			{/each}
+		</div>
+	{/if}
+	{#each filteredPages.filter(isChapter) as page (page.slug)}
+		<a href={page.slug} class="chapter-header" class:favourite={favourites.has(page.slug)}>
+			<span>{page.title}</span>
+			<span class="chapter-star"><FavouriteStar slug={page.slug} /></span>
+		</a>
+		{@const groupMostlyPhotoless = mostlyPhotoless(page.pages)}
+		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
+			{#each page.pages as item (item.slug)}
 				{@const hasPhoto = isRecipe(item) && item.photos.length > 0}
 				{@const compact = groupMostlyPhotoless && !hasPhoto}
 				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
@@ -212,53 +187,51 @@
 	{/each}
 {:else}
 	<!-- List view -->
-	<div class="contents">
+	<div class="contents" class:single-col={listItemCount < 15}>
 		<Nav class="flex-column">
-			{#if search}
-				{#each searchResults as result, i (`${result.page.slug}-${i}`)}
-					<PhotoTooltip photoUrl={previewUrl(result.page)} side="left"
-						><NavItem
-							><NavLink href={result.page.slug} class="d-flex"
-								><div class="page" style="padding-left: {level(result.page) * 15}px">
-									{#if result.page.number}<span>{result.page.number}.&nbsp;</span>{/if}{result.page
-										.title}
-								</div>
-								{#if 'matchedIngredients' in result}
-									<div>
-										{result.matchedIngredients!.join(', ')}{#if result.addedIngredients!.length}, {result
-												.addedIngredients!.length} další
-										{/if}
+			{#each filteredPages as page, i (`${page.slug}-${i}`)}
+				<PhotoTooltip photoUrl={previewUrl(page)} side="left">
+					<NavItem>
+						<NavLink href={page.slug} class="d-flex gap-3" style="margin-top: {level(page) * -5}px">
+							<div class="d-flex gap-2">
+								<span class="star"><FavouriteStar slug={page.slug} /></span>
+								<span class="page" style="padding-left: {level(page) * 15}px">
+									{#if page.number}<span>{page.number}.&nbsp;</span>{/if}{page.title}
+								</span>
+							</div>
+							<div>
+								{#if page.page}<span class="d-none d-sm-inline">str.&nbsp;</span>{page.page}{/if}
+							</div>
+						</NavLink>
+					</NavItem>
+				</PhotoTooltip>
+				{#if isChapter(page)}
+					{#each page.pages as subPage, j (`${subPage.slug}-${j}`)}
+						<PhotoTooltip photoUrl={previewUrl(subPage)} side="left">
+							<NavItem>
+								<NavLink
+									href={subPage.slug}
+									class="d-flex gap-3"
+									style="margin-top: {level(subPage) * -5}px"
+								>
+									<div class="d-flex gap-2">
+										<span class="star"><FavouriteStar slug={subPage.slug} /></span>
+										<span class="page" style="padding-left: {level(subPage) * 15}px">
+											{#if subPage.number}<span>{subPage.number}.&nbsp;</span>{/if}{subPage.title}
+										</span>
 									</div>
-								{/if}
-							</NavLink></NavItem
-						></PhotoTooltip
-					>
-				{:else}
-					Žádné recepty
-				{/each}
+									<div>
+										{#if subPage.page}<span class="d-none d-sm-inline">str.&nbsp;</span
+											>{subPage.page}{/if}
+									</div>
+								</NavLink>
+							</NavItem>
+						</PhotoTooltip>
+					{/each}
+				{/if}
 			{:else}
-				{#each favouritePages as item (item.slug)}
-					<PhotoTooltip photoUrl={previewUrl(item)} side="left"
-						><NavItem
-							><NavLink
-								href={item.slug}
-								class="d-flex gap-3"
-								style="margin-top: {level(item) * -5}px"
-							>
-								<div class="d-flex gap-2">
-									<span class="star"><FavouriteStar slug={item.slug} /></span>
-									<span class="page" style="padding-left: {level(item) * 15}px">
-										{#if item.number}<span>{item.number}.&nbsp;</span>{/if}{item.title}
-									</span>
-								</div>
-								<div>
-									{#if item.page}<span class="d-none d-sm-inline">str.&nbsp;</span>{item.page}{/if}
-								</div></NavLink
-							></NavItem
-						></PhotoTooltip
-					>
-				{/each}
-			{/if}
+				Žádné recepty
+			{/each}
 		</Nav>
 	</div>
 {/if}
@@ -623,7 +596,7 @@
 	}
 
 	@media screen and (min-width: 1200px) {
-		.contents {
+		.contents:not(.single-col) {
 			column-count: 2;
 			column-gap: 4rem;
 		}
