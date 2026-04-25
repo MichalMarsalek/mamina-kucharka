@@ -56,7 +56,8 @@
 		y = clamp(clientY - h / 2, viewportPadding, window.innerHeight - h - viewportPadding);
 	}
 
-	function show(e: MouseEvent) {
+	function show(e: PointerEvent) {
+		if (e.pointerType !== 'mouse') return;
 		if (!photoUrl) return;
 		if (!hostElement) return;
 		x = computeX();
@@ -68,7 +69,8 @@
 		visible = false;
 	}
 
-	function move(e: MouseEvent) {
+	function move(e: PointerEvent) {
+		if (e.pointerType !== 'mouse') return;
 		if (!visible) return;
 		placeVerticallyAt(e.clientY);
 	}

@@ -680,5 +680,11 @@
 			scroll-snap-align: start;
 			scroll-snap-stop: always;
 		}
+
+		.scaler-btn {
+			width: 34px;
+			height: 34px;
+			font-size: 1.3rem;
+		}
 	}
 </style>

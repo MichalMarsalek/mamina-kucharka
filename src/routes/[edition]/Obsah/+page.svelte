@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import { Input, Nav, NavItem, NavLink } from '@sveltestrap/sveltestrap';
 	import { isChapter, isRecipe, type Content, type Page } from '$lib/content';
 	import { getIngredientsInText } from '$lib/ingredients';
@@ -25,12 +26,28 @@
 	);
 	$effect(() => localStorage.setItem('tocView', viewMode));
 
-	function filterPages(pages: Page[]): Page[] {
+	// Snapshot of favourites for filtering — updated only when filter triggers change,
+	// not when individual favourites are toggled, so removing a favourite while
+	// favouritesOnly is on doesn't immediately hide the item.
+	let favouritesSnapshot = $state(new Set<string>([...favourites]));
+	$effect(() => {
+		void search;
+		void viewMode;
+		void favouritesOnly;
+		favouritesSnapshot = untrack(() => new Set([...favourites]));
+	});
+
+	function filterPages(pages: Page[], parentFavourite = false): Page[] {
 		return pages
-			.map((x) => (isChapter(x) ? { ...x, pages: filterPages(x.pages) } : x))
+			.map((x) =>
+				isChapter(x)
+					? { ...x, pages: filterPages(x.pages, favouritesSnapshot.has(x.slug)) }
+					: x
+			)
 			.filter(
 				(x) =>
-					((!favouritesOnly || favourites.has(x.slug)) && (search === '' || isPageMatch(x))) ||
+					((!favouritesOnly || parentFavourite || favouritesSnapshot.has(x.slug)) &&
+						(search === '' || isPageMatch(x))) ||
 					(isChapter(x) && x.pages.length > 0)
 			);
 	}
