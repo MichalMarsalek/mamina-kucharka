@@ -106,7 +106,7 @@
 <Input
 	bind:value={search}
 	placeholder="Hledat pomocí kombinace ingrediencí nebo názvu"
-	autofocus
+	autofocus={window.matchMedia('(pointer: fine)').matches}
 	class="mb-3"
 />
 <Input
