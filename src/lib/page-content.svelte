@@ -10,9 +10,10 @@
 	interface Props {
 		page?: Page;
 		edition?: string;
+		lowRes?: boolean;
 	}
 
-	let { page, edition = '' }: Props = $props();
+	let { page, edition = '', lowRes = false }: Props = $props();
 
 	const FRACTION_DENOMINATORS = [2, 3, 4, 5, 6, 8, 10, 12, 16];
 
@@ -157,7 +158,11 @@
 						<div class="photos">
 							{#each recipe.photos as [photoName, photoSlug] (photoSlug)}
 								<div class="photo">
-									<Image fluid src="/foto/{photoSlug}.webp" alt={photoName ?? page.title} />
+									<Image
+										fluid
+										src="/foto{lowRes ? '1' : ''}/{photoSlug}.webp"
+										alt={photoName ?? page.title}
+									/>
 									{#if photoName}
 										<p class="photo-caption">{photoName}</p>
 									{/if}
