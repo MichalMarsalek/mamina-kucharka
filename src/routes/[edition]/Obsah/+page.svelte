@@ -40,9 +40,7 @@
 	function filterPages(pages: Page[], parentFavourite = false): Page[] {
 		return pages
 			.map((x) =>
-				isChapter(x)
-					? { ...x, pages: filterPages(x.pages, favouritesSnapshot.has(x.slug)) }
-					: x
+				isChapter(x) ? { ...x, pages: filterPages(x.pages, favouritesSnapshot.has(x.slug)) } : x
 			)
 			.filter(
 				(x) =>
@@ -89,6 +87,12 @@
 	function except(a: string[], b: string[]) {
 		return a.filter((x) => !b.includes(x));
 	}
+
+	function sortForGrid(pages: Page[], mixed: boolean): Page[] {
+		if (!mixed) return pages;
+		const hasPhoto = (p: Page) => isRecipe(p) && p.photos.length > 0;
+		return [...pages].sort((a, b) => Number(hasPhoto(b)) - Number(hasPhoto(a)));
+	}
 </script>
 
 <div class="toc-header">
@@ -126,12 +130,9 @@
 	autofocus={window.matchMedia('(pointer: fine)').matches}
 	class="mb-3"
 />
-<Input
-	bind:checked={favouritesOnly}
-	type="switch"
-	label="Pouze oblíbené"
-	class="mb-3 d-none d-sm-block"
-/>
+<div class="desktop-favourites d-none d-sm-block mb-3">
+	<Input bind:checked={favouritesOnly} type="switch" label="Pouze oblíbené" class="mb-0" />
+</div>
 
 {#if viewMode === 'cards'}
 	<!-- Card / grid view TODO needs cleaning up -->
@@ -139,7 +140,7 @@
 	{#if ungrouped.length > 0}
 		{@const groupMostlyPhotoless = mostlyPhotoless(ungrouped)}
 		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
-			{#each ungrouped as item (item.slug)}
+			{#each sortForGrid(ungrouped, groupMostlyPhotoless) as item (item.slug)}
 				{@const hasPhoto = isRecipe(item) && item.photos.length > 0}
 				{@const compact = groupMostlyPhotoless && !hasPhoto}
 				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
@@ -174,7 +175,7 @@
 		</a>
 		{@const groupMostlyPhotoless = mostlyPhotoless(page.pages)}
 		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
-			{#each page.pages as item (item.slug)}
+			{#each sortForGrid(page.pages, groupMostlyPhotoless) as item (item.slug)}
 				{@const hasPhoto = isRecipe(item) && item.photos.length > 0}
 				{@const compact = groupMostlyPhotoless && !hasPhoto}
 				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
@@ -275,6 +276,13 @@
 	.mobile-favourites :global(.form-check-label) {
 		font-size: 0.85rem;
 		white-space: nowrap;
+	}
+
+	.mobile-favourites :global(.form-check-input),
+	.mobile-favourites :global(.form-check-label),
+	.desktop-favourites :global(.form-check-input),
+	.desktop-favourites :global(.form-check-label) {
+		cursor: pointer;
 	}
 
 	h1 {
