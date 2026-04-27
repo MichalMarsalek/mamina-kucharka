@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { untrack } from 'svelte';
 	import { Input, Nav, NavItem, NavLink } from '@sveltestrap/sveltestrap';
 	import { isChapter, isRecipe, type Chapter, type Content, type Page } from '$lib/content';
@@ -17,14 +18,18 @@
 	let search = $state('');
 	let searchIngredients = $derived(getIngredientsInText(search));
 
-	let favouritesOnly = $state(localStorage.getItem('favouritesOnly') == 'true');
-	$effect(() => localStorage.setItem('favouritesOnly', favouritesOnly ? 'true' : 'false'));
+	let favouritesOnly = $state(browser && localStorage.getItem('favouritesOnly') == 'true');
+	$effect(() => {
+		if (browser) localStorage.setItem('favouritesOnly', favouritesOnly ? 'true' : 'false');
+	});
 
-	const savedTocView = localStorage.getItem('tocView');
+	const savedTocView = browser ? localStorage.getItem('tocView') : null;
 	let viewMode = $state<'list' | 'cards'>(
 		savedTocView === 'list' || savedTocView === 'cards' ? savedTocView : 'cards'
 	);
-	$effect(() => localStorage.setItem('tocView', viewMode));
+	$effect(() => {
+		if (browser) localStorage.setItem('tocView', viewMode);
+	});
 
 	// Snapshot of favourites for filtering — updated only when filter triggers change,
 	// not when individual favourites are toggled, so removing a favourite while
