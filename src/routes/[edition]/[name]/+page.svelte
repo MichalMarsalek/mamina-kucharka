@@ -125,7 +125,7 @@
 		<div class="embla__container">
 			{#each pages as item (item.slug)}
 				<div class="embla__slide">
-					<PageContent page={item} {edition} />
+					<PageContent page={item} {edition} lowRes={item.slug !== pageName} />
 				</div>
 			{/each}
 		</div>

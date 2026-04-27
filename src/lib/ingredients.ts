@@ -116,6 +116,7 @@ pórek/pór
 	});
 
 export function getIngredientsInText(text: string) {
+	text = text.toLowerCase();
 	const res = ingredients
 		.filter((x) => x.variants.some((variant) => text.includes(variant)))
 		.map((x) => x.name);
