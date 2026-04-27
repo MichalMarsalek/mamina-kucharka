@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
 	import { Input, Nav, NavItem, NavLink } from '@sveltestrap/sveltestrap';
-	import { isChapter, isRecipe, type Content, type Page } from '$lib/content';
+	import { isChapter, isRecipe, type Chapter, type Content, type Page } from '$lib/content';
 	import { getIngredientsInText } from '$lib/ingredients';
 	import FavouriteStar from '$lib/favourite-star.svelte';
 	import favourites from '$lib/favourites.svelte';
@@ -70,6 +70,22 @@
 		filteredPages.reduce((n, p) => n + 1 + (isChapter(p) ? p.pages.length : 0), 0)
 	);
 
+	let filteredPagesWithRootPagesInVirtualChapters = $derived.by(() => {
+		const result: (Chapter | { pages: Page[] })[] = [];
+		for (const page of filteredPages) {
+			if (isChapter(page)) {
+				result.push(page);
+			} else {
+				if (result.length === 0 || 'title' in result[result.length - 1]) {
+					result.push({ pages: [page] });
+				} else {
+					result[result.length - 1].pages.push(page);
+				}
+			}
+		}
+		return result;
+	});
+
 	function mostlyPhotoless(cards: Page[]): boolean {
 		const withPhoto = cards.filter((p) => isRecipe(p) && p.photos.length > 0).length;
 		return withPhoto < cards.length / 2;
@@ -135,44 +151,13 @@
 </div>
 
 {#if viewMode === 'cards'}
-	<!-- Card / grid view TODO needs cleaning up -->
-	{@const ungrouped = filteredPages.filter((p) => !isChapter(p))}
-	{#if ungrouped.length > 0}
-		{@const groupMostlyPhotoless = mostlyPhotoless(ungrouped)}
-		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
-			{#each sortForGrid(ungrouped, groupMostlyPhotoless) as item (item.slug)}
-				{@const hasPhoto = isRecipe(item) && item.photos.length > 0}
-				{@const compact = groupMostlyPhotoless && !hasPhoto}
-				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
-				<a
-					href={item.slug}
-					class="recipe-card"
-					class:favourite={favourites.has(item.slug)}
-					class:compact
-					class:span-two={spanTwo}
-				>
-					{#if hasPhoto}
-						<div class="card-img-wrap" class:stretch-img={spanTwo}>
-							<img src="/foto1/{item.photos[0][1]}.webp" alt={item.title} loading="lazy" />
-						</div>
-					{:else if !compact}
-						<div class="card-img-placeholder">
-							<i class="bi bi-journal-richtext"></i>
-						</div>
-					{/if}
-					<div class="card-body">
-						<span class="card-title">{item.title}</span>
-						<span class="card-star"><FavouriteStar slug={item.slug} /></span>
-					</div>
-				</a>
-			{/each}
-		</div>
-	{/if}
-	{#each filteredPages.filter(isChapter) as page (page.slug)}
-		<a href={page.slug} class="chapter-header" class:favourite={favourites.has(page.slug)}>
-			<span>{page.title}</span>
-			<span class="chapter-star"><FavouriteStar slug={page.slug} /></span>
-		</a>
+	{#each filteredPagesWithRootPagesInVirtualChapters as page}
+		{#if 'title' in page}
+			<a href={page.slug} class="chapter-header" class:favourite={favourites.has(page.slug)}>
+				<span>{page.title}</span>
+				<span class="chapter-star"><FavouriteStar slug={page.slug} /></span>
+			</a>
+		{/if}
 		{@const groupMostlyPhotoless = mostlyPhotoless(page.pages)}
 		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
 			{#each sortForGrid(page.pages, groupMostlyPhotoless) as item (item.slug)}
