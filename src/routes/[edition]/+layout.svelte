@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import {
 		Button,
 		Col,
@@ -26,7 +27,7 @@
 
 	let edition = $state($page.params.edition);
 	$effect(() => {
-		if (edition) localStorage.setItem('edition', edition);
+		if (browser && edition) localStorage.setItem('edition', edition);
 		const currentPath = $page.url.pathname;
 		const newPath = currentPath.replace(`/${$page.params.edition}/`, `/${edition}/`);
 		if (currentPath !== newPath) {
@@ -34,8 +35,12 @@
 		}
 	});
 
-	let theme = $state((localStorage.getItem('theme') ?? 'auto') as 'light' | 'dark' | 'auto');
-	$effect(() => localStorage.setItem('theme', theme));
+	let theme = $state(
+		((browser ? localStorage.getItem('theme') : null) ?? 'auto') as 'light' | 'dark' | 'auto'
+	);
+	$effect(() => {
+		if (browser) localStorage.setItem('theme', theme);
+	});
 
 	let pages = $derived(data.pages);
 	let recipes = $derived(pages.filter(isRecipe));

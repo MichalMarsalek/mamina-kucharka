@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { defaultEdition } from '$lib/editions';
 	import { onMount } from 'svelte';
 
-	let edition = $state(localStorage.getItem('edition') ?? defaultEdition);
+	let edition = $state(browser ? (localStorage.getItem('edition') ?? defaultEdition) : defaultEdition);
 	let contentPath = $derived(`/${edition}/Obsah`);
 
 	function markCoverMorph() {
