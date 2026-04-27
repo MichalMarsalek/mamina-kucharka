@@ -194,9 +194,21 @@
 								<div class="photo">
 									<Image
 										fluid
-										src="/foto{lowRes ? '1' : ''}/{photoSlug}.webp"
+										class="base-photo"
+										src="/foto1/{photoSlug}.webp"
 										alt={photoName ?? page.title}
 									/>
+									{#if !lowRes}
+										<Image
+											fluid
+											class="highres-photo"
+											src="/foto/{photoSlug}.webp"
+											alt=""
+											aria-hidden="true"
+											loading="lazy"
+											decoding="async"
+										/>
+									{/if}
 									{#if photoName}
 										<p class="photo-caption">{photoName}</p>
 									{/if}
@@ -399,6 +411,20 @@
 		background: transparent;
 		width: 100%;
 		display: block;
+	}
+
+	:global(.base-photo) {
+		display: block;
+		width: 100%;
+	}
+
+	:global(.highres-photo) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		pointer-events: none;
 	}
 
 	.photo:hover {
