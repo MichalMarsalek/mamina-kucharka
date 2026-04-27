@@ -2,6 +2,8 @@
 	import { isChapter, isRecipe, isValuesField, type Page } from '$lib/content';
 	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
 	import { SvelteSet } from 'svelte/reactivity';
+	import { tweened } from 'svelte/motion';
+	import { cubicOut } from 'svelte/easing';
 	import { fade, fly } from 'svelte/transition';
 	import SvelteMarkdown from 'svelte-markdown';
 	import AnchorRenderer from '$lib/anchor-renderer.svelte';
@@ -62,6 +64,10 @@
 		return value < 1 ? formatFraction(value) : formatDecimal(value);
 	}
 
+	function formatAnimated(value: number): string {
+		return String(Math.round(value));
+	}
+
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const markdownRenderers = { link: AnchorRenderer as any };
 
@@ -69,6 +75,8 @@
 	let checkedIngredients = new SvelteSet<number>();
 	let completedSteps = new SvelteSet<number>();
 	let portionMultiplier = $state(1);
+	const animatedPortionMultiplier = tweened(1, { duration: 750, easing: cubicOut });
+	let isPortionAnimating = $state(false);
 	let recipePortions = $derived(
 		page && isRecipe(page) && page.portions ? page.portions * portionMultiplier : null
 	);
@@ -79,6 +87,8 @@
 		checkedIngredients.clear();
 		completedSteps.clear();
 		portionMultiplier = 1;
+		isPortionAnimating = false;
+		void animatedPortionMultiplier.set(1, { duration: 0 });
 	});
 
 	function toggleIngredient(i: number) {
@@ -89,23 +99,39 @@
 		if (!completedSteps.delete(i)) completedSteps.add(i);
 	}
 
-	function scaleIngredient(raw: string, multiplier: number): string {
-		if (multiplier === 1) return raw;
+	function scaleIngredient(
+		raw: string,
+		multiplier: number,
+		animated = false,
+		targetMultiplier = multiplier
+	): string {
+		if (!animated && multiplier === 1) return raw;
+
+		const formatValue = (original: number, scaledCurrent: number, scaledTarget: number) => {
+			if (animated && original > 5) {
+				return formatAnimated(scaledCurrent);
+			}
+			return formatScaled(scaledTarget);
+		};
 
 		const fractionTokens: string[] = [];
 		let result = raw.replace(/\b(\d+)\s*\/\s*(\d+)\b/g, (_, n, d) => {
 			const num = Number(n);
 			const den = Number(d);
 			if (!Number.isFinite(num) || !Number.isFinite(den) || den === 0) return `${n}/${d}`;
-			const scaled = (num / den) * multiplier;
+			const original = num / den;
+			const scaledCurrent = original * multiplier;
+			const scaledTarget = original * targetMultiplier;
 			const token = `__FRACTION_${'x'.repeat(fractionTokens.length + 1)}__`;
-			fractionTokens.push(formatScaled(scaled));
+			fractionTokens.push(formatValue(original, scaledCurrent, scaledTarget));
 			return token;
 		});
 
 		result = result.replace(/\d+(?:[.,]\d+)?/g, (match) => {
 			const num = parseFloat(match.replace(',', '.'));
-			return formatScaled(num * multiplier);
+			const scaledCurrent = num * multiplier;
+			const scaledTarget = num * targetMultiplier;
+			return formatValue(num, scaledCurrent, scaledTarget);
 		});
 
 		return result.replace(/__FRACTION_(x+)__/g, (_, xs) => fractionTokens[xs.length - 1] ?? _);
@@ -144,7 +170,15 @@
 
 	function adjustPortion(delta: number) {
 		const next = portionMultiplier + delta;
-		if (next >= 0.5 && next <= 10) portionMultiplier = next;
+		if (next < 0.5 || next > 10 || next === portionMultiplier) return;
+
+		isPortionAnimating = true;
+		portionMultiplier = next;
+		void animatedPortionMultiplier.set(next).then(() => {
+			if (portionMultiplier === next) {
+				isPortionAnimating = false;
+			}
+		});
 	}
 </script>
 
@@ -228,7 +262,7 @@
 										{#if portionMultiplier !== 1}
 											<button
 												class="reset-btn"
-												onclick={() => (portionMultiplier = 1)}
+												onclick={() => adjustPortion(1 - portionMultiplier)}
 												title="Resetovat">↺</button
 											>
 										{/if}
@@ -253,7 +287,12 @@
 											>
 												<span class="check-icon">{checkedIngredients.has(i) ? '✓' : '○'}</span>
 												<span class="ingredient-text"
-													>{scaleIngredient(item.raw, portionMultiplier)}</span
+													>{scaleIngredient(
+														item.raw,
+														$animatedPortionMultiplier,
+														isPortionAnimating,
+														portionMultiplier
+													)}</span
 												>
 											</button>
 										</li>
