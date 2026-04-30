@@ -12,6 +12,7 @@ export default defineConfig({
 			manifest: false, // use static/site.webmanifest
 			workbox: {
 				globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff,woff2}'],
+				globIgnores: ['**/icons/**'],
 				runtimeCaching: [
 					{
 						urlPattern: /\.nt$/,
