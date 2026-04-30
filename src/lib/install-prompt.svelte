@@ -102,7 +102,7 @@
 
 	let isCoverPage = $derived(page.url.pathname === '/');
 	let isOElektronickeVerziPage = $derived(
-		/^\/[\w-]+\/o-elektronicke-verzi$/i.test(page.url.pathname)
+		/^\/[\w-]+\/o-elektronické-verzi$/i.test(page.url.pathname)
 	);
 	let alwaysShow = $derived(
 		isMobile && (isCoverPage || isOElektronickeVerziPage) && deferredPrompt !== null
