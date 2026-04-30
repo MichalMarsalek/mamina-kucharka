@@ -64,10 +64,12 @@
 	>
 		<div class="tilt-inner">
 			<div class="overlay"></div>
-			<div class="text-content">
-				<h1 class:show={mounted}><span>Mámina</span><br /><span>kuchařka</span></h1>
-				<h2 class:show={mounted}><span>aneb</span><br /><span>Když kluci vyletí z hnízda</span></h2>
-				<p class="hint" class:show={mounted}>↵ kliknutím otevřít</p>
+			<div class="photo-frame">
+				<div class="text-content">
+					<h1 class:show={mounted}><span>Mámina</span><br /><span>kuchařka</span></h1>
+					<h2 class:show={mounted}><span>aneb</span><br /><span>Když kluci vyletí z hnízda</span></h2>
+					<p class="hint" class:show={mounted}>↵ kliknutím otevřít</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -99,8 +101,8 @@
 	.tilt-inner {
 		height: 100%;
 		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		align-items: center;
+		justify-content: center;
 		position: relative;
 	}
 
@@ -111,20 +113,26 @@
 		pointer-events: none;
 	}
 
-	.text-content {
+	.photo-frame {
+		aspect-ratio: 7443 / 10247;
+		width: 100%;
+		max-height: 100%;
 		position: relative;
-		height: 100%;
-		padding: 0;
 		transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
 		transition: transform 0.12s ease-out;
 		will-change: transform;
 	}
 
+	.text-content {
+		position: absolute;
+		inset: 0;
+	}
+
 	h1 {
 		position: absolute;
-		top: max(0.5rem, env(safe-area-inset-top));
+		top: 0.5rem;
 		left: 50%;
-		width: min(92vw, 1100px);
+		width: 92%;
 		font-size: clamp(2rem, min(10vh, 15vw), 8rem);
 		text-transform: uppercase;
 		text-align: center;
@@ -144,9 +152,9 @@
 
 	h2 {
 		position: absolute;
-		bottom: max(0.5rem, env(safe-area-inset-bottom));
+		bottom: 0.5rem;
 		left: 50%;
-		width: min(92vw, 1100px);
+		width: 92%;
 		font-size: clamp(1rem, min(5vh, 7.5vw), 4rem);
 		text-align: center;
 		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.45);
@@ -166,7 +174,7 @@
 	.hint {
 		position: absolute;
 		right: 1rem;
-		bottom: max(0.5rem, env(safe-area-inset-bottom));
+		bottom: 0.5rem;
 		text-align: center;
 		font-size: clamp(0.7rem, 2vw, 0.95rem);
 		letter-spacing: 0.12em;
@@ -190,7 +198,7 @@
 
 	@media screen and (max-width: 768px) {
 		h2 {
-			bottom: calc(max(0.5rem, env(safe-area-inset-bottom)) + 2.5rem);
+			bottom: 2.5rem;
 		}
 	}
 </style>
