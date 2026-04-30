@@ -90,7 +90,7 @@ function getNumber(x: unknown): number | undefined {
 	return isNaN(res) ? undefined : res;
 }
 
-function slugify(x: string) {
+export function slugify(x: string) {
 	return x.replaceAll(/[^\s\p{L}\d-]/gu, '').replaceAll(/\s+/g, '-');
 }
 

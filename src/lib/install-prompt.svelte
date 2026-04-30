@@ -22,17 +22,31 @@
 
 	function isInStandaloneMode() {
 		return (
-			('standalone' in navigator &&
-				(navigator as { standalone?: boolean }).standalone === true) ||
-			window.matchMedia('(display-mode: standalone)').matches
+			('standalone' in navigator && (navigator as { standalone?: boolean }).standalone === true) ||
+			window.matchMedia('(display-mode: standalone)').matches ||
+			window.matchMedia('(display-mode: fullscreen)').matches ||
+			window.matchMedia('(display-mode: minimal-ui)').matches ||
+			window.matchMedia('(display-mode: window-controls-overlay)').matches ||
+			document.referrer.startsWith('android-app://')
 		);
+	}
+
+	function isMobileDevice() {
+		const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+		const smallViewport = window.matchMedia('(max-width: 768px)').matches;
+		return hasCoarsePointer && smallViewport;
 	}
 
 	onMount(() => {
 		standalone = isInStandaloneMode();
 		if (standalone) return;
 
-		isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+		isMobile = isMobileDevice();
+
+		const displayModeStandalone = window.matchMedia('(display-mode: standalone)');
+		const displayModeFullscreen = window.matchMedia('(display-mode: fullscreen)');
+		const displayModeMinimalUi = window.matchMedia('(display-mode: minimal-ui)');
+		const displayModeOverlay = window.matchMedia('(display-mode: window-controls-overlay)');
 
 		const stored = localStorage.getItem('pwa-install-dismissed');
 		if (stored) {
@@ -54,8 +68,22 @@
 			deferredPrompt = e as BeforeInstallPromptEvent;
 		};
 
+		const onDisplayModeChange = () => {
+			standalone = isInStandaloneMode();
+		};
+
 		window.addEventListener('beforeinstallprompt', handler);
-		return () => window.removeEventListener('beforeinstallprompt', handler);
+		displayModeStandalone.addEventListener('change', onDisplayModeChange);
+		displayModeFullscreen.addEventListener('change', onDisplayModeChange);
+		displayModeMinimalUi.addEventListener('change', onDisplayModeChange);
+		displayModeOverlay.addEventListener('change', onDisplayModeChange);
+		return () => {
+			window.removeEventListener('beforeinstallprompt', handler);
+			displayModeStandalone.removeEventListener('change', onDisplayModeChange);
+			displayModeFullscreen.removeEventListener('change', onDisplayModeChange);
+			displayModeMinimalUi.removeEventListener('change', onDisplayModeChange);
+			displayModeOverlay.removeEventListener('change', onDisplayModeChange);
+		};
 	});
 
 	async function install() {
@@ -73,12 +101,22 @@
 	}
 
 	let isCoverPage = $derived(page.url.pathname === '/');
-	let alwaysShow = $derived(isMobile && isCoverPage);
-	let showGenericHint = $derived(alwaysShow && !showIosHint && deferredPrompt === null);
+	let isOElektronickeVerziPage = $derived(
+		/^\/[\w-]+\/o-elektronicke-verzi$/i.test(page.url.pathname)
+	);
+	let alwaysShow = $derived(
+		isMobile && (isCoverPage || isOElektronickeVerziPage) && deferredPrompt !== null
+	);
+	let showGenericHint = $derived(
+		isMobile &&
+			(isCoverPage || isOElektronickeVerziPage) &&
+			!showIosHint &&
+			deferredPrompt === null &&
+			!dismissed
+	);
 	let visible = $derived(
 		!standalone &&
-			(deferredPrompt !== null || showIosHint || showGenericHint) &&
-			(!dismissed || alwaysShow)
+			((deferredPrompt !== null && (alwaysShow || !dismissed)) || showIosHint || showGenericHint)
 	);
 </script>
 
