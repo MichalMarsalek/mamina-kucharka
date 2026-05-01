@@ -129,7 +129,8 @@
 	}
 
 	function setPhotoOffset(photoSlug: string, offset: number) {
-		const rounded = Math.round(offset * 100) / 100;
+		const clamped = Math.max(-50, Math.min(50, offset));
+		const rounded = Math.round(clamped * 100) / 100;
 		const next = { ...photoOffsets };
 		if (rounded === 0) {
 			delete next[photoSlug];

@@ -88,7 +88,11 @@ export function parsePhotoOffsets(nestedText: string): Record<string, number> {
 		if (!Number.isFinite(parsedValue) || parsedValue === 0) {
 			continue;
 		}
-		offsets[slug] = parsedValue;
+		const clampedValue = Math.max(-50, Math.min(50, parsedValue));
+		if (clampedValue === 0) {
+			continue;
+		}
+		offsets[slug] = clampedValue;
 	}
 
 	return offsets;
