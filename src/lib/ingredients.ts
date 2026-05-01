@@ -206,8 +206,9 @@ const unitToken = `(?:${escapedUnits.join('|')})`;
 const numberToken = String.raw`(?:\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)`;
 const numberRangeToken = String.raw`${numberToken}(?:\s*-\s*${numberToken})?`;
 const numberWithUnitToken = String.raw`${numberRangeToken}\s*${unitToken}`;
+const numberQuantityToken = String.raw`(?:${numberWithUnitToken}|${numberRangeToken})(?!\s*[%°‰])`;
 const quantityRegex = new RegExp(
-	`(?<![\\p{L}\\d])(${numberWithUnitToken}|${numberRangeToken}|${unitToken})(?![\\p{L}\\d])`,
+	`(?<![\\p{L}\\d])(${numberQuantityToken}|${unitToken})(?![\\p{L}\\d])`,
 	'giu'
 );
 const quantityWithUnitRegex = new RegExp(`^(${numberRangeToken})\\s*(${unitToken})$`, 'iu');
