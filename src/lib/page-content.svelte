@@ -24,6 +24,24 @@
 
 	const FRACTION_DENOMINATORS = [2, 3, 4, 5, 6, 8, 10, 12, 16];
 
+	const UNICODE_FRACTIONS: Record<string, string> = {
+		'1/2': '½',
+		'1/3': '⅓',
+		'2/3': '⅔',
+		'1/4': '¼',
+		'3/4': '¾',
+		'1/5': '⅕',
+		'2/5': '⅖',
+		'3/5': '⅗',
+		'4/5': '⅘',
+		'1/6': '⅙',
+		'5/6': '⅚',
+		'1/8': '⅛',
+		'3/8': '⅜',
+		'5/8': '⅝',
+		'7/8': '⅞'
+	};
+
 	function gcd(a: number, b: number): number {
 		return b === 0 ? a : gcd(b, a % b);
 	}
@@ -61,8 +79,10 @@
 		const simpNum = bestNum / d;
 		const simpDen = bestDen / d;
 
-		if (whole === 0) return `${simpNum}/${simpDen}`;
-		return `${whole} ${simpNum}/${simpDen}`;
+		const fracStr = `${simpNum}/${simpDen}`;
+		const unicodeFrac = UNICODE_FRACTIONS[fracStr] ?? fracStr;
+		if (whole === 0) return unicodeFrac;
+		return `${whole}\u2009${unicodeFrac}`;
 	}
 
 	function formatScaled(value: number): string {
@@ -124,8 +144,6 @@
 		animated = false,
 		targetMultiplier = multiplier
 	): string {
-		if (!animated && multiplier === 1) return rawQuantity;
-
 		const numberWithUnit = rawQuantity.trim().match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)\s+(\S+)$/u);
 		if (numberWithUnit) {
 			const original = parseNumericToken(numberWithUnit[1]);
