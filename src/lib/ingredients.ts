@@ -1,3 +1,33 @@
+export const units = `
+l/l/l
+ml/ml/ml
+g/g/g
+kg/kg/kg
+dkg/dkg/dkg
+stroužek/stroužky/stroužků
+lžíce/lžíce/lžic
+lžička/lžičky/lžiček
+kelímek/kelímky/kelímků
+špetka/špetky/špetek
+plechovka/plechovky/plechovek
+plátek/plátky/plátků
+malý/malé/malých
+velký/velké/velkých
+malá/malé/malých
+velká/velké/velkých
+malé/malá/malých
+velké/velká/velkých
+střední/střední/středních
+kus/kus/kusů
+hrnek/hrnky/hrnků
+kostka/kostky/kostek
+hrst/hrsti/hrstí
+plná lžička/plné lžičky/plných lžiček
+kousek/kousky/kousků
+kulička/kuličky/kuliček
+balení/balení/balení
+`.split('\n').map((x) => x.split('/').map(x => x.trim()));
+
 export const ingredients = `
 sůl/sol
 pepř

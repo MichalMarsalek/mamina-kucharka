@@ -150,13 +150,13 @@ Stránky:
         Porce: 1
         Strana: 20
         Ingredience:
-          - 2-3 vejce
-          - lžička oleje
-          - sůl
-          - 2 plátky šunky
-          - 2 plátky sýra
-          - půlka cibule
-          - pečivo
+          - [2-3 vejce]
+          - [lžička oleje]
+          - [sůl]
+          - [2 plátky šunky]
+          - [2 plátky sýra]
+          - [půlka cibule]
+          - [pečivo]
         Postup:
           - Cibuli nakrájej nadrobno a osmahni na rozpáleném oleji na pánvičce. 
           - Vejce rozšlehej vidličkou a osol, ale nepřesol (sůl vždycky můžeš přidat). Šunku a sýr nakrájej na malé kousíčky a vmíchej do vajec. 
@@ -170,11 +170,11 @@ Stránky:
         Porce: 2
         Strana: 21
         Ingredience:
-          - plechovka fazolek v rajčatové omáčce
-          - 2 - 4 vejce
-          - 10 - 15 dkg anglické slaniny v plátcích
-          - bílé pečivo
-          - sůl
+          - [plechovka fazolek v rajčatové omáčce]
+          - [2 - 4 vejce]
+          - [10 - 15 dkg anglické slaniny v plátcích]
+          - [bílé pečivo]
+          - [sůl]
         Postup:
           - Anglickou slaninu osmahni na pánvičce na sucho, volské oko na trošce oleje pomalu na mírném plameni, osol. 
           - Můžeš i přiklopit pokličkou.
@@ -188,12 +188,12 @@ Stránky:
         Porce: 1
         Strana: 22
         Ingredience:
-          - bílý toustový chleba (2 krajíce)
-          - baby špenát
-          - majonéza
-          - vajíčko
-          - 2 plátky slaniny
-          - čedar
+          - [bílý toustový chleba] (2 krajíce)
+          - [baby špenát]
+          - [majonéza]
+          - [vajíčko]
+          - [2 plátky slaniny]
+          - [čedar]
         Postup:
           - Slaninu připravte na pánvi, tak jak vám chutná.
           - Mezitím připravte volské oko, osolte, opepřete.
@@ -211,14 +211,14 @@ Stránky:
         Porce: 1
         Strana: 23
         Ingredience:
-          - 2 až 3 vejce (záleží, jaký máš hlad )
-          - 1/4 cibule (není nezbytná)
-          - 3 plátky šunky nakrájené na několik kousků
-          - 2 plátky sýra
-          - sůl
-          - olej na smažení
-          - pečivo
-          - kečup
+          - [2 až 3 vejce] (záleží, jaký máš hlad )
+          - [1/4 cibule] (není nezbytná)
+          - [3 plátky šunky] nakrájené na několik kousků
+          - [2 plátky sýra]
+          - [sůl]
+          - [olej na smažení]
+          - [pečivo]
+          - [kečup]
         Postup:
           - Cibuli nakrájej na plátky, v míse rozkvedlej vejce (stačí jen trošku, bude pak bíložluté) a trochu osol.
           - Na pánvičce rozehřej lžíci oleje. Dej na něj cibuli a šunku a nechej chvilku opéct. Zalej vejci a nechej usmažit. Na závěr polož na omeletu sýr, roztopí se teplem.
@@ -250,17 +250,17 @@ Stránky:
         Porce: 2
         Strana: 28
         Ingredience:
-          - 2 stroužky česneku
-          - cibule (můžeš vynechat, ale pro chuť polévky je lepší ji dát, stejně se bude mixovat)
-          - olivový olej
-          - sůl, pepř
-          - 400 g plechovka loupaných rajčat (lepší) nebo 400 g nakrájených oloupaných rajčat
-          - 200 ml zeleninového vývaru (nebo vody, pak bych přidala lžičku Podravky)
-          - 2 bobkové listy
-          - velká hrst lístků bazalky
-          - parmazánový sýr, cca 60 g
-          - zakysaná smetana na ozdobu
-          - opečené tousty nebo k podávání
+          - [2 stroužky česneku]
+          - [cibule] (můžeš vynechat, ale pro chuť polévky je lepší ji dát, stejně se bude mixovat)
+          - [olivový olej]
+          - [sůl], [pepř]
+          - [400 g plechovka loupaných rajčat] (lepší) nebo 400 g nakrájených oloupaných rajčat
+          - [200 ml zeleninového vývaru] (nebo vody, pak bych přidala lžičku Podravky)
+          - [2 bobkové listy]
+          - [velká hrst lístků bazalky]
+          - [parmazánový sýr, cca 60 g]
+          - [zakysaná smetana na ozdobu]
+          - [opečené tousty] nebo k podávání
         Postup:
           - Na troše olivového oleje zpěň cibulku a česnek nasekané najemno (nebo jen chvilku česnek, opravdu ne dlouho, ať nezhořkne).
           - Přidej krájená loupaná rajčata, vývar (jinými slovy: zalij horkou vodou a přidej čtvrt kostky zeleninového bujónu), bobkový list, osol, opepři a vař asi 15 minut.
@@ -276,15 +276,15 @@ Stránky:
         Strana: 30
   
         Ingredience:
-          - 1 malý rajčatový protlak
-          - olej
-          - hladká mouka
-          - 2 až 3 bobkové listy
-          - nové koření, 5 kuliček
-          - mletá skořice
-          - 3 kostky cukru
-          - kečup
-          - nudle (já upřednostňuji vaječné)
+          - [1 malý rajčatový protlak]
+          - [olej]
+          - [hladká mouka]
+          - [2 až 3 bobkové listy]
+          - [nové koření, 5 kuliček]
+          - [mletá skořice]
+          - [3 kostky cukru]
+          - [kečup]
+          - [nudle] (já upřednostňuji vaječné)
   
         Postup:
           - Začíná se zásmažkou = jíškou. Dej zahřát lžíci oleje, přidej a rozmíchej lžíci hladké mouky a zalij decilitrem vlažné vody. Dále zahřívej a dobře míchej. Zhoustne to. Je-li to husté moc, přilij ještě trochu vody a znovu míchej. Celé to trvá chvilku a je hotovo. Nikdy neodcházej a nepřestávej míchat, aby nevznikly žmolky!
@@ -303,15 +303,15 @@ Stránky:
         Strana: 32
 
         Ingredience:
-          - 2 stroužky česneku
-          - hrnek čočky (250 ml)
-          - hladká mouka
-          - olej
-          - sůl
-          - pepř
-          - 1 lžička Vegety či Podravky (můžeš vynechat)
-          - 1 vejce
-          - cca 1 lžíce octu
+          - [2 stroužky česneku]
+          - [hrnek čočky] (250 ml)
+          - [hladká mouka]
+          - [olej]
+          - [sůl]
+          - [pepř]
+          - [1 lžička Vegety] či Podravky (můžeš vynechat)
+          - [1 vejce]
+          - [cca 1 lžíce octu]
 
         Postup:
           - Čočku několikrát propláchni v teplé vodě. Pak zalij cca 500 ml vody a nechej vařit asi půl hodinky. Zkus, zda je čočka měkká a když ne, ještě povař. Když ano, tak přidej prolisovaný česnek, Vegetu či Podravku (nepřežeň, obsahuje sůl), dosol, opepři a přidej ocet (po troškách, přidat můžeš vždycky, ubrat už ne).
@@ -328,16 +328,16 @@ Stránky:
         Strana: 34
 
         Ingredience:
-          - 1 malá cibule najemno nasekaná nebo ji rozmixuj na kaši (polévka s ní bude chutnější) 
-          - olivový olej (1 lžíce)
-          - cca 200 g mrkve
-          - 2 stroužky prolisovaného česneku
-          - 1/2 malého rajčatového protlaku
-          - cca 100 g krájených rajčat (podle libosti) nebo ½ plechovky krájených rajčat
-          - cca 400 ml zeleninového vývaru
-          - 90 g červené čočky v suchém stavu
-          - tymián
-          - sůl, pepř
+          - [1 malá cibule] najemno nasekaná nebo ji rozmixuj na kaši (polévka s ní bude chutnější)
+          - [olivový olej] (1 lžíce)
+          - [cca 200 g mrkve]
+          - [2 stroužky prolisovaného česneku]
+          - [1/2 malého rajčatového protlaku]
+          - [cca 100 g krájených rajčat] (podle libosti) nebo ½ plechovky krájených rajčat
+          - [cca 400 ml zeleninového vývaru]
+          - [90 g červené čočky v suchém stavu]
+          - [tymián]
+          - [sůl], [pepř]
 
         Postup:
           - Na oleji osmahni cibulku, přidej nahrubo nastrouhanou mrkev
@@ -357,15 +357,15 @@ Stránky:
         Strana: 36
 
         Ingredience:
-          - 240 g mraženého hrášku
-          - zeleninový vývar či bujón, cca 200 ml
-          - 1 střední cibule nebo kousek pórku či jarní cibulky (můžeš vynechat, ale pro chuť polévky je lepší ji dát, polévka se bude mixovat)
-          - 80 g másla
-          - 1 smetany ke šlehání (bude to sladší) nebo na vaření
-          - sůl
-          - pepř
-          - je-li třeba, 1 lžička cukru
-          - zakysaná smetana či hotová šlehačka na servírování
+          - [240 g mraženého hrášku]
+          - [zeleninový vývar] či bujón, cca 200 ml
+          - [1 střední cibule] nebo kousek pórku či jarní cibulky (můžeš vynechat, ale pro chuť polévky je lepší ji dát, polévka se bude mixovat)
+          - [80 g másla]
+          - [1 smetany ke šlehání] (bude to sladší) nebo na vaření
+          - [sůl]
+          - [pepř]
+          - [je-li třeba, 1 lžička cukru]
+          - [zakysaná smetana] či hotová šlehačka na servírování
 
         Postup:
           - Cibuli nakrájej najemno a dej do hrnce s rozpuštěným máslem. Osmahni cibuli do měkka a občas promíchej.  Anebo cibuli vynechej.
@@ -382,14 +382,14 @@ Stránky:
         Strana: 38
 
         Ingredience:
-          - 1 malá nebo půlka cibule (rozmixuj na kaši – dodá chuť, ale nebudeš o ní vědět ) 
-          - 1 lžíce olivového oleje
-          - 2 mrkve
-          - 4 stroužky česneku
-          - 400 g předvařených červených fazolí, tj. 1 plechovka cca 400 ml zeleninového bujónu
-          - 100 ml kokosového mléka (i bez něj je polévka chutná, ale dost jiná)
-          - sůl, pepř
-          - hrst zelené petrželky
+          - [1 malá] nebo půlka cibule (rozmixuj na kaši – dodá chuť, ale nebudeš o ní vědět )
+          - [1 lžíce olivového oleje]
+          - [2 mrkve]
+          - [4 stroužky česneku]
+          - [400 g předvařených červených fazolí, tj. 1 plechovka cca 400 ml zeleninového bujónu]
+          - [100 ml kokosového mléka] (i bez něj je polévka chutná, ale dost jiná)
+          - [sůl], [pepř]
+          - [hrst zelené petrželky]
 
         Postup:
           - V hrnci rozehřej olej, přidej cibulku a mrkev nakrájenou na kolečka a orestuj cca 5 minut. Pak přidej prolisovaný česnek
@@ -408,17 +408,17 @@ Stránky:
         Strana: 40
 
         Ingredience:
-          - lžíce olivového oleje
-          - 1 malá šalotka nebo půlka cibule rozmixované na kaši
-          - stroužek česneku
-          - 1 velká mrkev
-          - cca 240 g předvařené cizrny z plechovky (nebo přes noc namočené a druhý den hodinu vařené)
-          - cca 400 ml zeleninového vývaru či bujónu z kostky
-          - lžíce Tamari omáčky (když nemám, tak vynechám )
-          - hrstka čerstvé bazalky
-          - cca 200 ml krájených rajčat z plechovky
-          - 30 g zakysané smetany k podávání
-          - sůl, pepř
+          - [lžíce olivového oleje]
+          - [1 malá šalotka] nebo půlka cibule rozmixované na kaši
+          - [stroužek česneku]
+          - [1 velká mrkev]
+          - [cca 240 g předvařené cizrny z plechovky] (nebo přes noc namočené a druhý den hodinu vařené)
+          - [cca 400 ml zeleninového vývaru] či bujónu z kostky
+          - [lžíce Tamari omáčky] (když nemám, tak vynechám )
+          - [hrstka čerstvé bazalky]
+          - [cca 200 ml krájených rajčat z plechovky]
+          - [30 g zakysané smetany k podávání]
+          - [sůl], [pepř]
 
         Postup:
           - Mrkev nakrájej na malé kostičky, prolisuj česnek.
@@ -439,15 +439,15 @@ Stránky:
         Strana: 42
 
         Ingredience:
-          - 1 malá šalotka nebo půlka cibule rozmixované na kaši
-          - 1 mrkev
-          - cca 100g předvařené cizrny z plechovky (nebo přes noc namočené a druhý den hodinu vařené)
-          - cca 500 ml zeleninového vývaru či bujónu z kostky
-          - sůl
-          - máslo
-          - plná lžička kari koření
-          - lžička sladké papriky
-          - malý rajský protlak
+          - [1 malá šalotka] nebo půlka cibule rozmixované na kaši
+          - [1 mrkev]
+          - [cca 100g předvařené cizrny z plechovky] (nebo přes noc namočené a druhý den hodinu vařené)
+          - [cca 500 ml zeleninového vývaru] či bujónu z kostky
+          - [sůl]
+          - [máslo]
+          - [plná lžička kari koření]
+          - [lžička sladké papriky]
+          - [malý rajský protlak]
                     
         Postup:
           - Zeleninu očisti a nakrájej na malinké kousky a orestuj na másle.
@@ -469,13 +469,13 @@ Stránky:
         Strana: 44
 
         Ingredience:
-          - potřebuješ tak 400 ml zeleninového vývaru či vody a podle použité zeleniny bude polévka vždy jiná.
-          - vývar = v horké vodě rozmíchej čtvrt kostky zeleninového bujonu nebo musíš nechat skutečně vyvařit hodně zeleniny v málo vody, aby byl silný a zbytek můžeš dát zamrazit na příští použití.
-          - různá zelenina, která se v lednici najde, nakrájená na kousky, i mražená, na 2 porce z každého trochu (mrkev, hrášek, kukuřice, paprika, cibule, květák, brokolice,kedluben, celer, petržel, rajče, brambor…)… Při krájení na kousky toho mám ve výsledku vždy více, než jsem zamýšlela. Naštěstí jde polévka pohodově zamrazit. 
-          - sůl, pepř, oregano
-          - olej
-          - kmín (zveš-li na oběd Honzu, tak prosím vynech )
-          - Podravka či Vegeta, 1 lžička (pokud použiješ vodu)
+          - [potřebuješ tak 400 ml zeleninového vývaru] či vody a podle použité zeleniny bude polévka vždy jiná.
+          - [vývar = v horké vodě] rozmíchej čtvrt kostky zeleninového bujonu nebo musíš nechat skutečně vyvařit hodně zeleniny v málo vody, [aby byl silný a zbytek můžeš dát zamrazit na příští použití.]
+          - [různá zelenina], [která se v lednici najde], [nakrájená na kousky], [i mražená], [na], [2 porce z každého trochu] (mrkev, hrášek, kukuřice, paprika, cibule, květák, brokolice,kedluben, celer, petržel, rajče, brambor…)… Při krájení na kousky toho mám ve výsledku vždy více, [než jsem zamýšlela. Naštěstí jde polévka pohodově zamrazit.]
+          - [sůl], [pepř], [oregano]
+          - [olej]
+          - [kmín] (zveš-li na oběd Honzu, tak prosím vynech )
+          - [Podravka] či Vegeta, 1 lžička (pokud použiješ vodu)
 
         Postup:
           - Zeleninu nakrájej na kousky, dej vařit do vody s vývarem či s Podravkou do změknutí. Nakrájené brambory propláchni
@@ -491,19 +491,19 @@ Stránky:
         Strana: 46
 
         Ingredience:
-          - 1 malá cibule nebo půlka (klidně ji rozmixuj na kaši, nebudeš o ní vědět a polévka bude chutnější)
-          - 1 mrkev na kolečka cca 3 mm
-          - kousek celeru na malé kostičky
-          - 1 malá plechovka krájených rajčat (cca 400g)
-          - PROSTĚ: zelenina co je doma
-          - lžíce olivového oleje
-          - 1 stroužek česneku, prolisovaný
-          - cca 400 ml zeleninového vývaru, bujónu
-          - bobkový list, oregano, bazalka, tymián
-          - cca 40 g těstovin v suchém stavu (klidně bezlepkových)
-          - cca 75 g bílých předvařených fazolí
-          - 10 g strouhaného parmazánového sýru na posypání
-          - sůl, pepř, 4 kuličky nového koření
+          - [1 malá cibule] nebo půlka (klidně ji rozmixuj na kaši, nebudeš o ní vědět a polévka bude chutnější)
+          - [1 mrkev na kolečka cca 3 mm]
+          - [kousek celeru na malé kostičky]
+          - [1 malá plechovka krájených rajčat] (cca 400g)
+          - [PROSTĚ: zelenina co je doma]
+          - [lžíce olivového oleje]
+          - [1 stroužek česneku], [prolisovaný]
+          - [cca 400 ml zeleninového vývaru], [bujónu]
+          - [bobkový list], [oregano], [bazalka], [tymián]
+          - [cca 40 g těstovin v suchém stavu] (klidně bezlepkových)
+          - [cca 75 g bílých předvařených fazolí]
+          - [10 g strouhaného parmazánového sýru na posypání]
+          - [sůl], [pepř,], [4 kuličky nového koření]
 
         Postup:
           - V hrnci rozehřej olivový olej, přidej cibuli a restuj cca 2 minuty. Pak přidej česnek a restuj ještě chviličku.
@@ -523,16 +523,16 @@ Stránky:
         Strana: 48
 
         Ingredience:
-          - olivový olej
-          - nadrobno nasekaný česnek, 2 stroužky
-          - velká hrst nasekaných bazalkových lístků
-          - sůl
-          - pepř
-          - 1 střední cuketa cca 330g, rozkrájená na 1 cm kostičky
-          - 250 ml zeleninového vývaru (nebo vody)
-          - 30 ml až 1 celá smetana na vaření
-          - petrželová nať
-          - 30 g nastrouhaného sýru parmazánového typu + hoblinky na posypání
+          - [olivový olej]
+          - [nadrobno nasekaný česnek, 2 stroužky]
+          - [velká hrst nasekaných bazalkových lístků]
+          - [sůl]
+          - [pepř]
+          - [1 střední cuketa cca 330g], [rozkrájená na 1 cm kostičky]
+          - [250 ml zeleninového vývaru] (nebo vody)
+          - [30 ml až 1 celá smetana na vaření]
+          - [petrželová nať]
+          - [30 g nastrouhaného sýru parmazánového typu + hoblinky na posypání]
 
         Postup:
           - Zahřej olej a opeč na něm česnek, bazalku a cuketu pomalu
@@ -552,17 +552,17 @@ Stránky:
         Strana: 50
 
         Ingredience:
-          - sušené či čerstvé houby (hrst dle chuti)
-          - lžíce másla
-          - lžička mouky na jíšku
-          - cca 400 ml zeleninového vývaru (nebo z kostky) 
-          - cca 150 g brambor
-          - malá nebo kousek petržele (kořen) nebo pastinák
-          - cca 30 g celeru
-          - cca 100 g mrkve
-          - 1 až 2 stroužky česneku (podle velikosti)
-          - sůl, pepř
-          - majoránka, zelená petrželka na posypání
+          - [sušené] či čerstvé houby (hrst dle chuti)
+          - [lžíce másla]
+          - [lžička mouky na jíšku]
+          - [cca 400 ml zeleninového vývaru] (nebo z kostky)
+          - [cca 150 g brambor]
+          - [malá] nebo kousek petržele (kořen) nebo pastinák
+          - [cca 30 g celeru]
+          - [cca 100 g mrkve]
+          - [1 až 2 stroužky česneku] (podle velikosti)
+          - [sůl], [pepř]
+          - [majoránka], [zelená petrželka na posypání]
 
         Postup:
           - Sušené houby namoč do vody.
@@ -582,15 +582,15 @@ Stránky:
         Strana: 52
 
         Ingredience:
-          - 2 střední brambory
-          - sušené nebo čerstvé hříbky, velkou hrst
-          - máslo
-          - sůl
-          - pepř
-          - Vegeta
-          - kmín
-          - majoránka
-          - bramborový či kukuřičný škrob
+          - [2 střední brambory]
+          - [sušené] nebo čerstvé hříbky, [velkou hrst]
+          - [máslo]
+          - [sůl]
+          - [pepř]
+          - [Vegeta]
+          - [kmín]
+          - [majoránka]
+          - [bramborový] či kukuřičný škrob
 
         Postup:
           - Oloupané brambory nakrájej na kostičky a propláchni, ať smyješ bramborový škrob.
@@ -605,14 +605,14 @@ Stránky:
         Strana: 54
 
         Ingredience:
-          - cca 400 g žampionů (1 balení, ne moc malých - hůře se pak loupou) 1 malá cibule nebo půlka nebo 1 jarní cibulka
-          - 2 stroužky česneku
-          - 1 lžíce olivového oleje
-          - sůl, pepř, drcený kmín
-          - cca 400 ml zeleninového bujónu (půl kostky bujónu do vřelé vody)
-          - 1 smetana na vaření, do omáček nebo ke šlehání  
-          - 2 střední brambory
-          - trochu bazalky nebo majoránky
+          - [cca 400 g žampionů] (1 balení, ne moc malých - hůře se pak loupou) 1 malá cibule nebo půlka nebo 1 jarní cibulka
+          - [2 stroužky česneku]
+          - [1 lžíce olivového oleje]
+          - [sůl], [pepř], [drcený kmín]
+          - [cca 400 ml zeleninového bujónu] (půl kostky bujónu do vřelé vody)
+          - [1 smetana na vaření], [do omáček] nebo ke šlehání
+          - [2 střední brambory]
+          - [trochu bazalky] nebo majoránky
 
         Postup:
           - Nejprve si očisti žampiony tak, že ukrojíš kousek nožičky pryč 
@@ -635,14 +635,14 @@ Stránky:
         Strana: 56
 
         Ingredience:
-          - 1 lžíce oleje
-          - 1 malá cibule nebo půlka (celá polévka se bude mixovat, takže budeš cítit jen chuť)
-          - 2 lžičky čerstvého zázvoru nastrouhej najemno
-          - sůl, pepř
-          - cca 400 ml zeleninového bujónu (čtvrt kostky bujónu do vřelé vody)
-          - 400 g mrkve oloupej a nakrájej na malé kousky
-          - šťáva z 1 pomeranče
-          - zakysaná smetana na ozdobu k servírování
+          - [1 lžíce oleje]
+          - [1 malá cibule] nebo půlka (celá polévka se bude mixovat, takže budeš cítit jen chuť)
+          - [2 lžičky čerstvého zázvoru] nastrouhej najemno
+          - [sůl], [pepř]
+          - [cca 400 ml zeleninového bujónu] (čtvrt kostky bujónu do vřelé vody)
+          - [400 g mrkve] oloupej a nakrájej na malé kousky
+          - [šťáva z 1 pomeranče]
+          - [zakysaná smetana na ozdobu k servírování]
 
         Postup:
           - Cibulku nasekej najemno, osmahni na oleji, přidej zázvor a kousky mrkve a opékej cca 10 minut. Míchej.
@@ -666,13 +666,13 @@ Stránky:
           - Pokud je třeba zpracování odložit, tak zabal chřest do mokré utěrky a dej do lednice. Takto vydrží i 2 týdny. Utěrku ale stále udržuj mokrou.
   
         Ingredience:
-          - 1 balení zeleného chřestu
-          - 1 malá cibule nebo půlka
-          - 1 lžíce olivového oleje
-          - 5 g másla (kousek)
-          - sůl, pepř
-          - cca 250 -300 ml zeleninového bujónu (půl kostky bujónu do vřelé vody)
-          - špetka muškátového oříšku (lze vynechat)
+          - [1 balení zeleného chřestu]
+          - [1 malá cibule] nebo půlka
+          - [1 lžíce olivového oleje]
+          - [5 g másla] (kousek)
+          - [sůl], [pepř]
+          - [cca 250 -300 ml zeleninového bujónu] (půl kostky bujónu do vřelé vody)
+          - [špetka muškátového oříšku] (lze vynechat)
   
         Postup:
           - Olivový olej rozehřej společně s máslem a přidej najemno nasekanou cibuli (bude se pak mixovat, tak o ní ani nebudeš vědět, ale vylepší chuť polévky), chvilku osmahni, max. 5 minut.
@@ -696,13 +696,13 @@ Stránky:
           - Pokud je třeba zpracování odložit, tak zabal chřest do mokré utěrky a dej do lednice. Takto vydrží i 2 týdny. Utěrku ale stále udržuj mokrou.
   
         Ingredience:
-          - 500 g bílého chřestu
-          - 1 cibule
-          - 1 lžíce olivového oleje a 5 g másla (kousek)
-          - sůl, pepř
-          - cca 800 ml zeleninového bujónu (klidně z kostky)
-          - 200 ml smetany ke šlehání
-          - cca 50 g parmazánového sýru
+          - [500 g bílého chřestu]
+          - [1 cibule]
+          - [1 lžíce olivového oleje a 5 g másla] (kousek)
+          - [sůl], [pepř]
+          - [cca 800 ml zeleninového bujónu] (klidně z kostky)
+          - [200 ml smetany ke šlehání]
+          - [cca 50 g parmazánového sýru]
   
         Postup:
           - Olivový olej rozehřej společně s máslem a přidej najemno nasekanou cibuli (bude se pak mixovat, tak o ní ani nebudeš vědět, ale vylepší chuť polévky), chvilku osmahni, max. 5 minut.
@@ -723,15 +723,15 @@ Stránky:
         Strana: 62
 
         Ingredience:
-          - 2 kedlubny i s kedlubnovou natí (jde to i bez ní, prostě dáš více bylinek)
-          - 1 malá cibule nebo půlka (rozmixovaná na kaši, pak o ní nebudeš vědět, ale bude to mít lepší chuť)
-          - olivový olej
-          - 5 + 5 g másla (prostě kousek)
-          - sůl
-          - cca 400 ml zeleninového bujónu (čtvrt kostky bujónu do vřelé vody)
-          - zelené bylinky (oregano, libeček apod.)
-          - bramborový či kukuřičný škrob
-          - trocha octu nebo umeooctu (prý má neuvěřitelné léčivé vlastnosti)
+          - [2 kedlubny i s kedlubnovou natí] (jde to i bez ní, prostě dáš více bylinek)
+          - [1 malá cibule] nebo půlka (rozmixovaná na kaši, pak o ní nebudeš vědět, ale bude to mít lepší chuť)
+          - [olivový olej]
+          - [5 + 5 g másla] (prostě kousek)
+          - [sůl]
+          - [cca 400 ml zeleninového bujónu] (čtvrt kostky bujónu do vřelé vody)
+          - [zelené bylinky] (oregano, libeček apod.)
+          - [bramborový] či kukuřičný škrob
+          - [trocha octu] nebo umeooctu (prý má neuvěřitelné léčivé vlastnosti)
 
         Postup:
           - V hrnci rozehřej 5 g másla a olej a zpěň na něm jemně nakrájenou či rozmixovanou cibuli. Přidej na malé kostičky nakrájené kedlubny a trošku osol. Opékej cca 7 minut a občas zamíchej.
@@ -747,17 +747,17 @@ Stránky:
         Strana: 64
   
         Ingredience:
-          - 250 g batátů (1 velký)
-          - 1 mrkev
-          - 1 malá cibule nebo půlka (polévka bude zcela rozmixovaná, takže o ní nebudeš vědět, ale chuť bude lepší)
-          - máslo
-          - sůl
-          - pepř, lépe bílý, ale když nemám, dávám černý
-          - cca 400 ml zeleninového bujónu
-          - 1 pomeranč
-          - špetka muškátového květu nebo oříšku
-          - slunečnicová semínka
-          - zelená petrželka
+          - [250 g batátů] (1 velký)
+          - [1 mrkev]
+          - [1 malá cibule] nebo půlka (polévka bude zcela rozmixovaná, takže o ní nebudeš vědět, ale chuť bude lepší)
+          - [máslo]
+          - [sůl]
+          - [pepř], [lépe bílý], [ale když nemám], [dávám černý]
+          - [cca 400 ml zeleninového bujónu]
+          - [1 pomeranč]
+          - [špetka muškátového květu] nebo oříšku
+          - [slunečnicová semínka]
+          - [zelená petrželka]
   
         Postup:
           - V hrnci rozehřej máslo a zpěň na něm jemně nakrájenou cibuli.
@@ -776,17 +776,17 @@ Stránky:
         Strana: 66
   
         Ingredience:
-          - 1 malá cibule nebo půlka (polévka bude rozmixovaná, takže o ní nebudeš vědět)
-          - kousek másla, cca 5 g
-          - sůl
-          - pepř
-          - cca 250 až 300 ml zeleninového bujónu
-          - cca 1 balení rukoly
-          - špetka muškátového oříšku
-          - 2 brambory nebo 1 větší
-          - 1/2 smetany ke šlehání
-          - toustový chleba
-          - cca 20 g parmazánového sýra
+          - [1 malá cibule] nebo půlka (polévka bude rozmixovaná, takže o ní nebudeš vědět)
+          - [kousek másla, cca 5 g]
+          - [sůl]
+          - [pepř]
+          - [cca 250 až 300 ml zeleninového bujónu]
+          - [cca 1 balení rukoly]
+          - [špetka muškátového oříšku]
+          - [2 brambory] nebo 1 větší
+          - [1/2 smetany ke šlehání]
+          - [toustový chleba]
+          - [cca 20 g parmazánového sýra]
                         
         Postup:
           - Na kousku másla orestuj nadrobno nakrájenou cibuli, nechej zesklovatět. Přidej na kostičky nakrájené brambory a cca 5 minut restuj společně. Pak zalij vývarem (jinými slovy: zalij horkou vodou a přidej čtvrt kostky zeleninového bujónu) a vař do změknutí brambor.
@@ -800,15 +800,15 @@ Stránky:
         Strana: 68
   
         Ingredience:
-          - 1 malá cibule nebo půlka (polévka bude rozmixována a pro chuť bude lepší, bude-li tam cibule)
-          - 200 g syrových brambor (nejlépe varný typ B)
-          - kousek másla
-          - lžíce olivového oleje
-          - 6 oloupaných větších stroužků česneku (je-li libo silnější polévku či bez cibule, tak více)
-          - lžíce tymiánu
-          - cca 400 ml zeleninového vývaru
-          - cca 60 ml smetany na vaření
-          - půl lžičky bílého vinného octa (nemám-li, vynechám )
+          - [1 malá cibule] nebo půlka (polévka bude rozmixována a pro chuť bude lepší, bude-li tam cibule)
+          - [200 g syrových brambor] (nejlépe varný typ B)
+          - [kousek másla]
+          - [lžíce olivového oleje]
+          - [6 oloupaných větších stroužků česneku] (je-li libo silnější polévku či bez cibule, tak více)
+          - [lžíce tymiánu]
+          - [cca 400 ml zeleninového vývaru]
+          - [cca 60 ml smetany na vaření]
+          - [půl lžičky bílého vinného octa] (nemám-li, vynechám )
   
         Postup:
           - Brambory oloupej a nakrájej na menší kostky. 
@@ -828,18 +828,18 @@ Stránky:
         Intro: Zachováním poměru ingrediencí to bude asi více než 2 porce
 
         Ingredience:
-          - 300 g rajčat – vyzrálá a chutná rajčata jsou nezbytným základem, čím zralejší, tím bude polévka červenější a chutnější
-          - 1 malá cibule (polévka bude chutnější, ale díky mixování o ní nebudeš vědět)
-          - 1 paprika
-          - půl salátové okurky
-          - 1 až 2 stroužky česneku
-          - 1 lžíce olivového oleje
-          - 50 ml červeného vína
-          - 1 lžička bílého vinného octa (červený není na škodu)
-          - sůl, pepř
-          - 1 lžička cukru na dochucení
-          - worcester – pár kapek
-          - opečené tousty
+          - [300 g rajčat] – vyzrálá a chutná rajčata jsou nezbytným základem, [čím zralejší], [tím bude polévka červenější a chutnější]
+          - [1 malá cibule] (polévka bude chutnější, ale díky mixování o ní nebudeš vědět)
+          - [1 paprika]
+          - [půl salátové okurky]
+          - [1 až 2 stroužky česneku]
+          - [1 lžíce olivového oleje]
+          - [50 ml červeného vína]
+          - [1 lžička bílého vinného octa] (červený není na škodu)
+          - [sůl], [pepř]
+          - [1 lžička cukru na dochucení]
+          - [worcester] – pár kapek
+          - [opečené tousty]
 
         Postup:
           - Slupku rajčat nařízni do kříže nahoře a dole a vlož na 4 minuty
@@ -857,14 +857,14 @@ Stránky:
         Strana: 72
 
         Ingredience:
-          - polovina bulvy celeru
-          - 1 menší cibule (vše se bude mixovat, takže chuť tam bude, ale vědět o ní nebudeš)
-          - 1 – 2 stroužky česneku
-          - kousek másla, cca 10g
-          - 1 velký nebo 2 střední brambory
-          - cca 400 ml zeleninového vývaru
-          - tymián, nejlépe čerstvý
-          - sůl, pepř
+          - [polovina bulvy celeru]
+          - [1 menší cibule] (vše se bude mixovat, takže chuť tam bude, ale vědět o ní nebudeš)
+          - [1] – 2 stroužky česneku
+          - [kousek másla, cca 10g]
+          - [1 velký] nebo 2 střední brambory
+          - [cca 400 ml zeleninového vývaru]
+          - [tymián], [nejlépe čerstvý]
+          - [sůl], [pepř]
 
         Postup:
           - Celer okrájej a nakrájej na kostičky, cibuli nakrájej nadrobno, česnek rozplácni plochou stranou velkého nože nebo párkrát rozkroj, brambory oloupej a nakrájej na kostičky a propláchni vodou v sítku.
@@ -880,13 +880,13 @@ Stránky:
         Strana: 74
 
         Ingredience:
-          - 2 lžíce másla
-          - malá dýně Hokaido, máslová či cca 400 g muškátové
-          - sůl, pepř
-          - smetana na vaření, do omáček, na šlehání NEBO kokosové mléko
-          - cca 400 ml zeleninového vývaru
-          - dýňová semínka k podávání, příp. šlehačka na ozdobu
-          - popř. pomerančová kůra, zázvor, chilli (pro změnu)
+          - [2 lžíce másla]
+          - [malá dýně Hokaido], [máslová] či cca 400 g muškátové
+          - [sůl], [pepř]
+          - [smetana na vaření], [do omáček], [na šlehání NEBO kokosové mléko]
+          - [cca 400 ml zeleninového vývaru]
+          - [dýňová semínka k podávání], [příp. šlehačka na ozdobu]
+          - [popř. pomerančová kůra], [zázvor], [chilli] (pro změnu)
 
         Postup:
           - Dýni Hokaido není třeba loupat, jen důkladně umýt. Rovnou ji nakrájej na malé kostky, cca 3 cm. Dej vařit do hrnce, ale zalij vodou jen tak akorát, aby byla ponořená, osol, opepři, můžeš přidat čtvrt kostky bujonu. Povař asi 15 minut do měkka.
@@ -901,17 +901,17 @@ Stránky:
         Strana: 76
 
         Ingredience:
-          - 2 lžíce másla
-          - 1 lžíce hladké mouky
-          - 2 větší brambory
-          - hrst čerstvých nebo sušených hub
-          - půl až 1 smetana (nejlépe 30%, aby se nezdrcla)
-          - sůl, pepř
-          - čerstvý kopr (v nouzi i mražený, ale ten méně ochucuje a méně voní, tak je ho třeba více)
-          - cca 400 ml zeleninového vývaru
-          - 1 lžička octu - OPATRNĚ!
-          - 1 lžička cukru
-          - 2 vejce
+          - [2 lžíce másla]
+          - [1 lžíce hladké mouky]
+          - [2 větší brambory]
+          - [hrst čerstvých] nebo sušených hub
+          - [půl až 1 smetana] (nejlépe 30%, aby se nezdrcla)
+          - [sůl], [pepř]
+          - [čerstvý kopr] (v nouzi i mražený, ale ten méně ochucuje a méně voní, tak je ho třeba více)
+          - [cca 400 ml zeleninového vývaru]
+          - [1 lžička octu] - OPATRNĚ!
+          - [1 lžička cukru]
+          - [2 vejce]
 
         Postup:
           - Nejprve si oloupej brambory a nakrájej je na malinké kostičky. Také si očisti houby, nakrájej na větší kousky, malinké houby nechej klidně celé nebo jen půlky a orestuj je na lžíci másla ale ne úplně doměkka. K sušeným houbám přilij trochu vody.
@@ -930,14 +930,14 @@ Stránky:
         Strana: 78
   
         Ingredience:
-          - 1 lžíce oleje
-          - 2 hrsti květáku rozebraného na malinké růžičky
-          - cca 400 ml vody
-          - sůl, pepř
-          - 1 lžíce hladké mouky nebo bramborový či kukuřičný či bramborový škrob
-          - polévková kořenící směs (Vegeta, Podravka či Kuchárek)
-          - 1 vejce
-          - kmín (pro našeho Honzu NE)
+          - [1 lžíce oleje]
+          - [2 hrsti květáku rozebraného na malinké růžičky]
+          - [cca 400 ml vody]
+          - [sůl], [pepř]
+          - [1 lžíce hladké mouky] nebo bramborový či kukuřičný či bramborový škrob
+          - [polévková kořenící směs] (Vegeta, Podravka či Kuchárek)
+          - [1 vejce]
+          - [kmín] (pro našeho Honzu NE)
   
         Postup:
           - Omytý a rozebraný květák dej vařit ve vodě do měkka společně se solí, pepřem a Vegetou, případně s kmínem.
@@ -953,16 +953,16 @@ Stránky:
         Strana: 80
     
         Ingredience:
-          - 1 lžíce másla
-          - 1 brokolice rozebraná na malinké růžičky
-          - cca 400 ml vody
-          - sůl, pepř
-          - polévková kořenící směs (Vegeta, Podravka či Kuchárek) NEBO zeleninový bujón
-          - 1 vejce
-          - 2 stroužky česneku
-          - 1 větší nebo 2 menší brambory
-          - případně kousek tvrdého sýru
-          - případně špetka muškátového oříšku
+          - [1 lžíce másla]
+          - [1 brokolice rozebraná na malinké růžičky]
+          - [cca 400 ml vody]
+          - [sůl], [pepř]
+          - [polévková kořenící směs] (Vegeta, Podravka či Kuchárek) NEBO zeleninový bujón
+          - [1 vejce]
+          - [2 stroužky česneku]
+          - [1 větší] nebo 2 menší brambory
+          - [případně kousek tvrdého sýru]
+          - [případně špetka muškátového oříšku]
     
         Postup:
           - Brokolice rozděl na větší růžičky, ze stonků nožem „odtrhej“ slupku, brokolici omyj, nakrájej ještě na menší růžičky a dej vařit do vody společně se solí, pepřem a Vegetou nebo s 1/4 kostkou zeleninového bujónu. Vař jen cca 10 minut.
@@ -980,19 +980,19 @@ Stránky:
         Strana: 82
     
         Ingredience:
-          - 1 malá cibule nebo půlka (polévka bude chutnější, rozmixuj ji na kaši a nebudeš o ní vědět)
-          - lžíce másla
-          - 2 stroužky česneku
-          - velká hrst kukuřičných zrn (zmrazené nebo z plechovky)
-          - 2 brambory
-          - trošička chilli, OPATRNĚ!
-          - cca 400 ml vývaru (do této polévky dávám masový vývar nebo Masox, ale snese i vodu) 
-          - sůl, pepř
-          - 1 velké rajče nebo 2 střední
-          - malý rajský protlak
-          - 4 bobkové listy
-          - tymián (lžička)
-          - vařené či pečené mleté maso (cca 30g na porci)
+          - [1 malá cibule] nebo půlka (polévka bude chutnější, rozmixuj ji na kaši a nebudeš o ní vědět)
+          - [lžíce másla]
+          - [2 stroužky česneku]
+          - [velká hrst kukuřičných zrn] (zmrazené nebo z plechovky)
+          - [2 brambory]
+          - [trošička chilli], [OPATRNĚ!]
+          - [cca 400 ml vývaru] (do této polévky dávám masový vývar nebo Masox, ale snese i vodu)
+          - [sůl], [pepř]
+          - [1 velké rajče] nebo 2 střední
+          - [malý rajský protlak]
+          - [4 bobkové listy]
+          - [tymián] (lžička)
+          - [vařené] či pečené mleté maso (cca 30g na porci)
     
         Postup:
           - Nejprve si oloupej brambory a nakrájej je na malé kostičky, utři česnek a rajče také nakrájej na malé kousky.
@@ -1011,20 +1011,20 @@ Stránky:
         Strana: 84
 
         Ingredience:
-          - 1 cibule (rozmixovaná na kaši či nakrájená najemno) 
-          - 2 stroužky česneku
-          - 80 g brambor
-          - 1 mrkev
-          - hlávkové zelí bílé cca 100 g (když nemám, dám kedluben)
-          - bobkový list, 2 kusy
-          - 1 lžíce rajského protlaku (potřebuješ tedy 1 malý, 70 g)
-          - cca 150 g červené řepy (já kupuji předvařenou oloupanou a zavakuovanou)
-          - sůl
-          - 3 kuličky černého pepře
-          - hovězí maso s kostí cca 150 g v syrovém stavu (já ho často nahrazuji hovězím mletým masem, ale není to originál a pro někoho už to není Boršč)
-          - Masox
-          - zakysaná smetana a trošku kopru k podávání
-          - 1 lžička kečupu (možná)
+          - [1 cibule] (rozmixovaná na kaši či nakrájená najemno)
+          - [2 stroužky česneku]
+          - [80 g brambor]
+          - [1 mrkev]
+          - [hlávkové zelí bílé cca 100 g] (když nemám, dám kedluben)
+          - [bobkový list, 2 kusy]
+          - [1 lžíce rajského protlaku] (potřebuješ tedy 1 malý, 70 g)
+          - [cca 150 g červené řepy] (já kupuji předvařenou oloupanou a zavakuovanou)
+          - [sůl]
+          - [3 kuličky černého pepře]
+          - [hovězí maso s kostí cca 150 g v syrovém stavu] (já ho často nahrazuji hovězím mletým masem, ale není to originál a pro někoho už to není Boršč)
+          - [Masox]
+          - [zakysaná smetana a trošku kopru k podávání]
+          - [1 lžička kečupu] (možná)
                                     
         Postup:
           - Základem boršče je silný hovězí vývar. Hovězí maso s kostí (nebo mleté) tedy dej do studené vody, cca 800 ml a pod pokličkou přiveď k varu. Po několikerém vzkypění stáhni teplotu a seber z vývaru hnědou pěnu – bílkovinu, která se vždy vytvoří a vývar kalí.
@@ -1060,16 +1060,16 @@ Stránky:
         Strana: 86
 
         Ingredience:
-          - 500 g kysaného zelí
-          - 1 nakrájená cibule (můžeš vynechat, ale pro chuť polévky je lepší rozmixovat ji na kaši, tak o ní nebudeš vědět)
-          - 1 lžíce cukru
-          - sůl, pepř 3 bobkové listy
-          - 1 kostka masoxu
-          - 2 klobásy nakrájené na půlky koleček (pro Honzu bez kmínu)
-          - 2 větší brambory nakrájené na kostičky
-          - kmín celý (pro Honzu NE! )
-          - 1 lžíce hladké mouky nebo bramborový či kukuřičný škrob
-          - 1 kelímek smetany ke šlehání 
+          - [500 g kysaného zelí]
+          - [1 nakrájená cibule] (můžeš vynechat, ale pro chuť polévky je lepší rozmixovat ji na kaši, tak o ní nebudeš vědět)
+          - [1 lžíce cukru]
+          - [sůl], [pepř], [3 bobkové listy]
+          - [1 kostka masoxu]
+          - [2 klobásy] nakrájené na půlky koleček (pro Honzu bez kmínu)
+          - [2 větší brambory] nakrájené na kostičky
+          - [kmín] celý (pro Honzu NE! )
+          - [1 lžíce hladké mouky] nebo bramborový či kukuřičný škrob
+          - [1 kelímek smetany ke šlehání]
 
         Postup:
           - Zelí nakrájej a spolu s lakem, cibulí, cukrem a bobkovým listem dej vařit do cca 600 ml vody až do změknutí zelí (cca 30 minut varu). Klobásu a masox dej vařit do polévky jen při masové verzi.
@@ -1086,15 +1086,15 @@ Stránky:
         Strana: 88
 
         Ingredience:
-          - 2 brambory
-          - 1 vejce
-          - 3 plátky tvrdého sýra (Eidam)
-          - 3 plátky šunky či uzeného, cca 70 g
-          - česnek (podle chuti, cca 4 stroužky)
-          - sůl
-          - Vegeta
-          - kmín (zveš-li na oběd Honzu, prosím vynechej )
-          - cca 300 ml vody
+          - [2 brambory]
+          - [1 vejce]
+          - [3 plátky tvrdého sýra] (Eidam)
+          - [3 plátky šunky] či uzeného, cca 70 g
+          - [česnek] (podle chuti, cca 4 stroužky)
+          - [sůl]
+          - [Vegeta]
+          - [kmín] (zveš-li na oběd Honzu, prosím vynechej )
+          - [cca 300 ml vody]
 
         Postup:
           - Brambory oloupej a nakrájej na kostičky. Dej je vařit do trošku osolené a případně i okmínované vody (cca 400 ml), můžeš přidat 1 lžičku Vegety (POZOR: je v ní také sůl!). 
@@ -1119,18 +1119,18 @@ Stránky:
         Strana: 90
 
         Ingredience:
-          - nejsnadněji 1 balíček směsi na polévku (kuřecí či hovězí), ale může to být i stehno či kus hovězího masa, cca 300 g (pak to můžeš použít jako vařené maso k bramborům a část obrat do polévky)
-          - 1 větší či 2 menší mrkve
-          - 1 petržel či pastinák
-          - kousek celeru
-          - 4 kuličky nového koření
-          - 3 bobkové listy
-          - sůl
-          - celý pepř (cca 6 kuliček)
-          - 1 lžička Podravky (nemusí být)
-          - 2 až 3 stroužky česneku (nemusí být)
-          - 1 cibule (nemusí být)
-          - nudle (já používám vaječné, ale v obchodech je většina bezvaječných)
+          - [nejsnadněji], [1 balíček směsi na polévku] (kuřecí či hovězí), [ale může to být i stehno] či kus hovězího masa, cca 300 g (pak to můžeš použít jako vařené maso k bramborům a část obrat do polévky)
+          - [1 větší] či 2 menší mrkve
+          - [1 petržel] či pastinák
+          - [kousek celeru]
+          - [4 kuličky nového koření]
+          - [3 bobkové listy]
+          - [sůl]
+          - [celý pepř] (cca 6 kuliček)
+          - [1 lžička Podravky] (nemusí být)
+          - [2 až 3 stroužky česneku] (nemusí být)
+          - [1 cibule] (nemusí být)
+          - [nudle] (já používám vaječné, ale v obchodech je většina bezvaječných)
 
         Postup:
           - Maso dej do většího hrnce a zalij cca 700 ml studené vody (v teplé by se maso zatáhlo a neudělalo by silný vývar). Maso musí být pod hladinou, ale zase nesmí být vody přehnaně moc, protože by vývar byl slabý. Osol a přiveď k varu. Když voda vzkypí, seber z hladiny béžovou sraženinu (bílkovinu), která jinak způsobí zakalený vývar. Teprve pak přidej koření a očištěnou zeleninu
@@ -1147,18 +1147,18 @@ Stránky:
         Strana: 91
 
         Ingredience:
-          - 250 g hovězího masa (zadního, kousky na guláš) 
-          - 50 g anglické slaniny
-          - 100 g cibule
-          - 1 lžíce oleje
-          - 1/4 l červeného vína (podle chuti i přidám)
-          - 1/4 l masového vývaru (Masox)
-          - 2 - 1 stroužky česneku
-          - 2 bobkové listy
-          - sůl
-          - 1 lžička tymiánu
-          - 100 g mrkve
-          - 2 lžíce nasekané zelené petrželky
+          - [250 g hovězího masa] (zadního, kousky na guláš)
+          - [50 g anglické slaniny]
+          - [100 g cibule]
+          - [1 lžíce oleje]
+          - [1/4 l červeného vína] (podle chuti i přidám)
+          - [1/4 l masového vývaru] (Masox)
+          - [2 - 1 stroužky česneku]
+          - [2 bobkové listy]
+          - [sůl]
+          - [1 lžička tymiánu]
+          - [100 g mrkve]
+          - [2 lžíce nasekané zelené petrželky]
 
         Postup:
           - Maso nakrájej na menší kousky, slaninu na kostičky, cibuli na měsíčky.
@@ -1228,16 +1228,16 @@ Stránky:
         Porce: 2
         Strana: 97
         Ingredience:
-          - 1 lžíce oleje
-          - 1/2 cibule (můžeš vynechat, ale pro chuť omáčky je lepší ji dát a rozmixovat na kaši)
-          - pepř, sůl, cukr
-          - 2 stroužky česneku
-          - cca 40 g tvrdého sýru, nejlépe parmazánového typu
-          - 200 g rajčat nebo 1 malá plechovka rajčat
-          - 60 g černých oliv nakrájených na kroužky
-          - hrst bazalky, petrželky, baby špenátu nebo medvědího česneku či oregana
-          - 160 g těstovin v suchém stavu, (v originálním receptu to byly špagety (pro Leňu bez lepku), přelomené napůl
-          - bramborový či kukuřičný škrob 1 – 2 lžičky
+          - [1 lžíce oleje]
+          - [1/2 cibule] (můžeš vynechat, ale pro chuť omáčky je lepší ji dát a rozmixovat na kaši)
+          - [pepř], [sůl], [cukr]
+          - [2 stroužky česneku]
+          - [cca 40 g tvrdého sýru], [nejlépe parmazánového typu]
+          - [200 g rajčat] nebo 1 malá plechovka rajčat
+          - [60 g černých oliv nakrájených na kroužky]
+          - [hrst bazalky], [petrželky], [baby špenátu] nebo medvědího česneku či oregana
+          - [160 g těstovin v suchém stavu], [(v originálním receptu to byly špagety (pro Leňu bez lepku), přelomené napůl]
+          - [bramborový] či kukuřičný škrob 1 – 2 lžičky
         
         Postup:
           - Na pánvi rozehřej olej a zpěň na něm najemno nakrájenou cibuli tak 1 minutu.
@@ -1256,10 +1256,10 @@ Stránky:
         Intro: Pamatuju si, že tohle jídlo bylo první jídlo, které připravoval Míša pro Leňu při její první návštěvě Ostravy. Spolu s hráškovou polévkou. 
         Porce: 2
         Ingredience:
-          - 1 brokolice
-          - 3 až 5 brambor (podle velikosti)
-          - sůl
-          - plátkový sýr, za tímto účelem nejlépe Čedar NEBO přírodní sýr Gervais a trocha mléka
+          - [1 brokolice]
+          - [3 až 5 brambor] (podle velikosti)
+          - [sůl]
+          - [plátkový sýr], [za tímto účelem nejlépe Čedar NEBO přírodní sýr Gervais a trocha mléka]
           
         Postup:
           - Oloupané brambory dej vařit v osolené vodě.
@@ -1275,14 +1275,14 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 1 brokolice (nejčastěji znám balení 500 g)
-          - 6 stroužků česneku
-          - bílé víno nebo citronová šťáva 1 lžíce
-          - olej, 2 lžíce
-          - sůl
-          - pepř
-          - 5 lžic vývaru nebo vody
-          - 2 vejce
+          - [1 brokolice] (nejčastěji znám balení 500 g)
+          - [6 stroužků česneku]
+          - [bílé víno] nebo citronová šťáva 1 lžíce
+          - [olej,], [2 lžíce]
+          - [sůl]
+          - [pepř]
+          - [5 lžic vývaru] nebo vody
+          - [2 vejce]
         
         Postup:
           - Očisti si brokolici = rozděl na růžičky a nožíkem „odtrhej“ slupku z košťálových částí, nakrájej na menší kousky i s košťálem.
@@ -1298,15 +1298,15 @@ Stránky:
         Strana: 103
         Porce: 2
         Ingredience:
-          - 1 brokolice
-          - cca 400 g brambor
-          - cca 200 g Nivy
-          - 3 plátky plátkového sýra
-          - 3 rozšlehaná vejce
-          - 6 stroužků česneku (či podle chuti)
-          - 2 vejce natvrdo (zvýší obsah bílkovin) – nemusí být
-          - sůl
-          - kousek másla
+          - [1 brokolice]
+          - [cca 400 g brambor]
+          - [cca 200 g Nivy]
+          - [3 plátky plátkového sýra]
+          - [3 rozšlehaná vejce]
+          - [6 stroužků česneku] (či podle chuti)
+          - [2 vejce natvrdo] (zvýší obsah bílkovin) – nemusí být
+          - [sůl]
+          - [kousek másla]
         
         Postup:
           - Oloupané a na širší plátky nakrájené brambory předvař v osolené vodě cca 8 minut.
@@ -1321,8 +1321,8 @@ Stránky:
         Strana: 105
         Porce: 2
         Ingredience:
-          - 1 malý květák
-          - hladká mouka (cca 1 hrnek)
+          - [1 malý květák]
+          - [hladká mouka] (cca 1 hrnek)
           -
             > strouhanka (cca 1 hrnek)
             > nebo kukuřičná strouhanka = bezlepková
@@ -1347,13 +1347,13 @@ Stránky:
         Strana: 107
         Porce: 2
         Ingredience:
-          - 1 malý květák
-          - 2 vejce
-          - 1 cibule (můžeš vynechat, ale pro chuť jídla je lepší ji rozmixovat na kaši )
-          - sůl
-          - rostlinný olej (slunečnicový či řepkový)
-          - 2 větší nebo 5 menších brambor
-          - kmín (budeš-li zvát na oběd Honzu, prosím vynech )
+          - [1 malý květák]
+          - [2 vejce]
+          - [1 cibule] (můžeš vynechat, ale pro chuť jídla je lepší ji rozmixovat na kaši )
+          - [sůl]
+          - [rostlinný olej] (slunečnicový či řepkový)
+          - [2 větší] nebo 5 menších brambor
+          - [kmín] (budeš-li zvát na oběd Honzu, prosím vynech )
         
         Postup:
           - Květáku použiješ asi polovinu. Odřízni listy, okrájej škaredé tmavší skvrny, omyj, rozeber ho na malinké růžičky.  Nechej okapat.
@@ -1375,16 +1375,16 @@ Stránky:
         Porce: 2
         Intro: To fakt neumím! Vždy, když krájím, mám pocit, že to bude akorát, ale nakonec je toho vždycky více. Ale protože to je moc dobré jídlo, tak mi to nevadí. Dá se i zamrazit na jindy. 
         Ingredience:
-          - 100 g černé čočky Beluga
-          - 3 stroužky česneku
-          - 2 mrkve
-          - kousek cukety nebo celeru
-          - 2 větší rajčata
-          - sůl
-          - 1 kostka zeleninového bujónu
-          - pepř
-          - 2 – 4 vejce
-          - bramborový či kukuřičný škrob
+          - [100 g černé čočky Beluga]
+          - [3 stroužky česneku]
+          - [2 mrkve]
+          - [kousek cukety] nebo celeru
+          - [2 větší rajčata]
+          - [sůl]
+          - [1 kostka zeleninového bujónu]
+          - [pepř]
+          - [2] – 4 vejce
+          - [bramborový] či kukuřičný škrob
         
         Postup:
           - Černou čočku propláchni a vlož do studené vody s kostkou zeleninového bujónu vařit na cca 30 minut od začátku varu. Zvol větší hrnec, neboť tam budeš přidávat všechno ostatní.
@@ -1400,21 +1400,21 @@ Stránky:
         Strana: 111
         Porce: 2
         Ingredience:
-          - půl lžičky kmínu (dle originálního receptu římský)
-          - lžíce oleje nebo másla
-          - půlka cibule rozmixovaná na kaši
-          - cca 1 cm čerstvého zázvoru nakrájeného nadrobno
-          - 1 stroužek prolisovaného česneku
-          - kousilínek chilli papričky
-          - 1 lžička mleté kurkumy (opatrně s ní)
-          - 1/2 lžičky mletého koriandru
-          - 1/2 lžičky sladké papriky
-          - 150 g rajčatového pyré (passaty), nebo i nakrájené rajče
-          - cca 200 ml zeleninového vývaru
-          - 100 g červené čočky
-          - 200 g scezené cizrny z plechovky (nebo namočené přes noc a druhý den hodinu vařené)
-          - citronová kůra a vymačkaná šťáva k podávání: chlebové placky (indický naan) nebo rýže
-          - sůl
+          - [půl lžičky kmínu] (dle originálního receptu římský)
+          - [lžíce oleje] nebo másla
+          - [půlka cibule] rozmixovaná na kaši
+          - [cca 1 cm čerstvého zázvoru nakrájeného] nadrobno
+          - [1 stroužek prolisovaného česneku]
+          - [kousilínek chilli papričky]
+          - [1 lžička mleté kurkumy] (opatrně s ní)
+          - [1/2 lžičky mletého koriandru]
+          - [1/2 lžičky sladké papriky]
+          - [150 g rajčatového pyré] (passaty), [nebo i nakrájené rajče]
+          - [cca 200 ml zeleninového vývaru]
+          - [100 g červené čočky]
+          - [200 g scezené cizrny z plechovky] (nebo namočené přes noc a druhý den hodinu vařené)
+          - [citronová kůra a vymačkaná šťáva k podávání: chlebové placky] (indický naan) nebo rýže
+          - [sůl]
         
         Postup:
           -
@@ -1435,15 +1435,15 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 4 větší brambory, cca 550 g
-          - sůl
-          - kmín (zveš-li na oběd Honzu, prosím vynech)
-          - 1 lžíce majoránky
-          - pepř
-          - 2 stroužky česneku
-          - 2 lžíce hladké mouky
-          - 1 vejce
-          - 5 lžic oleje
+          - [4 větší brambory, cca 550 g]
+          - [sůl]
+          - [kmín] (zveš-li na oběd Honzu, prosím vynech)
+          - [1 lžíce majoránky]
+          - [pepř]
+          - [2 stroužky česneku]
+          - [2 lžíce hladké mouky]
+          - [1 vejce]
+          - [5 lžic oleje]
         
         Postup:
           - Brambor oloupej a nastrouhej na hrubém struhadle do misky, přidej malou lžičku soli (opatrně – přidat můžeš vždycky, ale už neubereš), majoránku, kmín, pepř, rozmačkaný česnek, trošku hladké mouky, vajíčko a zamíchej. Pokud by těsto bylo moc řídké, přidej hladkou mouku.
@@ -1457,14 +1457,14 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 1 sklenice zavařených žlutých fazolek ve sladkokyselém nálevu
-          - 1 smetana na šlehání (nejlépe více než 30%)
-          - máslo
-          - mléko
-          - hladká mouka (troška)
-          - sůl
-          - 2 až 4 vajíčka
-          - brambory
+          - [1 sklenice zavařených žlutých fazolek ve sladkokyselém nálevu]
+          - [1 smetana na šlehání] (nejlépe více než 30%)
+          - [máslo]
+          - [mléko]
+          - [hladká mouka] (troška)
+          - [sůl]
+          - [2 až 4 vajíčka]
+          - [brambory]
         
         Postup:
           - Na troše másla orestuj fazolky bez nálevu, cca 10 minut. Míchej. Chceš-li trochu zmírnit kyselost, propláchni je nejprve studenou vodou přes sítko. 
@@ -1489,21 +1489,21 @@ Stránky:
         Typ: bezmasé  
         Porce: 2
         Ingredience:
-          - lžíce olivového oleje
-          - 1 menší cibule rozmixovaná na kaši nebo nakrájená najemno
-          - špetka chilli (OPATRNĚ)
-          - lžička oregana
-          - lžíce rajčatového protlaku (tedy budeš potřebovat 1 malý protlak)
-          - 100 g krájených rajčat z plechovky (tedy část malé plechovky)
-          -  120 g předvařené cizrny (tedy část malé plechovky nebo
-          -                namočené přes noc a druhý den hodinu vařené)
-          -  cca 100 ml vody
-          -  cca 130 g dýně Hokaido (tedy asi polovina malé dýně)
-          -  120 g předvařených červených fazolí (tedy část malé 
-          -                                                                            plechovky)
-          -  sůl, pepř
-          -  na dozdobení lžíce zakysané smetany
-          -  140 g rýže v suchém stavu
+          - [lžíce olivového oleje]
+          - [1 menší cibule] rozmixovaná na kaši nebo nakrájená najemno
+          - [špetka chilli] (OPATRNĚ)
+          - [lžička oregana]
+          - [lžíce rajčatového protlaku] (tedy budeš potřebovat 1 malý protlak)
+          - [100 g krájených rajčat z plechovky] (tedy část malé plechovky)
+          - [120 g předvařené cizrny] (tedy část malé plechovky nebo
+          - [namočené přes noc a druhý den hodinu vařené)]
+          - [cca 100 ml vody]
+          - [cca 130 g dýně Hokaido] (tedy asi polovina malé dýně)
+          - [120 g předvařených červených fazolí] (tedy část malé
+          - [plechovky)]
+          - [sůl], [pepř]
+          - [na dozdobení lžíce zakysané smetany]
+          - [140 g rýže v suchém stavu]
         
         Postup:
           - Dýni Hokaido není třeba loupat. Rovnou ji nakrájej na malé kostičky.
@@ -1520,13 +1520,13 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 1 pytlík mražených tvarohových ovocných knedlíků 
-          - (Babiččiny knedlíky, Bezlepkové knedlíky z Alberta…)
-          - máslo
-          - Granko
-          - tvaroh
-          - nasekané ořechy
-          - mletá skořice
+          - [1 pytlík mražených tvarohových ovocných knedlíků]
+          - [(Babiččiny knedlíky, Bezlepkové knedlíky z Alberta…)]
+          - [máslo]
+          - [Granko]
+          - [tvaroh]
+          - [nasekané ořechy]
+          - [mletá skořice]
         
         Postup:
           - Požadovaný počet knedlíků vlož do vařící vody (ne do studené!) a vař cca 10 minut (koukni na návod na pytlíku) do chvíle až knedlíky plavou na hladině (zkontroluj ale, zda nejsou přilepené ke dnu). Pokud budeš vařit příliš dlouho, knedlíky budou takové rozcupované a mohou i prasknout a náplň vyteče do vody!
@@ -1540,7 +1540,7 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 2 plátky tvrdého sýra, cca 150-200 g
+          - [2 plátky tvrdého sýra, cca 150-200 g]
           -
             > strouhanka nebo kukuřičná strouhanka = bezlepková
             > nebo cornflakes, které rozemeleš v ručním
@@ -1567,16 +1567,16 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 1 malá dýně Hokaido, možná jen půlka
-          - 1 cibule
-          - 4 stroužky česneku
-          - sušená rajčata
-          - mangold
-          - zeleninová kořenící směs (Podravka, Vegeta, Kucharek)
-          - rajčatový protlak malý
-          - Parmazán (troška)
-          - citronová šťáva
-          - 160 g špaget v suchém stavu (pro Leňu bez lepku), přelomené napůl
+          - [1 malá dýně Hokaido], [možná jen půlka]
+          - [1 cibule]
+          - [4 stroužky česneku]
+          - [sušená rajčata]
+          - [mangold]
+          - [zeleninová kořenící směs] (Podravka, Vegeta, Kucharek)
+          - [rajčatový protlak malý]
+          - [Parmazán] (troška)
+          - [citronová šťáva]
+          - [160 g špaget v suchém stavu] (pro Leňu bez lepku), [přelomené napůl]
         
         Postup:
           - Dýni Hokaido není třeba loupat, jen důkladně umýt a nakrájet na malé kousky. Nechej je povařit v malém množství vody do změknutí, což nebude trvat dlouho, tak 10 minut.
@@ -1595,15 +1595,15 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - cca 400 g dýně (Hokaido, muškátová, máslová)
-          - 2 velká rajčata nebo několik cherry rajčátek
-          - kousek brokolice
-          - 4 stroužky česneku
-          - 1 cibule
-          - 1 paprika
-          - hrst parmazánového sýru
-          - mletá sladká paprika
-          - špetka chilli, sůl, olej
+          - [cca 400 g dýně] (Hokaido, muškátová, máslová)
+          - [2 velká rajčata] nebo několik cherry rajčátek
+          - [kousek brokolice]
+          - [4 stroužky česneku]
+          - [1 cibule]
+          - [1 paprika]
+          - [hrst parmazánového sýru]
+          - [mletá sladká paprika]
+          - [špetka chilli], [sůl], [olej]
         
         Postup:
           - Brambory oloupej a nakrájej na kostky, vlož do mísy, přidej sůl, sladkou papriku, rozmačkaný česnek a trošku oleje. Přiklop pokličkou a protřepej. Koření se krásně promísí a obalí všechny kousky brambor. Dej na plech či pekáč vyložený pečícím papírem a dej péct do trouby předehřáté na 200°C.
@@ -1617,17 +1617,17 @@ Stránky:
         Typ: bezmasé  
         Porce: 2
         Ingredience:
-          - 1 krabička žampionů, cca 400 g, ne moc malých (loupání je pak úmorné)
-          - 160 g špaget či jiných těstovin v suchém stavu (pro Leňu bez lepku) či přibližně 350 g brambor
-          - velká hrst Baby špenátu nebo čerstvé bazalky
-          - 1 cibule (můžeš vynechat, ale pro chuť omáčky je lepší ji tam dát a třeba rozmixovat na kaši)
-          - 4 větší stroužky česneku
-          - rostlinný olej
-          - sýr parmazánového typu, cca 50 g
-          - 1 kelímek smetany (na vaření či do omáček či ke šlehání)                                                                                                         
-          - sůl, pepř 
-          - kmín
-          - sušená bazalka
+          - [1 krabička žampionů, cca 400 g], [ne moc malých] (loupání je pak úmorné)
+          - [160 g špaget] či jiných těstovin v suchém stavu (pro Leňu bez lepku) či přibližně 350 g brambor
+          - [velká hrst Baby špenátu] nebo čerstvé bazalky
+          - [1 cibule] (můžeš vynechat, ale pro chuť omáčky je lepší ji tam dát a třeba rozmixovat na kaši)
+          - [4 větší stroužky česneku]
+          - [rostlinný olej]
+          - [sýr parmazánového typu, cca 50 g]
+          - [1 kelímek smetany] (na vaření či do omáček či ke šlehání)
+          - [sůl], [pepř]
+          - [kmín]
+          - [sušená bazalka]
         
         Postup:
           - Žampionům odřízni konce nožiček, nožem lehce stáhni horní vrstvu hlaviček, jako by to byla slupka u cibule (chytneš si ji nožíkem a prstem od spodu kloboučku). Nakrájej na větší kousky (hlavičku cca na 4, nožičky na 2).
@@ -1643,10 +1643,10 @@ Stránky:
         Typ: bezmasé  
         Porce: 1
         Ingredience:
-          - žampionů dle chuti a velikosti, cca 5 kousků
-          - 1 až 2 vejce (dle množství žampionů)
-          - sůl, kmín, pepř
-          - hladká mouka (cca 1 hrnek)
+          - [žampionů dle chuti a velikosti, cca 5 kousků]
+          - [1 až 2 vejce] (dle množství žampionů)
+          - [sůl], [kmín], [pepř]
+          - [hladká mouka] (cca 1 hrnek)
           -
             > strouhanka (cca 1 hrnek)
             > nebo kukuřičná strouhanka = bezlepková
@@ -1668,19 +1668,19 @@ Stránky:
         Typ: bezmasé
         Porce: 3
         Ingredience:
-          - cca 800g nejlépe čerstvých hub, případně zamrazených
-          - 1 střední cibule
-          - 2 lžíce másla + 1 lžíce oleje
-          - 1 smetana ke šlehání
-          - 1 zakysaná smetana
-          - mléko, cca 200 ml
-          - 2 bobkové listy
-          - 5 kuliček nového koření
-          - sůl, pepř
-          - cca 1 lžička octu
-          - 1 lžička cukru
-          - 2 lžičky drceného kmínu
-          - 1 lžíce hladké mouky nebo bramborového či kukuřičného škrobu
+          - [cca 800g nejlépe čerstvých hub], [případně zamrazených]
+          - [1 střední cibule]
+          - [2 lžíce másla + 1 lžíce oleje]
+          - [1 smetana ke šlehání]
+          - [1 zakysaná smetana]
+          - [mléko, cca 200 ml]
+          - [2 bobkové listy]
+          - [5 kuliček nového koření]
+          - [sůl], [pepř]
+          - [cca 1 lžička octu]
+          - [1 lžička cukru]
+          - [2 lžičky drceného kmínu]
+          - [1 lžíce hladké mouky] nebo bramborového či kukuřičného škrobu
         
         Poznámka: Zamrazené houby buď kup v obchodě, nebo je musíš zamrazit podušené a vychladlé (Nejdříve stejné kousky hub chvilku podus ve vlastní šťávě asi 5 minut, pak přidej trošičku oleje a ještě chvilku dus pod pokličkou a míchej. Pak je zchlaď a zamraz.)
         
@@ -1699,16 +1699,16 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 1 lžíce oleje
-          - 1 cibule nakrájená nadrobno či rozmixovaná na kaši
-          - 1 lžíce mleté sladké papriky, popř. i špetička pálivé
-          - špetka mletého kmínu, ale jde to i s celým kmínem
-          - cca 400g hlívy ústřičné nakrájené na kousky (nejlépe bez velkých nožek, jsou dlouho gumové)
-          - 2 stroužky rozmačkaného česneku
-          - cca 500 ml zeleninového vývaru (bujonu)
-          - sůl, pepř
-          - 1 paprika, nejlépe červené kapie nakrájené na proužky
-          - majoránka (podle chuti)
+          - [1 lžíce oleje]
+          - [1 cibule] nakrájená nadrobno či rozmixovaná na kaši
+          - [1 lžíce mleté sladké papriky, popř. i špetička pálivé]
+          - [špetka mletého kmínu], [ale jde to i s celým kmínem]
+          - [cca 400g hlívy ústřičné] nakrájené na kousky (nejlépe bez velkých nožek, jsou dlouho gumové)
+          - [2 stroužky rozmačkaného česneku]
+          - [cca 500 ml zeleninového vývaru] (bujonu)
+          - [sůl], [pepř]
+          - [1 paprika], [nejlépe červené kapie] nakrájené na proužky
+          - [majoránka] (podle chuti)
         Postup:
           - Na oleji opeč cibulku do sklovita, cca 3 minuty.
           - Přidej sladkou papriku a kmín a krátce opeč, aby se koření rozvonělo, ale OPATRNĚ a jen chvilku, protože paprika má tendenci hořknout.
@@ -1732,15 +1732,15 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 2 velké hlavy žampionu Portobello (vybírej velké, lépe se s nimi pracuje a také se trochu scvrknou, v balení bývají často i malé)
-          - sůl, pepř
-          - olej nebo máslo (nebo z obojího trošku)
-          - 50 g Kuskusu nebo bulguru nebo pohanky nebo quinoi
-          - Niva, cca 80 g
-          - 4 stroužky rozmačkaného česneku
-          - hrst baby špenátu, nakrájeného
-          - 1 velké rajče nakrájené na kousíčky
-          - cca 50 g nastrouhaného Parmazánu na posypání
+          - [2 velké hlavy žampionu Portobello] (vybírej velké, lépe se s nimi pracuje a také se trochu scvrknou, v balení bývají často i malé)
+          - [sůl], [pepř]
+          - [olej] nebo máslo (nebo z obojího trošku)
+          - [50 g Kuskusu] nebo bulguru nebo pohanky nebo quinoi
+          - [Niva, cca 80 g]
+          - [4 stroužky rozmačkaného česneku]
+          - [hrst baby špenátu], [nakrájeného]
+          - [1 velké rajče] nakrájené na kousíčky
+          - [cca 50 g nastrouhaného Parmazánu na posypání]
         Postup:
           - Kuskus nebo bulgur nebo pohanku nebo quinou uvař podle návodu na obalu nebo na stránkách Přílohy ve 4. kapitole této kuchařky. Sol jen opatrně (Niva je slaná).
           - Houby očisti, klobouk nijak neloupej, odděl nožičky a lžičkou vydlabej hnědé lupeny zespoda klobouku (nechej si tam pěkný okraj z klobouku).
@@ -1759,17 +1759,17 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 2 velké hrsti sušených hříbků, cca 25 g (namočených do 200 ml studené vody aspoň na 30 minut)
-          - 1 malou šalotku (cibuli) rozmixovanou na kaši či nasekanou najemno
-          - 2 lžíce másla
-          - 130 g rýže arborio (speciálně na rizoto)
-          - instantní zeleninový bujón či trocha vývaru nebo voda (asi litr, ale záleží na rýži)
-          - sůl, pepř
-          - 2 dcl bílého vína (nutně být nemusí)
-          - velká hrst petrželky, majoránky, bazalky či baby špenátu
-          - česnek, 2 stroužky
-          - 100 g parmazánu (sýru parmazánového typu) 
-          - trochu zakysané smetany (nemusí být, ale je to s ní pěkně krémové)
+          - [2 velké hrsti sušených hříbků, cca 25 g] (namočených do 200 ml studené vody aspoň na 30 minut)
+          - [1 malou šalotku] (cibuli) rozmixovanou na kaši či nasekanou najemno
+          - [2 lžíce másla]
+          - [130 g rýže arborio] (speciálně na rizoto)
+          - [instantní zeleninový bujón] či trocha vývaru nebo voda (asi litr, ale záleží na rýži)
+          - [sůl], [pepř]
+          - [2 dcl bílého vína] (nutně být nemusí)
+          - [velká hrst petrželky], [majoránky], [bazalky] či baby špenátu
+          - [česnek,], [2 stroužky]
+          - [100 g parmazánu] (sýru parmazánového typu)
+          - [trochu zakysané smetany] (nemusí být, ale je to s ní pěkně krémové)
         
         Postup:
           - Nakrájenou cibulku lehce orestuj na 2 lžících másla. Přisyp rýži a společně restuj cca 5 minut, až se všechna rýže obalí tukem a jakoby zprůsvitní. Přidej i rozmačkaný česnek.
@@ -1783,20 +1783,20 @@ Stránky:
         Typ: bezmasé  
         Porce: 4
         Ingredience:
-          - 2 ks papriky
-          - 1 mladá cuketa
-          - 1 menší lilek
-          - 1 cibule
-          - 4 větší stroužky česneku
-          - 1 plechovka krájených rajčat
-          - hrst čerstvé bazalky
-          - 130 g rýže Arborio (speciálně na rizoto)
-          - lžíce másla
-          - 100 g parmazánu (sýru parmazánového typu)
-          - sůl, pepř
-          - olivový olej (6 lžic)
-          - 2 lžičky třtinového cukru (nebo normálního)
-          - 1 dcl bílého nebo růžového vína (lze vynechat)
+          - [2 ks papriky]
+          - [1 mladá cuketa]
+          - [1 menší lilek]
+          - [1 cibule]
+          - [4 větší stroužky česneku]
+          - [1 plechovka krájených rajčat]
+          - [hrst čerstvé bazalky]
+          - [130 g rýže Arborio] (speciálně na rizoto)
+          - [lžíce másla]
+          - [100 g parmazánu] (sýru parmazánového typu)
+          - [sůl], [pepř]
+          - [olivový olej] (6 lžic)
+          - [2 lžičky třtinového cukru] (nebo normálního)
+          - [1 dcl bílého] nebo růžového vína (lze vynechat)
         Postup:
           - Na oleji osmahni najemno pokrájenou (nebo na kaši rozsekanou) cibulku do sklovita. Pak vsypej rýži a míchej tak dlouho, až se všechna rýže obalí tukem a jakoby zprůsvitní.
           - Podlij vínem (vodou) a míchej, až se všechna tekutina odpaří.
@@ -1812,20 +1812,20 @@ Stránky:
         Typ: bezmasé  
         Porce: 2
         Ingredience:
-          - 2 sáčky rýže nebo 160 g rýže bez sáčku (kuskus, bulgur, pohanka, quinoa)
-          - sýr (nejlépe parmazánového typu)
-          - mrkev
-          - hrášek
-          - kukuřice
-          - cibule
-          - brokolice
-          - cuketa
-          - dýně
-          - paprika a další zelenina dle obliby – rizoto bude pokaždé 
-          - trochu jiné
-          - nebo sáček mražené zeleniny
-          - sůl, zelené bylinky (oregano, majoránka, tymián, …)
-          - olej
+          - [2 sáčky rýže] nebo 160 g rýže bez sáčku (kuskus, bulgur, pohanka, quinoa)
+          - [sýr] (nejlépe parmazánového typu)
+          - [mrkev]
+          - [hrášek]
+          - [kukuřice]
+          - [cibule]
+          - [brokolice]
+          - [cuketa]
+          - [dýně]
+          - [paprika a další zelenina dle obliby] – rizoto bude pokaždé
+          - [trochu jiné]
+          - [nebo sáček mražené zeleniny]
+          - [sůl], [zelené bylinky] (oregano, majoránka, tymián, …)
+          - [olej]
         
         Postup:
           - Rýži (kuskus, bulgur, pohanku, quinou) uvař podle návodu na obalu nebo koukni do Příloh (4. kapitola této kuchařky).
@@ -1839,18 +1839,18 @@ Stránky:
         Typ: bezmasé i masové (anglická slanina)
         Porce: 2
         Ingredience:
-          - 130 g rýže arborio (speciálně na rizoto)
-          - cca 500 ml instantního zeleninového bujónu či vývaru
-          - sůl, pepř
-          - 2 dcl bílého vína (nutně být nemusí)
-          - voda (asi litr, ale záleží na rýži)
-          - dýně Hokaido, 2 hrsti nakrájená na malé kousky, cca 380 g
-          - cibule (můžeš vynechat, ale pro chuť jídla je lepší ji dát a rozmixovat na kaši )
-          - 2 stroužky česneku
-          - snítky čerstvé šalvěje nebo sušené jako koření
-          - pár plátků anglické slaniny
-          - kousek másla, olivový olej
-          - strouhaný parmazán
+          - [130 g rýže arborio] (speciálně na rizoto)
+          - [cca 500 ml instantního zeleninového bujónu] či vývaru
+          - [sůl], [pepř]
+          - [2 dcl bílého vína] (nutně být nemusí)
+          - [voda] (asi litr, ale záleží na rýži)
+          - [dýně Hokaido, 2 hrsti] nakrájená na malé kousky, cca 380 g
+          - [cibule] (můžeš vynechat, ale pro chuť jídla je lepší ji dát a rozmixovat na kaši )
+          - [2 stroužky česneku]
+          - [snítky čerstvé šalvěje] nebo sušené jako koření
+          - [pár plátků anglické slaniny]
+          - [kousek másla], [olivový olej]
+          - [strouhaný parmazán]
         
         Postup:
           - Dýni Hokaido není třeba loupat, jen důkladně umýt a nakrájet na malé kousky. Nechej je povařit v malém množství vody do změknutí, což nebude trvat dlouho, cca 15 minut.
@@ -1867,13 +1867,13 @@ Stránky:
         Typ: bezmasé i masové (šunka)
         Porce: 2
         Ingredience:
-          - cca 100 g těstovin v suchém stavu (pro Leňu bez lepku)
-          - 150 g šunky vcelku (dá se koupit za salámovým pultem)    
-          - 100 g tvrdého sýru (plátky nebo vcelku)
-          - 3 hrsti kukuřičných zrn (sterilovaných nebo mražených – ty zalij horkou vodou a chvilku nechej povolit)
-          - 1 malá plechovka ananasového kompotu (kousky, nebo ho na kousky nakrájej)
-          - 2 lžíce majonézy do salátů
-          - kousek nati jarní cibulky nebo pórku
+          - [cca 100 g těstovin v suchém stavu] (pro Leňu bez lepku)
+          - [150 g šunky vcelku] (dá se koupit za salámovým pultem)
+          - [100 g tvrdého sýru] (plátky nebo vcelku)
+          - [3 hrsti kukuřičných zrn] (sterilovaných nebo mražených – ty zalij horkou vodou a chvilku nechej povolit)
+          - [1 malá plechovka ananasového kompotu] (kousky, nebo ho na kousky nakrájej)
+          - [2 lžíce majonézy do salátů]
+          - [kousek nati jarní cibulky] nebo pórku
         
         Postup:
           - Těstoviny dej vařit do vroucí osolené vody, cca 15 minut (pro přesnější čas koukni na obal). Sceď vodu.
@@ -1888,15 +1888,15 @@ Stránky:
         Typ: bezmasé i masové
         Porce: 1
         Ingredience:
-          - hrst bulguru (cca 80 g)
-          - 2 větší žampiony či hrst hřibů
-          - 1 jarní mladá cibulka či 8 cm pórku (nebo menší cibule)
-          - 1 větší rajče
-          - hrst kukuřice (mražené)
-          - 150 g kuřecího masa (nebo více… podle hladu) nebo 1/2 balení tofu či tempehu
-          - olej
-          - sůl, pepř
-          - zelená petrželka nebo baby špenát
+          - [hrst bulguru] (cca 80 g)
+          - [2 větší žampiony] či hrst hřibů
+          - [1 jarní mladá cibulka] či 8 cm pórku (nebo menší cibule)
+          - [1 větší rajče]
+          - [hrst kukuřice] (mražené)
+          - [150 g kuřecího masa] (nebo více… podle hladu) nebo 1/2 balení tofu či tempehu
+          - [olej]
+          - [sůl], [pepř]
+          - [zelená petrželka] nebo baby špenát
         
         Postup:
           - Bulgur uvař ve vroucí osolené vodě cca 15-20 minut. 
@@ -1912,16 +1912,16 @@ Stránky:
         Typ: bezmasé i masové (pršut)  
         Porce: 2
         Ingredience:
-          - 2 veliké batáty (cca 600 g)
-          - 1 červená paprika (lze vynechat)
-          - 2 velká rajčata (cca 200 g)
-          - 2 vejce
-          - 1 balení pršutu či schwarzwaldské šunky
-          - chilli
-          - petrželová nať nebo baby špenát
-          - sůl, pepř
-          - trošičku chilli
-          - vege verze: 3 - 4 plátky uzeného sýru
+          - [2 veliké batáty] (cca 600 g)
+          - [1 červená paprika] (lze vynechat)
+          - [2 velká rajčata] (cca 200 g)
+          - [2 vejce]
+          - [1 balení pršutu] či schwarzwaldské šunky
+          - [chilli]
+          - [petrželová nať] nebo baby špenát
+          - [sůl], [pepř]
+          - [trošičku chilli]
+          - [vege verze: 3 - 4 plátky uzeného sýru]
         Postup:
           - Zeleninu nakrájej na malé kostičky, pršut na nudličky.
           - Opatrně při krájení batátů – jsou velmi tvrdé a jak jsou velké a oblé, tak to jde těžce a hrozí, že se při krájení pohnou.
@@ -1942,12 +1942,12 @@ Stránky:
         Typ: bezmasé i masové (mleté)
         Porce: 1
         Ingredience:
-          - 80 g mletého masa
-          - 1 velkou širokou a pokud možno rovnou bílou papriku (ne tu tlustostěnnou zelenou, žlutou, červenou)
-          - malá cibule nebo čtvrtka
-          - sůl, pepř
-          - vajíčko
-          - olej
+          - [80 g mletého masa]
+          - [1 velkou širokou a pokud možno rovnou bílou papriku] (ne tu tlustostěnnou zelenou, žlutou, červenou)
+          - [malá cibule] nebo čtvrtka
+          - [sůl], [pepř]
+          - [vajíčko]
+          - [olej]
         Na 2 porce omáčky:
           - 1 rajčatový protlak
           - 1 lžíce hl. mouky či bramborového/ kukuřičného škrobu
@@ -1978,12 +1978,12 @@ Stránky:
         Typ: bezmasé i masové (hovězí) 
         Porce: 2
         Ingredience:
-          - cca 6 větších mrkví
-          - cukr
-          - hladká mouka na záklechtku
-          - sůl
-          - citronová šťáva
-          - pečené maso (koukni do masových jídel, s. 185)
+          - [cca 6 větších mrkví]
+          - [cukr]
+          - [hladká mouka na záklechtku]
+          - [sůl]
+          - [citronová šťáva]
+          - [pečené maso] (koukni do masových jídel, s. 185)
         Vegeverze: 1/2 tempehu na porci
         
         Postup:
@@ -2002,13 +2002,13 @@ Stránky:
         Typ: masové i bezmasé (hovězí)
         Porce: 2
         Ingredience:
-          - 2 až 4 vajíčka na uvaření nebo cca 300 – 400 g hovězího zadního
-          - 1 smetana na omáčky
-          - trocha mléka na doředění
-          - hrstka kopru (nejlépe čerstvého)
-          - 1 vajíčko na rozmíchání
-          - sůl
-          - 1 rovná lžíce hladké mouky či bramborového nebo kukuřičného škrobu
+          - [2 až 4 vajíčka na uvaření] nebo cca 300 – 400 g hovězího zadního
+          - [1 smetana na omáčky]
+          - [trocha mléka na doředění]
+          - [hrstka kopru] (nejlépe čerstvého)
+          - [1 vajíčko na rozmíchání]
+          - [sůl]
+          - [1 rovná lžíce hladké mouky] či bramborového nebo kukuřičného škrobu
         
         Postup:
           - Do hrnce dej vařit trochu mléka a nasekaný kopr. Po chvilce varu nalij smetanu, osol.
@@ -2029,15 +2029,15 @@ Stránky:
         Typ: bezmasé i masové (hovězí, vepřové)
         Porce: 2
         Ingredience:
-          - 2 až 4 vajíčka na uvaření či cca 300 – 400 g hovězího zadního či vepřové kotlety
-          - 1/2 sáčku mraženého listového špenátu (já mám nejradši řezaný, zmražený do kostiček – ubereš, kolik potřebuješ)
-          - cca 2 dcl mléka
-          - 4 až 5 stroužky česneku
-          - sůl, pepř
-          - olej
-          - 1 vajíčko (nemusí být)
-          - 1 cibule
-          - brambory, bramborový knedlík nebo bramborové šišky
+          - [2 až 4 vajíčka na uvaření] či cca 300 – 400 g hovězího zadního či vepřové kotlety
+          - [1/2 sáčku mraženého listového špenátu] (já mám nejradši řezaný, zmražený do kostiček – ubereš, kolik potřebuješ)
+          - [cca 2 dcl mléka]
+          - [4 až 5 stroužky česneku]
+          - [sůl], [pepř]
+          - [olej]
+          - [1 vajíčko] (nemusí být)
+          - [1 cibule]
+          - [brambory], [bramborový knedlík] nebo bramborové šišky
         
         Postup:
           - Cibulku nakrájej najemno nebo rozsekej na kaši a opeč na troše rozpáleného oleje. 
@@ -2058,11 +2058,11 @@ Stránky:
         
         Porce: 2
         Ingredience:
-          - 200 g Halušky v sáčku
-          - 2 dcl vody
-          - 200 g anglické slaniny (nebo ne)
-          - 200 g sýru (Brynza, Niva, obojí)
-          - síto na halušky
+          - [200 g Halušky v sáčku]
+          - [2 dcl vody]
+          - [200 g anglické slaniny] (nebo ne)
+          - [200 g sýru] (Brynza, Niva, obojí)
+          - [síto na halušky]
         
         Postup:
           - Halušky připrav podle návodu na krabici (většinou do 200 g těsta nalij 200 ml vody, dobře promíchej, vypracuj polotuhé těsto a nechej 3 minuty stát).
@@ -2077,13 +2077,13 @@ Stránky:
         Typ: bezmasé i masové (anglická slanina)
         Porce: 2
         Ingredience:
-          - 200 g Halušky v sáčku
-          - 2 dcl vody
-          - 150 - 200 g anglické slaniny (nebo ne)
-          - malý pytlík kysaného zelí (na 1 porci použiješ větší polovinu)
-          - 1 menší cibule
-          - síto na halušky
-          - sůl, pepř, cukr
+          - [200 g Halušky v sáčku]
+          - [2 dcl vody]
+          - [150 - 200 g anglické slaniny] (nebo ne)
+          - [malý pytlík kysaného zelí] (na 1 porci použiješ větší polovinu)
+          - [1 menší cibule]
+          - [síto na halušky]
+          - [sůl], [pepř], [cukr]
         
         Postup:
           - Na pánvičce KRÁTCE osmahni na kostičky nakrájenou anglickou (bez oleje – sama pustí a vyškvaří se). Můžeš přidat nakrájenou cibuli. Na slaninu přidej kysané zelí, které je před použitím vhodné nakrájet na kratší vlasy a slít nálev. Ten vypij, je v něm mnoho vitamínu C. Nechej prohřát spolu s troškou soli, pepře a cukru. Zelí musí trochu změknout. 
@@ -2100,18 +2100,18 @@ Stránky:
         Typ: bezmasé i masové (kuřecí)
         Porce: 2
         Ingredience:
-          - 300 – 400 g kuřecího masa
-          - vege verze: uzené tofu
-          - Solamyl
-          - 2 žloutky
-          - chilli
-          - sůl
-          - hrst mandlí (pro Honzu Kešu ořechy)
-          - cibule
-          - česnek
-          - sójová omáčka
-          - olej
-          - Metropol Bianco cca 3 dcl (NEVYNECHÁVEJ! DĚLÁ TU SPECIFICKOU CHUŤ!)
+          - [300] – 400 g kuřecího masa
+          - [vege verze: uzené tofu]
+          - [Solamyl]
+          - [2 žloutky]
+          - [chilli]
+          - [sůl]
+          - [hrst mandlí] (pro Honzu Kešu ořechy)
+          - [cibule]
+          - [česnek]
+          - [sójová omáčka]
+          - [olej]
+          - [Metropol Bianco cca 3 dcl] (NEVYNECHÁVEJ! DĚLÁ TU SPECIFICKOU CHUŤ!)
         
         Postup:
           - Nejprve přes noc nalož maso nebo uzené tofu nakrájené na nudličky do směsi 2 žloutků a 2 lžic Solamylu.
@@ -2127,14 +2127,14 @@ Stránky:
         Typ: šunka/ klobása či zelenina
         Porce: 2
         Ingredience:
-          - 100 g anglické slaniny (lze vynechat)
-          - 100 g šunky nebo 1 libová klobása (nakrájená na kousíčky)
-          - 400 g brambor
-          - sůl, pepř, grilovací koření
-          - majoránka nebo oregano nebo tymián nebo směs všeho
-          - plátkový sýr, cca 150 g, nakrájený na menší kousky
-          - 2 vejce
-          - cibule nakrájená na měsíčky (potřebuješ-li vynechat, vynechej)
+          - [100 g anglické slaniny] (lze vynechat)
+          - [100 g šunky] nebo 1 libová klobása (nakrájená na kousíčky)
+          - [400 g brambor]
+          - [sůl], [pepř], [grilovací koření]
+          - [majoránka] nebo oregano nebo tymián nebo směs všeho
+          - [plátkový sýr, cca 150 g], [nakrájený na menší kousky]
+          - [2 vejce]
+          - [cibule] nakrájená na měsíčky (potřebuješ-li vynechat, vynechej)
         
         Postup:
           - Brambory oloupej a nakrájej na cca 5 mm silná kolečka (plátky).
@@ -2150,17 +2150,17 @@ Stránky:
         Typ: bezmasé i masové (kuřecí)
         Porce: 2
         Ingredience:
-          - 1 balení Tempehu (190 až 200g)
-          - 1 kelímek smetany ke šlehání či do omáček
-          - 60 g sýru Čedar nebo Parmazán
-          - 4 stroužky česneku
-          - 1 pórek nebo 1 kedluben
-          - brokolice (hrst růžiček)
-          - 1/4 lžičky chilli koření
-          - 1/2 lžičky sypkého zeleninového bujónu nebo polévkového koření (Podravka, Vegeta, Kucharek)
-          - oregano
-          - olivový olej místo Tempehu můžeš dát kousky osoleného kuřecího asa (cca 150 – 200 g na porci)
-          - 4 větší brambory
+          - [1 balení Tempehu] (190 až 200g)
+          - [1 kelímek smetany ke šlehání] či do omáček
+          - [60 g sýru Čedar] nebo Parmazán
+          - [4 stroužky česneku]
+          - [1 pórek] nebo 1 kedluben
+          - [brokolice] (hrst růžiček)
+          - [1/4 lžičky chilli koření]
+          - [1/2 lžičky sypkého zeleninového bujónu] nebo polévkového koření (Podravka, Vegeta, Kucharek)
+          - [oregano]
+          - [olivový olej místo Tempehu můžeš dát kousky osoleného kuřecího asa] (cca 150 – 200 g na porci)
+          - [4 větší brambory]
         Postup:
           - Tempeh rozkrájej na kostičky, česnek a pórek na plátky, kedluben na tenké plátky, brokolici rozděl na menší růžičky a stonek na kolečka, sýr nastrouhej na hrubém struhadle.
           - Na pánvi rozehřej olej, nasypej do něj pórek (nebo kedluben) a česnek, po chvilce opékání přidej brokolici a Tempeh.
@@ -2175,14 +2175,14 @@ Stránky:
         Typ: bezmasé i masové (vepřové nebo tempeh)
         Porce: 2
         Ingredience:
-          - 4 plátky anglické slaniny
-          - plátky vepřové kotlety (vepřová pečeně bez kosti), 
-          - cca 150 - 200 g na porci
-          - olej
-          - sůl
-          - 1 cibule (lze vynechat)
-          - 1 sklenice naloženého sladkokyselého zelí (POZOR! KMÍN!)
-          - bramborové Gnocchi, cca 360 g
+          - [4 plátky anglické slaniny]
+          - [plátky vepřové kotlety] (vepřová pečeně bez kosti),
+          - [cca 150 - 200 g na porci]
+          - [olej]
+          - [sůl]
+          - [1 cibule] (lze vynechat)
+          - [1 sklenice naloženého sladkokyselého zelí] (POZOR! KMÍN!)
+          - [bramborové Gnocchi, cca 360 g]
         Vegeverze: 1/2 tempehu nakrájeného na plátky (může být okořeněný nebo namarinovaný)
         Postup:
           - Na kapičku rozehřátého oleje dej slaninu nakrájenou na kousíčky nebo na nudličky do pekáče vhodného do trouby, přidej nakrájenou cibulku.
@@ -2201,13 +2201,13 @@ Stránky:
         Typ: bezmasé i masové (vepřové)
         Porce: 2
         Ingredience:
-          - plátky vepřové kotlety (vepřová pečeně bez kosti), cca 150 - 200 g na porci
-          - olej
-          - sůl, pepř
-          - 1 cibule (lze vynechat)
-          - 1 kelímek smetany ke šlehání
-          - nastrouhaný sýr, klidně i Parmazán, cca 60 g
-          - cca 400 g brambor
+          - [plátky vepřové kotlety] (vepřová pečeně bez kosti), cca 150 - 200 g na porci
+          - [olej]
+          - [sůl], [pepř]
+          - [1 cibule] (lze vynechat)
+          - [1 kelímek smetany ke šlehání]
+          - [nastrouhaný sýr], [klidně i Parmazán, cca 60 g]
+          - [cca 400 g brambor]
         Vegeverze: 1/2 tempehu nakrájeného na plátky (může být okořeněný nebo namarinovaný)
         
         Postup:
@@ -2225,17 +2225,17 @@ Stránky:
         Typ: salám
         Porce: 1
         Ingredience:
-          - 200 g šunky vcelku či jiného měkkého salámu (dá se koupit za salámovým pultem)
-          - majoránka
-          - pepř
-          - paprika
-          - sůl
-          - grilovací koření
-          - malý rajský protlak
-          - hladká mouka
-          - 80 g špaget v suchém stavu (pro Leňu bez lepku), přelomené napůl
-          - tvrdý sýr, nejlépe parmazánového typu
-          - olej
+          - [200 g šunky vcelku] či jiného měkkého salámu (dá se koupit za salámovým pultem)
+          - [majoránka]
+          - [pepř]
+          - [paprika]
+          - [sůl]
+          - [grilovací koření]
+          - [malý rajský protlak]
+          - [hladká mouka]
+          - [80 g špaget v suchém stavu] (pro Leňu bez lepku), [přelomené napůl]
+          - [tvrdý sýr], [nejlépe parmazánového typu]
+          - [olej]
         
         Postup:
           - Na rozpálený olej dej osmažit na malé kostičky nakrájenou šunku. Přidej majoránku, pepř, papriku a grilovací koření (opatrně – vždycky můžeš přidat, ale už neubereš).
@@ -2255,10 +2255,10 @@ Stránky:
         Typ: ryba
         Porce: 2
         Ingredience:
-          - 300 g lososa (často se objevují slevové akce na lososa, vyplatí se, neboť losos je normálně finančně náročnější)
-          - 1 lžíce másla či oleje
-          - sůl
-          - 2 větší či 5 menších brambor
+          - [300 g lososa] (často se objevují slevové akce na lososa, vyplatí se, neboť losos je normálně finančně náročnější)
+          - [1 lžíce másla] či oleje
+          - [sůl]
+          - [2 větší] či 5 menších brambor
         
         Postup:
           - Brambory oloupej, nakrájej na kousky, dej vařit se solí případně s kmínem, cca 15 až 20 minut.
@@ -2283,17 +2283,17 @@ Stránky:
         Typ: ryba
         Porce: 1
         Ingredience:
-          - zbytek lososa od minulého oběda nebo cca 130 g lososa (nebo kuřecího nebo krůtího masa)
-          - 1/2 cibule (dá se vynechat, ale s ní je chuť jídla výraznější a lepší, proto ji třeba rozmixuj na kaši)
-          - 2 stroužky česneku
-          - 1 rajče nebo 3 cherry rajčátka či hrst baby špenátu (či obojí)
-          - trochu zelené petrželky nebo šalvěje
-          - 1 smetana ke šlehání či do omáček (120-150 ml)
-          - 160 g makarónů (pro Leňu bez lepku), přelomené napůl
-          - 30 g parmazánu nebo 1 obdélník taveného sýru
-          - 1 lžička bramborového nebo kukuřičného škrobu
-          - 1 lžíce másla
-          - sůl, pepř
+          - [zbytek lososa od minulého oběda] nebo cca 130 g lososa (nebo kuřecího nebo krůtího masa)
+          - [1/2 cibule] (dá se vynechat, ale s ní je chuť jídla výraznější a lepší, proto ji třeba rozmixuj na kaši)
+          - [2 stroužky česneku]
+          - [1 rajče] nebo 3 cherry rajčátka či hrst baby špenátu (či obojí)
+          - [trochu zelené petrželky] nebo šalvěje
+          - [1 smetana ke šlehání] či do omáček (120-150 ml)
+          - [160 g makarónů] (pro Leňu bez lepku), [přelomené napůl]
+          - [30 g parmazánu] nebo 1 obdélník taveného sýru
+          - [1 lžička bramborového] nebo kukuřičného škrobu
+          - [1 lžíce másla]
+          - [sůl], [pepř]
         Postup:
           - Buď na troše vody ohřej zbytek lososa ze včera, nebo syrového lososa jen velmi lehce osol (losos je sám slaný), opepři a krátce osmahni na rozpuštěném másle pod pokličkou (stačí opravdu troška tuku a po chvíli podlít troškou vody). Do rozpáleného tuku vlož lososa nejprve kůží dolů a nechej smažit asi 3 minuty. Potom otoč kůží nahoru a dosmaž další 2-3 minuty. Pak lososa natrhej či na menší kousky.
           - Dej vařit makaróny: Dej je do vroucí osolené vody (voda musí být slaná „jako moře“) a vař cca 15 minut (vyzkoušej jeden makarón, zda už je měkký), makaróny slij (vylij z nich vodu).
@@ -2309,15 +2309,15 @@ Stránky:
         Typ: ryba
         Porce: 2
         Ingredience:
-          - 300 g lososa nakrájeného na kousky
-          - 2 jarní cibulky nasekané najemno
-          - 4 lžíce olivového oleje
-          - 3 lžíce vodky (jídlo díky ní vydrží déle v lednici, pokud něco zbude)
-          - 250 ml husté zakysané smetany
-          - sůl
-          - pepř
-          - 2 lžíce nasekaného kopru, nejlépe čerstvého, jinak trochu více, protože mražený méně voní a méně ochutí
-          - 160 g těstovin (pro Leňu bez lepku)
+          - [300 g lososa nakrájeného na kousky]
+          - [2 jarní cibulky] nasekané najemno
+          - [4 lžíce olivového oleje]
+          - [3 lžíce vodky] (jídlo díky ní vydrží déle v lednici, pokud něco zbude)
+          - [250 ml husté zakysané smetany]
+          - [sůl]
+          - [pepř]
+          - [2 lžíce nasekaného kopru], [nejlépe čerstvého], [jinak trochu více], [protože mražený méně voní a méně ochutí]
+          - [160 g těstovin] (pro Leňu bez lepku)
         Postup:
           - Na rozpáleném oleji opékej cibulku cca 2 až 3 minuty.
           - Přidej kousky lososa a opékej další minutu.
@@ -2333,15 +2333,15 @@ Stránky:
         Typ: ryba
         Porce: 2
         Ingredience:
-          - cca 300 – 400 g bílé ryby (vykostěného filé)  
-          - 2 větší či 5 menších brambor
-          - 1 lžíce zelených bylinek (sušené nebo čerstvé)
-          - troška olivového oleje
-          - 1 citron
-          - sůl, pepř
-          - 1 rajče nebo 6 sherry rajčátek
-          - hrst baby špenátu (nebo obojí) nebo jiná zelenina či salát
-          - na servírování                 
+          - [cca 300] – 400 g bílé ryby (vykostěného filé)
+          - [2 větší] či 5 menších brambor
+          - [1 lžíce zelených bylinek] (sušené nebo čerstvé)
+          - [troška olivového oleje]
+          - [1 citron]
+          - [sůl], [pepř]
+          - [1 rajče] nebo 6 sherry rajčátek
+          - [hrst baby špenátu] (nebo obojí) nebo jiná zelenina či salát
+          - [na servírování]
         
         Postup:
           - Maso osuš, mírně posol a lehce opepři, lehce pokapej olejem a citronovou šťávou z poloviny citronu.
@@ -2359,12 +2359,12 @@ Stránky:
         Typ: ryba
         Porce: 2
         Ingredience:
-          - cca 300 g lososa
-          - 2 lžíce plnotučné hořčice
-          - 1 lžíce hnědého cukru
-          - 2 stroužky rozmačkaného česneku
-          - 1/2 lžičky tymiánu
-          - sůl, pepř, olivový olej
+          - [cca 300 g lososa]
+          - [2 lžíce plnotučné hořčice]
+          - [1 lžíce hnědého cukru]
+          - [2 stroužky rozmačkaného česneku]
+          - [1/2 lžičky tymiánu]
+          - [sůl], [pepř], [olivový olej]
         
         Postup:
           - Troubu rozehřej na 200°C, plech či pekáček vhodný do trouby vylož pečícím papírem.
@@ -2390,11 +2390,11 @@ Stránky:
         Typ: masové
         Porce: 2
         Ingredience:
-          - 2 plátky masa, cca po 150 - 200 g (kuřecí řízky, vepřová pečeně, vepřová krkovice, hovězí zadní …)
-          - 1 větší nebo 2 menší cibule
-          - sůl a pepř
-          - dle chuti majoránka nebo sladká paprika nebo oregano nebo grilovací koření 
-          - olej nebo sádlo (2 lžíce)
+          - [2 plátky masa, cca po 150 - 200 g] (kuřecí řízky, vepřová pečeně, vepřová krkovice, hovězí zadní …)
+          - [1 větší] nebo 2 menší cibule
+          - [sůl a pepř]
+          - [dle chuti majoránka] nebo sladká paprika nebo oregano nebo grilovací koření
+          - [olej] nebo sádlo (2 lžíce)
         Postup:
           - Maso naklepej (před klepáním přikryju maso vždy sáčkem – je to čistější práce, neboť tak z klepaného masa  neodprskávají mrňavé kousíčky všude kolem desky ), trošku nařízni okraje a z obou stran tak akorát osol a opepři. Ostatní koření různě prostřídej – jednou majoránku, jindy papriku, … Maso můžeš nakrájet na nudličky.
           - Cibuli nakrájej na malé kousíčky a chvilku osmahni na oleji (či sádle). Jakmile „zesklovatí“ dej na ni maso a z obou stran opeč. Maso pustí šťávu. Tu kontroluj, zda je jí dostatek, když ubude, podlij vodou (tak, aby maso bylo ve šťávě, ale neplavalo), zakryj pokličkou a nechej dusit. Můžeš péct celou dobu na plotně, ale hovězí lepší je nechat 10 minut na plotně a pak dát do rozehřáté trouby (veškerá masa dávám do trouby vyhřáté na 200 až 220°C).
@@ -2409,19 +2409,19 @@ Stránky:
         Typ: masové
         Porce: 2
         Ingredience:
-          - 200 g masa (kuřecí, vepřové – kotleta, řízky, kýta nebo mleté maso)
-          - sáček rýže nebo 140 g rýže bez sáčku, nejlépe jasmínová nebo Arborio (originál na rizoto) 
-          - mrkev
-          - hrášek
-          - kukuřice
-          - cibule
-          - brokolice
-          - paprika a další zelenina dle obliby
-          - nebo sáček mražené zeleniny
-          - 3 stroužky česneku
-          - sůl, pepř
-          - olej
-          - zelené bylinky (oregano, majoránka, tymián, medvědí česnek…)
+          - [200 g masa] (kuřecí, vepřové – kotleta, řízky, kýta nebo mleté maso)
+          - [sáček rýže] nebo 140 g rýže bez sáčku, [nejlépe jasmínová] nebo Arborio (originál na rizoto)
+          - [mrkev]
+          - [hrášek]
+          - [kukuřice]
+          - [cibule]
+          - [brokolice]
+          - [paprika a další zelenina dle obliby]
+          - [nebo sáček mražené zeleniny]
+          - [3 stroužky česneku]
+          - [sůl], [pepř]
+          - [olej]
+          - [zelené bylinky] (oregano, majoránka, tymián, medvědí česnek…)
         
         Postup:
           - Rýži uvař podle návodu na obalu nebo koukni do 4. kapitoly této kuchařky, Přílohy, s. 235. Podle zvolené rýže můžeš mít 2 druhy rizota (původní české nebo italské krémové).
@@ -2439,15 +2439,15 @@ Stránky:
         Poznámka: trochu delší vaření, ale jednoduché
         Porce: 2
         Ingredience:
-          - 2 krůtí stehna (špalíčky) nebo 1 obrovské (často obrovská bývají)
-          - 1/2 paličky česneku
-          - rozmarýn
-          - pepř
-          - sůl
-          - grilovací koření
-          - cca 400 g brambor
-          - olivový olej
-          - zeleninový vývar (bujón), cca 300 ml
+          - [2 krůtí stehna] (špalíčky) nebo 1 obrovské (často obrovská bývají)
+          - [1/2 paličky česneku]
+          - [rozmarýn]
+          - [pepř]
+          - [sůl]
+          - [grilovací koření]
+          - [cca 400 g brambor]
+          - [olivový olej]
+          - [zeleninový vývar] (bujón), cca 300 ml
         
         Postup:
           - Ze stehen stáhni kůži a omyj. Kus stáhneš rukou, pak si opatrně pomáhej ostrým nožem, nejlépe vykosťovákem (takový úzký, malý). 
@@ -2463,13 +2463,13 @@ Stránky:
         Typ: kuřecí
         Porce: 2
         Ingredience:
-          - 400g kuřecích řízků (Já mám nejraději prsní. Je to krásný plátek čistého masa. Stehenní řízky jsou šťavnatější, levnější, ale žouževnatější.)
-          - 1 až 2 vejce
-          - cca 1 hrnek hladké mouky
-          - cca 1 hrnek strouhanky
-          - sůl
-          - rostlinný olej na smažení (slunečnicový či řepkový)
-          - 3 větší nebo 5 menších brambor
+          - [400g kuřecích řízků] (Já mám nejraději prsní. Je to krásný plátek čistého masa. Stehenní řízky jsou šťavnatější, levnější, ale žouževnatější.)
+          - [1 až 2 vejce]
+          - [cca 1 hrnek hladké mouky]
+          - [cca 1 hrnek strouhanky]
+          - [sůl]
+          - [rostlinný olej na smažení] (slunečnicový či řepkový)
+          - [3 větší] nebo 5 menších brambor
         
         Postup:
           - Maso naklepej jen prsty (kostkami na hřbetu ruky), ne paličkou na maso – roztrhal bys ho. Z obou stran lehce posol.
@@ -2492,12 +2492,12 @@ Stránky:
         Typ: kuřecí
         Porce: 2
         Ingredience:
-          - 2 kuřecí stehna či celé kuře, ale to bude 4 – 5 porcí 
-          - 1 až 2 cibule
-          - 3 až 5 stroužků česneku
-          - sladká mletá paprika nebo pro obměnu bylinky
-          - olej
-          - sůl, pepř
+          - [2 kuřecí stehna] či celé kuře, [ale to bude 4] – 5 porcí
+          - [1 až 2 cibule]
+          - [3 až 5 stroužků česneku]
+          - [sladká mletá paprika] nebo pro obměnu bylinky
+          - [olej]
+          - [sůl], [pepř]
         
         Postup:
           - Kuře omyj, já ho zbavuju i tmavších kousků z vnitřní strany. V případě celého kuřete ho nejprve rozstřihni nůžkami na drůbež na 2 poloviny či čtvrtiny (stehna a prsa).
@@ -2517,16 +2517,16 @@ Stránky:
         Typ: kuřecí
         Porce: 2
         Ingredience:
-          - 300 – 400 g kuřecího masa
-          - cca 20 malých cherry rajčátek
-          - 1 cibule
-          - 3 větší stroužky česneku
-          - cca 400 g Gnocchi (znám balíčky 500 a 600 g)  
-          - veliká hrst baby špenátu
-          - 1 smetana do omáček nebo na vaření nebo ke šlehání
-          - sůl, pepř
-          - 50 g parmazánového sýru
-          - olej
+          - [300] – 400 g kuřecího masa
+          - [cca 20 malých cherry rajčátek]
+          - [1 cibule]
+          - [3 větší stroužky česneku]
+          - [cca 400 g Gnocchi] (znám balíčky 500 a 600 g)
+          - [veliká hrst baby špenátu]
+          - [1 smetana do omáček] nebo na vaření nebo ke šlehání
+          - [sůl], [pepř]
+          - [50 g parmazánového sýru]
+          - [olej]
         
         Postup:
           - Cibulku nakrájej najemno a osmahni na trošičce oleje a přidej na kostičky nakrájené a trochu osolené a opepřené maso a opeč do měkka. Hlídej množství šťávy. Přidej česnek, na polovinu rozkrojená cherry rajčátka, baby špenát a nakonec smetanu. Můžeš zahustit trochou nastrouhaného parmazánu.
@@ -2543,15 +2543,15 @@ Stránky:
         Typ: kuřecí
         Porce: 2
         Ingredience:
-          - 300 – 400 g kuřecího masa
-          - 100 g anglické slaniny
-          - 1 cibule
-          - cca 350 g Gnocchi (znám balíčky 500 a 600 g)  
-          - 100 g sýru Gervais (Žervé) nebo taveného sýru
-          - trochu mléka či smetany
-          - sůl, pepř
-          - olej
-          - medvědí česnek, pažitka či baby špenát
+          - [300] – 400 g kuřecího masa
+          - [100 g anglické slaniny]
+          - [1 cibule]
+          - [cca 350 g Gnocchi] (znám balíčky 500 a 600 g)
+          - [100 g sýru Gervais] (Žervé) nebo taveného sýru
+          - [trochu mléka] či smetany
+          - [sůl], [pepř]
+          - [olej]
+          - [medvědí česnek], [pažitka] či baby špenát
         
         Postup:
           - Cibulku nakrájej najemno a osmahni na trošičce oleje a přidej na kostičky nakrájenou slaninu, osmahni.
@@ -2573,15 +2573,15 @@ Stránky:
         Typ: kuřecí
         Porce: 2
         Ingredience:
-          - cca 300 – 400 g kuřecího masa nakrájeného na nudličky
-          - 2 lžíce oleje
-          - 1 žloutek
-          - 1 lžíce Solamylu (bramborový či kukuřičný škrob)
-          - 1 lžíce Worcesteru
-          - 1 lžíce česnekové sójové omáčky
-          - 1 až 2 lžíce sladké Chilli omáčky
-          - 1 lžička cukru
-          - troška soli
+          - [cca 300] – 400 g kuřecího masa nakrájeného na nudličky
+          - [2 lžíce oleje]
+          - [1 žloutek]
+          - [1 lžíce Solamylu] (bramborový či kukuřičný škrob)
+          - [1 lžíce Worcesteru]
+          - [1 lžíce česnekové sójové omáčky]
+          - [1 až 2 lžíce sladké Chilli omáčky]
+          - [1 lžička cukru]
+          - [troška soli]
         
         Ne zeleninovou směs:
           - 1 cibule
@@ -2608,17 +2608,17 @@ Stránky:
         Typ: kuřecí
         Porce: 2
         Ingredience:
-          - cca 400 g brambor
-          - 1 cibule
-          - 1 mrkev
-          - 1/2 lžíce másla
-          - 1 smetana na vaření či do omáček
-          - sůl, pepř
-          - tymián
-          - cca 300 - 400 g kuřecího masa
-          - 1 lžíce majonézy
-          - 1 mozzarella
-          - cca 50 g parmazánového sýru
+          - [cca 400 g brambor]
+          - [1 cibule]
+          - [1 mrkev]
+          - [1/2 lžíce másla]
+          - [1 smetana na vaření] či do omáček
+          - [sůl], [pepř]
+          - [tymián]
+          - [cca 300 - 400 g kuřecího masa]
+          - [1 lžíce majonézy]
+          - [1 mozzarella]
+          - [cca 50 g parmazánového sýru]
         
         Postup:
           - Troubu rozehřej na 200°C.
@@ -2634,14 +2634,14 @@ Stránky:
         Typ: kuřecí
         Porce: 2
         Ingredience:
-          - 3 lžíce rozpuštěného másla + 1 lžíce tuhého másla
-          - 4 stroužky rozmačkaného česneku
-          - sůl, pepř
-          - 1 lžička nasekaného tymiánu, ideálně čerstvého
-          - 1 lžička nasekaného rozmarýnu, ideálně čerstvého
-          - cca 400 g kuřecích prsou, 2 kusy
-          - cca 400 g brambor
-          - 1 jarní cibulka nebo kus pórku
+          - [3 lžíce rozpuštěného másla + 1 lžíce tuhého másla]
+          - [4 stroužky rozmačkaného česneku]
+          - [sůl], [pepř]
+          - [1 lžička nasekaného tymiánu], [ideálně čerstvého]
+          - [1 lžička nasekaného rozmarýnu], [ideálně čerstvého]
+          - [cca 400 g kuřecích prsou, 2 kusy]
+          - [cca 400 g brambor]
+          - [1 jarní cibulka] nebo kus pórku
         
         Postup:
           - Maso opláchni, osuš papírovou utěrkou a po obou stranách osol a opepři.
@@ -2657,17 +2657,17 @@ Stránky:
         Typ: kuřecí
         Porce: 2
         Ingredience:
-          - 2 lžíce másla, kokosového oleje či jiný olej
-          - 4 stroužky česneku
-          - 1 menší cibule nasekaná nahrubo
-          - sůl
-          - pepř
-          - cca 300 - 400 g kuřecích prsou
-          - cca 400 g brambor nebo 120 g rýže v suchém stavu
-          - půlka brokolice
-          - hrst mražené kukuřice
-          - 1 smetana (do omáček, na šlehání, na vaření)
-          - 50 g sýru parmazánového typu
+          - [2 lžíce másla], [kokosového oleje] či jiný olej
+          - [4 stroužky česneku]
+          - [1 menší cibule] nasekaná nahrubo
+          - [sůl]
+          - [pepř]
+          - [cca 300 - 400 g kuřecích prsou]
+          - [cca 400 g brambor] nebo 120 g rýže v suchém stavu
+          - [půlka brokolice]
+          - [hrst mražené kukuřice]
+          - [1 smetana] (do omáček, na šlehání, na vaření)
+          - [50 g sýru parmazánového typu]
         Postup:
           - Brokolici rozděl na růžičky, ze stonků nožem „odtrhej“ slupku a brokolici omyj. Můžeš použít i stonek na kousíčky.
           - Maso opláchni a nakrájej na kostičky 2 až 3 cm, popepři, osol – nepřesol.
@@ -2686,17 +2686,17 @@ Stránky:
         Poznámka: trochu delší vaření, ale jednoduché
         Porce: 2
         Ingredience:
-          - 300 – 400 g masa hovězího zadního nebo hovězího na guláš (já radši zadní), každopádně dobře vybírej
-          - 2 lžíce oleje, kousek másla (cca 20 g)
-          - sůl, pepř
-          - 50 g anglické slaniny
-          - 2 mrkve
-          - 1 malá cibule
-          - 1 větší stroužek česneku
-          - 1 malý rajčatový protlak (použiješ polovinu)
-          - 250 ml červeného vína (Burgundského nejpříhodněji )
-          - cca 200 ml masového vývaru (klidně masox z kostky)
-          - tymián, rozmarýn, bobkový list 2 ks
+          - [300] – 400 g masa hovězího zadního nebo hovězího na guláš (já radši zadní), [každopádně dobře vybírej]
+          - [2 lžíce oleje], [kousek másla] (cca 20 g)
+          - [sůl], [pepř]
+          - [50 g anglické slaniny]
+          - [2 mrkve]
+          - [1 malá cibule]
+          - [1 větší stroužek česneku]
+          - [1 malý rajčatový protlak] (použiješ polovinu)
+          - [250 ml červeného vína] (Burgundského nejpříhodněji )
+          - [cca 200 ml masového vývaru] (klidně masox z kostky)
+          - [tymián], [rozmarýn], [bobkový list 2 ks]
         Postup:
           - Maso nakrájej na malé kostičky, osol, opepři. Slaninu taky nakrájej na malé kousíčky, mrkev na kolečka, cibuli nakrájej nahrubo, ať o ní v jídle víš, česnek prolisuj.
           - V pekáčku vhodném do trouby maso zprudka orestuj na rozpáleném oleji, přidej slaninu, mrkev, cibuli a česnek a chvilku restuj společně.
@@ -2711,17 +2711,17 @@ Stránky:
         Typ: hovězí
         Porce: 2
         Ingredience:
-          - 300 - 400 g hovězího masa (nejraději používám zadní)
-          - 1 větší nebo 2 menší cibule
-          - sůl a pepř
-          - dle chuti majoránka nebo sladká paprika nebo oregano nebo grilovací koření 
-          - olej nebo sádlo (2 lžíce)
-          - 1 lžíce hladké mouky
-          - bobkový list
-          - nové koření
-          - skořice
-          - 3 kostky cukru
-          - větší rajčatový protlak, cca 140 g + kapka kečupu
+          - [300 - 400 g hovězího masa] (nejraději používám zadní)
+          - [1 větší] nebo 2 menší cibule
+          - [sůl a pepř]
+          - [dle chuti majoránka] nebo sladká paprika nebo oregano nebo grilovací koření
+          - [olej] nebo sádlo (2 lžíce)
+          - [1 lžíce hladké mouky]
+          - [bobkový list]
+          - [nové koření]
+          - [skořice]
+          - [3 kostky cukru]
+          - [větší rajčatový protlak, cca 140 g + kapka kečupu]
         
         Postup:
           - Maso si připrav podle návodu v receptu „Pečené maso“ na s. 185.
@@ -2740,16 +2740,16 @@ Stránky:
         Poznámka: trochu delší vaření, ale jednoduché
         Porce: 2
         Ingredience:
-          - 300 - 400 g hovězího zadního, hovězího na guláš nebo hovězí kližky (já radši zadní), každopádně dobře vybírej
-          - 1 velká cibule
-          - lžíce oleje
-          - lžíce másla
-          - lžíce rajčatového protlaku
-          - 200 ml masového vývaru (Masox) + cca 200 na podlévání
-          - plná lžička sladké papriky
-          - plná lžička majoránky
-          - 3 stroužky česneku
-          - sůl, pepř
+          - [300 - 400 g hovězího zadního], [hovězího na guláš] nebo hovězí kližky (já radši zadní), [každopádně dobře vybírej]
+          - [1 velká cibule]
+          - [lžíce oleje]
+          - [lžíce másla]
+          - [lžíce rajčatového protlaku]
+          - [200 ml masového vývaru] (Masox) + cca 200 na podlévání
+          - [plná lžička sladké papriky]
+          - [plná lžička majoránky]
+          - [3 stroužky česneku]
+          - [sůl], [pepř]
         k podávání: knedlík, případně těstoviny, rýže, pečivo
         
         Postup:
@@ -2766,19 +2766,19 @@ Stránky:
         Typ: hovězí
         Porce: 2
         Ingredience:
-          - 300 – 400 g zadního hovězího masa nebo hovězí roštěné
-          - stroužky česneku prolisovaného
-          - 2cm kousek čerstvého zázvoru nastrouhaného najemno
-          - 1 lžička kukuřičného škrobu
-          - 2 lžíce oleje
-          - 1 červená paprika (ne pro Honzu, to nahraď mrkví nakrájenou na tenké plátky )
-          - 1 cibule
-          - 140g širokých rýžových nudlí v suchém stavu
-          - 3 lžíce sójové omáčky
-          - 1 lžička medu
-          - 100 ml hovězího vývaru nebo vody
-          - 1 jarní cibulka k podávání
-          - sůl, pepř
+          - [300] – 400 g zadního hovězího masa nebo hovězí roštěné
+          - [stroužky česneku prolisovaného]
+          - [2cm kousek čerstvého zázvoru nastrouhaného] najemno
+          - [1 lžička kukuřičného škrobu]
+          - [2 lžíce oleje]
+          - [1 červená paprika] (ne pro Honzu, to nahraď mrkví nakrájenou na tenké plátky )
+          - [1 cibule]
+          - [140g širokých rýžových nudlí v suchém stavu]
+          - [3 lžíce sójové omáčky]
+          - [1 lžička medu]
+          - [100 ml hovězího vývaru] nebo vody
+          - [1 jarní cibulka k podávání]
+          - [sůl], [pepř]
         Vegeverze: místo masa 1/2 tempehu na porci.
         
         Postup:
@@ -2796,18 +2796,18 @@ Stránky:
         Typ: mleté hovězí
         Porce: 2
         Ingredience:
-          - 300 g mletého masa (hovězího zadního nejlépe)
-          - 1 cibule, klidně rozmixované na kaši nebo nakrájená najemno
-          - 2 stroužky česneku
-          - 1 lžíce oleje
-          - lžička mleté sladké papriky
-          - špetka chilli (OPATRNĚ!)
-          - cca 200 ml vývaru (Masoxu) nebo vody
-          - 1 malá plechovka krájených rajčat
-          - cca 200 g předvařených červených fazolí (půlka plechovky)
-          - hrst kukuřice (mražená)
-          - sůl, pepř
-          - rýže
+          - [300 g mletého masa] (hovězího zadního nejlépe)
+          - [1 cibule], [klidně] rozmixované na kaši nebo nakrájená najemno
+          - [2 stroužky česneku]
+          - [1 lžíce oleje]
+          - [lžička mleté sladké papriky]
+          - [špetka chilli] (OPATRNĚ!)
+          - [cca 200 ml vývaru] (Masoxu) nebo vody
+          - [1 malá plechovka krájených rajčat]
+          - [cca 200 g předvařených červených fazolí] (půlka plechovky)
+          - [hrst kukuřice] (mražená)
+          - [sůl], [pepř]
+          - [rýže]
         Postup:
           - Na rozehřátém oleji orestuj cibuli, česnek, sladkou papriku a chilli cca 3 minuty na mírném plameni. Míchej. 
           - Přidej hovězí maso a za častého míchání opékej asi 10 minut.
@@ -2826,14 +2826,14 @@ Stránky:
         Typ: králík
         Porce: 2
         Ingredience:
-          - 2 králičí stehna
-          - sůl, pepř
-          - 2 lžíce olivového oleje
-          - 1 bílá cibule
-          - 1 pomeranč a pomerančová kůra
-          - 1 malá plechovka krájených rajčat
-          - 1 celá skořice, 3 hřebíčky
-          - zelená petrželka
+          - [2 králičí stehna]
+          - [sůl], [pepř]
+          - [2 lžíce olivového oleje]
+          - [1 bílá cibule]
+          - [1 pomeranč a pomerančová kůra]
+          - [1 malá plechovka krájených rajčat]
+          - [1 celá skořice, 3 hřebíčky]
+          - [zelená petrželka]
         Postup:
           - Králíka osol, opepři a důkladně potři ze všech stran olejem.
           - Cibuli nasekej najemno, pomeranč vymačkej.
@@ -2850,18 +2850,18 @@ Stránky:
         Typ: králík či tempeh
         Porce: 2
         Ingredience:
-          - 2 králičí stehna
-          - 30 g másla
-          - Dijonská hořčice
-          - 2 šalotky (fialová cibule) nebo 1 cibule
-          - tymián, saturejka (nejlépe čerstvé), oregano
-          - 3 bobkové listy
-          - 200 ml bílého vína
-          - 200 ml silného masového vývaru (klidně masox)
-          - sůl, pepř
-          - 1 batát, cca 400 g
-          - 1 střední brambor, cca 100 g
-          - růžičky brokolice, cca 200 g
+          - [2 králičí stehna]
+          - [30 g másla]
+          - [Dijonská hořčice]
+          - [2 šalotky] (fialová cibule) nebo 1 cibule
+          - [tymián], [saturejka] (nejlépe čerstvé), [oregano]
+          - [3 bobkové listy]
+          - [200 ml bílého vína]
+          - [200 ml silného masového vývaru] (klidně masox)
+          - [sůl], [pepř]
+          - [1 batát, cca 400 g]
+          - [1 střední brambor, cca 100 g]
+          - [růžičky brokolice, cca 200 g]
         Postup:
           - Králíka z obou stran osol, opepři a potři hořčicí: kopeček hořčice naložím na kus králíka a pak ji rozetřu pomocí mašlovačky. Šalotky nakrájej nahrubo, opeč na másle a přidej bylinky. 
           - Odsuň cibulku na kraj a na másle z ní krátce opeč králíka z obou stran. Pak králíka zalij vínem a vývarem (jinými slovy: zalij horkou vodou a přidej kousek kostky Masoxu), zaklop poklicí a peč v troubě vyhřáté na 180°C do měkka, asi 50 minut.
@@ -2880,14 +2880,14 @@ Stránky:
         Typ: králík či tempeh
         Porce: 2
         Ingredience:
-          - 2 velké mrkve nebo 3 střední
-          - 2 petržele
-          - 1/4 celeru
-          - 2 králičí stehna nebo 1 stehno a 1/2 Tempehu na plátky
-          - sůl, pepř
-          - olej
-          - 120 g těstovin (pro Leňu bez lepku) nebo knedlík
-          - 1 kelímek smetany na vaření či do omáček či šlehačky
+          - [2 velké mrkve] nebo 3 střední
+          - [2 petržele]
+          - [1/4 celeru]
+          - [2 králičí stehna] nebo 1 stehno a 1/2 Tempehu na plátky
+          - [sůl], [pepř]
+          - [olej]
+          - [120 g těstovin] (pro Leňu bez lepku) nebo knedlík
+          - [1 kelímek smetany na vaření] či do omáček či šlehačky
         
         Postup:
           - Králíka osol a opepři a dej na rozpálený olej opéct z obou stran na větším plameni. Troubu předehřej na 200°C.
@@ -2907,14 +2907,14 @@ Stránky:
         Typ: vepřové
         Porce: 2
         Ingredience:
-          - 4 plátky anglické slaniny
-          - hrst hříbků
-          - 2 plátky vepřové kotlety (vepřová pečeně bez kosti), cca 300 – 400 g
-          - kečup
-          - olej
-          - sůl
-          - 1 cibule
-          - lečo nebo 1 paprika a 2 rajčata
+          - [4 plátky anglické slaniny]
+          - [hrst hříbků]
+          - [2 plátky vepřové kotlety] (vepřová pečeně bez kosti), cca 300 – 400 g
+          - [kečup]
+          - [olej]
+          - [sůl]
+          - [1 cibule]
+          - [lečo] nebo 1 paprika a 2 rajčata
         
         Postup:
           - Na trošku oleje dej slaninu nakrájenou na kousíčky nebo na nudličky do pekáče vhodného do trouby, přidej nakrájené hříbky a asi 3 minuty opékej.
@@ -2928,15 +2928,15 @@ Stránky:
         Typ: vepřové
         Porce: 2
         Ingredience:
-          - 2 plátky vepřové kotlety (vepřová pečeně bez kosti), cca 300 - 400 g
-          - cca 40 g tenkých nudliček anglické slaniny
-          - 2 plné lžíce hořčice (1 lžíce může být Kremžská)
-          - olej
-          - sůl
-          - pepř
-          - 1 cibule nakrájená na tenké půlměsíčky
-          - 250 ml smetany ke šlehání
-          - cca 400 g brambor
+          - [2 plátky vepřové kotlety] (vepřová pečeně bez kosti), cca 300 - 400 g
+          - [cca 40 g tenkých nudliček anglické slaniny]
+          - [2 plné lžíce hořčice] (1 lžíce může být Kremžská)
+          - [olej]
+          - [sůl]
+          - [pepř]
+          - [1 cibule] nakrájená na tenké půlměsíčky
+          - [250 ml smetany ke šlehání]
+          - [cca 400 g brambor]
         
         Postup:
           - Kotlety po obvodu několikrát nařízni, rozklepej, osol, opepři. Můžeš je rozkrojit i na menší kousky.
@@ -2952,22 +2952,22 @@ Stránky:
         Typ: vepřové
         Porce: 2
         Ingredience:
-          - cca 300 – 400 g vepřového masa (nejlepší jsou kotlety)
-          - Nakládací lák: 2 vejce
-          - 1/2 lžičky soli
-          - 1/2 lžičky mletého pepře
-          - 1/2 lžičky drceného kmínu (pro Honzu vynechej)
-          - 1 lžička ještě v prstech promnuté majoránky
-          - 1/2 lžičky mleté sladké papriky
-          - 1/4 lžičky mleté pálivé papriky (často vynechávám)
-          - 1 lžička worcesteru
-          - 1 lžička kečupu
-          - 1/2 lžičky kari koření
-          - 1/2 lžičky Vegety
-          - 1 lžička hořčice (nejlépe plnotučné)
-          - 1 lžička solamylu (bramborový či kukuřičný škrob)
-          - 1 lžíce oleje
-          - hranolky či pečené brambory
+          - [cca 300] – 400 g vepřového masa (nejlepší jsou kotlety)
+          - [Nakládací lák: 2 vejce]
+          - [1/2 lžičky soli]
+          - [1/2 lžičky mletého pepře]
+          - [1/2 lžičky drceného kmínu] (pro Honzu vynechej)
+          - [1 lžička ještě v prstech promnuté majoránky]
+          - [1/2 lžičky mleté sladké papriky]
+          - [1/4 lžičky mleté pálivé papriky] (často vynechávám)
+          - [1 lžička worcesteru]
+          - [1 lžička kečupu]
+          - [1/2 lžičky kari koření]
+          - [1/2 lžičky Vegety]
+          - [1 lžička hořčice] (nejlépe plnotučné)
+          - [1 lžička solamylu] (bramborový či kukuřičný škrob)
+          - [1 lžíce oleje]
+          - [hranolky] či pečené brambory
         
         Postup:
           - Maso nakrájej na plátky cca 1 cm široké, po obou stranách naklepej.
@@ -2984,15 +2984,15 @@ Stránky:
         Typ: vepřová krkovice nebo kuřecí prsa
         Intro: S touto marinádou přišel taťka. Našel si ji někde na internetu a všem vždy chutnalo, tak se stala takovou stálicí našeho grilování. Akorát taťka všeho dává vždy od oka. 
         Ingredience:
-          - kečup (2 lžíce)
-          - olej (4 lžíce)
-          - vinný ocet (1 lžíce)
-          - med, nejlépe tekutý (3 lžíce)
-          - sójová omáčka (2 lžíce)
-          - worcester (2 lžíce)
-          - pepř (1 lžička)
-          - sůl
-          - vepřová krkovice nebo kuřecí prsa – vždy cca 200 g na porci
+          - [kečup] (2 lžíce)
+          - [olej] (4 lžíce)
+          - [vinný ocet] (1 lžíce)
+          - [med], [nejlépe tekutý] (3 lžíce)
+          - [sójová omáčka] (2 lžíce)
+          - [worcester] (2 lžíce)
+          - [pepř] (1 lžička)
+          - [sůl]
+          - [vepřová krkovice] nebo kuřecí prsa – vždy cca 200 g na porci
         
         Postup:
           - Maso nakrájej na stejně hrubé plátky, cca 15 mm. Kuřecí prsa vždy seříznu tak, aby byla všude stejně vysoká. Neklepej, jen pobouchej rukou v pěst (ohnutými prsty).
@@ -3008,11 +3008,11 @@ Stránky:
         Typ: vepřové
         Porce: 3
         Ingredience:
-          - vepřová panenka vcelku tak cca 500 g
-          - olivový olej
-          - sůl, pepř
-          - alobal
-          - pekáč vhodný do trouby
+          - [vepřová panenka vcelku tak cca 500 g]
+          - [olivový olej]
+          - [sůl], [pepř]
+          - [alobal]
+          - [pekáč vhodný do trouby]
         
         Poznámka:
           > Postup jsem zkopírovala od Matyho Chálka, kde jsem našla ten nejlepší popis přípravy panenky, která se mi od té doby vždy povedla. Je jasný a jednoduchý a zvládne to každý, na podruhé určitě – poprvé to musíš zkusit :
@@ -3044,11 +3044,11 @@ Stránky:
         Nadpis: Slaninové fazolky
         Porce: 3
         Ingredience:
-          - 3 hrsti zelených fazolových lusků krájených na cca 5 cm (i mražených)
-          - 50 g anglické slaniny nakrájené na kousíčky
-          - 1 lžička sušeného česneku
-          - 1 lžička oleje
-          - sůl, pepř
+          - [3 hrsti zelených fazolových lusků krájených na cca 5 cm] (i mražených)
+          - [50 g anglické slaniny] nakrájené na kousíčky
+          - [1 lžička sušeného česneku]
+          - [1 lžička oleje]
+          - [sůl], [pepř]
         Postup:
           - Slaninu osmahni na rozpáleném oleji, pak přidej fazolky a koření.
   -
@@ -3169,16 +3169,16 @@ Stránky:
         Porce: 2
         Strana: 242
         Ingredience:
-          - 1 hrnek hladké mouky (na bezlepkovou verzi pohankové)
-          - hrnek = obyčejný čajový hrnek o objemu 250 ml
-          - 1/4 hrnku krupicového cukru (klidně třtinového)
-          - 1/2 balíčku prášku do pečiva
-          - 1 žloutek
-          - sníh z 1 bílku
-          - 3/4 hrnku vlažného mléka
-          - 38 g rozpuštěného másla
-          - špetička soli
-          - vaflovač
+          - [1 hrnek hladké mouky] (na bezlepkovou verzi pohankové)
+          - [hrnek = obyčejný čajový hrnek o objemu 250 ml]
+          - [1/4 hrnku krupicového cukru] (klidně třtinového)
+          - [1/2 balíčku prášku do pečiva]
+          - [1 žloutek]
+          - [sníh z 1 bílku]
+          - [3/4 hrnku vlažného mléka]
+          - [38 g rozpuštěného másla]
+          - [špetička soli]
+          - [vaflovač]
         Na dozdobení a dochucení:
           - bílý jogurt
           - tvaroh
@@ -3207,13 +3207,13 @@ Stránky:
         Porce: 1
         Strana: 245
         Ingredience:
-          - 1 hrnek mléka
-          - hrnek = obyčejný čajový hrnek o objemu 250 ml 
-          - cca 4 lžíce Dětské krupičky
-          - 1 lžíce másla
-          - Granko
-          - skořice
-          - … případně dle chuti marmelád, Nutela, jahody, tvaroh
+          - [1 hrnek mléka]
+          - [hrnek = obyčejný čajový hrnek o objemu 250 ml]
+          - [cca 4 lžíce Dětské krupičky]
+          - [1 lžíce másla]
+          - [Granko]
+          - [skořice]
+          - [… případně dle chuti marmelád], [Nutela], [jahody], [tvaroh]
         Postup:
           - Do kastrůlku dej studené mléko a krupici a rozmíchej. 
           - Teď rovnou přidej kousek másla a mléko za stálého míchání přiveď k varu.
@@ -3229,9 +3229,9 @@ Stránky:
         Porce: 1
         Strana: 246
         Ingredience:
-          - 2 krajíce bílého toustového chleba
-          - kousek povoleného másla
-          - 100 g sýru, typicky Čedar, popř. sýr parmazánového typu
+          - [2 krajíce bílého toustového chleba]
+          - [kousek povoleného másla]
+          - [100 g sýru], [typicky Čedar, popř. sýr parmazánového typu]
         Postup:
           - Každý chleba z jedné strany namaž máslem.
           - Namazanou stranou polož na rozpálenou pánev (bez oleje). Na takto připravený kousek nasypej nastrouhaný sýr a přiklop druhým chlebem (nenamazanou stranou).
@@ -3247,14 +3247,14 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 2 vejce
-          - 2 krajíce chleba
-          - sůl, pepř
-          - 1 lžička oregana
-          - 1 plátek sýru či 2, nakrájený na proužky
-          - olej na smažení
-          - papírové utěrky na odsátí tuku
-          - kečup
+          - [2 vejce]
+          - [2 krajíce chleba]
+          - [sůl], [pepř]
+          - [1 lžička oregana]
+          - [1 plátek sýru] či 2, [nakrájený na proužky]
+          - [olej na smažení]
+          - [papírové utěrky na odsátí tuku]
+          - [kečup]
         Postup:
           - Vajíčka rozklepni a rozkvedlej v hlubokém talíři, přidej trochu soli, malinko pepře a oregano. Krajíce chleba obal ve vajíčku a nechej je tam trošičku válet, aby vajíčko pěkně vsáklo. 
           - Na pánvičce rozpal trošku oleje a nechej obalené krajíce z každé strany osmažit. Zbytek vejce z talíře nalij na chleba na pánvičce.
@@ -3267,12 +3267,12 @@ Stránky:
         Typ: bezmasé
         Porce: 1  
         Ingredience:
-          - 4 plátky toustového chleba
-          - Rama nebo změklé máslo
-          - kečup
-          - 2 plátky šunky
-          - 2 plátky tvrdého sýra
-          - 1/2 cibule nakrájená na plátky (není nezbytná)
+          - [4 plátky toustového chleba]
+          - [Rama] nebo změklé máslo
+          - [kečup]
+          - [2 plátky šunky]
+          - [2 plátky tvrdého sýra]
+          - [1/2 cibule] nakrájená na plátky (není nezbytná)
         Postup:
           - Zapni toustovač a vyčkej na jeho správné zahřátí (většinou se rozsvítí zelená kontrolka).
           - Toustový chleba z jedné strany lehce namaž Ramou či máslem.
@@ -3286,15 +3286,15 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 400 – 600 g čerstvých hub (nebo mražených), nebo 2 velké hrsti sušených hub 
-          - čerstvá bazalka
-          - 1 jarní cibulka nebo kousek pórku
-          - 1 cibule
-          - 2 až 3 stroužky česneku
-          - 1 vejce
-          - sušená rajčata
-          - sůl, pepř, drcený kmín
-          - olej
+          - [400] – 600 g čerstvých hub (nebo mražených), [nebo], [2 velké hrsti sušených hub]
+          - [čerstvá bazalka]
+          - [1 jarní cibulka] nebo kousek pórku
+          - [1 cibule]
+          - [2 až 3 stroužky česneku]
+          - [1 vejce]
+          - [sušená rajčata]
+          - [sůl], [pepř], [drcený kmín]
+          - [olej]
         Postup:
           - Sušené houby namoč do vody a nechej nabobtnat cca 30 minut. Pak nakrájej na kousíčky. Čerstvé a rozmražené nakrájej rovnou.
           - Na oleji osmahni najemno nakrájenou cibuli, přidej houby, mletý kmín, rozmačkaný česnek a nasekanou jarní cibulku či pórek.
@@ -3309,11 +3309,11 @@ Stránky:
         Typ: bezmasé
         Porce: 4 
         Ingredience:
-          - 250 g tvarohu 
-          - čerstvá pažitka (větší svazek)
-          - 75 g změklého másla
-          - 1 smetana ke šlehání
-          - sůl, pepř
+          - [250 g tvarohu]
+          - [čerstvá pažitka] (větší svazek)
+          - [75 g změklého másla]
+          - [1 smetana ke šlehání]
+          - [sůl], [pepř]
         Postup:
           - Máslo utři do pěny anebo jen vařečkou rozmíchej v míse. 
           - Přimíchej tvaroh a podle potřeby pomazánku zřeď smetanou do požadované konzistence.
@@ -3327,11 +3327,11 @@ Stránky:
         Typ: bezmasé
         Porce: 1
         Ingredience:
-          - 2 krajíce chleba (nebo toustového chleba či veky)
-          - trocha oleje
-          - 2 – 3 vejce
-          - sůl
-          - 2 – 3 stroužky česneku
+          - [2 krajíce chleba] (nebo toustového chleba či veky)
+          - [trocha oleje]
+          - [2] – 3 vejce
+          - [sůl]
+          - [2] – 3 stroužky česneku
         Postup:
           - Na pánvičce rozehřej trošku oleje a pak na něm osmahni krajíce chleba z obou stran do zlatova. Stále kontroluj, abys nespálil. Netrvá to dlouho. Krajíce rozhodně nemají být tmavé a tvrdé, ale jen zlaté a střívko je stále měkké. Usmažené topinky vyndej na talíř se 3 papírovými utěrkami, které nasáknou přebytečný tuk.
           - Zdravější verze je opéct chleba v topinkovači.
@@ -3353,15 +3353,15 @@ Stránky:
           - Pořadí surovin je následující: opečený chleba, majonéza, baby špenát či ledový salát, slanina, rajče, sůl a pepř, oregano, ocet, sýr, cibule, opečený chleba.“
         Porce: 1
         Ingredience:
-          - bílý toustový chléb (2 krajíce)
-          - ledový salát či baby špenát
-          - majonéza
-          - slanina (3 velké plátky)
-          - sýr Čedar (2 plátky)
-          - rajče (3 plátky)
-          - oregano
-          - balzamikový ocet (do tohoto sendviče ideálně bílý)
-          - olivový olej
+          - [bílý toustový chléb] (2 krajíce)
+          - [ledový salát] či baby špenát
+          - [majonéza]
+          - [slanina] (3 velké plátky)
+          - [sýr Čedar] (2 plátky)
+          - [rajče] (3 plátky)
+          - [oregano]
+          - [balzamikový ocet] (do tohoto sendviče ideálně bílý)
+          - [olivový olej]
 
         Postup:
           - Opečte chleba, jak chcete, toustovač je naprosto v pořádku, pokud se cítíte fancy, namažte ho máslem a opečte na pánvi.
@@ -3378,10 +3378,10 @@ Stránky:
         Typ: ryba
         Porce: 2
         Ingredience:
-          - 1 malá plechovka tuňáka, cca 80 g
-          - cca 10 cm pórku nebo hrst pažitky
-          - cca 20 g másla
-          - cca 130g měkkého tvarohu
+          - [1 malá plechovka tuňáka, cca 80 g]
+          - [cca 10 cm pórku] nebo hrst pažitky
+          - [cca 20 g másla]
+          - [cca 130g měkkého tvarohu]
 
         Postup:
           - V míse rozmíchej vidličkou tuňáka, tvaroh a změklé máslo. 
@@ -3394,13 +3394,13 @@ Stránky:
         Typ: ryba
         Porce: 2
         Ingredience:
-          - 2 nebo 4 toustové chleby (na přiklopení)
-          - 1 plechovka tuňáka nejlépe ve vlastní šťávě
-          - 1 zralé avokádo
-          - kousek salátové okurky
-          - 1 vejce natvrdo
-          - máslo
-          - sůl, pepř
+          - [2] nebo 4 toustové chleby (na přiklopení)
+          - [1 plechovka tuňáka nejlépe ve vlastní šťávě]
+          - [1 zralé avokádo]
+          - [kousek salátové okurky]
+          - [1 vejce natvrdo]
+          - [máslo]
+          - [sůl], [pepř]
         Postup:
           - Toustový chleba namaž máslem, trochu opepři, naskládej tenké plátky okurky, jemně osol, na to naskládej okapaného tuňáka (klidně ho položím na papírovou utěrku).
           - Avokádo rozřízni na půl, zasekni nůž do pecky a vykruť ji ven. Lžící podeber dužinu avokáda a odděl od slupky. Avokádo nakrájej na plátky a ty poskládej hustě na tuňáka. Nebo ho můžeš nejprve rozmačkat. Následují plátky vejce, které opět jemně osol.
@@ -3413,16 +3413,16 @@ Stránky:
         Typ: se šunkou nebo bezmasé
         Porce: 2
         Ingredience:
-          - 3 vejce 
-          - trocha plnotučné hořčice (podle chuti)
-          - lžíce másla nebo Ramy
-          - sůl
-          - půlka cibule rozmixované na kaši (fakt dodá
-          - jídlu výraznější chuť )
-          - 1 trojúhelníček nebo obdélníček mazacího sýra
-          - 2 plátky tvrdého sýra
-          - pečivo
-          - popřípadě paprika nebo kyselá okurka
+          - [3 vejce]
+          - [trocha plnotučné hořčice] (podle chuti)
+          - [lžíce másla] nebo Ramy
+          - [sůl]
+          - [půlka cibule] rozmixované na kaši (fakt dodá
+          - [jídlu výraznější chuť )]
+          - [1 trojúhelníček] nebo obdélníček mazacího sýra
+          - [2 plátky tvrdého sýra]
+          - [pečivo]
+          - [popřípadě paprika] nebo kyselá okurka
         Postup:
           - Vejce uvař natvrdo (vař cca 8 – 10 minut), po vychladnutí oloupej a nastrouhej na hrubém struhadle nebo rozmačkej vidličkou. 
           - Cibulku nakrájej na velmi jemno nebo rozmixuj na kaši, šunku na kousíčky a spolu s hořčicí, máslem a sýry přidej k vajíčkům. Trochu osol a vše zamíchej.
@@ -3435,12 +3435,12 @@ Stránky:
 
         Porce: 2
         Ingredience:
-          - cca 250 g mozzarelly
-          - 4 velká rajčata nebo 16 malých cherry rajčat
-          - čerstvá bazalka (běžně se dá koupit v květináčku u zeleniny)
-          - olivový olej
-          - sůl
-          - pečivo
+          - [cca 250 g mozzarelly]
+          - [4 velká rajčata] nebo 16 malých cherry rajčat
+          - [čerstvá bazalka] (běžně se dá koupit v květináčku u zeleniny)
+          - [olivový olej]
+          - [sůl]
+          - [pečivo]
         Postup:
           - Omytá rajčata i mozzarellu nakrájej na plátky či kousky, na talířek prokládej i s lístky bazalky, zakápni olivovým olejem, trochu osol. Můžeš použít i balzamikový ocet (viz foto).
           - Podávej s bagetkou, toustem nebo jiným pečivem.
@@ -3452,15 +3452,15 @@ Stránky:
         Podnadpis: a tofu … nebo se sýrem feta
         Porce: 2
         Ingredience:
-          - cca 1/2 brokolice
-          - 3 rajčata
-          - 2 vejce natvrdo
-          - 1 balení Tofu nebo sýru Feta
-          - 1 cibule 
-          - troška oleje a troška másla
-          - sůl, pepř
-          - troška sójové omáčky (ale nemusí být)
-          - pečivo
+          - [cca 1/2 brokolice]
+          - [3 rajčata]
+          - [2 vejce natvrdo]
+          - [1 balení Tofu] nebo sýru Feta
+          - [1 cibule]
+          - [troška oleje a troška másla]
+          - [sůl], [pepř]
+          - [troška sójové omáčky] (ale nemusí být)
+          - [pečivo]
 
         Postup:
           - Brokolici rozeber na menší růžičky, nožem odtrhej slupku, nakrájej i stvol a v osolené vroucí vodě povař asi 3 minuty. Potom ihned zchlaď ve studené vodě. Zůstane tak krásně zelená. 
@@ -3479,13 +3479,13 @@ Stránky:
         Podnadpis: (v troubě)    
         Porce: 2
         Ingredience:
-          - předvařená červená řepa vakuovaná (prodává se v 500 g balení)
-          - balíček rukoly či polníčku
-          - cca 50 g kozího sýra s medem či čistého a k tomu med
-          - hrst ořechů (vlašské nebo kešu)
-          - sušený česnek
-          - troška oleje
-          - hustý balzamikový ocet (nemusí být)
+          - [předvařená červená řepa vakuovaná] (prodává se v 500 g balení)
+          - [balíček rukoly] či polníčku
+          - [cca 50 g kozího sýra s medem] či čistého a k tomu med
+          - [hrst ořechů] (vlašské nebo kešu)
+          - [sušený česnek]
+          - [troška oleje]
+          - [hustý balzamikový ocet] (nemusí být)
 
         Postup:
           - Troubu rozehřej na 200°C.
@@ -3504,18 +3504,18 @@ Stránky:
         Typ: ryba
         Porce: 1
         Ingredience:
-          - hrst těstovin, cca 50 g
-          - 2 rajčata 
-          - olej
-          - 80 g tuňáka v oleji či vlastní šťávě
-          - 1 lahůdková cibulka (jarní) nebo pažitka
-          - kousek salátové okurky
-          - hrst mražené kukuřice
-          - hrst zelené petrželky
-          - kousek chilli papričky
-          - pepř, sůl
-          - případně 1 paprika
-          - zakysaná smetana
+          - [hrst těstovin, cca 50 g]
+          - [2 rajčata]
+          - [olej]
+          - [80 g tuňáka v oleji] či vlastní šťávě
+          - [1 lahůdková cibulka] (jarní) nebo pažitka
+          - [kousek salátové okurky]
+          - [hrst mražené kukuřice]
+          - [hrst zelené petrželky]
+          - [kousek chilli papričky]
+          - [pepř], [sůl]
+          - [případně], [1 paprika]
+          - [zakysaná smetana]
         Postup:
           - Těstoviny uvař ve vroucí osolené vodě s kapkou oleje 10 – 15 minut, pak slij, propláchni studenou vodou a nechej okapat.
           - Tuňáka vytáhni z plechovky do mísy bez oleje a rozděl na menší kousky.
@@ -3530,12 +3530,12 @@ Stránky:
         Typ: ryba
         Porce: 2
         Ingredience:
-          - 1 plechovka tuňáka ve vlastní šťávě
-          - 1 natvrdo uvařené vejce
-          - malá cibule nebo jarní cibulka
-          - salát (rukola nebo polníček nebo mix, i baby špenát)
-          - kukuřice (mražená nebo v plechovce)
-          - 10 malých cherry rajčátek
+          - [1 plechovka tuňáka ve vlastní šťávě]
+          - [1 natvrdo uvařené vejce]
+          - [malá cibule] nebo jarní cibulka
+          - [salát] (rukola nebo polníček nebo mix, i baby špenát)
+          - [kukuřice] (mražená nebo v plechovce)
+          - [10 malých cherry rajčátek]
 
         Postup:
           - Tuňáka opatrně vyndej z plechovky (ať nepoliješ šťávou cokoliv, je to mastné) a rozmačkej na kousíčky, přidej na kousíčky nakrájené vejce, hrst až dvě salátu, na poloviny rozkrojená cherry rajčátka a větší hrst kukuřice (z plechovky přímo, ale bez nálevu, mraženou kukuřici nejprve zalij horkou vodou a nechej chvilku rozmrazit).
@@ -3549,14 +3549,14 @@ Stránky:
         Typ: se šunkou nebo bezmasé
         Porce: 1
         Ingredience:
-          - 50 g schwarzwaldské šunky (ale můžeš dát i normální šunku)
-          - část balíčku rukoly, polníčku či míchaných salátků
-          - cherry rajčátka
-          - 1/2  Hermelínu, Camembertu nebo Brie
-          - česnek sušený nebo prolisovaný
-          - olej (olivový virgin či extra virgin, ale úplně nejlepší byl cedrový z jihu Itálie)
-          - 2 sušená rajčata
-          - bagetka či toustový chleba
+          - [50 g schwarzwaldské šunky] (ale můžeš dát i normální šunku)
+          - [část balíčku rukoly], [polníčku] či míchaných salátků
+          - [cherry rajčátka]
+          - [1/2  Hermelínu], [Camembertu] nebo Brie
+          - [česnek sušený] nebo prolisovaný
+          - [olej] (olivový virgin či extra virgin, ale úplně nejlepší byl cedrový z jihu Itálie)
+          - [2 sušená rajčata]
+          - [bagetka] či toustový chleba
 
         Postup:
           - Rajčátka, šunku, Hermelín a sušená rajčata nakrájej na kousky, promíchej se zeleným salátkem, posypej česnekem a zakápni (trošku) olejem. Dozdobit můžeš balzamikovým octem.
@@ -3573,29 +3573,29 @@ Stránky:
 
         Porce: 1
         Ingredience:
-          - základ zeleninových salátů většinou tvoří salát ledový
-          - rajčata (cherry rajčátka)
-          - paprika
-          - salátová okurka
-          - ředkvičky
-          - kedluben
-          - mrkev
-          - tvrdý sýr
-          - Hermelín
-          - Niva
-          - Mozzarella
-          - sušená rajčata
-          - vejce natvrdo                                                                                   
-          - listový salát (rukola, polníček, baby špenát, …)
-          - kukuřice (z plechovky či rozmrazená zrna)
-          - hrášek (z plechovky či rozmrazená zrna)
-          - brokolice (čerstvá i spařená vřelou vodou)
-          - olivy
-          - cibulka (zelená nať i čerstvá bulva)
-          - šunka
-          - anglická slanina 
-          - často kousky vařeného či pečeného masa…
-          - … a určitě Tě ještě napadne něco dalšího 
+          - [základ zeleninových salátů většinou tvoří salát ledový]
+          - [rajčata] (cherry rajčátka)
+          - [paprika]
+          - [salátová okurka]
+          - [ředkvičky]
+          - [kedluben]
+          - [mrkev]
+          - [tvrdý sýr]
+          - [Hermelín]
+          - [Niva]
+          - [Mozzarella]
+          - [sušená rajčata]
+          - [vejce natvrdo]
+          - [listový salát] (rukola, polníček, baby špenát, …)
+          - [kukuřice] (z plechovky či rozmrazená zrna)
+          - [hrášek] (z plechovky či rozmrazená zrna)
+          - [brokolice] (čerstvá i spařená vřelou vodou)
+          - [olivy]
+          - [cibulka] (zelená nať i čerstvá bulva)
+          - [šunka]
+          - [anglická slanina]
+          - [často kousky vařeného] či pečeného masa…
+          - [… a určitě Tě ještě napadne něco dalšího]
         Postup:
           - Všechno, co si vybereš, nakrájej na malé kousky, zamíchej, ochuť kořením (nepřeháněj) a zakápni olivovým olejem (nebo normálním rostlinným, nemáš-li olivový).
           - Vhodnou přílohou je bílé pečivo či opečený toust z bílého pečiva.
@@ -3611,13 +3611,13 @@ Stránky:
           - Může to být i nenáročný malý oběd třeba před večerním grilováním.
         Porce: 1
         Ingredience:
-          - cca 4 plátky houskového knedlíku
-          -  2-3 vejce
-          - trocha oleje
-          - sůl
-          - kečup
-          - kyselé okurky
-          - … a třeba i tvrdý sýr či baby špenát
+          - [cca 4 plátky houskového knedlíku]
+          - [2-3 vejce]
+          - [trocha oleje]
+          - [sůl]
+          - [kečup]
+          - [kyselé okurky]
+          - [… a třeba i tvrdý sýr] či baby špenát
 
         Postup:
           - Plátky knedlíku nakrájej na malé kostičky a dej osmahnout na trochu rozpáleného oleje na pánvičku – než se jakoby opečou dozlatova, cca 5 minut, míchej. Kdybys knedlík neosmahl, anebo olej by nebyl rozpálený, a hned bys k němu nalil vajíčka, vše by vsáklo do knedlíku a nebylo by to moc chutné.
@@ -3631,13 +3631,13 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 2 bílé papriky
-          - 2 větší rajčata
-          - 4 vejce
-          - 1/2 cibule
-          - dle chuti chilli
-          - pepř, sůl
-          - olej
+          - [2 bílé papriky]
+          - [2 větší rajčata]
+          - [4 vejce]
+          - [1/2 cibule]
+          - [dle chuti chilli]
+          - [pepř], [sůl]
+          - [olej]
         Postup:
           - Spař rajčata: Nakroj každému rajčeti slupku do kříže, zalij je vroucí vodou, můžeš i minutku nechat povařit, pak vytáhni, nechej zchladnout a nožem od křížů stáhni slupku. Pak je nakrájej na kousky. Jde to ale i z rajčat se slupkou (jen se tam bude motat).
           - Cibuli a papriku očisti a nakrájej na kousky.
@@ -3652,14 +3652,14 @@ Stránky:
         Typ: bezmasé
         Porce: 2
         Ingredience:
-          - 4 vejce natvrdo
-          - 1 brambor uvařený ve slupce, cca 100 g
-          - 1/2 cibule (nakrájená najemno či rozmixovaná na kaši)
-          - kyselé okurky, cca 60 g
-          - 3- 4 lžíce majonézy, cca 40 g
-          - 2 lžíce plnotučná hořčice, cca 10 g
-          - 1 lžička octu
-          - sůl
+          - [4 vejce natvrdo]
+          - [1 brambor uvařený ve slupce, cca 100 g]
+          - [1/2 cibule] (nakrájená najemno či rozmixovaná na kaši)
+          - [kyselé okurky, cca 60 g]
+          - [3- 4 lžíce majonézy, cca 40 g]
+          - [2 lžíce plnotučná hořčice, cca 10 g]
+          - [1 lžička octu]
+          - [sůl]
         Postup:
           - Studená vejce a oloupané brambory nakrájej na stejně velké kostičky, max. 1x1 cm. Brambory se lépe krájejí úplně vychlazené.
           - Okurky nakrájej na malinké kousíčky (najemno).
@@ -3674,13 +3674,13 @@ Stránky:
         Typ: masové
         Porce: 1
         Ingredience:
-          - 2 plátky kuřecí či vepřové tlačenky od řezníka nebo 1 balená 
-          - hotová kuřecí tlačenka (cca 500 g)
-          - půlka menší cibule
-          - 1 dcl vody
-          - 1 lžička octu
-          - nebo hořčice
-          - pečivo
+          - [2 plátky kuřecí] či vepřové tlačenky od řezníka nebo 1 balená
+          - [hotová kuřecí tlačenka] (cca 500 g)
+          - [půlka menší cibule]
+          - [1 dcl vody]
+          - [1 lžička octu]
+          - [nebo hořčice]
+          - [pečivo]
         Postup:
           - Tlačenku dej na talíř, balenou nakrájej na kolečka cca 15 mm a dej na talíř.
           - Cibulku nakrájej najemno a posypej jí tlačenku.
@@ -3712,11 +3712,11 @@ Stránky:
         Typ: krevety 
         Porce: 1
         Ingredience:
-          - cca 80 g bulguru
-          - 1 balení předvařených krevet (minimálně 200 g)
-          - bílé víno 
-          - mango, 3 stroužky česneku
-          - sůl, pepř, olej, citronová šťáva, čerstvá petrželová nať
+          - [cca 80 g bulguru]
+          - [1 balení předvařených krevet] (minimálně 200 g)
+          - [bílé víno]
+          - [mango,], [3 stroužky česneku]
+          - [sůl], [pepř], [olej], [citronová šťáva], [čerstvá petrželová nať]
         Postup:
           - Do vroucí vody (kolik vody, tolik vína) si dej vařit krevety cca 20 minut, zatím bez soli. Do druhého hrnce dej vařit bulgur dle návodu na obalu (v mírně osolené vodě cca 15-20 minut).   
           - Oloupej česnek, bokem nože zmáčkni naplacato a zatlač dlaní, pak ho ještě pokrájej najemno. Nebo prolisuj.
@@ -3772,13 +3772,13 @@ Stránky:
         Typ: se šunkou
         Porce: 24
         Ingredience:
-          - 1 listové těsto (já kupuju chlazené zarolované)
-          - kečup
-          - cca 8 plátků obdélníkové šunky
-          - cca 8 plátků plátkového sýru
-          - grilovací koření
-          - trocha vody
-          - 1 vejce, pečící papír
+          - [1 listové těsto] (já kupuju chlazené zarolované)
+          - [kečup]
+          - [cca 8 plátků obdélníkové šunky]
+          - [cca 8 plátků plátkového sýru]
+          - [grilovací koření]
+          - [trocha vody]
+          - [1 vejce], [pečící papír]
         
         Postup:
           - listové těsto rozpul po delší straně na dva úzké a dlouhé obdélníky BUĎ MŮŽEŠ DÁVAT NA OBA PRUHY TĚSTA TOTÉŽ A BUDEŠ MÍT 24 STEJNÝCH MINIŠNEČKŮ, V TOMTO PŘÍPADĚ ŠUNKOVÝCH, NEBO NA KAŽDÝ PRUH JINOU NÁPLŇ A BUDEŠ MÍT 12 MINIŠNEČKŮ ŠUNKOVÝCH A 12 SÝROVÝCH (viz recept na s. 289).
@@ -3850,14 +3850,14 @@ Stránky:
           - Před rolováním můžeš na začátek plátu poklást proužky červené papriky nebo ještě něco přidat.
         
         Ingredience:
-          - 12 plátků sýra Eidam 30% (nejlépe ve tvaru čtverce)
-          - 12 plátků šunky (nejlépe ve tvaru čtverce)
-          - 150 g Lučiny nebo radši 2, aby se ti dobře roztíralo
-          - 1 lžíce nastrouhaného křenu (strouhej opatrně a moc se nad 
-          - to nenakláněj, čerstvý křen je při strouhání velice 
-          - intenzivní), klidně může být zavařený Křen 
-          - velkou hrst zelené petrželky – nasekané
-          - hrst baby špenátu či zeleného salátku (ledový, polníček,…)
+          - [12 plátků sýra Eidam 30%] (nejlépe ve tvaru čtverce)
+          - [12 plátků šunky] (nejlépe ve tvaru čtverce)
+          - [150 g Lučiny] nebo radši 2, [aby se ti dobře roztíralo]
+          - [1 lžíce nastrouhaného křenu] (strouhej opatrně a moc se nad
+          - [to nenakláněj], [čerstvý křen je při strouhání velice]
+          - [intenzivní), klidně může být zavařený Křen]
+          - [velkou hrst zelené petrželky] – nasekané
+          - [hrst baby špenátu] či zeleného salátku (ledový, polníček,…)
         
         Postup:
           - Lučinu smíchej s křenem a se dvěma třetinami petrželky.
@@ -3873,14 +3873,14 @@ Stránky:
         Typ: krevety
         Porce: 4    
         Ingredience:
-          - 400 g předvařených loupaných krevet
-          - 2 dcl bílého vína
-          - 1 zralé mango
-          - bílý pepř 
-          - sůl
-          - šťáva z jedné limetky (citronu)
-          - 1 lžička koňaku (lze vynechat)
-          - případně 6 lžic majonézy
+          - [400 g předvařených loupaných krevet]
+          - [2 dcl bílého vína]
+          - [1 zralé mango]
+          - [bílý pepř]
+          - [sůl]
+          - [šťáva z jedné limetky] (citronu)
+          - [1 lžička koňaku] (lze vynechat)
+          - [případně], [6 lžic majonézy]
         Postup:
           - Víno a stejné množství vody přiveď k varu, vlož krevety a krátce povař, cca 10 minut.
           - Mango bez slupky nakrájej na malé kostičky.
@@ -3897,10 +3897,10 @@ Stránky:
           Foto Lenka: Caprese jednohubky
         Porce: 20
         Ingredience:
-          - 20 kuliček Mozzarelly
-          - čerstvá bazalka 
-          - cherry rajčátka, 20 kousků
-          - 20 kulatých párátek
+          - [20 kuliček Mozzarelly]
+          - [čerstvá bazalka]
+          - [cherry rajčátka, 20 kousků]
+          - [20 kulatých párátek]
         Postup:
           - Rajčátka rozkroj na poloviny, z bazalky si natrhej 40 větších lístků.
           - Napichuj v pořadí rajče (řezem ke středu párátka), bazalka, mozzarella, bazalka, rajče (opět řezem ke středu párátka).
@@ -3913,13 +3913,13 @@ Stránky:
         Typ: bezmasé
         Porce: 24
         Ingredience:
-          - 1 listové těsto (já kupuju chlazené zarolované)
-          - cca 8 plátků plátkového sýru
-          - hrst Baby špenátu nebo medvědího česneku
-          - Niva, 1 balení
-          - trocha vody
-          - 1 vejce
-          - pečící papír
+          - [1 listové těsto] (já kupuju chlazené zarolované)
+          - [cca 8 plátků plátkového sýru]
+          - [hrst Baby špenátu] nebo medvědího česneku
+          - [Niva,], [1 balení]
+          - [trocha vody]
+          - [1 vejce]
+          - [pečící papír]
         
         Postup:
           -
@@ -3942,13 +3942,13 @@ Stránky:
         Strana: 290
         Porce: 8
         Ingredience:
-          - 1 listové těsto (já kupuju už rozválené)		 
-          - 5 až 6 jablek (nejlépe červených)
-          - meruňkový džem
-          - skořicový cukr
-          - voda, citronová šťáva
-          - plech na muffiny
-          - máslo či olej na vytření plechu
+          - [1 listové těsto] (já kupuju už rozválené)
+          - [5 až 6 jablek] (nejlépe červených)
+          - [meruňkový džem]
+          - [skořicový cukr]
+          - [voda], [citronová šťáva]
+          - [plech na muffiny]
+          - [máslo] či olej na vytření plechu
         
         Postup:
           - Z jablek vykroj jádřinec, rozkroj je napůl a i se slupkou nakrájej na tenké měsíčky. V míse je pokapej citronovou šťávou s troškou vody, aby nezhnědla. Dej cca na 3 minuty do mikrovlnky nebo do trouby, aby změkla.
@@ -3976,13 +3976,13 @@ Stránky:
         Strana: 292
         Porce 1:
         Ingredience:
-          - 1 listové těsto (Já kupuju už rozválené.)			
-          - 2 velká jablka  
-          - hrozinky (podle libosti nebo vůbec)
-          - posekané ořechy (podle libosti nebo vůbec) či strouhanka 
-          - skořicový cukr, půl sáčku
-          - 1 vejce
-          - sezamová semínka
+          - [1 listové těsto] (Já kupuju už rozválené.)
+          - [2 velká jablka]
+          - [hrozinky] (podle libosti nebo vůbec)
+          - [posekané ořechy] (podle libosti nebo vůbec) či strouhanka
+          - [skořicový cukr], [půl sáčku]
+          - [1 vejce]
+          - [sezamová semínka]
         Postup:
           - Jablka omyj, vykroj jádřince a nakrájej na malinké kousíčky. Je to lepší než strouhat, protože nakrájená jablka nejsou tak mokrá a tím pádem těsto příliš nenavlhne.
           - Troubu rozehřej na 180°C.
@@ -4014,15 +4014,15 @@ Stránky:
         
         Porce: 20
         Ingredience:
-          - 20 špejlí
-          - 3 kivi na plátky
-          - plechovku ananasu plátků
-          - 20 jahod na poloviny
-          - 10 čerstvých meruněk na poloviny nebo 20 sušených celých
-          - 20 větších kuliček hroznového vína
-          - 20 kostiček z červeného melounu
-          - 1 pomeranč
-          - ………………… nebo co dům dal…
+          - [20 špejlí]
+          - [3 kivi na plátky]
+          - [plechovku ananasu plátků]
+          - [20 jahod na poloviny]
+          - [10 čerstvých meruněk na poloviny] nebo 20 sušených celých
+          - [20 větších kuliček hroznového vína]
+          - [20 kostiček z červeného melounu]
+          - [1 pomeranč]
+          - […………………] nebo co dům dal…
         
         Postup:
           - Ovoce nakrájené na ne malé kousky napichuj střídavě na špejli dle barevného ladění.
@@ -4035,12 +4035,12 @@ Stránky:
         Strana: 298
         Porce: 2
         Ingredience:
-          - 2 větší Pribináčky, Bobíci nebo podobný tvarohový kelímek
-          - NEBO: 250 g tvarohu a 2 lžíce cukru
-          - cca 250 g jahod (nebo jiného ovoce)
-          - pár lístků meduňky či máty
-          - čokoládové srdíčko (Thank you Milka) nebo jiná přízdoba 
-          - (čokoládový jazýček, oplatka, rourka, …)    
+          - [2 větší Pribináčky], [Bobíci] nebo podobný tvarohový kelímek
+          - [NEBO:], [250 g tvarohu a 2 lžíce cukru]
+          - [cca 250 g jahod] (nebo jiného ovoce)
+          - [pár lístků meduňky] či máty
+          - [čokoládové srdíčko] (Thank you Milka) nebo jiná přízdoba
+          - [(čokoládový jazýček, oplatka, rourka, …)]
         
         Postup:
           - Jahody omyj, odkrájej zelené stopky a ovoce rozmixuj v mixéru či ručním mixérem. Můžeš je také povařit do změknutí (bez vody) a rozmačkat.
@@ -4062,17 +4062,17 @@ Stránky:
           a hladký: Malinový cheesecake 2
         Porce: 1
         Ingredience:
-          - 1 a půl balení bezlepkových sušenek 
-          - nebo obdélníkových BeBe
-          - 30 g másla (podle potřeby možno přidat)
-          - 1 plná lžíce kokosového oleje
-          - 250 g mascarpone, Kvalitní, tuhé, ne napodobeniny, které 
-          - se hýbou i v kelímku!  Kvalitní mascarpone je tuhé a 
-          - lžící se hůře vybírá z obalu.
-          - 250 g jemného tvarohu
-          - med nebo sladidlo podle chuti
-          - 300 g malin (klidně mražených)
-          - 1/2 balení želatiny v prášku
+          - [1 a půl balení bezlepkových sušenek]
+          - [nebo obdélníkových BeBe]
+          - [30 g másla] (podle potřeby možno přidat)
+          - [1 plná lžíce kokosového oleje]
+          - [250 g mascarpone], [Kvalitní], [tuhé], [ne napodobeniny], [které]
+          - [se hýbou i v kelímku!  Kvalitní mascarpone je tuhé a]
+          - [lžící se hůře vybírá z obalu.]
+          - [250 g jemného tvarohu]
+          - [med] nebo sladidlo podle chuti
+          - [300 g malin] (klidně mražených)
+          - [1/2 balení želatiny v prášku]
         
         Postup:
           - Sušenky nalámej a dej do pevnějšího sáčku, ve kterém je pobij tloučkem na maso, rozmačkej válečkem nebo krájecí destičkou. Vzniklé malé kousky rozmixuj tyčovým mixérem. Přidej rozpuštěné máslo a rozpuštěný kokosový olej.
@@ -4090,13 +4090,13 @@ Stránky:
         Strana: 302
         Porce: 4
         Ingredience:
-          - 100 g kvalitní hořké čokolády (aspoň 70% kakaa, ale dělala 
-          - jsem i z čokolády na vaření a bylo to dobré)
-          - NEBO 2 – 3 lžíce kakaa
-          - 250 g polotučného tvarohu
-          - 1 lžíce medu NEBO cukru moučka
-          - 200 - 250 g polotučného tvarohu
-          - 1 lžíce medu NEBO 1 vanilkový cukr
+          - [100 g kvalitní hořké čokolády] (aspoň 70% kakaa, ale dělala
+          - [jsem i z čokolády na vaření a bylo to dobré)]
+          - [NEBO], [2] – 3 lžíce kakaa
+          - [250 g polotučného tvarohu]
+          - [1 lžíce medu NEBO cukru moučka]
+          - [200 - 250 g polotučného tvarohu]
+          - [1 lžíce medu NEBO 1 vanilkový cukr]
         
         Postup:
           - Připrav si 4 skleničky a nechej je v lednici vychladit aspoň 15 minut.
@@ -4127,15 +4127,15 @@ Stránky:
         Typ: z mandlové moučky = přirozeně bezlepková
         Porce: 1
         Ingredience:
-          - 5 vajec
-          - 5 lžic moučkového cukru (práškového), i méně dle chuti
-          - 3 lžíce kakaa 
-          - špetka soli     
-          - 150g mandlové moučky (rozemletých mandlí najemno)
-          - 200 ml smetany ke šlehání
-          - 250 ml jemného tvarohu ve vaničce
-          - 1 lžíce cukru
-          - kousek másla na plech
+          - [5 vajec]
+          - [5 lžic moučkového cukru] (práškového), [i méně dle chuti]
+          - [3 lžíce kakaa]
+          - [špetka soli]
+          - [150g mandlové moučky] (rozemletých mandlí najemno)
+          - [200 ml smetany ke šlehání]
+          - [250 ml jemného tvarohu ve vaničce]
+          - [1 lžíce cukru]
+          - [kousek másla na plech]
         
         Postup:
           - Troubu si rozehřej na 180°C, plech vylož pečícím papírem a potři ho studeným máslem.
@@ -4155,13 +4155,13 @@ Stránky:
           a hotové brownies: Čokoládové brownies
         Porce: 16
         Ingredience:
-          - 350 g tmavé čokolády s vysokým obsahem kakaové hmoty
-          - (z hořké, 52%, bylo taky skvělé)
-          - 250 g másla + kousek na vymazání
-          - 3 nebo malá 4 vejce
-          - 250 g cukru (nejlépe hnědý)
-          - 85 g hladké mouky (prý jde nahradit mandlovou moukou)
-          - 1 lžička kypřícího prášku do pečiva
+          - [350 g tmavé čokolády s vysokým obsahem kakaové hmoty]
+          - [(z hořké, 52%, bylo taky skvělé)]
+          - [250 g másla + kousek na vymazání]
+          - [3] nebo malá 4 vejce
+          - [250 g cukru] (nejlépe hnědý)
+          - [85 g hladké mouky] (prý jde nahradit mandlovou moukou)
+          - [1 lžička kypřícího prášku do pečiva]
         
         Postup:
           - Elektrickou troubu předehřej na 160°C, horkovzdušnou na 140°C. Hranatý pekáček vymasti máslem a potom ho vylož pečícím papírem. Ten se dobře tvaruje, když si ho předtím důkladně pomačkáš, ale pozor na roztržení. 
@@ -4183,18 +4183,18 @@ Stránky:
           a hotová buchta s rebarborou, jahodami a kivi: Buchta z pomazánkového másla 2
         Porce: 1
         Ingredience:
-          - 1 pomazánkové máslo 200 g nebo 250 g
-          -  3 vejce
-          - 1 prášek do pečiva
-          - 150 g cukru moučka (práškový)
-          - drobné nebo nakrájené ovoce, cca 4 - 5 hrstí
-          - 200 g polohrubé mouky (možno nahradit moukou 
-          - pohankovou, rýžovou, kukuřičnou ve stejném 
-          - poměru nebo moukou mandlovou a psyliem
-          - místo lepku: 2 lžičky rozmíchat v 50 ml vody)	
-          - 105 g polohrubé mouky
-          - 75 g povoleného másla
-          - 75 g cukru krupice, písek nebo krystal
+          - [1 pomazánkové máslo 200 g] nebo 250 g
+          - [3 vejce]
+          - [1 prášek do pečiva]
+          - [150 g cukru moučka] (práškový)
+          - [drobné] nebo nakrájené ovoce, cca 4 - 5 hrstí
+          - [200 g polohrubé mouky] (možno nahradit moukou
+          - [pohankovou], [rýžovou], [kukuřičnou ve stejném]
+          - [poměru] nebo moukou mandlovou a psyliem
+          - [místo lepku: 2 lžičky rozmíchat v 50 ml vody)]
+          - [105 g polohrubé mouky]
+          - [75 g povoleného másla]
+          - [75 g cukru krupice], [písek] nebo krystal
         Postup:
           - Troubu předehřej na 180°C.
           - Vejce dobře vyšlehej s cukrem do pěny, pak přidej pomazánkové máslo a nakonec mouku s práškem do pečiva.
@@ -4217,16 +4217,16 @@ Stránky:
         Typ: jablečné
         Porce: 1
         Ingredience:
-          - 400 g hladké mouky	
-          - cca 1 kg jablek
-          - 1 Hera nebo máslo (250 g)
-          - 4 žloutky
-          - 4 bílky
-          - 150 g moučkového cukru (práškový)
-          - 1 prášek do pečiva
-          - hrst rozinek
-          - oříšky dle obliby (pro Honzu kešu ořechy)
-          - skořicový cukr nebo skořice a cukr krystal 
+          - [400 g hladké mouky]
+          - [cca 1 kg jablek]
+          - [1 Hera] nebo máslo (250 g)
+          - [4 žloutky]
+          - [4 bílky]
+          - [150 g moučkového cukru] (práškový)
+          - [1 prášek do pečiva]
+          - [hrst rozinek]
+          - [oříšky dle obliby] (pro Honzu kešu ořechy)
+          - [skořicový cukr] nebo skořice a cukr krystal
         
         Postup:
           - Jablka oloupej a nastrouhej na hrubém struhadle.
@@ -4245,26 +4245,26 @@ Stránky:
         Typ: jablečné a kakaové
         Porce: 1
         Ingredience:
-          - 500 g hrubé mouky (možno nahradit moukou pohankovou, 
-          - rýžovou, kukuřičnou ve stejném poměru a psyliem 
-          - místo lepku: 2 lžičky rozmíchat v 50 ml vody)
-          - 350 g cukru písek
-          - 3 celá vejce
-          - 1 hrnek = cca 250 ml 
-          - (hlavně pro všechny ingredience stále stejný hrnek )
-          - 1 hrnek oleje (250 ml)	 
-          - 1 hrnek mléka
-          - 3 lžičky sody
-          - 1 vanilkový cukr
-          - 500 g nahrubo nastrouhaných jablek (bez slupky)
-          - nasekané ořechy, 2 až 3 hrsti (pro Honzu kešu ořechy)
-          - hrozinky, 1 až 2 hrnky
-          - kakao
-          - papír na pečení
-          - cukr moučka (práškový)
-          - citronová šťáva
-          - mléko 
-          - … vše od oka
+          - [500 g hrubé mouky] (možno nahradit moukou pohankovou,
+          - [rýžovou], [kukuřičnou ve stejném poměru a psyliem]
+          - [místo lepku: 2 lžičky rozmíchat v 50 ml vody)]
+          - [350 g cukru písek]
+          - [3 celá vejce]
+          - [1 hrnek = cca 250 ml]
+          - [(hlavně pro všechny ingredience stále stejný hrnek )]
+          - [1 hrnek oleje] (250 ml)
+          - [1 hrnek mléka]
+          - [3 lžičky sody]
+          - [1 vanilkový cukr]
+          - [500 g] nahrubo nastrouhaných jablek (bez slupky)
+          - [nasekané ořechy, 2 až 3 hrsti] (pro Honzu kešu ořechy)
+          - [hrozinky,], [1 až 2 hrnky]
+          - [kakao]
+          - [papír na pečení]
+          - [cukr moučka] (práškový)
+          - [citronová šťáva]
+          - [mléko]
+          - [… vše od oka]
         
         Postup:
           - Troubu rozehřej na 180°C.
@@ -4278,20 +4278,20 @@ Stránky:
         Typ: perníková
         Porce: 1
         Ingredience:
-          - 1 hrnek = cca 250 ml 
-          - (hlavně pro všechny ingredience stále stejný hrnek )
-          - 3 hrnky polohrubé mouky (lze nahradit bezlepkovou směsí)	
-          - 2 hrnky cukru moučka (práškový)
-          - 1 lžíce kakaa
-          - 1/2 prášku do pečiva
-          - 1 prášek do perníku nebo perníkové koření
-          - 2 celá vejce
-          - 1 hrnek mléka
-          - 1/2 hrnku oleje
-          - 130 g cukru moučka (práškový)
-          - 90 g tuhého másla 
-          - 4 lžíce horké uvařené vody
-          - 3 lžíce kakaa
+          - [1 hrnek = cca 250 ml]
+          - [(hlavně pro všechny ingredience stále stejný hrnek )]
+          - [3 hrnky polohrubé mouky] (lze nahradit bezlepkovou směsí)
+          - [2 hrnky cukru moučka] (práškový)
+          - [1 lžíce kakaa]
+          - [1/2 prášku do pečiva]
+          - [1 prášek do perníku] nebo perníkové koření
+          - [2 celá vejce]
+          - [1 hrnek mléka]
+          - [1/2 hrnku oleje]
+          - [130 g cukru moučka] (práškový)
+          - [90 g tuhého másla]
+          - [4 lžíce horké uvařené vody]
+          - [3 lžíce kakaa]
         
         Postup:
           - Troubu předehřej na 200°C (ale vždy záleží na troubě).
@@ -4304,18 +4304,18 @@ Stránky:
         Typ: tvarohová
         Porce 1:
         Ingredience:
-          - 6 vajíček – je třeba je zvážit (bez skořápek)
-          - kolik váží vejce, tolik polohrubé mouky
-          - stejné množství moučkového cukru 
-          - (práškový)
-          - 6 lžic vlažné vody
-          - kousek másla a trocha mouky na vymazání
-          - a vysypání plechu nebo pečící papír
-          - 2 kostky tučného tvarohu (ne vanička)
-          - 250 g másla
-          - 200 g moučkového cukru
-          - Na želku (polevu z džusu): 1 l pomerančového džusu (místo mléka do pudinku)
-          - 2 vanilkové pudinky (pytlíky)
+          - [6 vajíček] – je třeba je zvážit (bez skořápek)
+          - [kolik váží vejce], [tolik polohrubé mouky]
+          - [stejné množství moučkového cukru]
+          - [(práškový)]
+          - [6 lžic vlažné vody]
+          - [kousek másla a trocha mouky na vymazání]
+          - [a vysypání plechu] nebo pečící papír
+          - [2 kostky tučného tvarohu] (ne vanička)
+          - [250 g másla]
+          - [200 g moučkového cukru]
+          - [Na želku] (polevu z džusu): 1 l pomerančového džusu (místo mléka do pudinku)
+          - [2 vanilkové pudinky] (pytlíky)
         
         Postup:
           - Troubu předehřej na 180°C.
@@ -4332,16 +4332,16 @@ Stránky:
         Strana: 319
         Porce: 1
         Ingredience:
-          - 4 - 5 lžic kakaa (dle barvy a chuti – těsto má být hnědé)
-          - 400 g hladké mouky
-          - 250 g másla
-          - 100 g mletého cukru (moučka, práškový)
-          - tvarohové těsto: 3 tvarohy (tužší, ne v kádince, těsto by bylo řídké)
-          - 300 g mletého cukru (moučka, práškový)
-          - 4 žloutky
-          - šťáva z 1 citronu
-          - sníh ze 4 bílků
-          - kousek másla a troška mouky, nebo pečící papír
+          - [4 - 5 lžic kakaa] (dle barvy a chuti – těsto má být hnědé)
+          - [400 g hladké mouky]
+          - [250 g másla]
+          - [100 g mletého cukru] (moučka, práškový)
+          - [tvarohové těsto: 3 tvarohy] (tužší, ne v kádince, těsto by bylo řídké)
+          - [300 g mletého cukru] (moučka, práškový)
+          - [4 žloutky]
+          - [šťáva z 1 citronu]
+          - [sníh ze 4 bílků]
+          - [kousek másla a troška mouky], [nebo pečící papír]
         
         Postup:
           - Veškeré ingredience na kakaové těsto zpracuj dohromady a nechej v mrazáku odležet, cca 30 minut.
@@ -4356,18 +4356,18 @@ Stránky:
         Strana: 320
         Porce: 1
         Ingredience:
-          - 1 hrnek = cca 250 ml (hlavně pro všechny ingredience stále stejný hrnek )
-          - 1 hrnek mléka
-          - 2 hrnky polohrubé mouky (lze nahradit bezlepkovou směsí)
-          - 1 hrnek cukru moučka (práškový)
-          - 2 vejce
-          - 1 vanilkový cukr
-          - 3 čokolády Margot (nastrouhané či nakrájené na kousíčky)
-          - 1/2 hrnku oleje
-          - 100 g rozměklého másla
-          - 100 g (stačí i 80g) cukru moučka (práškový)
-          - 2 žloutky
-          - 3 lžíce kakaa
+          - [1 hrnek = cca 250 ml] (hlavně pro všechny ingredience stále stejný hrnek )
+          - [1 hrnek mléka]
+          - [2 hrnky polohrubé mouky] (lze nahradit bezlepkovou směsí)
+          - [1 hrnek cukru moučka] (práškový)
+          - [2 vejce]
+          - [1 vanilkový cukr]
+          - [3 čokolády Margot] (nastrouhané či nakrájené na kousíčky)
+          - [1/2 hrnku oleje]
+          - [100 g rozměklého másla]
+          - [100 g] (stačí i 80g) cukru moučka (práškový)
+          - [2 žloutky]
+          - [3 lžíce kakaa]
         
         Postup:
           - Troubu předehřej na 200°C (ale vždy záleží na troubě).
@@ -4388,20 +4388,20 @@ Stránky:
         Typ: bábovka bezlepková i s lepkem
         Porce: 1
         Ingredience:
-          - 4 vejce
-          - 250 g hladké mouky (lze nahradit moukou pohankovou,
-          - rýžovou, kukuřičnou ve stejném poměru nebo
-          - moukou mandlovou a psyliem místo lepku: 
-          - 2 lžičky rozmíchat v 50 ml vody)    
-          - 200 g cukru
-          - 1 smetana ke šlehání
-          - 1 kypřící prášek
-          - vanilka – Vanilková pasta Burbon v tubě nebo 
-          - trest Vanilka Burbon Madagaskar v lahvičce, 
-          - obojí od Dr. Oetkera
-          - kousek másla na vytření formy nebo olej ve spreji
-          - trochu hrubé mouky či strouhaného kokosu na vysypání
-          - formy
+          - [4 vejce]
+          - [250 g hladké mouky] (lze nahradit moukou pohankovou,
+          - [rýžovou], [kukuřičnou ve stejném poměru nebo]
+          - [moukou mandlovou a psyliem místo lepku:]
+          - [2 lžičky rozmíchat v 50 ml vody)]
+          - [200 g cukru]
+          - [1 smetana ke šlehání]
+          - [1 kypřící prášek]
+          - [vanilka] – Vanilková pasta Burbon v tubě nebo
+          - [trest Vanilka Burbon Madagaskar v lahvičce,]
+          - [obojí od Dr. Oetkera]
+          - [kousek másla na vytření formy] nebo olej ve spreji
+          - [trochu hrubé mouky] či strouhaného kokosu na vysypání
+          - [formy]
         Postup:
           - Troubu předehřej na 180°C. Bábovkovou formu vytři máslem nebo vystříkej sprejem a vysypej hrubou moukou či strouhaným kokosem.
           - Žloutky dobře vyšlehej s cukrem do pěny, přidej šlehačku a zase šlehej. 
@@ -4418,21 +4418,21 @@ Stránky:
         Typ: bábovka bezlepková i s lepkem
         Porce: 1
         Ingredience:
-          - 300 g běžné hladké mouky 
-          - NEBO 300 g bezlepkové směsi, mám ozkoušeno  
-          - pohankovou mouku, rýžovou mouku a kukuřičnou 
-          - mouku, všechny po 100 g
-          - 120 g cukru krystal nebo písek
-          - 150 g změklého másla
-          - 4 vejce
-          - 1 vanilkový cukr
-          - 1 prášek do pečiva
-          - 5 zralých banánů
-          - špetka soli
-          - případně kousky čokolády, nasekané ořechy či 
-          - co kdo má rád
-          - kousek másla nebo olej ve spreji a trocha hrubé mouky 
-          - na vymazání a vysypání formy
+          - [300 g běžné hladké mouky]
+          - [NEBO], [300 g bezlepkové směsi], [mám ozkoušeno]
+          - [pohankovou mouku], [rýžovou mouku a kukuřičnou]
+          - [mouku], [všechny po 100 g]
+          - [120 g cukru krystal] nebo písek
+          - [150 g změklého másla]
+          - [4 vejce]
+          - [1 vanilkový cukr]
+          - [1 prášek do pečiva]
+          - [5 zralých banánů]
+          - [špetka soli]
+          - [případně kousky čokolády], [nasekané ořechy či]
+          - [co kdo má rád]
+          - [kousek másla] nebo olej ve spreji a trocha hrubé mouky
+          - [na vymazání a vysypání formy]
         Postup:
           - Žloutky utři společně s cukrem a máslem.
           - Z bílků ušlehej tuhý sníh se špetkou soli.
