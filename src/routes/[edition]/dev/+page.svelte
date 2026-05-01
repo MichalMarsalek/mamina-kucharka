@@ -3,7 +3,7 @@
 	import { Col, Row } from '@sveltestrap/sveltestrap';
 
 	let { data }: { data: Content } = $props();
-	let ingrediences = $derived(
+	let ingredients = $derived(
 		frequencies(data.pages.filter(isRecipe).flatMap((x) => x.normalizedIngredients))
 	);
 
@@ -21,7 +21,7 @@
 
 <Row>
 	<Col>
-		{#each ingrediences as [key, freq]}
+		{#each ingredients as [key, freq]}
 			<li>{key}: {freq}</li>
 		{/each}
 	</Col>
