@@ -63,9 +63,9 @@
 
 		if (!isRecipe(page)) return false;
 
-		const matchingIngredients = page.ingredients
-			.flatMap((x) => x.normalized)
-			.filter((x) => searchIngredients.includes(x));
+		const matchingIngredients = page.normalizedIngredients.filter((x) =>
+			searchIngredients.includes(x)
+		);
 
 		return matchingIngredients.length * 2 > searchIngredients.length;
 	}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser, dev } from '$app/environment';
 	import { isChapter, isRecipe, isValuesField, type Page } from '$lib/content';
 	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
 	import { SvelteSet } from 'svelte/reactivity';
@@ -8,6 +9,7 @@
 	import SvelteMarkdown from 'svelte-markdown';
 	import AnchorRenderer from '$lib/anchor-renderer.svelte';
 	import FavouriteStar from '$lib/favourite-star.svelte';
+	import { declineUnit, normalizeIngredient, type IngredientPiece } from '$lib/ingredients';
 
 	interface Props {
 		page?: Page;
@@ -16,6 +18,9 @@
 	}
 
 	let { page, edition = '', lowRes = false }: Props = $props();
+	let ingredientDebugMode = $derived(
+		dev || (browser && window.location.href.toLowerCase().includes('localhost'))
+	);
 
 	const FRACTION_DENOMINATORS = [2, 3, 4, 5, 6, 8, 10, 12, 16];
 
@@ -68,6 +73,20 @@
 		return String(Math.round(value));
 	}
 
+	function parseNumericToken(token: string): number | null {
+		const trimmed = token.trim();
+		const fraction = trimmed.match(/^(\d+)\s*\/\s*(\d+)$/);
+		if (fraction) {
+			const numerator = Number(fraction[1]);
+			const denominator = Number(fraction[2]);
+			if (!Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator === 0)
+				return null;
+			return numerator / denominator;
+		}
+		const decimal = Number(trimmed.replace(',', '.'));
+		return Number.isFinite(decimal) ? decimal : null;
+	}
+
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const markdownRenderers = { link: AnchorRenderer as any };
 
@@ -99,13 +118,28 @@
 		if (!completedSteps.delete(i)) completedSteps.add(i);
 	}
 
-	function scaleIngredient(
-		raw: string,
+	function scaleQuantity(
+		rawQuantity: string,
 		multiplier: number,
 		animated = false,
 		targetMultiplier = multiplier
 	): string {
-		if (!animated && multiplier === 1) return raw;
+		if (!animated && multiplier === 1) return rawQuantity;
+
+		const numberWithUnit = rawQuantity.trim().match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)\s+(\S+)$/u);
+		if (numberWithUnit) {
+			const original = parseNumericToken(numberWithUnit[1]);
+			if (original !== null) {
+				const scaledCurrent = original * multiplier;
+				const scaledTarget = original * targetMultiplier;
+				const displayAmount = animated && original > 5 ? Math.round(scaledCurrent) : scaledTarget;
+				const formattedNumber =
+					animated && original > 5 ? formatAnimated(scaledCurrent) : formatScaled(scaledTarget);
+				const unit = numberWithUnit[2];
+				const declinedUnit = declineUnit(unit, displayAmount) ?? unit;
+				return `${formattedNumber} ${declinedUnit}`;
+			}
+		}
 
 		const formatValue = (original: number, scaledCurrent: number, scaledTarget: number) => {
 			if (animated && original > 5) {
@@ -115,7 +149,7 @@
 		};
 
 		const fractionTokens: string[] = [];
-		let result = raw.replace(/\b(\d+)\s*\/\s*(\d+)\b/g, (_, n, d) => {
+		let result = rawQuantity.replace(/\b(\d+)\s*\/\s*(\d+)\b/g, (_, n, d) => {
 			const num = Number(n);
 			const den = Number(d);
 			if (!Number.isFinite(num) || !Number.isFinite(den) || den === 0) return `${n}/${d}`;
@@ -134,7 +168,69 @@
 			return formatValue(num, scaledCurrent, scaledTarget);
 		});
 
-		return result.replace(/__FRACTION_(x+)__/g, (_, xs) => fractionTokens[xs.length - 1] ?? _);
+		result = result.replace(/__FRACTION_(x+)__/g, (_, xs) => fractionTokens[xs.length - 1] ?? _);
+
+		if (!/^(?:\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)/.test(rawQuantity.trim())) {
+			const scaledTarget = targetMultiplier;
+			const displayAmount = scaledTarget;
+			const numberText = formatScaled(scaledTarget);
+			const declinedUnit = declineUnit(result.trim(), displayAmount) ?? result;
+			return `${numberText} ${declinedUnit}`;
+		}
+
+		return result;
+	}
+
+	function normalizeIngredientLine(
+		line: IngredientPiece[] | IngredientPiece[][]
+	): IngredientPiece[][] {
+		return line.length > 0 && Array.isArray(line[0])
+			? (line as IngredientPiece[][])
+			: [line as IngredientPiece[]];
+	}
+
+	function renderPiece(
+		part: IngredientPiece[],
+		piece: IngredientPiece,
+		index: number,
+		multiplier: number,
+		animated = false,
+		targetMultiplier = multiplier
+	): string {
+		if (piece.kind === 'prose') {
+			return piece.content;
+		}
+
+		if (piece.kind === 'quantity') {
+			return scaleQuantity(piece.content, multiplier, animated, targetMultiplier);
+		}
+
+		let ingredientText = piece.content;
+		const prevPiece = part[index - 1];
+		if (
+			prevPiece?.kind === 'quantity' &&
+			ingredientText.length > 0 &&
+			!/^\s/.test(ingredientText)
+		) {
+			ingredientText = ` ${ingredientText}`;
+		}
+		return ingredientText;
+	}
+
+	function ingredientLineTitle(line: IngredientPiece[] | IngredientPiece[][]): string {
+		const parts = normalizeIngredientLine(line);
+		if (ingredientDebugMode) {
+			return JSON.stringify(parts);
+		}
+		const normalized = [
+			...new Set(
+				parts
+					.flatMap((part) => part)
+					.filter((piece) => piece.kind === 'ingredient')
+					.map((piece) => normalizeIngredient(piece.content))
+			)
+		];
+		return normalized.join(', ');
 	}
 
 	function isLink(x: string) {
@@ -294,18 +390,33 @@
 												type="button"
 												class="ingredient-item"
 												class:checked={checkedIngredients.has(i)}
-												title={item.normalized.join(', ')}
+												title={ingredientDebugMode ? ingredientLineTitle(item) : undefined}
 												onclick={() => toggleIngredient(i)}
 											>
 												<span class="check-icon">{checkedIngredients.has(i) ? '✓' : '○'}</span>
-												<span class="ingredient-text"
-													>{scaleIngredient(
-														item.raw,
-														$animatedPortionMultiplier,
-														isPortionAnimating,
-														portionMultiplier
-													)}</span
-												>
+												<span class="ingredient-text">
+													{#each normalizeIngredientLine(item) as part, partIndex (`${i}-${partIndex}`)}
+														{#each part as piece, pieceIndex (`${i}-${partIndex}-${pieceIndex}`)}
+															<span
+																class="ingredient-piece"
+																class:debug-piece={ingredientDebugMode}
+																class:quantity-piece={ingredientDebugMode &&
+																	piece.kind === 'quantity'}
+																class:ingredient-piece-kind={ingredientDebugMode &&
+																	piece.kind === 'ingredient'}
+																class:prose-piece={ingredientDebugMode && piece.kind === 'prose'}
+																>{renderPiece(
+																	part,
+																	piece,
+																	pieceIndex,
+																	$animatedPortionMultiplier,
+																	isPortionAnimating,
+																	portionMultiplier
+																)}</span
+															>
+														{/each}
+													{/each}
+												</span>
 											</button>
 										</li>
 									{/each}
@@ -617,6 +728,21 @@
 		transition:
 			text-decoration 0.12s,
 			opacity 0.12s;
+	}
+
+	.ingredient-piece.debug-piece {
+		padding: 0 2px;
+		border-radius: 3px;
+	}
+
+	.ingredient-piece.quantity-piece {
+		background: color-mix(in srgb, #0d6efd 24%, transparent);
+		color: #084298;
+	}
+
+	.ingredient-piece.ingredient-piece-kind {
+		background: color-mix(in srgb, #198754 20%, transparent);
+		color: #0f5132;
 	}
 
 	.all-ready {

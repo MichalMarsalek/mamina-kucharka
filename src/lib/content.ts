@@ -1,4 +1,4 @@
-import { ingredients, normalizeIngredient, parseIngredientItem } from './ingredients';
+import { normalizeIngredient, parseIngredientItem, type IngredientPiece } from './ingredients';
 import { parseNestedText } from './nestedText';
 
 export interface Content {
@@ -26,7 +26,7 @@ export interface Recipe extends Page {
 	portions?: number;
 	photos: [string | undefined, string][];
 	tags: string[];
-	ingredients: (string | [string])[][];
+	ingredients: IngredientPiece[][];
 	normalizedIngredients: string[];
 	steps: string[];
 }
@@ -91,6 +91,16 @@ function getNumber(x: unknown): number | undefined {
 	return isNaN(res) ? undefined : res;
 }
 
+function getStringArray(x: unknown): string[] | undefined {
+	const arr = getArray(x);
+	if (arr == null) return undefined;
+	return arr.map((item) => {
+		const value = getString(item);
+		if (value == null) throw new Error('Expected string value.');
+		return value;
+	});
+}
+
 export function slugify(x: string) {
 	return x.replaceAll(/[^\s\p{L}\d-]/gu, '').replaceAll(/\s+/g, '-');
 }
@@ -98,6 +108,7 @@ export function slugify(x: string) {
 function getPage(x: unknown): Page {
 	const y = getObject(x);
 	if (y === undefined) throw new Error('Not page.');
+	const ingredientLines = getStringArray(y.Ingredience);
 	const res: Page = {
 		slug: '',
 		title: getString(y.Nadpis),
@@ -113,17 +124,12 @@ function getPage(x: unknown): Page {
 		tags: typeof y.Typ === 'string' ? y.Typ.split(',') : getArray(y.Typ)?.map(getString),
 		customFields: [],
 		portions: getNumber(y.Porce),
-		ingredients: getArray(y.Ingredience)
-			?.map(getString)
-			?.map((x) => parseIngredientItem(x)),
-		normalizedIngredients: getArray(y.Ingredience)
-			?.map(getString)
-			?.flatMap((x) =>
-				parseIngredientItem(x)
-					.filter((s) => typeof s !== 'string')
-					.flat()
-					.map((s) => normalizeIngredient(s))
-			),
+		ingredients: ingredientLines?.map((line) => parseIngredientItem(line)),
+		normalizedIngredients: ingredientLines
+			?.flatMap((line) => parseIngredientItem(line))
+			.flatMap((part) => part)
+			.filter((piece) => piece.kind === 'ingredient')
+			.map((piece) => normalizeIngredient(piece.content)),
 		steps: getArray(y.Postup)?.map(getString),
 		pages: getArray(y['Stránky'])?.map(getPage),
 		number: getString(y['Číslo'])

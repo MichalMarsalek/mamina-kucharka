@@ -4,7 +4,7 @@
 
 	let { data }: { data: Content } = $props();
 	let ingrediences = $derived(
-		frequencies(data.pages.filter(isRecipe).flatMap((x) => x.newIngredients))
+		frequencies(data.pages.filter(isRecipe).flatMap((x) => x.normalizedIngredients))
 	);
 
 	function frequencies(items: string[]) {

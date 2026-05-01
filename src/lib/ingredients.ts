@@ -1,3 +1,33 @@
+export const units = `
+ml/ml/ml
+l/l/l
+g/g/g
+kg/kg/kg
+lžíce/lžíce/lžic
+lžička/lžičky/lžiček
+hrnek/hrnky/hrnků
+plátek/plátky/plátků
+krajíc/krajíce/krajíců
+kousek/kousky/kousků
+stroužek/stroužky/stroužků
+špetka/špetky/špetek
+balení/balení/balení
+balíček/balíčky/balíčků
+svazek/svazky/svazků
+ks/ks/ks
+`
+	.trim()
+	.split('\n')
+	.map((x) => x.split('/').map((x) => x.trim()));
+
+export type IngredientPieceKind = 'quantity' | 'ingredient' | 'prose';
+
+export interface IngredientPiece {
+	content: string;
+	kind: IngredientPieceKind;
+	quantity?: string;
+}
+
 export const ingredients = `
 sůl/soli
 pepř/pepře
@@ -138,25 +168,138 @@ export function normalizeIngredient(ingredient: string): string {
 	return ingredient;
 }
 
-export function parseIngredientItem(text: string): (string | [string])[] {
-	const parts: (string | [string])[] = [];
-	const regex = /\[([^\]]*)\]/g;
+const normalizedUnits = [
+	...new Set(
+		units
+			.flat()
+			.map((unit) => unit.toLowerCase())
+			.filter(Boolean)
+	)
+].sort((a, b) => b.length - a.length);
 
+const normalizedUnitForms = units.map((unitForms) => {
+	const first = unitForms[0] ?? '';
+	const second = unitForms[1] ?? first;
+	const third = unitForms[2] ?? second;
+	return [first, second, third] as const;
+});
+
+const unitVariantToForms = new Map<string, readonly [string, string, string]>();
+for (const forms of normalizedUnitForms) {
+	for (const variant of forms) {
+		unitVariantToForms.set(variant.toLowerCase(), forms);
+	}
+}
+
+export function declineUnit(unit: string, amount: number): string | undefined {
+	const forms = unitVariantToForms.get(unit.trim().toLowerCase());
+	if (!forms || !Number.isFinite(amount)) return undefined;
+	const absAmount = Math.abs(amount);
+	if (absAmount === 1) return forms[0];
+	if (absAmount === 2 || absAmount === 3 || absAmount === 4) return forms[1];
+	return forms[2];
+}
+
+const escapedUnits = normalizedUnits.map((unit) => unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+
+const unitToken = `(?:${escapedUnits.join('|')})`;
+const numberToken = String.raw`(?:\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)`;
+const numberRangeToken = String.raw`${numberToken}(?:\s*-\s*${numberToken})?`;
+const numberWithUnitToken = String.raw`${numberRangeToken}\s*${unitToken}`;
+const quantityRegex = new RegExp(
+	`(?<![\\p{L}\\d])(${numberWithUnitToken}|${numberRangeToken}|${unitToken})(?![\\p{L}\\d])`,
+	'giu'
+);
+const quantityWithUnitRegex = new RegExp(`^(${numberRangeToken})\\s*(${unitToken})$`, 'iu');
+const inlineIngredientRegex = /(?:\{([^}]*)\})?\[([^\]]*)\]/g;
+
+function normalizeQuantityText(quantity: string): string {
+	const trimmed = quantity.trim();
+	const withUnit = trimmed.match(quantityWithUnitRegex);
+	if (withUnit) {
+		return `${withUnit[1]} ${withUnit[2]}`;
+	}
+	return trimmed;
+}
+
+function parseProseAndQuantities(text: string): IngredientPiece[] {
+	if (text.length === 0) return [];
+	const parts: IngredientPiece[] = [];
+	const regex = new RegExp(quantityRegex.source, quantityRegex.flags);
 	let lastIndex = 0;
 	let match: RegExpExecArray | null;
 
 	while ((match = regex.exec(text)) !== null) {
-		const [fullMatch, innerText] = match;
 		const start = match.index;
+		const end = start + match[0].length;
 		if (start > lastIndex) {
-			parts.push(text.slice(lastIndex, start));
+			parts.push({ content: text.slice(lastIndex, start), kind: 'prose' });
 		}
-		parts.push([innerText]);
-		lastIndex = start + fullMatch.length;
+		parts.push({ content: normalizeQuantityText(match[0]), kind: 'quantity' });
+		lastIndex = end;
 	}
 
 	if (lastIndex < text.length) {
-		parts.push(text.slice(lastIndex));
+		parts.push({ content: text.slice(lastIndex), kind: 'prose' });
+	}
+
+	return parts;
+}
+
+function getLastQuantity(parts: IngredientPiece[]): string | undefined {
+	for (let i = parts.length - 1; i >= 0; i -= 1) {
+		if (parts[i].kind === 'quantity') return parts[i].content;
+	}
+	return undefined;
+}
+
+export function parseIngredientItem(text: string): IngredientPiece[][] {
+	const parts: IngredientPiece[][] = [];
+	let lastPrecedingQuantity: string | undefined;
+	let lastIndex = 0;
+	let match: RegExpExecArray | null;
+
+	while ((match = inlineIngredientRegex.exec(text)) !== null) {
+		const [fullMatch, explicitRaw, ingredientRaw] = match;
+		const between = text.slice(lastIndex, match.index);
+		const ingredient = (ingredientRaw ?? '').trim();
+		const explicit = explicitRaw !== undefined;
+		const betweenPieces = parseProseAndQuantities(between);
+		const inBetweenQuantity = getLastQuantity(betweenPieces);
+		if (inBetweenQuantity !== undefined) {
+			lastPrecedingQuantity = inBetweenQuantity;
+		}
+
+		let quantity: string | undefined;
+
+		if (explicit) {
+			quantity = normalizeQuantityText(explicitRaw);
+			if (quantity.length === 0) quantity = undefined;
+		} else {
+			quantity = lastPrecedingQuantity;
+		}
+
+		if (betweenPieces.length > 0) {
+			parts.push(betweenPieces);
+		}
+
+		const ingredientPart: IngredientPiece[] = [];
+		if (explicit && quantity !== undefined) {
+			ingredientPart.push({ content: quantity, kind: 'quantity' });
+		}
+		ingredientPart.push({ content: ingredient, kind: 'ingredient', quantity });
+		parts.push(ingredientPart);
+
+		lastIndex = match.index + fullMatch.length;
+	}
+
+	const tailPieces = parseProseAndQuantities(text.slice(lastIndex));
+	if (tailPieces.length > 0) {
+		parts.push(tailPieces);
+	}
+
+	if (parts.length === 0) {
+		parts.push([{ content: text, kind: 'prose' }]);
 	}
 
 	return parts;
