@@ -81,6 +81,12 @@
 		return recipe && recipe.photos.length > 0 ? `/foto1/${recipe.photos[0][1]}.webp` : undefined;
 	}
 
+	function previewOffset(page: Page): number {
+		const recipe = isRecipe(page) ? page : recipes.find((r) => r.slug === page.slug);
+		if (!recipe || recipe.photos.length === 0) return 0;
+		return data.photoOffsets[recipe.photos[0][1]] ?? 0;
+	}
+
 	// Reading progress bar
 	let scrollY = $state(0);
 	let scrollProgress = $state(0);
@@ -242,6 +248,7 @@
 											<NavItem
 												><PhotoTooltip
 													photoUrl={previewUrl(item)}
+													offsetY={previewOffset(item)}
 													side="right"
 													alignSelector=".page-content"
 													><NavLink href={item.slug}

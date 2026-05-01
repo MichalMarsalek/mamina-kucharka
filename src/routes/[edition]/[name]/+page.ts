@@ -16,5 +16,10 @@ export async function load({ params, parent }: any) {
 			redirect(308, `/${params.edition}/${encodeURIComponent(closestSlug)}`);
 		}
 	}
-	return { page, pages: data.pages, edition: params.edition };
+	return {
+		page,
+		pages: data.pages,
+		edition: params.edition,
+		photoOffsets: data.photoOffsets
+	};
 }

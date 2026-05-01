@@ -8,15 +8,20 @@
 	import type { Page } from '$lib/content';
 
 	interface Props {
-		data: { page: Page; pages: Page[]; edition: string };
+		data: { page: Page; pages: Page[]; edition: string; photoOffsets: Record<string, number> };
 	}
 
 	let { data }: Props = $props();
 	let currentPage = $derived(data.page);
 	let pages = $derived(data.pages);
 	let edition = $derived(data.edition);
+	let photoOffsets = $derived(data.photoOffsets);
 	let pageName = $derived(data.page?.slug ?? '');
 	let currentIndex = $derived(pages.findIndex((x) => x.slug === pageName));
+
+	function getPhotoOffset(photoSlug: string): number {
+		return photoOffsets[photoSlug] ?? 0;
+	}
 
 	let isMobile = $state(false);
 	let showMobileCarousel = $state(false);
@@ -125,13 +130,13 @@
 		<div class="embla__container">
 			{#each pages as item (item.slug)}
 				<div class="embla__slide">
-					<PageContent page={item} {edition} lowRes={item.slug !== pageName} />
+					<PageContent page={item} {edition} {getPhotoOffset} lowRes={item.slug !== pageName} />
 				</div>
 			{/each}
 		</div>
 	</div>
 {:else}
-	<PageContent page={currentPage} {edition} />
+	<PageContent page={currentPage} {edition} {getPhotoOffset} />
 {/if}
 
 <style>

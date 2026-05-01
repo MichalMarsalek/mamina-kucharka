@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser, dev } from '$app/environment';
 	import { untrack } from 'svelte';
 	import { Input, Nav, NavItem, NavLink } from '@sveltestrap/sveltestrap';
 	import { isChapter, isRecipe, type Chapter, type Content, type Page } from '$lib/content';
@@ -14,6 +14,20 @@
 
 	let { data }: Props = $props();
 	let pages = $derived(data.pages);
+	let incomingPhotoOffsets = $derived(data.photoOffsets);
+	let photoOffsets = $state<Record<string, number>>({});
+	$effect(() => {
+		photoOffsets = { ...incomingPhotoOffsets };
+	});
+	let activeDrag = $state<{
+		slug: string;
+		pointerId: number;
+		startY: number;
+		startOffset: number;
+		height: number;
+		hasMoved: boolean;
+	} | null>(null);
+	let suppressNextCardClick = $state(false);
 
 	let search = $state('');
 	let searchIngredients = $derived(getIngredientsInText(search));
@@ -105,6 +119,97 @@
 		return `/foto1/${page.photos[0][1]}.webp`;
 	}
 
+	function photoOffset(photoSlug: string): number {
+		return photoOffsets[photoSlug] ?? 0;
+	}
+
+	function previewOffset(page: Page): number {
+		if (!isRecipe(page) || page.photos.length === 0) return 0;
+		return photoOffset(page.photos[0][1]);
+	}
+
+	function setPhotoOffset(photoSlug: string, offset: number) {
+		const rounded = Math.round(offset * 100) / 100;
+		const next = { ...photoOffsets };
+		if (rounded === 0) {
+			delete next[photoSlug];
+		} else {
+			next[photoSlug] = rounded;
+		}
+		photoOffsets = next;
+	}
+
+	function formatOffsetsNt() {
+		const entries = Object.entries(photoOffsets)
+			.filter(([, offset]) => offset !== 0)
+			.sort(([a], [b]) => a.localeCompare(b, 'cs'));
+		return entries
+			.map(([slug, offset]) => {
+				const formatted = Number.isInteger(offset) ? `${offset}` : `${offset}`.replace(/\.0+$/, '');
+				return `${slug}: ${formatted}`;
+			})
+			.join('\n');
+	}
+
+	function logOffsetsNt() {
+		console.log(`Updated offsets.nt:\n${formatOffsetsNt()}`);
+	}
+
+	function startGridPhotoDrag(e: PointerEvent, photoSlug?: string) {
+		if (!dev || !photoSlug) return;
+		if (e.button !== 0) return;
+		const target = e.currentTarget as HTMLElement;
+		const rect = target.getBoundingClientRect();
+		const height = rect.height || 1;
+		target.setPointerCapture(e.pointerId);
+		activeDrag = {
+			slug: photoSlug,
+			pointerId: e.pointerId,
+			startY: e.clientY,
+			startOffset: photoOffset(photoSlug),
+			height,
+			hasMoved: false
+		};
+		e.preventDefault();
+	}
+
+	function moveGridPhotoDrag(e: PointerEvent) {
+		if (!activeDrag || e.pointerId !== activeDrag.pointerId) return;
+		const delta = e.clientY - activeDrag.startY;
+		if (Math.abs(delta) >= 1) {
+			activeDrag = { ...activeDrag, hasMoved: true };
+		}
+		const deltaPercent = (delta / activeDrag.height) * 100;
+		setPhotoOffset(activeDrag.slug, activeDrag.startOffset - deltaPercent);
+		e.preventDefault();
+	}
+
+	function endGridPhotoDrag(e: PointerEvent) {
+		if (!activeDrag || e.pointerId !== activeDrag.pointerId) return;
+		if (activeDrag.hasMoved) {
+			suppressNextCardClick = true;
+			logOffsetsNt();
+		}
+		activeDrag = null;
+		e.preventDefault();
+	}
+
+	function endGridPhotoDragFromCapture() {
+		if (!activeDrag) return;
+		if (activeDrag.hasMoved) {
+			suppressNextCardClick = true;
+			logOffsetsNt();
+		}
+		activeDrag = null;
+	}
+
+	function onRecipeCardClick(e: MouseEvent) {
+		if (!suppressNextCardClick) return;
+		e.preventDefault();
+		e.stopPropagation();
+		suppressNextCardClick = false;
+	}
+
 	function except(a: string[], b: string[]) {
 		return a.filter((x) => !b.includes(x));
 	}
@@ -167,6 +272,7 @@
 		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
 			{#each sortForGrid(page.pages, groupMostlyPhotoless) as item (item.slug)}
 				{@const hasPhoto = isRecipe(item) && item.photos.length > 0}
+				{@const photoSlug = hasPhoto ? item.photos[0][1] : undefined}
 				{@const compact = groupMostlyPhotoless && !hasPhoto}
 				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
 				<a
@@ -175,10 +281,28 @@
 					class:favourite={favourites.has(item.slug)}
 					class:compact
 					class:span-two={spanTwo}
+					onclick={onRecipeCardClick}
 				>
 					{#if hasPhoto}
-						<div class="card-img-wrap" class:stretch-img={spanTwo}>
-							<img src="/foto1/{item.photos[0][1]}.webp" alt={item.title} loading="lazy" />
+						<div
+							class="card-img-wrap"
+							class:stretch-img={spanTwo}
+							class:dragging={activeDrag?.slug === photoSlug}
+							class:dev-draggable={dev}
+							role="presentation"
+							style="--photo-offset: {photoSlug ? photoOffset(photoSlug) : 0}"
+							onpointerdown={(e) => startGridPhotoDrag(e, photoSlug)}
+							onpointermove={moveGridPhotoDrag}
+							onpointerup={endGridPhotoDrag}
+							onpointercancel={endGridPhotoDrag}
+							onlostpointercapture={endGridPhotoDragFromCapture}
+						>
+							<img
+								src="/foto1/{item.photos[0][1]}.webp"
+								alt={item.title}
+								loading="lazy"
+								draggable="false"
+							/>
 						</div>
 					{:else if !compact}
 						<div class="card-img-placeholder">
@@ -198,7 +322,7 @@
 	<div class="contents" class:single-col={listItemCount < 15}>
 		<Nav class="flex-column">
 			{#each filteredPages as page, i (`${page.slug}-${i}`)}
-				<PhotoTooltip photoUrl={previewUrl(page)} side="left">
+				<PhotoTooltip photoUrl={previewUrl(page)} offsetY={previewOffset(page)} side="left">
 					<NavItem>
 						<NavLink href={page.slug} class="d-flex gap-3" style="margin-top: {level(page) * -5}px">
 							<div class="d-flex gap-2">
@@ -215,7 +339,11 @@
 				</PhotoTooltip>
 				{#if isChapter(page)}
 					{#each page.pages as subPage, j (`${subPage.slug}-${j}`)}
-						<PhotoTooltip photoUrl={previewUrl(subPage)} side="left">
+						<PhotoTooltip
+							photoUrl={previewUrl(subPage)}
+							offsetY={previewOffset(subPage)}
+							side="left"
+						>
 							<NavItem>
 								<NavLink
 									href={subPage.slug}
@@ -408,7 +536,7 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background: color-mix(in srgb, var(--bs-body-bg, white) 85%, transparent);
+		background: color-mix(in srgb, var(--bs-body-bg, white) 65%, transparent);
 		backdrop-filter: blur(4px);
 	}
 
@@ -423,7 +551,7 @@
 		justify-content: space-between;
 		gap: 4px;
 		min-height: 52px;
-		background: color-mix(in srgb, var(--bs-body-bg, white) 85%, transparent);
+		background: color-mix(in srgb, var(--bs-body-bg, white) 65%, transparent);
 		backdrop-filter: blur(4px);
 		transition: background 0.18s ease;
 	}
@@ -432,7 +560,7 @@
 		background: color-mix(
 			in srgb,
 			var(--bs-primary, #0d6efd) 18%,
-			color-mix(in srgb, var(--bs-body-bg, white) 85%, transparent)
+			color-mix(in srgb, var(--bs-body-bg, white) 65%, transparent)
 		);
 	}
 
@@ -576,7 +704,17 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: center calc(50% + var(--photo-offset, 0) * 1%);
 		transition: transform 0.3s ease;
+	}
+
+	.card-img-wrap.dev-draggable {
+		cursor: ns-resize;
+	}
+
+	.card-img-wrap.dragging {
+		outline: 2px dashed color-mix(in srgb, var(--bs-primary, #0d6efd) 75%, transparent);
+		outline-offset: -2px;
 	}
 
 	.recipe-card:hover .card-img-wrap img {

@@ -5,6 +5,7 @@
 		photoUrl,
 		side = 'right',
 		width = 224,
+		offsetY = 0,
 		offsetX = 0,
 		alignSelector,
 		children
@@ -12,6 +13,7 @@
 		photoUrl?: string;
 		side?: 'left' | 'right';
 		width?: number;
+		offsetY?: number;
 		offsetX?: number;
 		alignSelector?: string;
 		children: Snippet;
@@ -98,6 +100,7 @@
 			}
 		};
 	}
+
 </script>
 
 <div
@@ -116,7 +119,7 @@
 {#if visible && photoUrl}
 	<div use:portal class="photo-tooltip" style="left: {x}px; top: {y}px; width: {width}px">
 		{#key photoUrl}
-			<img src={photoUrl} alt="" />
+			<img src={photoUrl} alt="" style="object-position: center calc(50% + {offsetY}%);" />
 		{/key}
 	</div>
 {/if}

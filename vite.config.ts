@@ -15,10 +15,18 @@ export default defineConfig({
 				globIgnores: ['**/icons/**'],
 				runtimeCaching: [
 					{
-						urlPattern: /\.nt$/,
+						urlPattern: /\/offsets\.nt$/,
+						handler: 'NetworkFirst',
+						options: {
+							cacheName: 'photo-offsets-v1',
+							expiration: { maxEntries: 2, maxAgeSeconds: 60 * 60 * 24 * 7 }
+						}
+					},
+					{
+						urlPattern: /\/recepty_\d+\.nt$/,
 						handler: 'CacheFirst',
 						options: {
-							cacheName: 'recipe-data',
+							cacheName: 'recipe-data-v1',
 							expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 30 }
 						}
 					},
@@ -33,7 +41,7 @@ export default defineConfig({
 				]
 			},
 			devOptions: {
-				enabled: true
+				enabled: false
 			}
 		})
 	]

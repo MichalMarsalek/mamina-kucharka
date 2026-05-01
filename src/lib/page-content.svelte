@@ -15,12 +15,17 @@
 		page?: Page;
 		edition?: string;
 		lowRes?: boolean;
+		getPhotoOffset?: (photoSlug: string) => number;
 	}
 
-	let { page, edition = '', lowRes = false }: Props = $props();
+	let { page, edition = '', lowRes = false, getPhotoOffset }: Props = $props();
 	let ingredientDebugMode = $derived(
 		dev || (browser && window.location.href.toLowerCase().includes('localhost'))
 	);
+
+	function photoOffset(photoSlug: string): number {
+		return getPhotoOffset?.(photoSlug) ?? 0;
+	}
 
 	const FRACTION_DENOMINATORS = [2, 3, 4, 5, 6, 8, 10, 12, 16];
 
@@ -297,12 +302,13 @@
 					<Col xs="12" lg="6">
 						<div class="photos">
 							{#each recipe.photos as [photoName, photoSlug] (photoSlug)}
-								<div class="photo">
+								<div class="photo" style="--photo-offset: {photoOffset(photoSlug)};">
 									<Image
 										fluid
 										class="base-photo"
 										src="/foto1/{photoSlug}.webp"
 										alt={photoName ?? page.title}
+										style="object-position: center calc(50% + var(--photo-offset, 0) * 1%);"
 									/>
 									{#if !lowRes}
 										<Image
@@ -313,6 +319,7 @@
 											aria-hidden="true"
 											loading="lazy"
 											decoding="async"
+											style="object-position: center calc(50% + var(--photo-offset, 0) * 1%);"
 										/>
 									{/if}
 									{#if photoName}

@@ -4,6 +4,7 @@ import { parseNestedText } from './nestedText';
 export interface Content {
 	rootPages: Page[];
 	pages: Page[];
+	photoOffsets: Record<string, number>;
 }
 
 export interface Page {
@@ -62,7 +63,35 @@ export function parseContent(nestedText: string): Content {
 	}
 	const pages = rootPages.flatMap(flatten);
 	pages.sort((a, b) => a.page - b.page);
-	return { rootPages, pages };
+	return { rootPages, pages, photoOffsets: {} };
+}
+
+export function parsePhotoOffsets(nestedText: string): Record<string, number> {
+	if (nestedText.trim() === '') {
+		return {};
+	}
+
+	const parsed = parseNestedText(nestedText);
+	if (parsed == null) {
+		return {};
+	}
+	if (typeof parsed !== 'object' || Array.isArray(parsed)) {
+		throw new Error('Expected offsets.nt to contain a dictionary of slug -> number.');
+	}
+
+	const offsets: Record<string, number> = {};
+	for (const [slug, value] of Object.entries(parsed as Record<string, unknown>)) {
+		if (typeof value !== 'string' && typeof value !== 'number') {
+			continue;
+		}
+		const parsedValue = Number(value);
+		if (!Number.isFinite(parsedValue) || parsedValue === 0) {
+			continue;
+		}
+		offsets[slug] = parsedValue;
+	}
+
+	return offsets;
 }
 
 function getString(x: unknown): string | undefined {
