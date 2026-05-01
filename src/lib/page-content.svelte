@@ -189,10 +189,12 @@
 		result = result.replace(/__FRACTION_(x+)__/g, (_, xs) => fractionTokens[xs.length - 1] ?? _);
 
 		if (!/^(?:\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)/.test(rawQuantity.trim())) {
+			if (targetMultiplier === 1) return result;
 			const scaledTarget = targetMultiplier;
 			const displayAmount = scaledTarget;
+			const declinedUnit = declineUnit(result.trim(), displayAmount);
+			if (declinedUnit === undefined) return result;
 			const numberText = formatScaled(scaledTarget);
-			const declinedUnit = declineUnit(result.trim(), displayAmount) ?? result;
 			return `${numberText} ${declinedUnit}`;
 		}
 
