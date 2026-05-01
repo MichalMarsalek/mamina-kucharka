@@ -181,16 +181,8 @@
 		return result;
 	}
 
-	function normalizeIngredientLine(
-		line: IngredientPiece[] | IngredientPiece[][]
-	): IngredientPiece[][] {
-		return line.length > 0 && Array.isArray(line[0])
-			? (line as IngredientPiece[][])
-			: [line as IngredientPiece[]];
-	}
-
 	function renderPiece(
-		part: IngredientPiece[],
+		line: IngredientPiece[],
 		piece: IngredientPiece,
 		index: number,
 		multiplier: number,
@@ -206,7 +198,7 @@
 		}
 
 		let ingredientText = piece.content;
-		const prevPiece = part[index - 1];
+		const prevPiece = line[index - 1];
 		if (
 			prevPiece?.kind === 'quantity' &&
 			ingredientText.length > 0 &&
@@ -217,15 +209,13 @@
 		return ingredientText;
 	}
 
-	function ingredientLineTitle(line: IngredientPiece[] | IngredientPiece[][]): string {
-		const parts = normalizeIngredientLine(line);
+	function ingredientLineTitle(line: IngredientPiece[]): string {
 		if (ingredientDebugMode) {
-			return JSON.stringify(parts);
+			return JSON.stringify(line);
 		}
 		const normalized = [
 			...new Set(
-				parts
-					.flatMap((part) => part)
+				line
 					.filter((piece) => piece.kind === 'ingredient')
 					.map((piece) => normalizeIngredient(piece.content))
 			)
@@ -395,26 +385,24 @@
 											>
 												<span class="check-icon">{checkedIngredients.has(i) ? '✓' : '○'}</span>
 												<span class="ingredient-text">
-													{#each normalizeIngredientLine(item) as part, partIndex (`${i}-${partIndex}`)}
-														{#each part as piece, pieceIndex (`${i}-${partIndex}-${pieceIndex}`)}
-															<span
-																class="ingredient-piece"
-																class:debug-piece={ingredientDebugMode}
-																class:quantity-piece={ingredientDebugMode &&
-																	piece.kind === 'quantity'}
-																class:ingredient-piece-kind={ingredientDebugMode &&
-																	piece.kind === 'ingredient'}
-																class:prose-piece={ingredientDebugMode && piece.kind === 'prose'}
-																>{renderPiece(
-																	part,
-																	piece,
-																	pieceIndex,
-																	$animatedPortionMultiplier,
-																	isPortionAnimating,
-																	portionMultiplier
-																)}</span
-															>
-														{/each}
+													{#each item as piece, pieceIndex (`${i}-${pieceIndex}`)}
+														<span
+															class="ingredient-piece"
+															class:debug-piece={ingredientDebugMode}
+															class:quantity-piece={ingredientDebugMode &&
+																piece.kind === 'quantity'}
+															class:ingredient-piece-kind={ingredientDebugMode &&
+																piece.kind === 'ingredient'}
+															class:prose-piece={ingredientDebugMode && piece.kind === 'prose'}
+															>{renderPiece(
+																item,
+																piece,
+																pieceIndex,
+																$animatedPortionMultiplier,
+																isPortionAnimating,
+																portionMultiplier
+															)}</span
+														>
 													{/each}
 												</span>
 											</button>

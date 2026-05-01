@@ -127,7 +127,6 @@ function getPage(x: unknown): Page {
 		ingredients: ingredientLines?.map((line) => parseIngredientItem(line)),
 		normalizedIngredients: ingredientLines
 			?.flatMap((line) => parseIngredientItem(line))
-			.flatMap((part) => part)
 			.filter((piece) => piece.kind === 'ingredient')
 			.map((piece) => normalizeIngredient(piece.content)),
 		steps: getArray(y.Postup)?.map(getString),

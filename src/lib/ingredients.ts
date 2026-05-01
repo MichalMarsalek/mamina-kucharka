@@ -253,8 +253,8 @@ function getLastQuantity(parts: IngredientPiece[]): string | undefined {
 	return undefined;
 }
 
-export function parseIngredientItem(text: string): IngredientPiece[][] {
-	const parts: IngredientPiece[][] = [];
+export function parseIngredientItem(text: string): IngredientPiece[] {
+	const parts: IngredientPiece[] = [];
 	let lastPrecedingQuantity: string | undefined;
 	let lastIndex = 0;
 	let match: RegExpExecArray | null;
@@ -280,26 +280,24 @@ export function parseIngredientItem(text: string): IngredientPiece[][] {
 		}
 
 		if (betweenPieces.length > 0) {
-			parts.push(betweenPieces);
+			parts.push(...betweenPieces);
 		}
 
-		const ingredientPart: IngredientPiece[] = [];
 		if (explicit && quantity !== undefined) {
-			ingredientPart.push({ content: quantity, kind: 'quantity' });
+			parts.push({ content: quantity, kind: 'quantity' });
 		}
-		ingredientPart.push({ content: ingredient, kind: 'ingredient', quantity });
-		parts.push(ingredientPart);
+		parts.push({ content: ingredient, kind: 'ingredient', quantity });
 
 		lastIndex = match.index + fullMatch.length;
 	}
 
 	const tailPieces = parseProseAndQuantities(text.slice(lastIndex));
 	if (tailPieces.length > 0) {
-		parts.push(tailPieces);
+		parts.push(...tailPieces);
 	}
 
 	if (parts.length === 0) {
-		parts.push([{ content: text, kind: 'prose' }]);
+		parts.push({ content: text, kind: 'prose' });
 	}
 
 	return parts;
