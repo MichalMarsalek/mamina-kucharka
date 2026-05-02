@@ -167,6 +167,122 @@ granko
 		return { name: variants[0], variants };
 	});
 
+// Declension table for ingredients: form_1 / form_2-4 / form_5+
+// Single-form entries are implicitly all three forms.
+export const ingredientForms = `
+vejce/vejce/vajec
+cibule/cibule/cibulí
+cibulka/cibulky/cibulek
+česnek/česneky/česnků
+medvědí česnek/medvědí česneky/medvědích česnků
+máslo/másla/másel
+olej/oleje/olejů
+kokosový olej/kokosové oleje/kokosových olejů
+olivový olej/olivové oleje/olivových olejů
+žloutek/žloutky/žloutků
+cukr/cukry/cukrů
+brambory/brambory/brambor
+paprika/papriky/paprik
+rajče/rajčata/rajčat
+brokolice
+špenát/špenáty/špenátů
+kukuřice
+rýže
+bulgur
+čočka/čočky/čoček
+fazole/fazole/fazolí
+cizrna/cizrny/cizren
+hrášek/hrášky/hrášků
+kedluben/kedlubny/kedlubnů
+květák/květáky/květáků
+cuketa/cukety/cuket
+dýně/dýně/dýní
+batát/batáty/batátů
+červená řepa/červené řepy/červených řep
+lilek/lilek/lilků
+mrkev/mrkve/mrkví
+pórek/pórky/pórků
+celer/celery/celerů
+pastinák/pastináky/pastináků
+chřest/chřesty/chřestů
+okurka/okurky/okurek
+citron/citrony/citronů
+pomeranč/pomeranče/pomerančů
+víno/vína/vín
+hořčice
+majonéza/majonézy/majonéz
+sýr/sýry/sýrů
+mozzarella
+niva
+šunka/šunky/šunek
+slanina/slaniny/slanin
+losos/lososi/lososi
+kuře/kuřata/kuřat
+žampion/žampiony/žampionů
+hřib/hřiby/hřibů
+houby/houby/hub
+marmeláda/marmelády/marmelád
+`
+	.trim()
+	.split('\n')
+	.map((x) =>
+		x.includes('/') ? x.split('/').map((x) => x.trim()) : [x.trim(), x.trim(), x.trim()]
+	);
+
+const normalizedIngredientForms = ingredientForms.map((forms) => {
+	const first = forms[0] ?? '';
+	const second = forms[1] ?? first;
+	const third = forms[2] ?? second;
+	return [first, second, third] as const;
+});
+
+const wordToAllIngredientForms = new Map<string, Array<readonly [string, string, string]>>();
+for (const forms of normalizedIngredientForms) {
+	for (const variant of forms) {
+		const word = variant.toLowerCase();
+		let arr = wordToAllIngredientForms.get(word);
+		if (!arr) {
+			arr = [];
+			wordToAllIngredientForms.set(word, arr);
+		}
+		if (!arr.includes(forms)) arr.push(forms);
+	}
+}
+
+function lookupIngredientForms(
+	word: string,
+	origIndex: 0 | 1 | 2
+): readonly [string, string, string] | undefined {
+	return wordToAllIngredientForms.get(word)?.find((f) => f[origIndex].toLowerCase() === word);
+}
+
+export function declineIngredient(
+	ingredient: string,
+	originalAmount: number,
+	newAmount: number
+): string {
+	if (!Number.isFinite(originalAmount) || !Number.isFinite(newAmount)) return ingredient;
+	const trimmed = ingredient.trim().toLowerCase();
+	const origIndex = amountToFormIndex(Math.abs(originalAmount));
+	const newIndex = amountToFormIndex(Math.abs(newAmount));
+
+	const forms = lookupIngredientForms(trimmed, origIndex);
+	if (forms) return forms[newIndex];
+
+	// Multiword fallback: decline each space-separated part individually
+	const parts = trimmed.split(/\s+/);
+	if (parts.length > 1) {
+		const declinedParts = parts.map((part) => {
+			const partForms = lookupIngredientForms(part, origIndex);
+			return partForms ? partForms[newIndex] : undefined;
+		});
+		if (declinedParts.every((p) => p !== undefined)) {
+			return (declinedParts as string[]).join(' ');
+		}
+	}
+	return ingredient;
+}
+
 export function getIngredientsInText(text: string) {
 	text = text.toLowerCase();
 	const res = ingredients

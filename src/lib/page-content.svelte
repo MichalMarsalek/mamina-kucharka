@@ -9,7 +9,12 @@
 	import SvelteMarkdown from 'svelte-markdown';
 	import AnchorRenderer from '$lib/anchor-renderer.svelte';
 	import FavouriteStar from '$lib/favourite-star.svelte';
-	import { declineUnit, normalizeIngredient, type IngredientPiece } from '$lib/ingredients';
+	import {
+		declineUnit,
+		declineIngredient,
+		normalizeIngredient,
+		type IngredientPiece
+	} from '$lib/ingredients';
 
 	interface Props {
 		page?: Page;
@@ -149,7 +154,9 @@
 		animated = false,
 		targetMultiplier = multiplier
 	): string {
-		const numberWithUnit = rawQuantity.trim().match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)\s+(\S+(?:\s+\S+)*)$/u);
+		const numberWithUnit = rawQuantity
+			.trim()
+			.match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)\s+(\S+(?:\s+\S+)*)$/u);
 		if (numberWithUnit) {
 			const original = parseNumericToken(numberWithUnit[1]);
 			if (original !== null) {
@@ -223,6 +230,15 @@
 		}
 
 		let ingredientText = piece.content;
+		if (piece.quantity) {
+			const numMatch = piece.quantity.trim().match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)(\s.*)?$/);
+			const isUnitless = numMatch && !numMatch[2]?.trim();
+			const originalAmount = numMatch ? parseNumericToken(numMatch[1]) : null;
+			if (isUnitless && originalAmount !== null) {
+				const newAmount = originalAmount * targetMultiplier;
+				ingredientText = declineIngredient(piece.content, originalAmount, newAmount);
+			}
+		}
 		const prevPiece = line[index - 1];
 		if (
 			prevPiece?.kind === 'quantity' &&
