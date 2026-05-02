@@ -1,24 +1,41 @@
 export const units = `
-ml/ml/ml
-l/l/l
-g/g/g
-kg/kg/kg
+ml
+l
+g
+dkg
+kg
+ks
 lžíce/lžíce/lžic
 lžička/lžičky/lžiček
+plná lžička/plné lžičky/plných lžiček
 hrnek/hrnky/hrnků
+hrst/hrsti/hrstí
 plátek/plátky/plátků
 krajíc/krajíce/krajíců
 kousek/kousky/kousků
+kulička/kuličky/kuliček
+kostka/kostky/kostek
 stroužek/stroužky/stroužků
 špetka/špetky/špetek
+kelímek/kelímky/kelímků
+plechovka/plechovky/plechovek
 balení/balení/balení
 balíček/balíčky/balíčků
 svazek/svazky/svazků
-ks/ks/ks
+kus/kus/kusů
+malý/malé/malých
+velký/velké/velkých
+malá/malé/malých
+velká/velké/velkých
+malé/malá/malých
+velké/velká/velkých
+střední/střední/středních
 `
 	.trim()
 	.split('\n')
-	.map((x) => x.split('/').map((x) => x.trim()));
+	.map((x) =>
+		x.includes('/') ? x.split('/').map((x) => x.trim()) : [x.trim(), x.trim(), x.trim()]
+	);
 
 export type IngredientPieceKind = 'quantity' | 'ingredient' | 'prose';
 
@@ -184,25 +201,65 @@ const normalizedUnitForms = units.map((unitForms) => {
 	return [first, second, third] as const;
 });
 
-const unitVariantToForms = new Map<string, readonly [string, string, string]>();
+function amountToFormIndex(absAmount: number): 0 | 1 | 2 {
+	if (absAmount === 1) return 0;
+	if (absAmount === 2 || absAmount === 3 || absAmount === 4) return 1;
+	return 2;
+}
+
+// Maps each word variant -> all form triples that contain it (at any position)
+const wordToAllForms = new Map<string, Array<readonly [string, string, string]>>();
 for (const forms of normalizedUnitForms) {
 	for (const variant of forms) {
-		unitVariantToForms.set(variant.toLowerCase(), forms);
+		const word = variant.toLowerCase();
+		let arr = wordToAllForms.get(word);
+		if (!arr) {
+			arr = [];
+			wordToAllForms.set(word, arr);
+		}
+		if (!arr.includes(forms)) arr.push(forms);
 	}
 }
 
-export function declineUnit(unit: string, amount: number): string | undefined {
-	const forms = unitVariantToForms.get(unit.trim().toLowerCase());
-	if (!forms || !Number.isFinite(amount)) return undefined;
-	const absAmount = Math.abs(amount);
-	if (absAmount === 1) return forms[0];
-	if (absAmount === 2 || absAmount === 3 || absAmount === 4) return forms[1];
-	return forms[2];
+function lookupForms(
+	word: string,
+	origIndex: 0 | 1 | 2
+): readonly [string, string, string] | undefined {
+	return wordToAllForms.get(word)?.find((f) => f[origIndex].toLowerCase() === word);
+}
+
+export function declineUnit(
+	unit: string,
+	originalAmount: number,
+	newAmount: number
+): string | undefined {
+	if (!Number.isFinite(originalAmount) || !Number.isFinite(newAmount)) return undefined;
+	const trimmed = unit.trim().toLowerCase();
+	const origIndex = amountToFormIndex(Math.abs(originalAmount));
+	const newIndex = amountToFormIndex(Math.abs(newAmount));
+
+	// Try whole string first (handles single-word and pre-defined multiword like "plná lžička")
+	const forms = lookupForms(trimmed, origIndex);
+	if (forms) return forms[newIndex];
+
+	// Multiword fallback: decline each space-separated part individually
+	const parts = trimmed.split(/\s+/);
+	if (parts.length > 1) {
+		const declinedParts = parts.map((part) => {
+			const partForms = lookupForms(part, origIndex);
+			return partForms ? partForms[newIndex] : undefined;
+		});
+		if (declinedParts.every((p) => p !== undefined)) {
+			return (declinedParts as string[]).join(' ');
+		}
+	}
+	return undefined;
 }
 
 const escapedUnits = normalizedUnits.map((unit) => unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
 
-const unitToken = `(?:${escapedUnits.join('|')})`;
+const singleUnitToken = `(?:${escapedUnits.join('|')})`;
+const unitToken = `(?:${singleUnitToken}(?:\\s+${singleUnitToken})*)`;
 const numberToken = String.raw`(?:\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)`;
 const numberRangeToken = String.raw`${numberToken}(?:\s*-\s*${numberToken})?`;
 const numberWithUnitToken = String.raw`${numberRangeToken}\s*${unitToken}`;

@@ -149,7 +149,7 @@
 		animated = false,
 		targetMultiplier = multiplier
 	): string {
-		const numberWithUnit = rawQuantity.trim().match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)\s+(\S+)$/u);
+		const numberWithUnit = rawQuantity.trim().match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)\s+(\S+(?:\s+\S+)*)$/u);
 		if (numberWithUnit) {
 			const original = parseNumericToken(numberWithUnit[1]);
 			if (original !== null) {
@@ -159,7 +159,7 @@
 				const formattedNumber =
 					animated && original > 5 ? formatAnimated(scaledCurrent) : formatScaled(scaledTarget);
 				const unit = numberWithUnit[2];
-				const declinedUnit = declineUnit(unit, displayAmount) ?? unit;
+				const declinedUnit = declineUnit(unit, original, displayAmount) ?? unit;
 				return `${formattedNumber} ${declinedUnit}`;
 			}
 		}
@@ -197,7 +197,7 @@
 			if (targetMultiplier === 1) return result;
 			const scaledTarget = targetMultiplier;
 			const displayAmount = scaledTarget;
-			const declinedUnit = declineUnit(result.trim(), displayAmount);
+			const declinedUnit = declineUnit(result.trim(), 1, displayAmount);
 			if (declinedUnit === undefined) return result;
 			const numberText = formatScaled(scaledTarget);
 			return `${numberText} ${declinedUnit}`;
