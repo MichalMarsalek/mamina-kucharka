@@ -29,7 +29,9 @@ malá/malé/malých
 velká/velké/velkých
 malé/malá/malých
 velké/velká/velkých
+menší/menší/menších
 střední/střední/středních
+větší/větší/větších
 `
 	.trim()
 	.split('\n')
@@ -237,7 +239,10 @@ const normalizedIngredientForms = ingredientForms.map((forms) => {
 });
 
 const exactIngredientForms = new Set(
-	normalizedIngredientForms.flat().map((form) => form.toLowerCase()).filter(Boolean)
+	normalizedIngredientForms
+		.flat()
+		.map((form) => form.toLowerCase())
+		.filter(Boolean)
 );
 
 export function hasIngredientDeclensionEntry(ingredient: string): boolean {
