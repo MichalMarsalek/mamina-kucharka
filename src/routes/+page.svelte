@@ -4,7 +4,9 @@
 	import { defaultEdition } from '$lib/editions';
 	import { onMount } from 'svelte';
 
-	let edition = $state(browser ? (localStorage.getItem('edition') ?? defaultEdition) : defaultEdition);
+	let edition = $state(
+		browser ? (localStorage.getItem('edition') ?? defaultEdition) : defaultEdition
+	);
 	let contentPath = $derived(`/${edition}/Obsah`);
 
 	function markCoverMorph() {
@@ -67,7 +69,9 @@
 			<div class="photo-frame">
 				<div class="text-content">
 					<h1 class:show={mounted}><span>Mámina</span><br /><span>kuchařka</span></h1>
-					<h2 class:show={mounted}><span>aneb</span><br /><span>Když kluci vyletí z hnízda</span></h2>
+					<h2 class:show={mounted}>
+						<span>aneb</span><br /><span>Když kluci vyletí z hnízda</span>
+					</h2>
 					<p class="hint" class:show={mounted}>↵ kliknutím otevřít</p>
 				</div>
 			</div>
@@ -133,6 +137,7 @@
 		top: 0.5rem;
 		left: 50%;
 		width: 92%;
+		color: white;
 		font-size: clamp(2rem, min(10vh, 15vw), 8rem);
 		text-transform: uppercase;
 		text-align: center;
@@ -155,6 +160,7 @@
 		bottom: 0.5rem;
 		left: 50%;
 		width: 92%;
+		color: white;
 		font-size: clamp(1rem, min(5vh, 7.5vw), 4rem);
 		text-align: center;
 		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.45);
@@ -176,6 +182,7 @@
 		right: 1rem;
 		bottom: 0.5rem;
 		text-align: center;
+		color: white;
 		font-size: clamp(0.7rem, 2vw, 0.95rem);
 		letter-spacing: 0.12em;
 		opacity: 0;
@@ -186,14 +193,6 @@
 
 	.hint.show {
 		opacity: 0.45;
-	}
-
-	@media screen and (orientation: landscape) {
-		h1,
-		h2,
-		.hint {
-			color: white;
-		}
 	}
 
 	@media screen and (max-width: 768px) {

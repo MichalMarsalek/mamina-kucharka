@@ -159,18 +159,11 @@
 		gap: 1rem;
 		padding: 0.75rem 1rem;
 		width: min(calc(100vw - 2rem), 480px);
-		background: #fff;
-		border: 1px solid #dee2e6;
+		background: var(--bs-body-bg, #fff);
+		color: var(--bs-body-color, #212529);
+		border: 1px solid var(--bs-border-color, #dee2e6);
 		border-radius: 0.75rem;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-	}
-
-	@media (prefers-color-scheme: dark) {
-		.install-banner {
-			background: #212529;
-			border-color: #495057;
-			color: #f8f9fa;
-		}
 	}
 
 	.install-content {
