@@ -3652,14 +3652,15 @@ Stránky:
         Foto: Těstoviny s masem
         Strana: 273
         Typ: masové
-        Na 1 porci:
-          - cca 100 g těstovin
-          - 150 až 200 g masa (kuřecí, vepřová kotleta-pečeně)
-          - 1 cibule
-          - sůl, pepř, olej
-          - červené pesto
-          - rajče, paprika, sušená rajčata
-          - cca 50 g parmazánového sýru
+        Porce: 1
+        Ingredience:
+          - cca 100 g [těstovin]
+          - 150-200 g [masa] (kuřecí, vepřová kotleta-pečeně)
+          - 1 [cibule]
+          - [sůl], [pepř], [olej]
+          - [červené pesto]
+          - [rajče], [paprika], [sušená rajčata]
+          - cca 50 g [parmazánového sýru]
         Postup:
           - Ve vroucí osolené vodě s kapkou oleje uvař těstoviny, cca 15 minut (záleží na velikosti), měkkost zkoušej ochutnáním.
           - Cibuli nakrájej nadrobno, dej ji osmahnout na troše oleje, přidej na kousky nakrájené osolené maso, osmahni, míchej, podlévej vodou, ať máš dost šťávy, hlídej. Můžeš trochu opepřit. Zhruba po 20 minutách zkus měkkost masa.
@@ -3812,7 +3813,7 @@ Stránky:
         Ingredience:
           - 12 plátků [sýra] Eidam 30% (nejlépe ve tvaru čtverce)
           - 12 plátků [šunky] (nejlépe ve tvaru čtverce)
-          - 150 g [Lučiny] nebo radši 2, aby se ti dobře roztíralo
+          - 150 g [Lučiny] nebo radši 2 nebo radši 2 menší [Lučiny], aby se ti dobře roztíralo
           - 1 lžíce nastrouhaného [křenu] (strouhej opatrně a moc se nad to nenakláněj, čerstvý křen je při strouhání velice intenzivní), klidně může být zavařený Křen 
           - velkou hrst zelené [petrželky] – nasekané
           - hrst [baby špenátu] či zeleného salátku (ledový, polníček,…)
