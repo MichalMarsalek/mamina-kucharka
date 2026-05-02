@@ -116,6 +116,30 @@
 		return Number.isFinite(decimal) ? decimal : null;
 	}
 
+	function parseQuantityBounds(quantity: string): {
+		lower: number;
+		upper: number;
+		hasRange: boolean;
+		unit?: string;
+	} | null {
+		const match = quantity
+			.trim()
+			.match(
+				/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)(?:\s*-\s*(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?))?(?:\s+(\S+(?:\s+\S+)*))?$/u
+			);
+		if (!match) return null;
+
+		const lower = parseNumericToken(match[1]);
+		if (lower === null) return null;
+
+		const upperRaw = match[2] ?? match[1];
+		const upper = parseNumericToken(upperRaw);
+		if (upper === null) return null;
+
+		const unit = match[3]?.trim();
+		return { lower, upper, hasRange: match[2] !== undefined, unit };
+	}
+
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const markdownRenderers = { link: AnchorRenderer as any };
 
@@ -153,29 +177,33 @@
 		animated = false,
 		targetMultiplier = multiplier
 	): string {
-		const numberWithUnit = rawQuantity
-			.trim()
-			.match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)\s+(\S+(?:\s+\S+)*)$/u);
-		if (numberWithUnit) {
-			const original = parseNumericToken(numberWithUnit[1]);
-			if (original !== null) {
-				const scaledCurrent = original * multiplier;
-				const scaledTarget = original * targetMultiplier;
-				const displayAmount = animated && original > 5 ? Math.round(scaledCurrent) : scaledTarget;
-				const formattedNumber =
-					animated && original > 5 ? formatAnimated(scaledCurrent) : formatScaled(scaledTarget);
-				const unit = numberWithUnit[2];
-				const declinedUnit = declineUnit(unit, original, displayAmount) ?? unit;
-				return `${formattedNumber} ${declinedUnit}`;
-			}
-		}
-
 		const formatValue = (original: number, scaledCurrent: number, scaledTarget: number) => {
 			if (animated && original > 5) {
 				return formatAnimated(scaledCurrent);
 			}
 			return formatScaled(scaledTarget);
 		};
+
+		const parsed = parseQuantityBounds(rawQuantity);
+		if (parsed?.unit) {
+			const scaledLowerCurrent = parsed.lower * multiplier;
+			const scaledLowerTarget = parsed.lower * targetMultiplier;
+			const scaledUpperCurrent = parsed.upper * multiplier;
+			const scaledUpperTarget = parsed.upper * targetMultiplier;
+
+			const lowerText = formatValue(parsed.lower, scaledLowerCurrent, scaledLowerTarget);
+			const upperText = formatValue(parsed.upper, scaledUpperCurrent, scaledUpperTarget);
+			const numberText = parsed.hasRange ? `${lowerText}-${upperText}` : lowerText;
+
+			// For ranges, pick declension form by upper bound.
+			const formOriginalAmount = parsed.upper;
+			const formNewAmount =
+				animated && parsed.upper > 5 ? Math.round(scaledUpperCurrent) : scaledUpperTarget;
+			const declinedUnit =
+				declineUnit(parsed.unit, formOriginalAmount, formNewAmount) ?? parsed.unit;
+
+			return `${numberText} ${declinedUnit}`;
+		}
 
 		const fractionTokens: string[] = [];
 		let result = rawQuantity.replace(/\b(\d+)\s*\/\s*(\d+)\b/g, (_, n, d) => {
@@ -230,11 +258,12 @@
 
 		let ingredientText = piece.content;
 		if (piece.quantity) {
-			const numMatch = piece.quantity.trim().match(/^(\d+\s*\/\s*\d+|\d+(?:[.,]\d+)?)(\s.*)?$/);
-			const isUnitless = numMatch && !numMatch[2]?.trim();
-			const originalAmount = numMatch ? parseNumericToken(numMatch[1]) : null;
-			if (isUnitless && originalAmount !== null) {
-				const newAmount = originalAmount * targetMultiplier;
+			const parsedQuantity = parseQuantityBounds(piece.quantity);
+			const isUnitless = parsedQuantity && !parsedQuantity.unit;
+			if (isUnitless && parsedQuantity !== null) {
+				// For ranges, pick declension form by upper bound.
+				const originalAmount = parsedQuantity.upper;
+				const newAmount = parsedQuantity.upper * targetMultiplier;
 				ingredientText = declineIngredient(piece.content, originalAmount, newAmount);
 			}
 		}

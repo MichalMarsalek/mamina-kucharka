@@ -47,131 +47,9 @@ export interface IngredientPiece {
 	quantity?: string;
 }
 
-export const ingredients = `
-sůl/soli
-pepř/pepře
-cibule/cibuli
-cibulka/cibulky
-česnek/česneku
-medvědí česnek/medvědího česneku
-máslo/másla/pomazánkové máslo
-olej/oleje/oleji
-olivový olej
-kokosový olej/kokosového oleje
-vejce/vajec/vajíčko/vajíčka
-žloutek/žloutky
-cukr/cukru/skořicový cukr
-mouka/mouky/moukou/mouku
-rýžová mouka/rýžovou mouku
-bujón/bujónu
-masox/masoxu
-vývar/vývaru/masový vývar/masového vývaru/hovězího vývaru
-smetana/smetany/šlehačka/šlehačky
-mléko/mléka
-kokosové mléko/kokosového mléka
-brambory/brambor/bramborům/bramborový/bramborového/bramborové
-paprika/papriky/papriku
-chilli/chilli omáčky
-rajče/rajčata/rajčat/rajčátka/rajčátek
-rajčatový protlak/rajčatového protlaku/rajčatového/rajský protlak/rajského protlaku
-brokolice
-špenát/špenátu/baby špenát/baby špenátu
-kukuřice
-kukuřičný škrob/kukuřičného škrobu/solamyl/solamylu
-rýže/rýži/rýžovou
-bulgur
-čočka/čočky
-fazole/fazolí/fazolky/fazolových lusků
-cizrna/cizrny
-hrášek/hrášku
-kedluben/kedlubny/kedlubnovou natí
-květák/květáku
-cuketa/cukety
-dýně
-batát/batáty/batátů
-červená řepa/červené řepy
-lilek
-mrkev/mrkve
-pórek/pórku
-celer/celeru
-pastinák
-chřest/chřestu
-okurka/okurky
-citron/citronu/citronová šťáva/citronová kůra
-pomeranč/pomeranče/pomerančová kůra/pomerančového džusu
-ocet/octa/octu
-víno/vína/červené víno/červeného vína
-kečup/kečupu
-hořčice
-majonéza/majonézy
-worcester/worcesteru
-sójová omáčka/sójové omáčky/tamari omáčky/česnekové sójové omáčky
-zázvor/zázvoru
-kmín/kmínu/kmínem
-oregano/oregana
-tymián/tymiánu
-majoránka/majoránky
-bazalka/bazalky/bazalkových lístků
-petržel/petržele/petrželka/petrželky/petrželová nať/nať
-kopr/kopru
-pažitka
-rozmarýn/rozmarýnu
-koriandr/koriandru
-bobkový list/bobkové listy
-nové koření/nového koření
-kari
-skořice
-muškátový oříšek/muškátového oříšku/muškátového květu
-med/medu/medem
-ořechy/ořechů
-slunečnicová semínka
-dýňová semínka
-pečivo/pečiva
-toustový chléb/toustový chleba/toustového chleba/toustové chleby/tousty
-chléb/chleba
-strouhanka/strouhanky
-nudle/rýžové nudle/rýžových nudlí
-těstoviny/těstovin/špagety/špaget
-halušky
-tofu
-tvaroh/tvarohu/tvarohy/tvarohový kelímek/tvarohové těsto/tvarohových ovocných knedlíků
-sýr/sýra/sýru
-parmazán/parmazánu/parmazánový sýr/parmazánového sýru/parmazánového sýra/strouhaný parmazán/strouhaného parmazánového sýru/sýr parmazánového typu/sýru parmazánového typu/sýr parmazánového
-čedar/sýr čedar/sýru čedar
-mozzarella
-niva
-šunka/šunky/šunku
-slanina/slaniny/anglické slaniny
-losos/lososa
-kuřecí/kuřecího/kuřecích/kuře/kuřecí řízky/kuřecí prsa
-krůtí/krůtího
-hovězí/hovězího/hovězím/hovězí maso/hovězí zadní/hovězího zadního/hovězí kližky/hovězího na guláš
-vepřové/vepřového/vepřová pečeně/vepřová krkovice/vepřová panenka/vepřové kotlety
-králičí stehna
-maso
-žampiony/žampionů/žampionu
-hřiby/hříbky/hříbků/hřibů
-hlíva ústřičná/hlívy ústřičné
-houby/hub
-bylinky/bylinek/libeček/meduňky
-vegeta/vegety
-podravka/podravky
-kuchárek
-grilovací koření
-marmeláda/marmelád
-voda
-granko
-`
-	.trim()
-	.split('\n')
-	.map((x) => {
-		const variants = x.split('/');
-		return { name: variants[0], variants };
-	});
-
 // Declension table for ingredients: form_1 / form_2-4 / form_5+
 // Single-form entries are implicitly all three forms.
-export const ingredientForms = `
+const baseIngredientFormsSource = `
 vejce/vejce/vajec
 cibule/cibule/cibulí
 cibulka/cibulky/cibulek
@@ -227,9 +105,203 @@ marmeláda/marmelády/marmelád
 `
 	.trim()
 	.split('\n')
-	.map((x) =>
-		x.includes('/') ? x.split('/').map((x) => x.trim()) : [x.trim(), x.trim(), x.trim()]
-	);
+	.map((x) => x.trim())
+	.filter(Boolean);
+
+// Additional declension rows derived from recipe frequency list.
+// Format: form_1 / form_2-4 / form_5+  (same as baseIngredientFormsSource)
+const ingredientFormsFrequencySource = `
+sůl/soli/solí
+pepř/pepře/pepřů
+česnek/česneky/česnků
+cukr/cukry/cukrů
+mouka/mouky/mouk
+bujón/bujóny/bujónů
+vývar/vývary/vývarů
+smetana/smetany/smetany
+mléko/mléka/mlék
+voda/vody/vod
+anglická slanina/anglické slaniny/anglických slanin
+kmín/kmíny/kmínů
+chilli
+oregano/oregana/oregan
+tymián/tymiány/tymiánů
+brambora/brambory/brambor
+majoránka/majoránky/majoránek
+baby špenát/baby špenáty/baby špenátů
+kečup/kečupy/kečupů
+bobkový list/bobkové listy/bobkových listů
+tvaroh/tvarohy/tvarohů
+pečivo/pečiva/pečiv
+bazalka/bazalky/bazalek
+petržel/petržele/petrželí
+petrželka/petrželky/petrželek
+vegeta/vegety/veget
+těstovina/těstoviny/těstovin
+kukuřičný škrob/kukuřičné škroby/kukuřičných škrobů
+ořech/ořechy/ořechů
+skořice/skořice/skořic
+ocet/octy/octů
+pórek/pórky/pórků
+celer/celery/celerů
+citronová šťáva/citronové šťávy/citronových šťáv
+grilovací koření/grilovací koření/grilovacích koření
+losos/lososi/lososů
+kakao/kakaa/kakaí
+zelenina/zeleniny/zelenin
+podravka/podravky/podravek
+parmazán/parmazány/parmazánů
+parmazánový sýr/parmazánové sýry/parmazánových sýrů
+kuřecí/kuřecí/kuřecích
+hovězí zadní/hovězí zadní/hovězích zadních
+vepřová pečeně/vepřové pečeně/vepřových pečení
+vepřové kotlety/vepřové kotlety/vepřových kotlet
+vajíčko/vajíčka/vajíček
+rajčatový protlak/rajčatové protlaky/rajčatových protlaků
+rajský protlak/rajské protlaky/rajských protlaků
+bylinky/bylinky/bylinek
+masox/masoky/masoxů
+maso/masa/mas
+hovězí/hovězí/hovězích
+masový vývar/masové vývary/masových vývarů
+strouhanka/strouhanky/strouhanek
+rajčátko/rajčátka/rajčátek
+kukuřičný škrob/kukuřičné škroby/kukuřičných škrobů
+listové těsto/listová těsta/listových těst
+toustový chléb/toustové chleby/toustových chlebů
+chléb/chleby/chlebů
+vývar/vývary/vývarů
+nové koření/nová koření/nových koření
+petrželová nať/petrželové natě/petrželových natí
+zázvor/zázvory/zázvorů
+muškátový oříšek/muškátové oříšky/muškátových oříšků
+rukola/rukoly/rukol
+víno/vína/vín
+kopr/kopry/koprů
+pomerančová kůra/pomerančové kůry/pomerančových kůr
+kuchárek/kucháreky/kucháreků
+kukuřičné zrno/kukuřičná zrna/kukuřičných zrn
+pepř/pepře/pepřů
+kysané zelí/kysaná zelí/kysaných zelí
+hovězí/hovězí/hovězích
+medvědí česnek/medvědí česneky/medvědích česnků
+čedar/čedary/čedarů
+granko
+tvaroh/tvarohy/tvarohů
+hřib/hřiby/hřibů
+rýže/rýže/rýží
+zelenina/zeleniny/zelenin
+tofu
+halušky/halušky/haluštěk
+sójová omáčka/sójové omáčky/sójových omáček
+tamari omáčka/tamari omáčky/tamari omáček
+česnekové sójová omáčka/česnekové sójové omáčky/česnekových sójových omáček
+vepřová krkovice/vepřové krkovice/vepřových krkovic
+vepřové/vepřového/vepřových
+rozmarýn/rozmarýny/rozmarýnů
+gnocchi
+kokosový olej/kokosové oleje/kokosových olejů
+krevetka/krevety/krevet
+mango/manga/mang
+hrozinka/hrozinky/hrozinek
+jahoda/jahody/jahod
+ovoce/ovoce/ovoce
+kokosové mléko/kokosová mléka/kokosových mlék
+dýňové semínko/dýňová semínka/dýňových semínek
+slunečnicové semínko/slunečnicová semínka/slunečnicových semínek
+zázvor/zázvory/zázvorů
+kopr/kopry/koprů
+masový vývar/masové vývary/masových vývarů
+citronová kůra/citronové kůry/citronových kůr
+hladká mouka/hladké mouky/hladkých mouk
+mangold/mangoidy/mangoldů
+hlíva ústřičná/hlívy ústřičné/hlív ústřičných
+šalvěj/šalvěje/šalvějí
+ananasový kompot/ananasové kompoty/ananasových kompotů
+mleté maso/mletá masa/mletých mas
+solamyl/solamyly/solamylů
+kurkuma/kurkumy/kurkum
+koriandr/koriandry/koriandru
+worcester/worcestery/worcesterů
+máslové těsto/máslová těsta/máslových těst
+krůtí/krůtí/krůtích
+šalotka/šalotky/šalotek
+makarón/makaróny/makarónů
+vodka/vodky/vodek
+ryba/ryby/ryb
+kuřecí řízek/kuřecí řízky/kuřecích řízků
+hovězí zadní/hovězí zadní/hovězích zadních
+strouhanky/strouhanky/strouhanek
+hovězí kližka/hovězí kližky/hovězích kližek
+rýžová nudle/rýžové nudle/rýžových nudlí
+hovězí vývar/hovězí vývary/hovězích vývarů
+smetana/smetany/smetany
+vepřová panenka/vepřové panenky/vepřových panenek
+fazolové lusky/fazolové lusky/fazolových lusků
+toustové chleby/toustové chleby/toustových chlebů
+avokádo/avokáda/avokád
+bílek/bílky/bílků
+dětská krupička/dětské krupičky/dětských kupiček
+mozzarella/mozzarelly/mozzarell
+šunka/šunky/šunek
+hermelín/hermelíny/hermelínů
+camembert/camemberty/camembertů
+brie
+houskový knedlík/houskové knedlíky/houskových knedlíků
+salát ledový/saláty ledové/salátů ledových
+ředkvička/ředkvičky/ředkviček
+oliva/olivy/oliv
+nať/natě/natí
+lučina/lučiny/lučin
+křen/křeny/křenů
+limetka/limetky/limetek
+koňak/koňaky/koňaků
+meruňkový džem/meruňkové džemy/meruňkových džemů
+jablko/jablka/jablek
+sezamové semínko/sezamová semínka/sezamových semínek
+kiwi/kiwi/kiwi
+ananas/ananasy/ananasů
+meruňka/meruňky/meruněk
+hroznové víno/hroznová vína/hroznových vín
+meloun/melouny/melounů
+meduňka/meduňky/meduněk
+máta/máty/mát
+čokoládové srdíčko/čokoládová srdíčka/čokoládových srdíček
+bezlepková sušenka/bezlepkové sušenky/bezlepkových sušenek
+mascarpone/mascarpone/mascarpone
+malina/maliny/malin
+želatina/želatiny/želatin
+hořká čokoláda/hořké čokolády/hořkých čokolád
+mandlová moučka/mandlové moučky/mandlových mouček
+tmavá čokoláda/tmavé čokolády/tmavých čokolád
+pomazánkové máslo/pomazánková másla/pomazánkových másel
+rozinka/rozinky/rozinek
+soda/sody/sod
+prášek do perníku/prášky do perníku/prášků do perníku
+perníkové koření/perníková koření/perníkových koření
+vajíčko/vajíčka/vajíček
+pomerančový džus/pomerančové džusy/pomerančových džusů
+vanilkový pudink/vanilkové pudinky/vanilkových pudinků
+tvarohové těsto/tvarohová těsta/tvarohových těst
+tvarohy/tvarohy/tvarohů
+margot
+kypřící prášek/kypřící prášky/kypřících prášků
+vanilka/vanilky/vanil
+bezlepková směs/bezlepkové směsi/bezlepkových směsí
+rýžová mouka/rýžové mouky/rýžových mouk
+banán/banány/banánů
+prášek do pečiva/prášky do pečiva/prášků do pečiva
+`
+	.trim()
+	.split('\n')
+	.map((x) => x.trim())
+	.filter(Boolean);
+
+export const ingredientForms = [
+	...new Set([...baseIngredientFormsSource, ...ingredientFormsFrequencySource])
+].map((x) =>
+	x.includes('/') ? x.split('/').map((x) => x.trim()) : [x.trim(), x.trim(), x.trim()]
+);
 
 const normalizedIngredientForms = ingredientForms.map((forms) => {
 	const first = forms[0] ?? '';
@@ -245,8 +317,49 @@ const exactIngredientForms = new Set(
 		.filter(Boolean)
 );
 
+const ingredientVariantsToBase = new Map<string, string>();
+for (const forms of normalizedIngredientForms) {
+	const base = forms[0].toLowerCase();
+	for (const form of forms) {
+		const variant = form.toLowerCase();
+		if (!ingredientVariantsToBase.has(variant)) {
+			ingredientVariantsToBase.set(variant, base);
+		}
+	}
+}
+
+const ingredientBaseForms = [
+	...new Set(normalizedIngredientForms.map((forms) => forms[0].toLowerCase()))
+]
+	.filter(Boolean)
+	.sort((a, b) => b.length - a.length);
+
+const ingredientVariantEntriesByLength = [...ingredientVariantsToBase.entries()].sort(
+	(a, b) => b[0].length - a[0].length
+);
+
 export function hasIngredientDeclensionEntry(ingredient: string): boolean {
 	return exactIngredientForms.has(ingredient.trim().toLowerCase());
+}
+
+function applyCasePattern(source: string, replacement: string): string {
+	if (source === source.toUpperCase()) return replacement.toUpperCase();
+	if (source === source.toLowerCase()) return replacement.toLowerCase();
+
+	const sourceWords = source.split(/\s+/);
+	const replacementWords = replacement.split(/\s+/);
+	if (sourceWords.length === replacementWords.length) {
+		const maybeTitle = replacementWords.map((word, idx) => {
+			const sourceWord = sourceWords[idx] ?? '';
+			if (sourceWord.length === 0 || word.length === 0) return word;
+			const startsUpper = sourceWord[0] === sourceWord[0].toUpperCase();
+			if (!startsUpper) return word;
+			return `${word[0].toUpperCase()}${word.slice(1)}`;
+		});
+		return maybeTitle.join(' ');
+	}
+
+	return replacement;
 }
 
 const wordToAllIngredientForms = new Map<string, Array<readonly [string, string, string]>>();
@@ -275,19 +388,23 @@ export function declineIngredient(
 	newAmount: number
 ): string {
 	if (!Number.isFinite(originalAmount) || !Number.isFinite(newAmount)) return ingredient;
-	const trimmed = ingredient.trim().toLowerCase();
+	const trimmedOriginal = ingredient.trim();
+	const trimmed = trimmedOriginal.toLowerCase();
 	const origIndex = amountToFormIndex(Math.abs(originalAmount));
 	const newIndex = amountToFormIndex(Math.abs(newAmount));
 
 	const forms = lookupIngredientForms(trimmed, origIndex);
-	if (forms) return forms[newIndex];
+	if (forms) return applyCasePattern(trimmedOriginal, forms[newIndex]);
 
 	// Multiword fallback: decline each space-separated part individually
 	const parts = trimmed.split(/\s+/);
+	const originalParts = trimmedOriginal.split(/\s+/);
 	if (parts.length > 1) {
-		const declinedParts = parts.map((part) => {
+		const declinedParts = parts.map((part, idx) => {
 			const partForms = lookupIngredientForms(part, origIndex);
-			return partForms ? partForms[newIndex] : undefined;
+			if (!partForms) return undefined;
+			const originalPart = originalParts[idx] ?? part;
+			return applyCasePattern(originalPart, partForms[newIndex]);
 		});
 		if (declinedParts.every((p) => p !== undefined)) {
 			return (declinedParts as string[]).join(' ');
@@ -297,21 +414,27 @@ export function declineIngredient(
 }
 
 export function getIngredientsInText(text: string) {
-	text = text.toLowerCase();
-	const res = ingredients
-		.filter((x) => x.variants.some((variant) => text.includes(variant)))
-		.map((x) => x.name);
-	return res;
+	const textLower = text.toLowerCase();
+	return ingredientBaseForms.filter((base) => {
+		const chars = [...base];
+		const minPrefixLength = Math.max(1, Math.ceil(chars.length / 2));
+		const prefix = chars.slice(0, minPrefixLength).join('');
+		return textLower.includes(prefix);
+	});
 }
 
 export function normalizeIngredient(ingredient: string): string {
-	ingredient = ingredient.toLowerCase();
-	for (const { name, variants } of ingredients) {
-		if (variants.some((variant) => ingredient.includes(variant))) {
-			return name;
+	const ingredientLower = ingredient.trim().toLowerCase();
+	const exactBase = ingredientVariantsToBase.get(ingredientLower);
+	if (exactBase) return exactBase;
+
+	for (const [variant, base] of ingredientVariantEntriesByLength) {
+		if (ingredientLower.includes(variant)) {
+			return base;
 		}
 	}
-	return ingredient;
+
+	return ingredientLower;
 }
 
 const normalizedUnits = [
@@ -409,7 +532,7 @@ function normalizeQuantityText(quantity: string): string {
 	return trimmed;
 }
 
-function parseProseAndQuantities(text: string): IngredientPiece[] {
+function parseQuantitiesInUnquotedText(text: string): IngredientPiece[] {
 	if (text.length === 0) return [];
 	const parts: IngredientPiece[] = [];
 	const regex = new RegExp(quantityRegex.source, quantityRegex.flags);
@@ -428,6 +551,33 @@ function parseProseAndQuantities(text: string): IngredientPiece[] {
 
 	if (lastIndex < text.length) {
 		parts.push({ content: text.slice(lastIndex), kind: 'prose' });
+	}
+
+	return parts;
+}
+
+function parseProseAndQuantities(text: string): IngredientPiece[] {
+	if (text.length === 0) return [];
+	const parts: IngredientPiece[] = [];
+	const quotedRegex = /"([^"]*)"|'([^']*)'|„([^“]*)“/g;
+	let lastIndex = 0;
+	let match: RegExpExecArray | null;
+
+	while ((match = quotedRegex.exec(text)) !== null) {
+		if (match.index > lastIndex) {
+			parts.push(...parseQuantitiesInUnquotedText(text.slice(lastIndex, match.index)));
+		}
+
+		const quotedContent = match[1] ?? match[2] ?? match[3] ?? '';
+		if (quotedContent.length > 0) {
+			parts.push({ content: quotedContent, kind: 'prose' });
+		}
+
+		lastIndex = match.index + match[0].length;
+	}
+
+	if (lastIndex < text.length) {
+		parts.push(...parseQuantitiesInUnquotedText(text.slice(lastIndex)));
 	}
 
 	return parts;
