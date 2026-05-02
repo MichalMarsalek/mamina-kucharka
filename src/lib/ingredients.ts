@@ -236,6 +236,14 @@ const normalizedIngredientForms = ingredientForms.map((forms) => {
 	return [first, second, third] as const;
 });
 
+const exactIngredientForms = new Set(
+	normalizedIngredientForms.flat().map((form) => form.toLowerCase()).filter(Boolean)
+);
+
+export function hasIngredientDeclensionEntry(ingredient: string): boolean {
+	return exactIngredientForms.has(ingredient.trim().toLowerCase());
+}
+
 const wordToAllIngredientForms = new Map<string, Array<readonly [string, string, string]>>();
 for (const forms of normalizedIngredientForms) {
 	for (const variant of forms) {

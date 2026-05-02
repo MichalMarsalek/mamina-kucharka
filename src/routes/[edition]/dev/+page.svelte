@@ -1,10 +1,38 @@
 <script lang="ts">
 	import { isRecipe, type Content } from '$lib/content';
 	import { Col, Row } from '@sveltestrap/sveltestrap';
+	import devmode from '$lib/devmode.svelte';
+	import { hasIngredientDeclensionEntry, type IngredientPiece } from '$lib/ingredients';
+
+	devmode.enable();
 
 	let { data }: { data: Content } = $props();
+	let recipes = $derived(data.pages.filter(isRecipe));
 	let ingredients = $derived(
-		frequencies(data.pages.filter(isRecipe).flatMap((x) => x.normalizedIngredients))
+		frequencies(recipes.flatMap((x) => x.normalizedIngredients))
+	);
+	let ingredientsWithoutDeclension = $derived(
+		frequencies(
+			recipes
+				.flatMap((recipe) => recipe.ingredients)
+				.flatMap((line) => line)
+				.filter((piece) => piece.kind === 'ingredient')
+				.map((piece) => piece.content.trim())
+				.filter((ingredient) => ingredient.length > 0)
+				.filter((ingredient) => !hasIngredientDeclensionEntry(ingredient))
+		)
+	);
+	let ingredientRowsWithoutIngredientPieces = $derived(
+		recipes.flatMap((recipe) =>
+			recipe.ingredients
+				.map((line, index) => ({ recipe, index, line }))
+				.filter(({ line }) => !line.some((piece) => piece.kind === 'ingredient'))
+		)
+	);
+	let ingredientRowsWithoutIngredientPiecesByRecipe = $derived(
+		Object.values(
+			Object.groupBy(ingredientRowsWithoutIngredientPieces, ({ recipe }) => recipe.title)
+		).filter((rows): rows is NonNullable<typeof rows> => Boolean(rows))
 	);
 
 	function frequencies(items: string[]) {
@@ -17,13 +45,51 @@
 		res.sort((a, b) => b[1] - a[1]);
 		return res;
 	}
+
+	function rowText(line: IngredientPiece[]) {
+		return line.map((piece) => piece.content).join('');
+	}
 </script>
 
 <Row>
 	<Col>
-		{#each ingredients as [key, freq]}
-			<li>{key}: {freq}</li>
-		{/each}
+		<h2>Ingredients</h2>
+		<ul>
+			{#each ingredients as [key, freq]}
+				<li>{key}: {freq}</li>
+			{/each}
+		</ul>
+	</Col>
+	<Col>
+		<h2>Missing declension</h2>
+		{#if ingredientsWithoutDeclension.length === 0}
+			<p>None</p>
+		{:else}
+			<ul>
+				{#each ingredientsWithoutDeclension as [key, freq]}
+					<li>{key}: {freq}</li>
+				{/each}
+			</ul>
+		{/if}
+	</Col>
+	<Col>
+		<h2>Rows without ingredient pieces</h2>
+		{#if ingredientRowsWithoutIngredientPiecesByRecipe.length === 0}
+			<p>None</p>
+		{:else}
+			<ul>
+				{#each ingredientRowsWithoutIngredientPiecesByRecipe as rows}
+					<li>
+						{rows[0].recipe.title}
+						<ul>
+							{#each rows as { index, line }}
+								<li>[{index + 1}]: {rowText(line)}</li>
+							{/each}
+						</ul>
+					</li>
+				{/each}
+			</ul>
+		{/if}
 	</Col>
 </Row>
 

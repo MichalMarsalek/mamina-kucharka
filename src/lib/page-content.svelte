@@ -9,6 +9,7 @@
 	import SvelteMarkdown from 'svelte-markdown';
 	import AnchorRenderer from '$lib/anchor-renderer.svelte';
 	import FavouriteStar from '$lib/favourite-star.svelte';
+	import devmode from '$lib/devmode.svelte';
 	import {
 		declineUnit,
 		declineIngredient,
@@ -24,9 +25,7 @@
 	}
 
 	let { page, edition = '', lowRes = false, getPhotoOffset }: Props = $props();
-	let ingredientDebugMode = $derived(
-		dev || (browser && window.location.href.toLowerCase().includes('localhost'))
-	);
+	let ingredientDebugMode = $derived(devmode.active);
 
 	function photoOffset(photoSlug: string): number {
 		return getPhotoOffset?.(photoSlug) ?? 0;

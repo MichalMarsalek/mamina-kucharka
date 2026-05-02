@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser, dev } from '$app/environment';
+	import { browser } from '$app/environment';
 	import { untrack } from 'svelte';
 	import { Input, Nav, NavItem, NavLink } from '@sveltestrap/sveltestrap';
 	import { isChapter, isRecipe, type Chapter, type Content, type Page } from '$lib/content';
@@ -7,6 +7,7 @@
 	import FavouriteStar from '$lib/favourite-star.svelte';
 	import favourites from '$lib/favourites.svelte';
 	import PhotoTooltip from '$lib/photo-tooltip.svelte';
+	import devmode from '$lib/devmode.svelte';
 
 	interface Props {
 		data: Content;
@@ -157,7 +158,7 @@
 	}
 
 	function startGridPhotoDrag(e: PointerEvent, photoSlug?: string) {
-		if (!dev || !photoSlug) return;
+		if (!devmode.active || !photoSlug) return;
 		if (e.button !== 0) return;
 		const target = e.currentTarget as HTMLElement;
 		const rect = target.getBoundingClientRect();
@@ -289,7 +290,7 @@
 							class="card-img-wrap"
 							class:stretch-img={spanTwo}
 							class:dragging={activeDrag?.slug === photoSlug}
-							class:dev-draggable={dev}
+							class:dev-draggable={devmode.active}
 							role="presentation"
 							style="--photo-offset: {photoSlug ? photoOffset(photoSlug) : 0}"
 							onpointerdown={(e) => startGridPhotoDrag(e, photoSlug)}
