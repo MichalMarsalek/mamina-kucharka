@@ -15,6 +15,7 @@ export interface Page {
 	page: number;
 	number?: string;
 	photos: [string | undefined, string][];
+	preview?: string;
 	fields: Field[];
 }
 
@@ -145,7 +146,8 @@ function getStringArray(x: unknown): string[] | undefined {
 	});
 }
 
-export function slugify(x: string) {
+export function slugify(x: string | undefined): string | undefined {
+	if (x == null) return undefined;
 	return x.replaceAll(/[^\s\p{L}\d-]/gu, '').replaceAll(/\s+/g, '-');
 }
 
@@ -154,9 +156,9 @@ function parsePhotos(x: unknown): [string | undefined, string][] {
 	if (typeof x === 'object' && !Array.isArray(x)) {
 		return Object.entries(x)
 			.filter((entry): entry is [string, string] => typeof entry[1] === 'string')
-			.map(([name, file]) => [name, slugify(file)]);
+			.map(([name, file]) => [name, slugify(file)!]);
 	}
-	return (getAsStringArray(x) ?? []).map((file) => [undefined, slugify(file)]);
+	return (getAsStringArray(x) ?? []).map((file) => [undefined, slugify(file)!]);
 }
 
 const keyToKind: Record<string, FieldKind> = {
@@ -281,11 +283,13 @@ function getPage(x: unknown): Page {
 		normalizedIngredients.length > 0 ||
 		fields.some((field) => field.kind === 'steps');
 
+	const photos = parsePhotos(y.Foto);
 	const base: Page = {
 		slug: '',
 		title: getString(y.Nadpis) ?? '',
 		subtitle: getString(y.Podnadpis),
-		photos: parsePhotos(y.Foto),
+		photos: photos,
+		preview: slugify(getString(y['Náhled'])) ?? (photos.length > 0 ? photos[0][1] : undefined),
 		page: getNumber(y.Strana) ?? 0,
 		fields,
 		number: getString(y['Číslo'])

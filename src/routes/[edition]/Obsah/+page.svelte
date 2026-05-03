@@ -115,8 +115,8 @@
 	}
 
 	function previewUrl(page: Page): string | undefined {
-		if (!isRecipe(page) || page.photos.length === 0) return undefined;
-		return `/foto1/${page.photos[0][1]}.webp`;
+		if (!isRecipe(page) || !page.preview) return undefined;
+		return `/foto1/${page.preview}.webp`;
 	}
 
 	function photoOffset(photoSlug: string): number {
@@ -124,8 +124,8 @@
 	}
 
 	function previewOffset(page: Page): number {
-		if (!isRecipe(page) || page.photos.length === 0) return 0;
-		return photoOffset(page.photos[0][1]);
+		if (!isRecipe(page) || !page.preview) return 0;
+		return photoOffset(page.preview);
 	}
 
 	function setPhotoOffset(photoSlug: string, offset: number) {
@@ -267,8 +267,8 @@
 		{@const groupMostlyPhotoless = mostlyPhotoless(page.pages)}
 		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
 			{#each sortForGrid(page.pages, groupMostlyPhotoless) as item (item.slug)}
-				{@const hasPhoto = item.photos?.length > 0}
-				{@const photoSlug = hasPhoto ? item.photos[0][1] : undefined}
+				{@const hasPhoto = !!item.preview}
+				{@const photoSlug = hasPhoto ? item.preview : undefined}
 				{@const compact = groupMostlyPhotoless && !hasPhoto}
 				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
 				<a
@@ -293,7 +293,7 @@
 							onlostpointercapture={endGridPhotoDragFromCapture}
 						>
 							<img
-								src="/foto1/{item.photos[0][1]}.webp"
+								src="/foto1/{item.preview}.webp"
 								alt={item.title}
 								loading="lazy"
 								draggable="false"

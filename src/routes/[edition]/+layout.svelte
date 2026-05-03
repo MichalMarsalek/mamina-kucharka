@@ -77,12 +77,12 @@
 	}
 
 	function previewUrl(page: Page): string | undefined {
-		return page.photos?.length > 0 ? `/foto1/${page.photos[0][1]}.webp` : undefined;
+		return page.preview ? `/foto1/${page.preview}.webp` : undefined;
 	}
 
 	function previewOffset(page: Page): number {
-		if (!page || page.photos.length === 0) return 0;
-		return data.photoOffsets[page.photos[0][1]] ?? 0;
+		if (!page.preview) return 0;
+		return data.photoOffsets[page.preview] ?? 0;
 	}
 
 	// Reading progress bar
