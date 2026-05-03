@@ -873,7 +873,7 @@ Stránky:
           - Většinu vody, ve které se dýně vařila, odeber bokem a dýni rozmixuj dohladka jen s malou částí vody, ve které se dýně vařila. Přilij smetanu či kokosové mléko a hustotu dořeš přidáváním odebraného vývaru po troškách. Je docela možné, že nebude třeba ředit, je to krémová polévka. Takže podle chuti.
           - Pomerančovou kůru nebo zázvor nebo chilli můžeš přisypat k vaření, polévka bude trošku jiná. 
           - Do talíře pak přisypej dýňová semínka, dozdob šlehačkou.
-        Nebo:
+        Postup(Nebo):
           - K ingrediencím přidej olivový olej, 1 mrkev, 1 petržel, 1 cibuli, 3 stroužky česneku a med.
           - Nakrájenou dýni osol, opepři, zakápni olivovým olejem a dej péct do trouby až do zkaramelizování.
           - Kořenovou zeleninu nakrájej a osmahni na másle, přidej nakrájenou cibuli a rozmačkaný česnek a nechej ještě 5 minut. 
@@ -1555,7 +1555,7 @@ Stránky:
           - Mezitím omyj dýni, oloupej slupku (kromě dýně Hokaido, ta se neloupe) a nakrájej na kostičky. V míse promíchej s kapkou oleje a trošičkou chilli. Brokolici oloupej a rozděl na růžičky, pak ji v míse promíchej s olejem, aby nebyla suchá a lépe se opekla, jinak osychá. Každou růžičku rukou vytřu v trošce oleje. Papriku očisti a nakrájej na proužky, osol. Všechno přidej do trouby k bramborám.
           - Rajčata omyj a nakrájej na větší kousky a přidej k ostatní zelenině. Opékej do měkka brambor, cca 20-30 minut od začátku pečení. Kontroluj. Občas promíchej.
           - Mezitím oloupej cibuli a nakrájej ji na větší kousky, které opeč na troše oleje. Opečenou cibuli pak promíchej s hotovou zeleninovou směsí a posypej hoblinkami parmazánu. Stejně tak můžeš použít horkovzdušnou fritézu místo trouby.
-        Nebo:
+        Postup(Nebo):
           - Do ingrediencí přidej anglickou slaninu a baby špenát.
           - Nakrájenou dýni upeč v troubě rozmíchanou se solí, pepřem a olejem (na pečícím papíru). Na pánvičce opeč anglickou slaninu, cibuli česnek, baby špenát.
           - Obě části prolož na talíři a přidej med, Nivu a brusinky.
@@ -3929,7 +3929,7 @@ Stránky:
           - Štrudl 7
           - Štrudl 8
         Strana: 283
-        Porce 1:
+        Porce: 1
         Ingredience:
           - 1 [listové těsto] (Já kupuju už rozválené.)			
           - 2 velká [jablka]  
@@ -4136,14 +4136,15 @@ Stránky:
         Porce: 1
         Ingredience:
           - 1 [pomazánkové máslo] 200 g nebo 250 g
-          -  3 [vejce]
+          - 3 [vejce]
           - 1 [prášek do pečiva]
           - 150 g [cukru] moučka (práškový)
           - drobné nebo nakrájené [ovoce], cca 4-5 hrstí
           - 200 g polohrubé [mouky] (možno nahradit [moukou] 
           - pohankovou, [rýžovou], kukuřičnou ve stejném 
           - poměru nebo [moukou] mandlovou a psyliem
-          - místo lepku: 2 lžičky rozmíchat v 50 ml [vody])	
+          - místo lepku: 2 lžičky rozmíchat v 50 ml [vody])
+        Ingredience(Na posypku):
           - 105 g polohrubé [mouky]
           - 75 g povoleného [másla]
           - 75 g [cukru] krupice, písek nebo krystal
@@ -4213,6 +4214,7 @@ Stránky:
           - [hrozinky], 1-2 hrnky
           - [kakao]
           - papír na pečení
+        Ingredience(Na polevu):
           - [cukr] moučka (práškový)
           - [citronová šťáva]
           - [mléko] 
@@ -4240,6 +4242,7 @@ Stránky:
           - 2 celá [vejce]
           - 1 hrnek [mléka]
           - 1/2 hrnku [oleje]
+        Ingredience(Na polevu):
           - 130 g [cukru] moučka (práškový)
           - 90 g tuhého [másla] 
           - 4 lžíce horké uvařené [vody]
@@ -4265,7 +4268,8 @@ Stránky:
           - 2 kostky tučného [tvarohu] (ne vanička)
           - 250 g [másla]
           - 200 g moučkového [cukru]
-          - Na želku (polevu z džusu): 1 l [pomerančového džusu] (místo [mléka] do pudinku)
+        Ingredience(Na želku (polevu z džusu)):
+          - 1 l [pomerančového džusu] (místo [mléka] do pudinku)
           - 2 [vanilkové pudinky] (pytlíky)
         
         Postup:
@@ -4287,6 +4291,7 @@ Stránky:
           - 400 g hladké [mouky]
           - 250 g [másla]
           - 100 g mletého [cukru] (moučka, práškový)
+        Ingredience(Na polevu):
           - [tvarohové těsto]: 3 [tvarohy] (tužší, ne v kádince, těsto by bylo řídké)
           - 300 g mletého [cukru] (moučka, práškový)
           - 4 [žloutky]
