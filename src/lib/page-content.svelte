@@ -659,7 +659,7 @@
 									</p>
 								{:else if isStringArrayField(field)}
 									{#if field.name}<h2>{field.name}:</h2>{/if}
-									<ul>
+									<ul class="plain-list">
 										{#each field.values as value, j (`${value}-${j}`)}
 											<li>
 												<SvelteMarkdown source={value} renderers={markdownRenderers} />
@@ -1047,21 +1047,12 @@
 		margin: 0;
 	}
 
-	/* Link field */
-	.link-field {
-		text-align: right;
-		margin-bottom: 0.75rem;
+	/* Plain field list */
+	.plain-list li {
+		margin-bottom: 0.1rem;
 	}
 
-	.link-label {
-		font-size: 0.85rem;
-		color: var(--bs-secondary, #6c757d);
-		margin-bottom: 0.15rem;
-	}
-
-	.link-list {
-		list-style: none;
-		padding: 0;
+	.plain-list li :global(p) {
 		margin: 0;
 	}
 
