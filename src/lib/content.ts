@@ -31,7 +31,7 @@ export interface Recipe extends Page {
 
 export interface Field {
 	name: string;
-	kind: 'intro' | 'ingredients' | 'steps' | 'note' | 'markdown' | 'plain';
+	kind: 'intro' | 'ingredients' | 'steps' | 'note' | 'markdown' | 'link' | 'plain';
 	values: string | string[] | IngredientPiece[][];
 }
 
@@ -43,7 +43,7 @@ export function isChapter(x: Page): x is Chapter {
 export function isRecipe(x: Page): x is Recipe {
 	return 'normalizedIngredients' in x && 'tags' in x;
 }
-export function isValuesField(x: Field): x is Field & { values: string[] } {
+export function isStringArrayField(x: Field): x is Field & { values: string[] } {
 	return Array.isArray(x.values) && x.values.every((value) => typeof value === 'string');
 }
 export function isIngredientsField(x: Field): x is {
@@ -168,8 +168,11 @@ const keyToKind: Record<string, FieldKind> = {
 	Ingredience: 'ingredients',
 	Postup: 'steps',
 	Poznámka: 'note',
+	Poznámky: 'note',
 	Tip: 'note',
-	Markdown: 'markdown'
+	Markdown: 'markdown',
+	Odkaz: 'link',
+	Odkazy: 'link'
 };
 
 function parseFieldDescriptor(key: string): { kind: FieldKind; name: string } {
@@ -235,7 +238,7 @@ function parseField(key: string, value: unknown): Field {
 	}
 
 	if (typeof value === 'string') {
-		return { name: descriptor.name, kind: descriptor.kind, values: [value] };
+		return { name: descriptor.name, kind: descriptor.kind, values: value };
 	}
 
 	return {

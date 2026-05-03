@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { browser, dev } from '$app/environment';
-	import { isChapter, isIngredientsField, isRecipe, isValuesField, type Page } from '$lib/content';
+	import {
+		isChapter,
+		isIngredientsField,
+		isRecipe,
+		isStringArrayField,
+		type Page
+	} from '$lib/content';
 	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
 	import { SvelteSet } from 'svelte/reactivity';
 	import { tweened } from 'svelte/motion';
@@ -322,14 +328,16 @@
 		page ? page.fields.findIndex((field) => isIngredientsField(field)) : -1
 	);
 	let firstStepsFieldIndex = $derived(
-		page ? page.fields.findIndex((field) => field.kind === 'steps' && isValuesField(field)) : -1
+		page
+			? page.fields.findIndex((field) => field.kind === 'steps' && isStringArrayField(field))
+			: -1
 	);
 
 	let totalStepsCount = $derived(
 		page
 			? page.fields.reduce(
 					(total, field) =>
-						total + (field.kind === 'steps' && isValuesField(field) ? field.values.length : 0),
+						total + (field.kind === 'steps' && isStringArrayField(field) ? field.values.length : 0),
 					0
 				)
 			: 0
@@ -340,7 +348,7 @@
 		let completed = 0;
 		for (let fieldIndex = 0; fieldIndex < page.fields.length; fieldIndex++) {
 			const field = page.fields[fieldIndex];
-			if (field.kind !== 'steps' || !isValuesField(field)) continue;
+			if (field.kind !== 'steps' || !isStringArrayField(field)) continue;
 			for (let stepIndex = 0; stepIndex < field.values.length; stepIndex++) {
 				if (completedSteps.has(stepKey(fieldIndex, stepIndex))) {
 					completed++;
@@ -380,7 +388,7 @@
 		if (!page) return;
 		for (let fieldIndex = 0; fieldIndex < page.fields.length; fieldIndex++) {
 			const field = page.fields[fieldIndex];
-			if (field.kind !== 'steps' || !isValuesField(field)) continue;
+			if (field.kind !== 'steps' || !isStringArrayField(field)) continue;
 			clearStepsForField(fieldIndex, field.values.length);
 		}
 	}
@@ -555,7 +563,7 @@
 											Všechny ingredience připraveny! 🎉
 										</div>
 									{/if}
-								{:else if field.kind === 'steps' && isValuesField(field)}
+								{:else if field.kind === 'steps' && isStringArrayField(field)}
 									{@const isFirstStepsField = fieldIndex === firstStepsFieldIndex}
 									<div class="section-header">
 										<h2>{field.name}:</h2>
@@ -594,21 +602,70 @@
 									{#if isFirstStepsField && stepProgressAll === 100 && totalStepsCount > 0}
 										<div class="all-ready" in:fly={{ y: 8, duration: 300 }}>Dobrou chuť! 🍴</div>
 									{/if}
-								{:else}
-									{#if field.name}
-										<h2>{field.name}:</h2>
-									{/if}
-									{#if isValuesField(field)}
-										<ul>
+								{:else if field.kind === 'intro'}
+									<div class="intro-field">
+										{#if field.name && field.name !== 'Intro'}
+											<div class="intro-label">{field.name}</div>
+										{/if}
+										{#if typeof field.values === 'string'}
+											<p class="intro-text">{field.values}</p>
+										{:else if isStringArrayField(field)}
 											{#each field.values as value, j (`${value}-${j}`)}
-												<li>
-													<SvelteMarkdown source={value} renderers={markdownRenderers} />
-												</li>
+												<p class="intro-text">{value}</p>
 											{/each}
-										</ul>
-									{:else}
-										<SvelteMarkdown source={field.values} renderers={markdownRenderers} />
-									{/if}
+										{/if}
+									</div>
+								{:else if field.kind === 'link'}
+									<div class="link-field">
+										<div class="link-label">{field.name}</div>
+										{#if typeof field.values === 'string'}
+											<SvelteMarkdown
+												source={field.values as string}
+												renderers={markdownRenderers}
+											/>
+										{:else if isStringArrayField(field)}
+											<ul class="link-list">
+												{#each field.values as value, j (`${value}-${j}`)}
+													<li>SvelteMarkdown source={value} renderers={markdownRenderers} /></li>
+												{/each}
+											</ul>
+										{/if}
+									</div>
+								{:else if field.kind === 'note'}
+									<div class="note-box">
+										{#if field.name}
+											<div class="note-header">
+												<span class="note-icon">💡</span>
+												<strong>{field.name}</strong>
+											</div>
+										{/if}
+										{#if typeof field.values === 'string'}
+											<p class="note-content">{field.values}</p>
+										{:else if isStringArrayField(field)}
+											<ul class="note-content">
+												{#each field.values as value, j (`${value}-${j}`)}
+													<li><SvelteMarkdown source={value} renderers={markdownRenderers} /></li>
+												{/each}
+											</ul>
+										{/if}
+									</div>
+								{:else if field.kind === 'markdown'}
+									{#if field.name}<h2>{field.name}:</h2>{/if}
+									<SvelteMarkdown source={field.values as string} renderers={markdownRenderers} />
+								{:else if typeof field.values === 'string'}
+									<p class="field-inline">
+										{#if field.name}<strong>{field.name}:</strong>{/if}
+										{field.values}
+									</p>
+								{:else if isStringArrayField(field)}
+									{#if field.name}<h2>{field.name}:</h2>{/if}
+									<ul>
+										{#each field.values as value, j (`${value}-${j}`)}
+											<li>
+												<SvelteMarkdown source={value} renderers={markdownRenderers} />
+											</li>
+										{/each}
+									</ul>
 								{/if}
 							{/each}
 						</div>
@@ -970,6 +1027,96 @@
 		justify-content: center;
 		font-style: italic;
 		margin: 0;
+	}
+
+	/* Link field */
+	.link-field {
+		text-align: right;
+		margin-bottom: 0.75rem;
+	}
+
+	.link-label {
+		font-size: 0.85rem;
+		color: var(--bs-secondary, #6c757d);
+		margin-bottom: 0.15rem;
+	}
+
+	.link-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	/* Link field */
+	.link-field {
+		text-align: right;
+		margin-bottom: 0.75rem;
+	}
+
+	.link-label {
+		font-size: 0.85rem;
+		color: var(--bs-secondary, #6c757d);
+		margin-bottom: 0.15rem;
+	}
+
+	.link-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	/* Intro field */
+	.intro-field {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	@media screen and (min-width: 992px) {
+		.intro-field {
+			max-width: 85%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	.intro-label {
+		font-style: italic;
+		color: var(--bs-secondary, #6c757d);
+		font-size: 0.85rem;
+		margin-bottom: 0.15rem;
+	}
+
+	.intro-text {
+		font-style: italic;
+		margin: 0;
+	}
+
+	/* Note box */
+	.note-box {
+		background: var(--bs-warning-bg-subtle, #fff3cd);
+		border-left: 3px solid var(--bs-warning, #ffc107);
+		border-radius: 6px;
+		padding: 0.6rem 0.9rem;
+		margin-bottom: 1rem;
+	}
+
+	.note-header {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.note-icon {
+		font-size: 0.9rem;
+	}
+
+	.note-content {
+		margin: 0;
+	}
+
+	.note-box ul.note-content {
+		padding-left: 1.2rem;
 	}
 
 	:global(.right) {

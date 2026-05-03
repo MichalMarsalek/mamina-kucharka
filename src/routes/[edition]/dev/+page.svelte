@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isIngredientsField, isRecipe, isValuesField, type Content } from '$lib/content';
+	import { isIngredientsField, isRecipe, isStringArrayField, type Content } from '$lib/content';
 	import { Col, Row } from '@sveltestrap/sveltestrap';
 	import devmode from '$lib/devmode.svelte';
 	import { hasIngredientDeclensionEntry, type IngredientPiece } from '$lib/ingredients';
@@ -41,7 +41,7 @@
 			data.pages
 				.flatMap((p) => p.fields)
 				.filter((field) => field.kind === 'plain')
-				.filter(isValuesField)
+				.filter(isStringArrayField)
 				.map((f) => f.name)
 		)
 	);
