@@ -28,7 +28,6 @@
 		height: number;
 		hasMoved: boolean;
 	} | null>(null);
-	let suppressNextCardClick = $state(false);
 
 	let search = $state('');
 	let searchIngredients = $derived(getIngredientsInText(search));
@@ -153,8 +152,9 @@
 			.join('\n');
 	}
 
-	function logOffsetsNt() {
-		console.log(`Updated offsets.nt:\n${formatOffsetsNt()}`);
+	async function copyOffsetsNtToClipboard() {
+		if (!browser || !('clipboard' in navigator)) return;
+		await navigator.clipboard.writeText(formatOffsetsNt());
 	}
 
 	function startGridPhotoDrag(e: PointerEvent, photoSlug?: string) {
@@ -189,8 +189,7 @@
 	function endGridPhotoDrag(e: PointerEvent) {
 		if (!activeDrag || e.pointerId !== activeDrag.pointerId) return;
 		if (activeDrag.hasMoved) {
-			suppressNextCardClick = true;
-			logOffsetsNt();
+			void copyOffsetsNtToClipboard();
 		}
 		activeDrag = null;
 		e.preventDefault();
@@ -199,17 +198,9 @@
 	function endGridPhotoDragFromCapture() {
 		if (!activeDrag) return;
 		if (activeDrag.hasMoved) {
-			suppressNextCardClick = true;
-			logOffsetsNt();
+			void copyOffsetsNtToClipboard();
 		}
 		activeDrag = null;
-	}
-
-	function onRecipeCardClick(e: MouseEvent) {
-		if (!suppressNextCardClick) return;
-		e.preventDefault();
-		e.stopPropagation();
-		suppressNextCardClick = false;
 	}
 
 	function except(a: string[], b: string[]) {
@@ -281,12 +272,11 @@
 				{@const compact = groupMostlyPhotoless && !hasPhoto}
 				{@const spanTwo = groupMostlyPhotoless && hasPhoto}
 				<a
-					href={item.slug}
+					href={devmode.active ? undefined : item.slug}
 					class="recipe-card"
 					class:favourite={favourites.has(item.slug)}
 					class:compact
 					class:span-two={spanTwo}
-					onclick={onRecipeCardClick}
 				>
 					{#if hasPhoto}
 						<div
