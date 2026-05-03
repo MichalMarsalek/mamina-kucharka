@@ -3932,7 +3932,7 @@ Stránky:
           - Štrudl 8
           - Štrudl 9
         Strana: 292
-        Porce 1:
+        Porce: 1
         Ingredience:
           - 1 [listové těsto] (Já kupuju už rozválené.)			
           - 2 velká [jablka]  
@@ -4146,7 +4146,8 @@ Stránky:
           - 200 g polohrubé [mouky] (možno nahradit [moukou] 
           - pohankovou, [rýžovou], kukuřičnou ve stejném 
           - poměru nebo [moukou] mandlovou a psyliem
-          - místo lepku: 2 lžičky rozmíchat v 50 ml [vody])	
+          - místo lepku: 2 lžičky rozmíchat v 50 ml [vody])
+        Ingredience(Na posypku):
           - 105 g polohrubé [mouky]
           - 75 g povoleného [másla]
           - 75 g [cukru] krupice, písek nebo krystal
@@ -4216,6 +4217,7 @@ Stránky:
           - [hrozinky], 1 až 2 hrnky
           - [kakao]
           - papír na pečení
+        Ingredience(Na polevu):
           - [cukr] moučka (práškový)
           - [citronová šťáva]
           - [mléko] 
@@ -4243,6 +4245,7 @@ Stránky:
           - 2 celá [vejce]
           - 1 hrnek [mléka]
           - 1/2 hrnku [oleje]
+        Ingredience(Na polevu):
           - 130 g [cukru] moučka (práškový)
           - 90 g tuhého [másla] 
           - 4 lžíce horké uvařené [vody]
@@ -4268,7 +4271,8 @@ Stránky:
           - 2 kostky tučného [tvarohu] (ne vanička)
           - 250 g [másla]
           - 200 g moučkového [cukru]
-          - Na želku (polevu z džusu): 1 l [pomerančového džusu] (místo [mléka] do pudinku)
+        Ingredience(Na želku (polevu z džusu)):
+          - 1 l [pomerančového džusu] (místo [mléka] do pudinku)
           - 2 [vanilkové pudinky] (pytlíky)
         
         Postup:
@@ -4290,6 +4294,7 @@ Stránky:
           - 400 g hladké [mouky]
           - 250 g [másla]
           - 100 g mletého [cukru] (moučka, práškový)
+        Ingredience(Na polevu):
           - [tvarohové těsto]: 3 [tvarohy] (tužší, ne v kádince, těsto by bylo řídké)
           - 300 g mletého [cukru] (moučka, práškový)
           - 4 [žloutky]
