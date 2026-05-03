@@ -11,11 +11,11 @@
 		Row,
 		Styles
 	} from '@sveltestrap/sveltestrap';
-	import { goto } from '$app/navigation';
+	import { afterNavigate, disableScrollHandling, goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { isRecipe, type Content, type Page } from '$lib/content';
 	import type { Snippet } from 'svelte';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import PhotoTooltip from '$lib/photo-tooltip.svelte';
 
 	interface Props {
@@ -84,6 +84,21 @@
 		if (!page.preview) return 0;
 		return data.photoOffsets[page.preview] ?? 0;
 	}
+
+	afterNavigate((navigation) => {
+		if (!navigation.from) {
+			return;
+		}
+		if (navigation.from.route.id === '/') {
+			return;
+		}
+		disableScrollHandling();
+		void tick().then(() => {
+			requestAnimationFrame(() => {
+				document.querySelector<HTMLElement>('.snap-nav-row')?.scrollIntoView({ block: 'start' });
+			});
+		});
+	});
 
 	// Reading progress bar
 	let scrollY = $state(0);
@@ -219,14 +234,14 @@
 					</Input> -->
 					<div class="d-flex w-100 gap-1 snap-nav-row">
 						<a href={prevPage}><Button class="nav-btn">❮</Button></a>
-						<a href={randomRecipe} class="flex-grow-1"
-							><Button class="w-100 nav-btn"
-								>Náhodný <span class="d-none d-sm-inline">recept</span></Button
-							></a
-						>
-						<a href="Obsah" class="flex-grow-1 d-sm-none"
-							><Button class="w-100 nav-btn">Obsah</Button></a
-						>
+						<a href={randomRecipe} class="flex-grow-1">
+							<Button class="w-100 nav-btn random-recipe-btn">
+								Náhodný <span class="d-none d-sm-inline">recept</span>
+							</Button>
+						</a>
+						<a href="Obsah" class="flex-grow-1 d-sm-none">
+							<Button class="w-100 nav-btn">Obsah</Button>
+						</a>
 						<a href={nextPage}><Button class="nav-btn">❯</Button></a>
 					</div>
 					{#if !(pageId ?? '').endsWith('/Obsah')}
