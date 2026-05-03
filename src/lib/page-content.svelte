@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { browser, dev } from '$app/environment';
 	import {
 		isChapter,
@@ -466,11 +466,9 @@
 										{page.title}
 									</span>
 									{#if page.subtitle}<br />{page.subtitle}{/if}
-									{#if recipe}
-										{#each recipe.tags as tag (tag)}
-											<span class="badge badge-primary">{tag}</span>
-										{/each}
-									{/if}
+									{#if recipe?.tags?.length}{#each recipe.tags as tag (tag)}<span
+												class="badge text-bg-primary recipe-tag">{tag}</span
+											>{/each}{/if}
 								</div>
 								<div class="star"><FavouriteStar slug={page.slug} large /></div>
 							</h1>
@@ -679,8 +677,11 @@
 {/key}
 
 <style>
-	h1 .badge {
-		font-size: initial;
+	.recipe-tag {
+		margin-left: 0.35rem;
+		vertical-align: middle;
+		font-size: 0.75rem;
+		font-weight: 500;
 	}
 
 	h2 {
