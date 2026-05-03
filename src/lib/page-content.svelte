@@ -472,7 +472,7 @@
 								</div>
 								<div class="star"><FavouriteStar slug={page.slug} large /></div>
 							</h1>
-							{#if page.page}<div class="mb-2 page-ref">str. {page.page}</div>{/if}
+							{#if page.page}<div class="page-ref">📖 str.&nbsp;{page.page}</div>{/if}
 
 							{#each page.fields as field, fieldIndex (`${field.kind}-${field.name}-${fieldIndex}`)}
 								{#if isIngredientsField(field)}
@@ -682,6 +682,18 @@
 		vertical-align: middle;
 		font-size: 0.75rem;
 		font-weight: 500;
+	}
+
+	.page-ref {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		margin-bottom: 0.6rem;
+		padding: 0.15rem 0.55rem;
+		border-radius: 999px;
+		font-size: 0.8rem;
+		color: var(--bs-secondary, #6c757d);
+		border: 1px solid var(--bs-border-color, #dee2e6);
 	}
 
 	h2 {
