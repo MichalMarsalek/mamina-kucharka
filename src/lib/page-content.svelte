@@ -626,7 +626,7 @@
 										{:else if isStringArrayField(field)}
 											<ul class="link-list">
 												{#each field.values as value, j (`${value}-${j}`)}
-													<li>SvelteMarkdown source={value} renderers={markdownRenderers} /></li>
+													<li><SvelteMarkdown source={value} renderers={markdownRenderers} /></li>
 												{/each}
 											</ul>
 										{/if}
@@ -650,7 +650,7 @@
 										{/if}
 									</div>
 								{:else if field.kind === 'markdown'}
-									{#if field.name}<h2>{field.name}:</h2>{/if}
+									{#if field.name && field.name !== 'Markdown'}<h2>{field.name}:</h2>{/if}
 									<SvelteMarkdown source={field.values as string} renderers={markdownRenderers} />
 								{:else if typeof field.values === 'string'}
 									<p class="field-inline">
