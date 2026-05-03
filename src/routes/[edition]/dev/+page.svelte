@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isRecipe, type Content } from '$lib/content';
+	import { isRecipe, isValuesField, type Content } from '$lib/content';
 	import { Col, Row } from '@sveltestrap/sveltestrap';
 	import devmode from '$lib/devmode.svelte';
 	import { hasIngredientDeclensionEntry, type IngredientPiece } from '$lib/ingredients';
@@ -34,6 +34,9 @@
 			Object.groupBy(ingredientRowsWithoutIngredientPieces, ({ recipe }) => recipe.title)
 		).filter((rows): rows is NonNullable<typeof rows> => Boolean(rows))
 	);
+	let customFieldKeys = $derived(
+		frequencies(data.pages.flatMap((p) => p.customFields).filter(isValuesField).map((f) => f.name))
+	);
 
 	function frequencies(items: string[]) {
 		// eslint-disable-next-line svelte/prefer-svelte-reactivity
@@ -50,6 +53,21 @@
 		return line.map((piece) => piece.content).join('');
 	}
 </script>
+
+<Row class="mb-4">
+	<Col>
+		<h2>Custom field keys</h2>
+		{#if customFieldKeys.length === 0}
+			<p>None</p>
+		{:else}
+			<ul>
+				{#each customFieldKeys as [key, freq]}
+					<li>{key}: {freq}</li>
+				{/each}
+			</ul>
+		{/if}
+	</Col>
+</Row>
 
 <Row>
 	<Col>

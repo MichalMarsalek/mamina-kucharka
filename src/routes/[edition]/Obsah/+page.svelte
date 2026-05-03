@@ -258,6 +258,9 @@
 	autofocus={window.matchMedia('(pointer: fine)').matches}
 	class="mb-3"
 />
+{#if devmode.active && searchIngredients.length > 0}
+	<p class="mb-2 text-muted small">Rozpoznané ingredience: {searchIngredients.join('; ')}</p>
+{/if}
 <div class="desktop-favourites d-none d-sm-block mb-3">
 	<Input bind:checked={favouritesOnly} type="switch" label="Pouze oblíbené" class="mb-0" />
 </div>

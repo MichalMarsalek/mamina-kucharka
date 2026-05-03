@@ -102,6 +102,7 @@ kuře/kuřata/kuřat
 hřib/hřiby/hřibů
 houby/houby/hub
 marmeláda/marmelády/marmelád
+tempeh/tempehu/tempehu
 `
 	.trim()
 	.split('\n')
@@ -334,6 +335,19 @@ const ingredientBaseForms = [
 	.filter(Boolean)
 	.sort((a, b) => b.length - a.length);
 
+function escapeRegex(value: string): string {
+	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const ingredientPrefixMatchers = ingredientBaseForms.map((base) => {
+	const chars = [...base];
+	const minPrefixLength = Math.max(1, Math.ceil((chars.length * 2) / 3));
+	const minPrefix = chars.slice(0, minPrefixLength).join('');
+	const escapedMinPrefix = escapeRegex(minPrefix);
+	const prefixAtWordBoundary = new RegExp(`(^|[^\\p{L}\\p{N}])${escapedMinPrefix}`, 'gu');
+	return { base, minPrefix, prefixAtWordBoundary };
+});
+
 const ingredientVariantEntriesByLength = [...ingredientVariantsToBase.entries()].sort(
 	(a, b) => b[0].length - a[0].length
 );
@@ -415,12 +429,36 @@ export function declineIngredient(
 
 export function getIngredientsInText(text: string) {
 	const textLower = text.toLowerCase();
-	return ingredientBaseForms.filter((base) => {
-		const chars = [...base];
-		const minPrefixLength = Math.max(1, Math.ceil(chars.length / 2));
-		const prefix = chars.slice(0, minPrefixLength).join('');
-		return textLower.includes(prefix);
-	});
+	const occupied = Array<boolean>(textLower.length).fill(false);
+	const matched: string[] = [];
+
+	for (const { base, minPrefix, prefixAtWordBoundary } of ingredientPrefixMatchers) {
+		const regex = new RegExp(prefixAtWordBoundary.source, prefixAtWordBoundary.flags);
+		let match: RegExpExecArray | null;
+
+		while ((match = regex.exec(textLower)) !== null) {
+			const start = match.index + match[0].length - minPrefix.length;
+			const end = start + minPrefix.length;
+
+			let hasOverlap = false;
+			for (let i = start; i < end; i += 1) {
+				if (occupied[i]) {
+					hasOverlap = true;
+					break;
+				}
+			}
+			if (hasOverlap) continue;
+
+			for (let i = start; i < end; i += 1) {
+				occupied[i] = true;
+			}
+
+			matched.push(base);
+			break;
+		}
+	}
+
+	return matched;
 }
 
 export function normalizeIngredient(ingredient: string): string {
