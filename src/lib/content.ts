@@ -62,12 +62,8 @@ export function isIngredientsField(x: Field): x is {
 	);
 }
 
-export function isStepsField(x: Field) {
-	return (
-		x.kind === 'steps' &&
-		Array.isArray(x.values) &&
-		x.values.every((step) => typeof step === 'string')
-	);
+function isStepsField(x: Field): x is Field & { kind: 'steps'; values: string[] } {
+	return x.kind === 'steps' && isStringArrayField(x);
 }
 
 export function parseContent(nestedText: string): Content {
