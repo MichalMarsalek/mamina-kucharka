@@ -7,6 +7,7 @@
 	let dismissed = $state(false);
 	let standalone = $state(false);
 	let isMobile = $state(false);
+	let installed = $state(false);
 
 	// BeforeInstallPromptEvent is not in standard TS types
 	interface BeforeInstallPromptEvent extends Event {
@@ -15,6 +16,7 @@
 	}
 
 	const ONE_MONTH_MS = 30 * 24 * 60 * 60 * 1000;
+	const INSTALLED_KEY = 'pwa-installed';
 
 	function isIos() {
 		return /iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -38,8 +40,15 @@
 	}
 
 	onMount(() => {
+		const installedStored = localStorage.getItem(INSTALLED_KEY);
+		if (installedStored === '1') installed = true;
+
 		standalone = isInStandaloneMode();
-		if (standalone) return;
+		if (standalone) {
+			installed = true;
+			localStorage.setItem(INSTALLED_KEY, '1');
+			return;
+		}
 
 		isMobile = isMobileDevice();
 
@@ -59,7 +68,7 @@
 		}
 
 		if (isIos()) {
-			showIosHint = true;
+			showIosHint = !installed;
 			return;
 		}
 
@@ -70,15 +79,43 @@
 
 		const onDisplayModeChange = () => {
 			standalone = isInStandaloneMode();
+			if (standalone) {
+				installed = true;
+				localStorage.setItem(INSTALLED_KEY, '1');
+			}
+		};
+
+		const onAppInstalled = () => {
+			installed = true;
+			localStorage.setItem(INSTALLED_KEY, '1');
+		};
+
+		const detectRelatedInstalledApps = async () => {
+			const nav = navigator as Navigator & {
+				getInstalledRelatedApps?: () => Promise<Array<unknown>>;
+			};
+			if (typeof nav.getInstalledRelatedApps !== 'function') return;
+			try {
+				const apps = await nav.getInstalledRelatedApps();
+				if (apps.length > 0) {
+					installed = true;
+					localStorage.setItem(INSTALLED_KEY, '1');
+				}
+			} catch {
+				// Ignore unsupported/blocked related apps checks.
+			}
 		};
 
 		window.addEventListener('beforeinstallprompt', handler);
+		window.addEventListener('appinstalled', onAppInstalled);
 		displayModeStandalone.addEventListener('change', onDisplayModeChange);
 		displayModeFullscreen.addEventListener('change', onDisplayModeChange);
 		displayModeMinimalUi.addEventListener('change', onDisplayModeChange);
 		displayModeOverlay.addEventListener('change', onDisplayModeChange);
+		void detectRelatedInstalledApps();
 		return () => {
 			window.removeEventListener('beforeinstallprompt', handler);
+			window.removeEventListener('appinstalled', onAppInstalled);
 			displayModeStandalone.removeEventListener('change', onDisplayModeChange);
 			displayModeFullscreen.removeEventListener('change', onDisplayModeChange);
 			displayModeMinimalUi.removeEventListener('change', onDisplayModeChange);
@@ -110,12 +147,14 @@
 	let showGenericHint = $derived(
 		isMobile &&
 			(isCoverPage || isOElektronickeVerziPage) &&
+			!installed &&
 			!showIosHint &&
 			deferredPrompt === null &&
 			!dismissed
 	);
 	let visible = $derived(
 		!standalone &&
+			!installed &&
 			((deferredPrompt !== null && (alwaysShow || !dismissed)) || showIosHint || showGenericHint)
 	);
 </script>
