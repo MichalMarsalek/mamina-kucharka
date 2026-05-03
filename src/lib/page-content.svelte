@@ -342,10 +342,10 @@
 		<Row>
 			{#if page}
 				{@const recipe = isRecipe(page) ? page : null}
-				{#if recipe && recipe.photos.length > 0}
+				{#if page.photos?.length > 0}
 					<Col xs="12" lg="6">
 						<div class="photos">
-							{#each recipe.photos as [photoName, photoSlug] (photoSlug)}
+							{#each page.photos as [photoName, photoSlug] (photoSlug)}
 								<div class="photo" style="--photo-offset: {photoOffset(photoSlug)};">
 									<Image
 										fluid
@@ -396,9 +396,11 @@
 										{page.title}
 									</span>
 									{#if page.subtitle}<br />{page.subtitle}{/if}
-									{#if recipe}{#each recipe.tags as tag (tag)}
+									{#if recipe}
+										{#each recipe.tags as tag (tag)}
 											<span class="badge badge-primary">{tag}</span>
-										{/each}{/if}
+										{/each}
+									{/if}
 								</div>
 								<div class="star"><FavouriteStar slug={page.slug} large /></div>
 							</h1>

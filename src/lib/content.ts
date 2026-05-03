@@ -16,6 +16,7 @@ export interface Page {
 	page: number;
 	number?: string;
 	customFields: CustomField[];
+	photos: [string | undefined, string][];
 }
 
 export interface Chapter extends Page {
@@ -25,7 +26,6 @@ export interface Chapter extends Page {
 export interface Recipe extends Page {
 	parent: Chapter;
 	portions?: number;
-	photos: [string | undefined, string][];
 	tags: string[];
 	ingredients: IngredientPiece[][];
 	normalizedIngredients: string[];

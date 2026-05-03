@@ -273,7 +273,7 @@
 		{@const groupMostlyPhotoless = mostlyPhotoless(page.pages)}
 		<div class="card-grid" class:mixed-grid={groupMostlyPhotoless}>
 			{#each sortForGrid(page.pages, groupMostlyPhotoless) as item (item.slug)}
-				{@const hasPhoto = isRecipe(item) && item.photos.length > 0}
+				{@const hasPhoto = item.photos?.length > 0}
 				{@const photoSlug = hasPhoto ? item.photos[0][1] : undefined}
 				{@const compact = groupMostlyPhotoless && !hasPhoto}
 				{@const spanTwo = groupMostlyPhotoless && hasPhoto}

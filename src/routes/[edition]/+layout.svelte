@@ -77,14 +77,12 @@
 	}
 
 	function previewUrl(page: Page): string | undefined {
-		const recipe = isRecipe(page) ? page : recipes.find((r) => r.slug === page.slug);
-		return recipe && recipe.photos.length > 0 ? `/foto1/${recipe.photos[0][1]}.webp` : undefined;
+		return page.photos?.length > 0 ? `/foto1/${page.photos[0][1]}.webp` : undefined;
 	}
 
 	function previewOffset(page: Page): number {
-		const recipe = isRecipe(page) ? page : recipes.find((r) => r.slug === page.slug);
-		if (!recipe || recipe.photos.length === 0) return 0;
-		return data.photoOffsets[recipe.photos[0][1]] ?? 0;
+		if (!page || page.photos.length === 0) return 0;
+		return data.photoOffsets[page.photos[0][1]] ?? 0;
 	}
 
 	// Reading progress bar
