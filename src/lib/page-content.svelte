@@ -534,11 +534,7 @@
 									<ul>
 										{#each field.values as value, j (`${value}-${j}`)}
 											<li>
-												{#if isLink(value)}
-													<a href={value} target="_blank">{value}</a>
-												{:else}
-													{value}
-												{/if}
+												<SvelteMarkdown source={value} renderers={markdownRenderers} />
 											</li>
 										{/each}
 									</ul>
