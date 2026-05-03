@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser, dev } from '$app/environment';
-	import { isChapter, isRecipe, isValuesField, type Page } from '$lib/content';
+	import { isChapter, isIngredientsField, isRecipe, isValuesField, type Page } from '$lib/content';
 	import { Col, Image, Row } from '@sveltestrap/sveltestrap';
 	import { SvelteSet } from 'svelte/reactivity';
 	import { tweened } from 'svelte/motion';
@@ -144,8 +144,8 @@
 	const markdownRenderers = { link: AnchorRenderer as any };
 
 	// Interactive recipe state
-	let checkedIngredients = new SvelteSet<number>();
-	let completedSteps = new SvelteSet<number>();
+	let checkedIngredients = new SvelteSet<string>();
+	let completedSteps = new SvelteSet<string>();
 	let portionMultiplier = $state(1);
 	const animatedPortionMultiplier = tweened(1, { duration: 750, easing: cubicOut });
 	let isPortionAnimating = $state(false);
@@ -163,12 +163,20 @@
 		void animatedPortionMultiplier.set(1, { duration: 0 });
 	});
 
-	function toggleIngredient(i: number) {
-		if (!checkedIngredients.delete(i)) checkedIngredients.add(i);
+	function ingredientKey(fieldIndex: number, itemIndex: number) {
+		return `${fieldIndex}-${itemIndex}`;
 	}
 
-	function toggleStep(i: number) {
-		if (!completedSteps.delete(i)) completedSteps.add(i);
+	function stepKey(fieldIndex: number, stepIndex: number) {
+		return `${fieldIndex}-${stepIndex}`;
+	}
+
+	function toggleIngredient(key: string) {
+		if (!checkedIngredients.delete(key)) checkedIngredients.add(key);
+	}
+
+	function toggleStep(key: string) {
+		if (!completedSteps.delete(key)) completedSteps.add(key);
 	}
 
 	function scaleQuantity(
@@ -310,18 +318,72 @@
 	}
 
 	let pageRecipe = $derived(page && isRecipe(page) ? page : null);
-
-	let allIngredientsChecked = $derived(
-		pageRecipe && pageRecipe.ingredients.length > 0
-			? checkedIngredients.size === pageRecipe.ingredients.length
-			: false
+	let firstIngredientFieldIndex = $derived(
+		page ? page.fields.findIndex((field) => isIngredientsField(field)) : -1
+	);
+	let firstStepsFieldIndex = $derived(
+		page ? page.fields.findIndex((field) => field.kind === 'steps' && isValuesField(field)) : -1
 	);
 
-	let stepProgress = $derived(
-		pageRecipe && pageRecipe.steps.length > 0
-			? Math.round((completedSteps.size / pageRecipe.steps.length) * 100)
+	let totalStepsCount = $derived(
+		page
+			? page.fields.reduce(
+					(total, field) =>
+						total + (field.kind === 'steps' && isValuesField(field) ? field.values.length : 0),
+					0
+				)
 			: 0
 	);
+
+	let completedStepsCountAll = $derived.by(() => {
+		if (!page) return 0;
+		let completed = 0;
+		for (let fieldIndex = 0; fieldIndex < page.fields.length; fieldIndex++) {
+			const field = page.fields[fieldIndex];
+			if (field.kind !== 'steps' || !isValuesField(field)) continue;
+			for (let stepIndex = 0; stepIndex < field.values.length; stepIndex++) {
+				if (completedSteps.has(stepKey(fieldIndex, stepIndex))) {
+					completed++;
+				}
+			}
+		}
+		return completed;
+	});
+
+	let stepProgressAll = $derived(
+		totalStepsCount > 0 ? Math.round((completedStepsCountAll / totalStepsCount) * 100) : 0
+	);
+
+	function clearIngredientsForField(fieldIndex: number, lineCount: number) {
+		for (let i = 0; i < lineCount; i++) {
+			checkedIngredients.delete(ingredientKey(fieldIndex, i));
+		}
+	}
+
+	function checkedIngredientCount(fieldIndex: number, lineCount: number) {
+		let count = 0;
+		for (let i = 0; i < lineCount; i++) {
+			if (checkedIngredients.has(ingredientKey(fieldIndex, i))) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	function clearStepsForField(fieldIndex: number, stepCount: number) {
+		for (let i = 0; i < stepCount; i++) {
+			completedSteps.delete(stepKey(fieldIndex, i));
+		}
+	}
+
+	function clearAllSteps() {
+		if (!page) return;
+		for (let fieldIndex = 0; fieldIndex < page.fields.length; fieldIndex++) {
+			const field = page.fields[fieldIndex];
+			if (field.kind !== 'steps' || !isValuesField(field)) continue;
+			clearStepsForField(fieldIndex, field.values.length);
+		}
+	}
 
 	function adjustPortion(delta: number) {
 		const next = portionMultiplier + delta;
@@ -406,142 +468,147 @@
 							</h1>
 							{#if page.page}<div class="mb-2 page-ref">str. {page.page}</div>{/if}
 
-							{#if recipe && recipe.ingredients.length > 0}
-								<div class="section-header">
-									<h2 style="min-width: 6rem">
-										{#if recipePortions}
-											Na {recipePortions === 0.5 ? '½' : recipePortions}
-											{recipePortions === 1 ? 'porci' : recipePortions < 5 ? 'porce' : 'porcí'}:
-										{:else}
-											Ingredience:
-										{/if}
-									</h2>
-									<div class="portion-scaler">
-										<button
-											class="scaler-btn"
-											onclick={() => adjustPortion(portionMultiplier > 1 ? -1 : -0.5)}
-											disabled={portionMultiplier <= 0.5 || recipePortions === 1}>−</button
-										>
-										<span class="multiplier-badge">
-											{portionMultiplier === 0.5 ? '×½' : `×${portionMultiplier}`}
-										</span>
-										<button
-											class="scaler-btn"
-											onclick={() => adjustPortion(portionMultiplier < 1 ? 0.5 : 1)}
-											disabled={portionMultiplier >= 5}>+</button
-										>
-										{#if portionMultiplier !== 1}
-											<button
-												class="reset-btn"
-												onclick={() => adjustPortion(1 - portionMultiplier)}
-												title="Resetovat">↺</button
-											>
-										{/if}
-									</div>
-									{#if checkedIngredients.size > 0}
-										<button
-											class="clear-btn"
-											onclick={() => checkedIngredients.clear()}
-											title="Zrušit zaškrtnutí">Zrušit výběr</button
-										>
-									{/if}
-								</div>
-								<ul class="ingredient-list">
-									{#each recipe.ingredients as item, i (i)}
-										<li>
-											<button
-												type="button"
-												class="ingredient-item"
-												class:checked={checkedIngredients.has(i)}
-												title={ingredientDebugMode ? ingredientLineTitle(item) : undefined}
-												onclick={() => toggleIngredient(i)}
-											>
-												<span class="check-icon">{checkedIngredients.has(i) ? '✓' : '○'}</span>
-												<span class="ingredient-text">
-													{#each item as piece, pieceIndex (`${i}-${pieceIndex}`)}
-														<span
-															class="ingredient-piece"
-															class:debug-piece={ingredientDebugMode}
-															class:quantity-piece={ingredientDebugMode &&
-																piece.kind === 'quantity'}
-															class:ingredient-piece-kind={ingredientDebugMode &&
-																piece.kind === 'ingredient'}
-															class:prose-piece={ingredientDebugMode && piece.kind === 'prose'}
-															>{renderPiece(
-																item,
-																piece,
-																pieceIndex,
-																$animatedPortionMultiplier,
-																isPortionAnimating,
-																portionMultiplier
-															)}</span
-														>
-													{/each}
+							{#each page.fields as field, fieldIndex (`${field.kind}-${field.name}-${fieldIndex}`)}
+								{#if isIngredientsField(field)}
+									{@const selected = checkedIngredientCount(fieldIndex, field.values.length)}
+									{@const isFirstIngredientField = fieldIndex === firstIngredientFieldIndex}
+									<div class="section-header">
+										<h2 style="min-width: 6rem">
+											{#if isFirstIngredientField && field.name === 'Ingredience' && recipePortions}
+												Na {recipePortions === 0.5 ? '½' : recipePortions}
+												{recipePortions === 1 ? 'porci' : recipePortions < 5 ? 'porce' : 'porcí'}:
+											{:else}
+												{field.name}:
+											{/if}
+										</h2>
+										{#if isFirstIngredientField}
+											<div class="portion-scaler">
+												<button
+													class="scaler-btn"
+													onclick={() => adjustPortion(portionMultiplier > 1 ? -1 : -0.5)}
+													disabled={portionMultiplier <= 0.5 || recipePortions === 1}>−</button
+												>
+												<span class="multiplier-badge">
+													{portionMultiplier === 0.5 ? '×½' : `×${portionMultiplier}`}
 												</span>
-											</button>
-										</li>
-									{/each}
-								</ul>
-								{#if allIngredientsChecked}
-									<div class="all-ready" in:fly={{ y: 8, duration: 300 }}>
-										Všechny ingredience připraveny! 🎉
-									</div>
-								{/if}
-							{/if}
-
-							{#if recipe}
-								<div class="section-header">
-									<h2>Postup:</h2>
-									{#if completedSteps.size > 0}
-										<div class="step-progress-wrap">
-											<div class="step-progress-bar">
-												<div class="step-progress-fill" style:width="{stepProgress}%"></div>
+												<button
+													class="scaler-btn"
+													onclick={() => adjustPortion(portionMultiplier < 1 ? 0.5 : 1)}
+													disabled={portionMultiplier >= 5}>+</button
+												>
+												{#if portionMultiplier !== 1}
+													<button
+														class="reset-btn"
+														onclick={() => adjustPortion(1 - portionMultiplier)}
+														title="Resetovat">↺</button
+													>
+												{/if}
 											</div>
-											<span class="step-count">{completedSteps.size}/{recipe.steps.length}</span>
-										</div>
-									{/if}
-									{#if completedSteps.size > 0}
-										<button
-											class="clear-btn"
-											onclick={() => completedSteps.clear()}
-											title="Zrušit zaškrtnutí kroků">Zrušit</button
-										>
-									{/if}
-								</div>
-								<ol class="step-list">
-									{#each recipe.steps as item, i (i)}
-										<li>
+										{/if}
+										{#if selected > 0}
 											<button
-												type="button"
-												class="step-item"
-												class:completed={completedSteps.has(i)}
-												onclick={() => toggleStep(i)}
+												class="clear-btn"
+												onclick={() => clearIngredientsForField(fieldIndex, field.values.length)}
+												title="Zrušit zaškrtnutí">Zrušit výběr</button
 											>
-												<span class="step-icon">❯</span>
-												<span class="step-text">{item}</span>
-											</button>
-										</li>
-									{/each}
-								</ol>
-								{#if stepProgress == 100}
-									<div class="all-ready" in:fly={{ y: 8, duration: 300 }}>Dobrou chuť! 🍴</div>
-								{/if}
-							{/if}
-
-							{#each page.customFields as field, i (`${field.name ?? ''}-${i}`)}
-								{#if field.name}
-									<h2>{field.name}:</h2>
-								{/if}
-								{#if isValuesField(field)}
-									<ul>
-										{#each field.values as value, j (`${value}-${j}`)}
+										{/if}
+									</div>
+									<ul class="ingredient-list">
+										{#each field.values as item, i (i)}
+											{@const key = ingredientKey(fieldIndex, i)}
 											<li>
-												<SvelteMarkdown source={value} renderers={markdownRenderers} />
+												<button
+													type="button"
+													class="ingredient-item"
+													class:checked={checkedIngredients.has(key)}
+													title={ingredientDebugMode ? ingredientLineTitle(item) : undefined}
+													onclick={() => toggleIngredient(key)}
+												>
+													<span class="check-icon">{checkedIngredients.has(key) ? '✓' : '○'}</span>
+													<span class="ingredient-text">
+														{#each item as piece, pieceIndex (`${i}-${pieceIndex}`)}
+															<span
+																class="ingredient-piece"
+																class:debug-piece={ingredientDebugMode}
+																class:quantity-piece={ingredientDebugMode &&
+																	piece.kind === 'quantity'}
+																class:ingredient-piece-kind={ingredientDebugMode &&
+																	piece.kind === 'ingredient'}
+																class:prose-piece={ingredientDebugMode && piece.kind === 'prose'}
+																>{renderPiece(
+																	item,
+																	piece,
+																	pieceIndex,
+																	$animatedPortionMultiplier,
+																	isPortionAnimating,
+																	portionMultiplier
+																)}</span
+															>
+														{/each}
+													</span>
+												</button>
 											</li>
 										{/each}
 									</ul>
+									{#if field.values.length > 0 && selected === field.values.length}
+										<div class="all-ready" in:fly={{ y: 8, duration: 300 }}>
+											Všechny ingredience připraveny! 🎉
+										</div>
+									{/if}
+								{:else if field.kind === 'steps' && isValuesField(field)}
+									{@const isFirstStepsField = fieldIndex === firstStepsFieldIndex}
+									<div class="section-header">
+										<h2>{field.name}:</h2>
+										{#if isFirstStepsField && completedStepsCountAll > 0}
+											<div class="step-progress-wrap">
+												<div class="step-progress-bar">
+													<div class="step-progress-fill" style:width="{stepProgressAll}%"></div>
+												</div>
+												<span class="step-count">{completedStepsCountAll}/{totalStepsCount}</span>
+											</div>
+										{/if}
+										{#if isFirstStepsField && completedStepsCountAll > 0}
+											<button
+												class="clear-btn"
+												onclick={clearAllSteps}
+												title="Zrušit zaškrtnutí kroků">Zrušit</button
+											>
+										{/if}
+									</div>
+									<ol class="step-list">
+										{#each field.values as item, i (i)}
+											{@const key = stepKey(fieldIndex, i)}
+											<li>
+												<button
+													type="button"
+													class="step-item"
+													class:completed={completedSteps.has(key)}
+													onclick={() => toggleStep(key)}
+												>
+													<span class="step-icon">❯</span>
+													<span class="step-text">{item}</span>
+												</button>
+											</li>
+										{/each}
+									</ol>
+									{#if isFirstStepsField && stepProgressAll === 100 && totalStepsCount > 0}
+										<div class="all-ready" in:fly={{ y: 8, duration: 300 }}>Dobrou chuť! 🍴</div>
+									{/if}
 								{:else}
-									<SvelteMarkdown source={field.markdown} renderers={markdownRenderers} />
+									{#if field.name}
+										<h2>{field.name}:</h2>
+									{/if}
+									{#if isValuesField(field)}
+										<ul>
+											{#each field.values as value, j (`${value}-${j}`)}
+												<li>
+													<SvelteMarkdown source={value} renderers={markdownRenderers} />
+												</li>
+											{/each}
+										</ul>
+									{:else}
+										<SvelteMarkdown source={field.values} renderers={markdownRenderers} />
+									{/if}
 								{/if}
 							{/each}
 						</div>

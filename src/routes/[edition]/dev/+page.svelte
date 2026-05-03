@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isRecipe, isValuesField, type Content } from '$lib/content';
+	import { isIngredientsField, isRecipe, isValuesField, type Content } from '$lib/content';
 	import { Col, Row } from '@sveltestrap/sveltestrap';
 	import devmode from '$lib/devmode.svelte';
 	import { hasIngredientDeclensionEntry, type IngredientPiece } from '$lib/ingredients';
@@ -8,13 +8,13 @@
 
 	let { data }: { data: Content } = $props();
 	let recipes = $derived(data.pages.filter(isRecipe));
-	let ingredients = $derived(
-		frequencies(recipes.flatMap((x) => x.normalizedIngredients))
-	);
+	let ingredients = $derived(frequencies(recipes.flatMap((x) => x.normalizedIngredients)));
 	let ingredientsWithoutDeclension = $derived(
 		frequencies(
 			recipes
-				.flatMap((recipe) => recipe.ingredients)
+				.flatMap((recipe) =>
+					recipe.fields.filter(isIngredientsField).flatMap((field) => field.values)
+				)
 				.flatMap((line) => line)
 				.filter((piece) => piece.kind === 'ingredient')
 				.map((piece) => piece.content.trim())
@@ -24,7 +24,9 @@
 	);
 	let ingredientRowsWithoutIngredientPieces = $derived(
 		recipes.flatMap((recipe) =>
-			recipe.ingredients
+			recipe.fields
+				.filter(isIngredientsField)
+				.flatMap((field) => field.values)
 				.map((line, index) => ({ recipe, index, line }))
 				.filter(({ line }) => !line.some((piece) => piece.kind === 'ingredient'))
 		)
@@ -35,7 +37,13 @@
 		).filter((rows): rows is NonNullable<typeof rows> => Boolean(rows))
 	);
 	let customFieldKeys = $derived(
-		frequencies(data.pages.flatMap((p) => p.customFields).filter(isValuesField).map((f) => f.name))
+		frequencies(
+			data.pages
+				.flatMap((p) => p.fields)
+				.filter((field) => field.kind === 'plain')
+				.filter(isValuesField)
+				.map((f) => f.name)
+		)
 	);
 
 	function frequencies(items: string[]) {
@@ -110,9 +118,3 @@
 		{/if}
 	</Col>
 </Row>
-
-<style>
-	h1 .badge {
-		font-size: initial;
-	}
-</style>
