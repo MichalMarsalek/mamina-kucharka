@@ -74,6 +74,7 @@
 		const searchLower = search.toLowerCase();
 
 		if (page.title.toLowerCase().includes(searchLower)) return true;
+		if (page.subtitle?.toLowerCase().includes(searchLower)) return true;
 
 		if (!isRecipe(page)) return false;
 

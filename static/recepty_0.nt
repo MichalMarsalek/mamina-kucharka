@@ -1,4 +1,4 @@
-Stránky:
+﻿Stránky:
   -
     Nadpis: O elektronické verzi
     Markdown:
@@ -481,6 +481,7 @@ Stránky:
         Podnadpis: (Italská zeleninová)
         Porce: 3-4
         Strana: 46
+        Typ: bezmasé
 
         Ingredience:
           - 1 malá [cibule] nebo půlka (klidně ji rozmixuj na kaši, nebudeš o ní vědět a polévka bude chutnější)
@@ -859,6 +860,7 @@ Stránky:
         Foto: Dýňová polévka
         Porce: 2
         Strana: 74
+        Typ: bezmasé
 
         Ingredience:
           - 2 lžíce [másla]
@@ -1073,14 +1075,6 @@ Stránky:
           - Když jsou brambory měkké, tak po 10 minutách varu, přidej k nim na kostičky nakrájenou šunku, nechej prohřát, dochuť troškou pepře. 
           - Vypni sporák, rozklepni a vmíchej vejce. Já mám ráda nerozkvedlané, když je tam kus bílku i žloutku. Teď, po uvaření přisypej rozmačkaný česnek (kdyby se česnek vařil, bude jeho síla a chuť slabší).
           - Nastrouhaný nebo na kousíčky nakrájený sýr nandej přímo do talíře.
-
-        Nudle:
-          - Během vaření polévky si uvař nudle:
-          - Dej je až do vroucí osolené vody, ve studené by ti vzniklo „nudlepidlo“ . Vař cca 5-10 minut (podle návodu na obalu). 
-          - Po té je propláchni studenou vodou. 
-          - Nudle přidávej do polévky až na talíři, jinak vsáknou vývar do sebe a polévka nebude tak dobrá.
-
-        Tip: Dochuť zelenou petrželkou či libečkem, vhodnou chuť dodá i Maggi. Trochu delší vaření, ale jednoduché.
       -
         Nadpis: Vývar
         Foto: Vývar
@@ -1106,6 +1100,14 @@ Stránky:
           - Maso dej do většího hrnce a zalij cca 700 ml studené vody (v teplé by se maso zatáhlo a neudělalo by silný vývar). Maso musí být pod hladinou, ale zase nesmí být vody přehnaně moc, protože by vývar byl slabý. Osol a přiveď k varu. Když voda vzkypí, seber z hladiny béžovou sraženinu (bílkovinu), která jinak způsobí zakalený vývar. Teprve pak přidej koření a očištěnou zeleninu a vař cca 2 hodiny pod pokličkou na VELMI slabém plamenu (na slabo). 
           - Zeleninu můžeš vytáhnout hned, když zjistíš, že je měkká – aby se nerozvařila.
           - Až je maso měkké a polévka na chuť dost silná vyjmi i maso a vše nakrájej na malé kousíčky, které do polévky vrať. Nevracím pouze cibuli a česnek, to sníme jen tak, vytáhni bobkový list, nové koření a kuličky pepře. Nejlépe to přelij přes sítko do jiného hrnce. Podle potřeby dochuť.
+
+        Nudle:
+          - Během vaření polévky si uvař nudle:
+          - Dej je až do vroucí osolené vody, ve studené by ti vzniklo „nudlepidlo“ . Vař cca 5-10 minut (podle návodu na obalu). 
+          - Po té je propláchni studenou vodou. 
+          - Nudle přidávej do polévky až na talíři, jinak vsáknou vývar do sebe a polévka nebude tak dobrá.
+
+        Tip: Dochuť zelenou petrželkou či libečkem, vhodnou chuť dodá i Maggi. Trochu delší vaření, ale jednoduché.
       -
         Nadpis: Polévka pana hostinského
         Foto: Polévka pana hostinského
@@ -1332,8 +1334,6 @@ Stránky:
           - Rajčatový salát
           - Přesnídávka
           - Kompot
-
-        Záklechtka: V hrnečku vidličkou rozmíchej trošku hladké mouky ve trošce vody. U mléčných jídel se místo vody dává mléko. Přilij záklechtku do vařící se kaše, chvilku míchej a nechej provařit
       -
         Nadpis: Černá čočka se zeleninou nahusto
         Foto: Černá čočka se zeleninou nahusto
@@ -1359,7 +1359,9 @@ Stránky:
           - Do hrnce k čočce nejdříve přidej mrkev, cuketu či celer a česnek. Rajčata dej až na posledních 10 minut.
           - Během vaření čočky si připrav vejce natvrdo (Vejce vlož do vroucí vody a vař cca 10 minut.) nebo volské oko (Nechej rozpálit olej a rozklepni na něj vejce, které trošku posol. Smaž cca 1 – 2 minuty.)
           - Ochutnej čočku a podle chuti dosol, opepři.
-          - Je-li málo hustá, můžeš trochu zahustit záklechtkou nebo můžeš v troše vody rozmíchat lžičku bramborového či kukuřičného škrobu a vlít do vroucí kaše, rozmíchat a chvilku provařit. To je bezlepkové zahuštění. 
+          - Je-li málo hustá, můžeš trochu zahustit záklechtkou nebo můžeš v troše vody rozmíchat lžičku bramborového či kukuřičného škrobu a vlít do vroucí kaše, rozmíchat a chvilku provařit. To je bezlepkové zahuštění.
+
+        Záklechtka: V hrnečku vidličkou rozmíchej trošku hladké mouky ve trošce vody. U mléčných jídel se místo vody dává mléko. Přilij záklechtku do vařící se kaše, chvilku míchej a nechej provařit
       -
         Nadpis: Červeno-čočkový dhal s cizrnou
         Foto: Červeno-čočkový dhal s cizrnou
@@ -2237,7 +2239,6 @@ Stránky:
           - Zeleninový salát
           - Kompot
           - apod.
-        Poznámka: Stejně by to šlo připravit s kuřecím či krůtím masem, se špagetami, těstovinami či s gnocchi.
       -
         Strana: 177
         Nadpis: Makaróny (špagety) s lososem
@@ -2264,6 +2265,7 @@ Stránky:
             > Na závěr přilij smetanu. Můžeš zahustit strouhaným parmazánem nebo v zahřáté smetaně roztav mazací sýr. Možná pak bude třeba ještě trochu dohustit ve vlažné vodě rozmíchaným škrobem. Nechej chvilku provařit (3 minuty).
             > PAMATUJ: OMÁČKA VŽDY ČEKÁ NA ŠPAGETY, NE NAOPAK!
           - Do směsi vmíchej uvařené makaróny, promíchej, nechej prohřát a podávej.
+        Poznámka: Stejně by to šlo připravit s kuřecím či krůtím masem, se špagetami, těstovinami či s gnocchi.
       -
         Strana: 179
         Nadpis: Těstoviny s lososem, zakysankou a kapkou vodky
@@ -2332,17 +2334,6 @@ Stránky:
           - Polož na pečící papír, dej do rozehřáté trouby a peč cca 10 minut. Zkontroluj.
           - Nebo upeč v horkovzdušné fritéze stejně.
           - Podávej s pečenými bramborami nebo pečenými batáty.
-        Přílohy: K takto upravenému masu se hodí brambory na všechny způsoby, vařená rýže, hranolky a případně i chléb.
-        
-        Dále je možné doplnit:
-          - rajskou omáčkou
-          - zeleninovým salátem
-          - koprovou omáčkou
-          - okurkovým salátem
-          - dušenou mrkví
-          - mrkvovým salátem
-          - grilovanou či pečenou zeleninou
-          - kompotem.
       -
         Strana: 185
         Nadpis: Pečené maso
@@ -2362,6 +2353,18 @@ Stránky:
           - Přitom cca co 10 minut kontroluj, zda má maso dost šťávy (horní kraj masa by měl být stále zároveň s hladinou šťávy, aby maso nebylo vysušené a taky cibulka by se bez šťávy rychle spálila). Podlévej vodou.
           - Maso je hotové, když je krásně měkké. Dej pozor, abys měl na závěr pod masem dost šťávy, ať si můžeš maso na talíři polít cibulkou se šťávou.
           - Mrkev nakrájenou na kolečka můžeš také přidat k pečícímu se masu, stejně jako hrášek, kukuřici, brokolici, papriku, rajče. Výsledné jídlo pak bude pokaždé trochu jiné. Možná je pak lepší na začátku nakrájet maso na nudličky.
+          
+        Přílohy: K takto upravenému masu se hodí brambory na všechny způsoby, vařená rýže, hranolky a případně i chléb.
+        
+        Dále je možné doplnit:
+          - rajskou omáčkou
+          - zeleninovým salátem
+          - koprovou omáčkou
+          - okurkovým salátem
+          - dušenou mrkví
+          - mrkvovým salátem
+          - grilovanou či pečenou zeleninou
+          - kompotem.
       -
         Strana: 187
         Nadpis: Masové rizoto
@@ -3436,7 +3439,8 @@ Stránky:
           Carpaccio z červené řepy s vlašskými ořechy: Carpaccio z červené řepy
           S kešu: Carpaccio z červené řepy 2
         Strana: 261
-        Podnadpis: (v troubě)    
+        Podnadpis: (v troubě)
+        Typ: bezmasé
         Porce: 2
         Ingredience:
           - předvařená [červená řepa] vakuovaná (prodává se v 500 g balení)
@@ -3899,6 +3903,7 @@ Stránky:
         Nadpis: Úžasné jablečné růžičky
         Foto: Jablečné růžičky
         Strana: 290
+        Typ: listové těsto s jablky
         Porce: 8
         Ingredience:
           - 1 [listové těsto] (já kupuju už rozválené)		 
@@ -3913,13 +3918,7 @@ Stránky:
           - Z jablek vykroj jádřinec, rozkroj je napůl a i se slupkou nakrájej na tenké měsíčky. V míse je pokapej citronovou šťávou s troškou vody, aby nezhnědla. Dej cca na 3 minuty do mikrovlnky nebo do trouby, aby změkla.
           - Každou jamku na muffin vymaž máslem či vytři olejem pomocí mašlovačky. Troubu předehřej na 180°C.
           - Listové těsto nakrájej na 8 nebo 10 proužků (těch kratších). Každý pásek potři marmeládou a na ni naskládej jablečné měsíčky na polovinu pásku obloukem jablka ven tak, aby oblouk přesahoval přes těsto. Jablka posypej skořicovým cukrem. Prázdnou půlku těsta přelož přes jablka, takže jablka jsou v těstě jako v kapse. Celý pásek i s jablky sroluj jako šneka a vlož do muffinové formy na pečení.
-          - Peč dozlatova cca 8 až 10 minut. Kontroluj. Upečené můžeš pocukrovat.    
-        
-        Poznámka:
-          - Stejně můžeš udělat štrúdl z hrušek a do něj přidat třeba 
-          - mletý badyán a kousíčky bílého marcipánu.
-          - Je to moc dobré.
-          - listové těsto s jablky
+          - Peč dozlatova cca 8 až 10 minut. Kontroluj. Upečené můžeš pocukrovat. 
       -
         Nadpis: Jablečný štrúdl
         Foto:
@@ -3933,6 +3932,7 @@ Stránky:
           - Štrudl 8
           - Štrudl 9
         Strana: 292
+        Typ: listové těsto s jablky
         Porce: 1
         Ingredience:
           - 1 [listové těsto] (Já kupuju už rozválené.)			
@@ -3950,6 +3950,10 @@ Stránky:
           - Nyní těsto zaroluj s pomocí papíru co nejpevněji, aby v roládě nezůstalo moc volného prostoru – to chce trochu cviku.  Nelekni se, náplň se při rolování posunuje (proto tam máš ty volné 4 cm). Boční konce rolády také potři trošku vodou a zamáčkni je, aby náplň nelezla ven a pak ohni.
           - Celý váleček pomocí papíru přendej na plech vyložený pečícím papírem spojem dolů a potři jej rozkvedlaným vejcem. Můžeš posypat semínky. 
           - Dej do vyhřáté trouby. Peč dozlatova, cca 30 minut. Potírání vejcem můžeš během pečení ještě jednou zopakovat.
+        
+        Poznámka:
+          - Stejně můžeš udělat štrúdl z hrušek a do něj přidat třeba mletý badyán a kousíčky bílého marcipánu.
+          - Je to moc dobré.
       -
         Nadpis: Zdravá svačinka
         Podnadpis: s taťkou jsme tomu zamlada říkali Vitamínová bomba
@@ -4045,6 +4049,7 @@ Stránky:
           - Tvarohovočokoládový dezert
           - Tvarohovočokoládový dezert 2
         Strana: 302
+        Typ: čokoláda + tvaroh, bezlepkový
         Porce: 4
         Ingredience:
           - 100 g kvalitní [hořké čokolády] (aspoň 70% kakaa, ale dělala jsem i z čokolády na vaření a bylo to dobré)
@@ -4072,8 +4077,7 @@ Stránky:
           -
             > Anebo lze vyrobit chuťový trojboj přidáním jahodové vrstvy:
             > Jahody omyj, odkrájej zelené stopky a ovoce rozmixuj v mixéru 
-            > či ručním mixérem. Nalij na bílou vrstvu. 
-          - čokoláda + tvaroh, bezlepkový
+            > či ručním mixérem. Nalij na bílou vrstvu.
         
         Odkazy: Jíme zdravě ze spíže s. 144    
       -
@@ -4100,8 +4104,7 @@ Stránky:
           - Po upečení zakryj dalším pečícím papírem nebo utěrkou a překlop (vyklop z plechu). Nechej chviličku zchladnout a odlep horní papír. Hned sroluj i s utěrkou či novým papírem a nechej vychladnout.
           - Vyšlehej šlehačku, přidej tvaroh a lžíci cukru a prošlehej. Vychladlou roládu rozroluj, potři náplní do 3/4 plochy, můžeš přidat i ovoce, a znovu zaroluj. Pěkně zabalenou v alobalu ji nechej vychladit v lednici aspoň pár hodin. 
           - Pak nakrájej na 2 až 3 cm široké plátky. Servírovat můžeš s kopečkem vanilkové zmrzliny či zakysané smetany, ovocem či meduňkou. 
-          - Čokoláda ve vodní lázni (nahoře) a hotové brownies (dole)
-          - trošička hladké mouky a hodně čokolády
+
       -
         Nadpis: Čokoládové brownies
         Podnadpis: … v podstatě rozpuštěná a znovu upečená čokoláda s minimem mouky…
