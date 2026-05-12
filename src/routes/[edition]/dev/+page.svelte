@@ -36,6 +36,7 @@
 			Object.groupBy(ingredientRowsWithoutIngredientPieces, ({ recipe }) => recipe.title)
 		).filter((rows): rows is NonNullable<typeof rows> => Boolean(rows))
 	);
+	let tags = $derived(frequencies(recipes.flatMap((x) => x.tags)));
 	let customFieldKeys = $derived(
 		frequencies(
 			data.pages
@@ -61,6 +62,21 @@
 		return line.map((piece) => piece.content).join('');
 	}
 </script>
+
+<Row class="mb-4">
+	<Col>
+		<h2>Tags</h2>
+		{#if tags.length === 0}
+			<p>None</p>
+		{:else}
+			<ul>
+				{#each tags as [tag, freq]}
+					<li>{tag}: {freq}</li>
+				{/each}
+			</ul>
+		{/if}
+	</Col>
+</Row>
 
 <Row class="mb-4">
 	<Col>
