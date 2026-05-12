@@ -666,6 +666,36 @@
 									</ul>
 								{/if}
 							{/each}
+							{#if page.photos?.length > 1 && !lowRes}
+								<div class="mobile-extra-photos">
+									{#each page.photos.slice(1) as [photoName, photoSlug] (photoSlug)}
+										<div class="photo" style="--photo-offset: {photoOffset(photoSlug)};">
+											<Image
+												fluid
+												class="base-photo"
+												src="/foto1/{photoSlug}.webp"
+												alt={photoName ?? page.title}
+												style="object-position: center calc(50% + var(--photo-offset, 0) * 1%);"
+											/>
+											{#if !lowRes}
+												<Image
+													fluid
+													class="highres-photo"
+													src="/foto/{photoSlug}.webp"
+													alt=""
+													aria-hidden="true"
+													loading="lazy"
+													decoding="async"
+													style="object-position: center calc(50% + var(--photo-offset, 0) * 1%);"
+												/>
+											{/if}
+											{#if photoName}
+												<p class="photo-caption">{photoName}</p>
+											{/if}
+										</div>
+									{/each}
+								</div>
+							{/if}
 						</div>
 					</div>
 				</Col>
@@ -753,7 +783,7 @@
 	}
 
 	@media screen and (max-width: 576px) and (orientation: portrait) {
-		.photo:not(:first-child) {
+		.photos .photo:not(:first-child) {
 			display: none;
 		}
 		.photo {
@@ -761,6 +791,19 @@
 		}
 		main {
 			min-height: calc(100vh - 10px);
+		}
+	}
+
+	.mobile-extra-photos {
+		display: none;
+	}
+
+	@media screen and (max-width: 576px) and (orientation: portrait) {
+		.mobile-extra-photos {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+			margin-top: 1rem;
 		}
 	}
 
