@@ -93,11 +93,13 @@
 			return;
 		}
 		disableScrollHandling();
-		void tick().then(() => {
-			requestAnimationFrame(() => {
-				document.querySelector<HTMLElement>('.snap-nav-row')?.scrollIntoView({ block: 'start' });
+		if (window.matchMedia('(max-width: 575px)').matches) {
+			void tick().then(() => {
+				requestAnimationFrame(() => {
+					document.querySelector<HTMLElement>('.snap-nav-row')?.scrollIntoView({ block: 'start' });
+				});
 			});
-		});
+		}
 	});
 
 	// Reading progress bar
