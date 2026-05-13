@@ -1,8 +1,17 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
 	import { untrack } from 'svelte';
 	import { Input, Nav, NavItem, NavLink } from '@sveltestrap/sveltestrap';
-	import { isChapter, isRecipe, type Chapter, type Content, type Page } from '$lib/content';
+	import {
+		isChapter,
+		isRecipe,
+		TAG_CHILDREN,
+		type Chapter,
+		type Content,
+		type Page
+	} from '$lib/content';
 	import { getIngredientsInText } from '$lib/ingredients';
 	import FavouriteStar from '$lib/favourite-star.svelte';
 	import favourites from '$lib/favourites.svelte';
@@ -31,6 +40,44 @@
 
 	let search = $state('');
 	let searchIngredients = $derived(getIngredientsInText(search));
+
+	let activeTagFilter = $derived(decodeURIComponent(page.url.hash.slice(1)));
+
+	function clearTagFilter() {
+		goto(page.url.pathname + page.url.search, { noScroll: true });
+	}
+
+	function toggleTagFilter(tag: string) {
+		if (activeTagFilter === tag) {
+			clearTagFilter();
+		} else {
+			goto(page.url.pathname + page.url.search + '#' + encodeURIComponent(tag), { noScroll: true });
+		}
+	}
+
+	let allNormalizedTags = $derived.by(() => {
+		const counts = new Map<string, number>();
+		for (const p of data.pages) {
+			if (!isRecipe(p)) continue;
+			for (const t of p.tags) {
+				if (t.normalized) counts.set(t.normalized, (counts.get(t.normalized) ?? 0) + 1);
+			}
+		}
+		const freq = (tag: string) => counts.get(tag) ?? 0;
+		const childTags = new Set(Object.values(TAG_CHILDREN).flat());
+		const topLevel = [...counts.keys()]
+			.filter((t) => !childTags.has(t))
+			.sort((a, b) => freq(b) - freq(a));
+		const result: string[] = [];
+		for (const tag of topLevel) {
+			result.push(tag);
+			const children = (TAG_CHILDREN[tag] ?? [])
+				.filter((c) => counts.has(c))
+				.sort((a, b) => freq(b) - freq(a));
+			result.push(...children);
+		}
+		return result;
+	});
 
 	let favouritesOnly = $state(browser && localStorage.getItem('favouritesOnly') == 'true');
 	$effect(() => {
@@ -64,12 +111,19 @@
 			.filter(
 				(x) =>
 					((!favouritesOnly || parentFavourite || favouritesSnapshot.has(x.slug)) &&
-						(search === '' || isPageMatch(x))) ||
+						((search === '' && activeTagFilter === '') || isPageMatch(x))) ||
 					(isChapter(x) && x.pages.length > 0)
 			);
 	}
 
 	function isPageMatch(page: Page) {
+		if (activeTagFilter !== '') {
+			const matchingTags = new Set([activeTagFilter, ...(TAG_CHILDREN[activeTagFilter] ?? [])]);
+			if (!isRecipe(page) || !page.tags.some((t) => t.normalized && matchingTags.has(t.normalized)))
+				return false;
+			if (search === '') return true;
+		}
+
 		if (search === '') return true;
 		const searchLower = search.toLowerCase();
 
@@ -221,6 +275,9 @@
 		<div class="mobile-favourites d-sm-none">
 			<Input bind:checked={favouritesOnly} type="switch" label="Pouze oblíbené" class="mb-0" />
 		</div>
+		<div class="desktop-favourites d-none d-sm-block">
+			<Input bind:checked={favouritesOnly} type="switch" label="Pouze oblíbené" class="mb-0" />
+		</div>
 		<div class="view-toggle" role="group" aria-label="Zobrazení">
 			<button
 				class="toggle-btn"
@@ -244,18 +301,36 @@
 	</div>
 </div>
 
-<Input
-	bind:value={search}
-	placeholder="Hledat pomocí kombinace ingrediencí nebo názvu"
-	autofocus={window.matchMedia('(pointer: fine)').matches}
-	class="mb-3"
-/>
+<div class="search-wrap mb-1">
+	<Input
+		bind:value={search}
+		placeholder="Hledat pomocí kombinace ingrediencí nebo názvu"
+		autofocus={window.matchMedia('(pointer: fine)').matches}
+	/>
+	{#if search}
+		<button class="search-clear" onclick={() => (search = '')} aria-label="Vymazat hledání"
+			>×</button
+		>
+	{/if}
+</div>
 {#if devmode.active && searchIngredients.length > 0}
 	<p class="mb-2 text-muted small">Rozpoznané ingredience: {searchIngredients.join('; ')}</p>
 {/if}
-<div class="desktop-favourites d-none d-sm-block mb-3">
-	<Input bind:checked={favouritesOnly} type="switch" label="Pouze oblíbené" class="mb-0" />
-</div>
+{#if allNormalizedTags.length > 0}
+	<div class="tag-filter-bar mb-3">
+		{#each allNormalizedTags as tag, i (tag)}
+			<button
+				class="tag-pill badge"
+				class:active={activeTagFilter === tag}
+				class:mobile-hidden={i >= 10 && activeTagFilter !== tag}
+				onclick={() => toggleTagFilter(tag)}>{tag}</button
+			>
+		{/each}
+		{#if activeTagFilter}
+			<button class="tag-clear" onclick={clearTagFilter} aria-label="Zrušit filtr">×</button>
+		{/if}
+	</div>
+{/if}
 
 {#if viewMode === 'cards'}
 	{#each filteredPagesWithRootPagesInVirtualChapters as page}
@@ -369,6 +444,87 @@
 {/if}
 
 <style>
+	.search-wrap {
+		position: relative;
+	}
+
+	.search-clear {
+		position: absolute;
+		right: 0.5rem;
+		top: 50%;
+		transform: translateY(-50%);
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 1.1rem;
+		line-height: 1;
+		padding: 0 0.25rem;
+		color: var(--bs-secondary, #6c757d);
+	}
+
+	.search-clear:hover {
+		color: var(--bs-body-color);
+	}
+
+	.tag-filter-bar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-bottom: 0.75rem;
+	}
+
+	@media (max-width: 575.98px) {
+		.tag-filter-bar {
+			gap: 0.3rem;
+			margin-bottom: 0.5rem;
+		}
+		.tag-pill.mobile-hidden {
+			display: none;
+		}
+	}
+
+	.tag-pill {
+		cursor: pointer;
+		border: 1px solid
+			color-mix(in srgb, var(--bs-primary, #0d6efd) 40%, var(--bs-border-color, #dee2e6));
+		background: transparent;
+		color: var(--bs-primary, #0d6efd);
+		font-size: 0.78rem;
+		font-weight: 500;
+		transition:
+			background 0.15s,
+			color 0.15s;
+	}
+
+	.tag-pill:hover {
+		background: color-mix(in srgb, var(--bs-primary, #0d6efd) 12%, transparent);
+	}
+
+	.tag-pill.active {
+		background: var(--bs-primary, #0d6efd);
+		color: #fff;
+		border-color: var(--bs-primary, #0d6efd);
+	}
+
+	.tag-pill.active:hover {
+		background: color-mix(in srgb, var(--bs-primary, #0d6efd) 80%, #000);
+	}
+
+	.tag-clear {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 1rem;
+		line-height: 1;
+		padding: 0 0.25rem;
+		color: var(--bs-secondary, #6c757d);
+		align-self: center;
+	}
+
+	.tag-clear:hover {
+		color: var(--bs-body-color);
+	}
+
 	.toc-header {
 		display: flex;
 		align-items: center;

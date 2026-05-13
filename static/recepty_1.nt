@@ -146,7 +146,7 @@ Stránky:
       -
         Nadpis: Vaječina ze žlutého domečku
         Foto: Vaječina ze žlutého domečku
-        Typ: se slaninou nebo bezmasé
+        Typ: se slaninou, bezmasé
         Porce: 1
         Strana: 16
         Ingredience:
@@ -166,7 +166,7 @@ Stránky:
       -
         Nadpis: Fazolky se slaninou a vejcem
         Foto: Fazolky se slaninou a vejcem
-        Typ: se slaninou nebo bezmasé
+        Typ: se slaninou, bezmasé
         Porce: 2
         Strana: 17
         Ingredience:
@@ -183,7 +183,7 @@ Stránky:
       -
         Nadpis: Honzův snídaňový sendvič
         Foto: Honzův snídaňový sendvič
-        Typ: se slaninou nebo bezmasé
+        Typ: se slaninou, bezmasé
         Intro: „Snídaňový sendvič se od ostatních liší hlavně použitím vajíček. Chuť vajíček je totiž pro snídani naprosto typická. V tomto receptu ho připravíme jako volské oko.“
         Porce: 1
         Strana: 18
@@ -205,7 +205,7 @@ Stránky:
       -
         Nadpis: Ham and eggs
         Foto: Ham and eggs
-        Typ: se slaninou nebo bezmasé
+        Typ: se slaninou, bezmasé
         Porce: 1
         Strana: 19
         Ingredience:
@@ -960,7 +960,7 @@ Stránky:
       -
         Nadpis: Kubánská polévka
         Foto: Kubánská polévka
-        Typ: masové i bezmasé
+        Typ: masové, bezmasé
         Porce: 2
         Strana: 77
     
@@ -991,7 +991,7 @@ Stránky:
       -
         Nadpis: Boršč
         Foto: Boršč
-        Typ: masové i bezmasé
+        Typ: masové, bezmasé
         Porce: 3
         Strana: 78
 
@@ -1033,7 +1033,7 @@ Stránky:
       -
         Nadpis: Zelňačka
         Foto: Zelňačka
-        Typ: masové i bezmasé
+        Typ: masové, bezmasé
         Porce: 4
         Strana: 81
 
@@ -1059,7 +1059,7 @@ Stránky:
       -
         Nadpis: Česnečka
         Foto: Česnečka
-        Typ: masové i bezmasé
+        Typ: masové, bezmasé
         Porce: 2
         Strana: 83
 
@@ -1786,7 +1786,7 @@ Stránky:
         Strana: 137
         Nadpis: Dýňové krémové rizoto
         Foto: Dýňové krémové rizoto
-        Typ: bezmasé i masové (anglická slanina)
+        Typ: bezmasé, anglická slanina
         Porce: 2
         Ingredience:
           - 130 g [rýže] arborio (speciálně na rizoto)
@@ -1814,7 +1814,7 @@ Stránky:
         Strana: 139
         Nadpis: Těstovinový salát se šunkou a ananasem
         Foto: Těstovinový salát s ananasem
-        Typ: bezmasé i masové (šunka)
+        Typ: bezmasé, šunka
         Porce: 2
         Ingredience:
           - cca 100 g [těstovin] v suchém stavu (pro Leňu bez lepku)
@@ -1835,7 +1835,7 @@ Stránky:
         Nadpis: Bulgurová rychlovka
         Foto: Bulgurová rychlovka
         Podnadpis: (tzv. Výkřik z trouby… z pánvičky)
-        Typ: bezmasé i masové
+        Typ: bezmasé, masové
         Porce: 1
         Ingredience:
           - hrst [bulguru] (cca 80 g)
@@ -1859,7 +1859,7 @@ Stránky:
         Nadpis: Batáty s pršutem a rajčaty
         Foto: Batáty s pršutem a rajčaty
         Podnadpis: (nebo S UZENÝM SÝREM) a s VOLSKÝM OKEM
-        Typ: bezmasé i masové (pršut)  
+        Typ: bezmasé, pršut  
         Porce: 2
         Ingredience:
           - 2 veliké [batáty] (cca 600 g)
@@ -1885,7 +1885,7 @@ Stránky:
         Strana: 145
         Nadpis: Plněné papriky s rajskou omáčkou
         Foto: Plněné papriky s rajskou omáčkou
-        Typ: bezmasé i masové (mleté)
+        Typ: bezmasé, mleté
         Porce: 1
         Ingredience:
           - 80 g [mletého masa]
@@ -1923,7 +1923,7 @@ Stránky:
         Nadpis: Dušená mrkev s bramborem a vařeným či pečeným masem
         Podnadpis: (nebo tempehem)
         Foto: Dušená mrkev
-        Typ: bezmasé i masové (hovězí) 
+        Typ: bezmasé, hovězí 
         Porce: 2
         Ingredience:
           - cca 6 větších [mrkví]
@@ -1947,7 +1947,7 @@ Stránky:
         Strana: 149
         Nadpis: Koprová omáčka
         Foto: Koprová omáčka
-        Typ: masové i bezmasé (hovězí)
+        Typ: bezmasé, hovězí
         Porce: 2
         Ingredience:
           - 2-4 [vajíčka] na uvaření nebo cca 300-400 g [hovězího zadního]
@@ -1976,7 +1976,7 @@ Stránky:
         Strana: 151
         Nadpis: Špenát
         Foto: Špenát
-        Typ: bezmasé i masové (hovězí, vepřové)
+        Typ: bezmasé, hovězí, vepřové
         Porce: 2
         Ingredience:
           - 2-4 [vajíčka] na uvaření či cca 300-400 g [hovězího zadního] či [vepřové kotlety]
@@ -2004,7 +2004,7 @@ Stránky:
         Nadpis: Brynzové halušky se slaninou
         Foto: Brynzové halušky se slaninou
         Podnadpis: (je třeba síto na halušky nebo lžičku a trpělivost)
-        Typ: bezmasé i masové (anglická slanina) 
+        Typ: bezmasé, anglická slanina 
         
         Porce: 2
         Ingredience:
@@ -2024,7 +2024,7 @@ Stránky:
         Nadpis: Halušky se zelím tzv. Střapačky
         Foto: Halušky se zelím
         Podnadpis: (je třeba síto na halušky nebo lžičku a trpělivost)
-        Typ: bezmasé i masové (anglická slanina)
+        Typ: bezmasé, anglická slanina
         Porce: 2
         Ingredience:
           - 200 g [Halušky] v sáčku
@@ -2047,7 +2047,7 @@ Stránky:
         Nadpis: Kuře kung-pao
         Foto: Kuře kung-pao
         Podnadpis: (nakládá se přes noc)
-        Typ: bezmasé i masové (kuřecí)
+        Typ: bezmasé, kuřecí
         Porce: 2
         Ingredience:
           - 300-400 g [kuřecího] masa
@@ -2097,7 +2097,7 @@ Stránky:
         Strana: 161
         Nadpis: Tempeh na smetaně + brokolice a kedlub nebo pórek
         Foto: Tempeh na smetaně
-        Typ: bezmasé i masové (kuřecí)
+        Typ: bezmasé, kuřecí
         Porce: 2
         Ingredience:
           - 1 balení [Tempehu] (190-200 g)
@@ -2123,7 +2123,7 @@ Stránky:
         Nadpis: Kotlety pana Voka
         Foto: Kotlety pana Voka
         Podnadpis: (v troubě)
-        Typ: bezmasé i masové (vepřové nebo tempeh)
+        Typ: bezmasé (tempeh), vepřové
         Porce: 2
         Ingredience:
           - 4 plátky [anglické slaniny]
@@ -2148,7 +2148,7 @@ Stránky:
         Nadpis: Šlehačkové kotlety
         Foto: Šlehačkové kotlety
         Podnadpis: (v troubě)
-        Typ: bezmasé i masové (vepřové)
+        Typ: bezmasé, vepřové
         Porce: 2
         Ingredience:
           - plátky [vepřové kotlety] ([vepřová pečeně] bez kosti), cca 150-200 g na porci
@@ -2386,7 +2386,7 @@ Stránky:
           - Krůtí stehna na česneku 2
         Náhled: Krůtí stehna na česneku 2
         Podnadpis: (v troubě)
-        Typ: kuřecí a krůtí maso
+        Typ: kuřecí, krůtí
         Poznámka: trochu delší vaření, ale jednoduché
         Porce: 2
         Ingredience:
@@ -2801,7 +2801,7 @@ Stránky:
         Strana: 213
         Nadpis: Králík podle kluků v akci
         Foto: Králík podle kluků v akci
-        Typ: králík či tempeh
+        Typ: králík, tempeh
         Porce: 2
         Ingredience:
           - 2 [králičí stehna]
@@ -2831,7 +2831,7 @@ Stránky:
         Nadpis: Králík na smetaně či tempeh
         Foto: Králík na smetaně
         Podnadpis: (tzv. svíčková omáčka)
-        Typ: králík či tempeh
+        Typ: králík, tempeh
         Porce: 2
         Ingredience:
           - 2 velké [mrkve] nebo 3 střední
@@ -3295,7 +3295,7 @@ Stránky:
         Nadpis: Vajíčková pomazánka
         Foto: Vajíčková pomazánka
         Strana: 244
-        Typ: se šunkou nebo bezmasé
+        Typ: se šunkou, bezmasé
         Porce: 2
         Ingredience:
           - 3 [vejce] 
@@ -3509,7 +3509,7 @@ Stránky:
         Nadpis: Salát s pršutem
         Foto: Salát s pršutem
         Strana: 257
-        Typ: se šunkou nebo bezmasé
+        Typ: se šunkou, bezmasé
         Porce: 1
         Ingredience:
           - 50 g schwarzwaldské [šunky] (ale můžeš dát i normální [šunku])
@@ -3554,7 +3554,7 @@ Stránky:
         Foto: Zelenina na salát
         Strana: 260
         Podnadpis: (pokaždé jinak)
-        Typ: bezmasé i masové
+        Typ: bezmasé, masové
         Intro:
           - Salát můžeš mít pokaždé jiný podle toho, co zrovna máš v ledničce, nebo na co máš právě chuť.
           - Vždycky ho pak zalij troškou olivového oleje, posol, opepři a dle chuti přidej koření nebo česnek (i v podobě sušeného koření) anebo trochu cukru a vinného octu, případně trošičku chilli.
@@ -3762,7 +3762,7 @@ Stránky:
         Foto: Pizza
         Podnadpis: (v troubě)
         Strana: 273
-        Typ: se šunkou i vege
+        Typ: se šunkou, vege
         Markdown:
           > Já jsem se naučila používat hotové rozválené těsto na pizzu. Je to nejrychlejší. Rozmotáš, potřeš rajčatovou omáčkou nebo kečupem nebo smetanou (zakysanou či ke šlehání) nebo pestem (i zeleným), okořeníš, jako základ položíš plátkový sýr a pak už podle nálady a chuti. Lepší je rozkládat menší kousky. 
           > Nejvíce času mi vždy zabralo vymyslet, s čím pizza bude. Tak jsem si to jednou sepsala, obměňovat můžeš jakkoli:
@@ -3805,7 +3805,7 @@ Stránky:
         Nadpis: Sýrová roládka se šunkou nebo bez
         Foto: Sýrová roláda
         Strana: 275
-        Typ: se šunkou i vege
+        Typ: se šunkou, vege
         Porce: 1    
         Poznámka:
           - Šunku a křen můžeš zcela vynechat, natřenou roládu můžeš poklást baby špenátem, pak přidat Nivu a zarolovat. 
@@ -4345,7 +4345,7 @@ Stránky:
         Foto: Třená bábovka se šlehačkou a vanilkou
         Podnadpis: (odzkoušeno i s bezlepkovou směsí)
         Strana: 313
-        Typ: bábovka bezlepková i s lepkem
+        Typ: bezlepková i s lepkem
         Porce: 1
         Ingredience:
           - 4 [vejce]
@@ -4375,7 +4375,7 @@ Stránky:
         Podnadpis: (odzkoušeno i s bezlepkovou směsí)
         Foto: Banánová bábovka
         Strana: 315
-        Typ: bábovka bezlepková i s lepkem
+        Typ: bezlepková i s lepkem
         Porce: 1
         Ingredience:
           - 300 g běžné hladké [mouky] 
