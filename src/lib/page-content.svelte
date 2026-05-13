@@ -467,8 +467,8 @@
 									</span>
 									{#if page.subtitle}<br />{page.subtitle}{/if}
 									{#if recipe?.tags?.length || page.page}<span class="meta-row"
-											>{#if recipe?.tags?.length}{#each recipe.tags as tag (tag.raw)}{#if tag.normalized}<a
-															href="/{edition}/Obsah#{tag.normalized}"
+											>{#if recipe?.tags?.length}{#each recipe.tags as tag (tag.raw)}{#if tag.normalized.length}<a
+															href="/{edition}/Obsah#{tag.normalized[0]}"
 															class="badge text-bg-primary recipe-tag recipe-tag-link">{tag.raw}</a
 														>{:else}<span class="badge text-bg-primary recipe-tag">{tag.raw}</span
 														>{/if}{/each}{/if}{#if page.page}<span class="page-ref"

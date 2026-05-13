@@ -25,7 +25,7 @@ export interface Chapter extends Page {
 
 export interface RecipeTag {
 	raw: string;
-	normalized?: string;
+	normalized: string[];
 }
 
 export interface Recipe extends Page {
@@ -72,40 +72,35 @@ function isStepsField(x: Field): x is Field & { kind: 'steps'; values: string[] 
 	return x.kind === 'steps' && isStringArrayField(x);
 }
 
-const TAG_NORMALIZATION: Record<string, string> = {
-	bezmasé: 'bezmasé',
-	masové: 'masové',
-	kuřecí: 'kuřecí',
-	ryba: 'ryba',
-	hovězí: 'hovězí',
-	vepřové: 'vepřové',
-	'se šunkou': 'uzenina',
-	'se slaninou': 'uzenina',
-	bezlepkové: 'bezlepkové',
-	'anglická slanina': 'uzenina',
-	králík: 'králík',
-	ovocné: 'ovocné',
-	tempeh: 'tempeh',
-	krevety: 'krevety',
-	vege: 'bezmasé',
-	'bezmasé (tempeh)': 'bezmasé',
-	'mleté hovězí': 'hovězí',
-	ovocný: 'ovocné',
-	ovocná: 'ovocné',
-	'bezlepkový ze sušenek': 'bezlepkové',
-	bezlepkový: 'bezlepkové',
-	'z mandlové moučky = přirozeně bezlepková': 'bezlepkové',
-	'bezlepková i s lepkem': 'bezlepkové'
+const TAG_NORMALIZATION: Record<string, string[]> = {
+	bezmasé: ['bezmasé'],
+	masové: ['masové'],
+	kuřecí: ['kuřecí', 'masové'],
+	ryba: ['ryba', 'masové'],
+	hovězí: ['hovězí', 'masové'],
+	vepřové: ['vepřové', 'masové'],
+	'se šunkou': ['uzenina', 'masové'],
+	'se slaninou': ['uzenina', 'masové'],
+	bezlepkové: ['bezlepkové'],
+	'anglická slanina': ['uzenina', 'masové'],
+	králík: ['králík', 'masové'],
+	ovocné: ['ovocné'],
+	tempeh: ['tempeh'],
+	krevety: ['krevety', 'masové'],
+	vege: ['bezmasé'],
+	'bezmasé (tempeh)': ['bezmasé'],
+	'mleté hovězí': ['hovězí', 'masové'],
+	ovocný: ['ovocné'],
+	ovocná: ['ovocné'],
+	'bezlepkový ze sušenek': ['bezlepkové'],
+	bezlepkový: ['bezlepkové'],
+	'z mandlové moučky = přirozeně bezlepková': ['bezlepkové'],
+	'bezlepková i s lepkem': ['bezlepkové']
 };
 
 function normalizeTag(raw: string): RecipeTag {
-	const normalized = TAG_NORMALIZATION[raw];
-	return normalized !== undefined ? { raw, normalized } : { raw };
+	return { raw, normalized: TAG_NORMALIZATION[raw] ?? [] };
 }
-
-export const TAG_CHILDREN: Record<string, string[]> = {
-	masové: ['kuřecí', 'ryba', 'hovězí', 'vepřové', 'uzenina', 'králík', 'krevety']
-};
 
 export function parseContent(nestedText: string): Content {
 	const raw = parseNestedText(nestedText);

@@ -48,7 +48,7 @@
 		// Group by normalized form (or '__none__' sentinel for unnormalizable)
 		const groupMap = new Map<string | undefined, { raws: Map<string, number>; total: number }>();
 		for (const tag of allTags) {
-			const key = tag.normalized;
+			const key = tag.normalized[0];
 			let group = groupMap.get(key);
 			if (!group) {
 				group = { raws: new Map(), total: 0 };

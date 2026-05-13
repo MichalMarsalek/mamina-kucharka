@@ -4,14 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { untrack } from 'svelte';
 	import { Input, Nav, NavItem, NavLink } from '@sveltestrap/sveltestrap';
-	import {
-		isChapter,
-		isRecipe,
-		TAG_CHILDREN,
-		type Chapter,
-		type Content,
-		type Page
-	} from '$lib/content';
+	import { isChapter, isRecipe, type Chapter, type Content, type Page } from '$lib/content';
 	import { getIngredientsInText } from '$lib/ingredients';
 	import FavouriteStar from '$lib/favourite-star.svelte';
 	import favourites from '$lib/favourites.svelte';
@@ -57,24 +50,39 @@
 
 	let allNormalizedTags = $derived.by(() => {
 		const counts = new Map<string, number>();
+		// normalized[0] is child, normalized[1..] are parents
+		const childrenOf = new Map<string, Set<string>>();
 		for (const p of data.pages) {
 			if (!isRecipe(p)) continue;
 			for (const t of p.tags) {
-				if (t.normalized) counts.set(t.normalized, (counts.get(t.normalized) ?? 0) + 1);
+				for (const n of t.normalized) counts.set(n, (counts.get(n) ?? 0) + 1);
+				if (t.normalized.length > 1) {
+					const child = t.normalized[0];
+					for (let i = 1; i < t.normalized.length; i++) {
+						const parent = t.normalized[i];
+						if (!childrenOf.has(parent)) childrenOf.set(parent, new Set());
+						childrenOf.get(parent)!.add(child);
+					}
+				}
 			}
 		}
-		const freq = (tag: string) => counts.get(tag) ?? 0;
-		const childTags = new Set(Object.values(TAG_CHILDREN).flat());
+		const freq = (t: string) => counts.get(t) ?? 0;
+		const allChildren = new Set([...childrenOf.values()].flatMap((s) => [...s]));
 		const topLevel = [...counts.keys()]
-			.filter((t) => !childTags.has(t))
+			.filter((t) => !allChildren.has(t))
 			.sort((a, b) => freq(b) - freq(a));
+		const placed = new Set<string>();
 		const result: string[] = [];
-		for (const tag of topLevel) {
-			result.push(tag);
-			const children = (TAG_CHILDREN[tag] ?? [])
-				.filter((c) => counts.has(c))
-				.sort((a, b) => freq(b) - freq(a));
-			result.push(...children);
+		for (const t of topLevel) {
+			if (placed.has(t)) continue;
+			result.push(t);
+			placed.add(t);
+			for (const c of [...(childrenOf.get(t) ?? [])].sort((a, b) => freq(b) - freq(a))) {
+				if (!placed.has(c)) {
+					result.push(c);
+					placed.add(c);
+				}
+			}
 		}
 		return result;
 	});
@@ -118,8 +126,7 @@
 
 	function isPageMatch(page: Page) {
 		if (activeTagFilter !== '') {
-			const matchingTags = new Set([activeTagFilter, ...(TAG_CHILDREN[activeTagFilter] ?? [])]);
-			if (!isRecipe(page) || !page.tags.some((t) => t.normalized && matchingTags.has(t.normalized)))
+			if (!isRecipe(page) || !page.tags.some((t) => t.normalized.includes(activeTagFilter)))
 				return false;
 			if (search === '') return true;
 		}
