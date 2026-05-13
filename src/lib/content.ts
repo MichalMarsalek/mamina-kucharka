@@ -23,10 +23,15 @@ export interface Chapter extends Page {
 	pages: Page[];
 }
 
+export interface RecipeTag {
+	raw: string;
+	normalized: string[];
+}
+
 export interface Recipe extends Page {
 	parent: Chapter;
 	portions?: number;
-	tags: string[];
+	tags: RecipeTag[];
 	normalizedIngredients: string[];
 }
 
@@ -65,6 +70,36 @@ export function isIngredientsField(x: Field): x is {
 
 function isStepsField(x: Field): x is Field & { kind: 'steps'; values: string[] } {
 	return x.kind === 'steps' && isStringArrayField(x);
+}
+
+const TAG_NORMALIZATION: Record<string, string[]> = {
+	bezmasé: ['bezmasé'],
+	masové: ['masové'],
+	kuřecí: ['kuřecí', 'masové'],
+	ryba: ['ryba', 'masové'],
+	hovězí: ['hovězí', 'masové'],
+	vepřové: ['vepřové', 'masové'],
+	'se šunkou': ['uzenina', 'masové'],
+	'se slaninou': ['uzenina', 'masové'],
+	bezlepkové: ['bezlepkové'],
+	'anglická slanina': ['uzenina', 'masové'],
+	králík: ['králík', 'masové'],
+	ovocné: ['ovocné'],
+	tempeh: ['tempeh'],
+	krevety: ['krevety', 'masové'],
+	vege: ['bezmasé'],
+	'bezmasé (tempeh)': ['bezmasé'],
+	'mleté hovězí': ['hovězí', 'masové'],
+	ovocný: ['ovocné'],
+	ovocná: ['ovocné'],
+	'bezlepkový ze sušenek': ['bezlepkové'],
+	bezlepkový: ['bezlepkové'],
+	'z mandlové moučky = přirozeně bezlepková': ['bezlepkové'],
+	'bezlepková i s lepkem': ['bezlepkové']
+};
+
+function normalizeTag(raw: string): RecipeTag {
+	return { raw, normalized: TAG_NORMALIZATION[raw] ?? [] };
 }
 
 export function parseContent(nestedText: string): Content {
@@ -267,7 +302,7 @@ function getPage(x: unknown): Page {
 
 	const pages = getArray(y['Stránky'])?.map(getPage);
 	const tagsRaw = typeof y.Typ === 'string' ? y.Typ.split(',') : getStringArray(y.Typ);
-	const tags = (tagsRaw ?? []).map((tag) => tag.trim()).filter((tag) => tag.length > 0);
+	const tags = (tagsRaw ?? []).map((tag) => tag.trim()).filter((tag) => tag.length > 0).map(normalizeTag);
 	const portions = getNumber(y.Porce);
 
 	const normalizedIngredients = fields
@@ -297,11 +332,11 @@ function getPage(x: unknown): Page {
 
 	let res: Page = hasRecipeData
 		? ({
-				...base,
-				tags,
-				portions,
-				normalizedIngredients
-			} as Recipe)
+			...base,
+			tags,
+			portions,
+			normalizedIngredients
+		} as Recipe)
 		: base;
 
 	if (pages !== undefined) {

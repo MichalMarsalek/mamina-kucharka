@@ -1,5 +1,10 @@
 <script lang="ts">
-	import { isIngredientsField, isRecipe, isStringArrayField, type Content } from '$lib/content';
+	import {
+		isIngredientsField,
+		isRecipe,
+		isStringArrayField,
+		type Content
+	} from '$lib/content';
 	import { Col, Row } from '@sveltestrap/sveltestrap';
 	import devmode from '$lib/devmode.svelte';
 	import { hasIngredientDeclensionEntry, type IngredientPiece } from '$lib/ingredients';
@@ -36,7 +41,31 @@
 			Object.groupBy(ingredientRowsWithoutIngredientPieces, ({ recipe }) => recipe.title)
 		).filter((rows): rows is NonNullable<typeof rows> => Boolean(rows))
 	);
-	let tags = $derived(frequencies(recipes.flatMap((x) => x.tags)));
+	let tagGroups = $derived.by(() => {
+		// Collect all RecipeTag instances across all recipes
+		const allTags = recipes.flatMap((r) => r.tags);
+		// Group by normalized form (or '__none__' sentinel for unnormalizable)
+		const groupMap = new Map<string | undefined, { raws: Map<string, number>; total: number }>();
+		for (const tag of allTags) {
+			const key = tag.normalized[0];
+			let group = groupMap.get(key);
+			if (!group) {
+				group = { raws: new Map(), total: 0 };
+				groupMap.set(key, group);
+			}
+			group.raws.set(tag.raw, (group.raws.get(tag.raw) ?? 0) + 1);
+			group.total++;
+		}
+		// Sort: groups with a normalized form first (by total desc), then unnormalized
+		const withNorm = [...groupMap.entries()]
+			.filter(([k]) => k !== undefined)
+			.sort((a, b) => b[1].total - a[1].total) as [
+			string,
+			{ raws: Map<string, number>; total: number }
+		][];
+		const withoutNorm = groupMap.get(undefined);
+		return { withNorm, withoutNorm };
+	});
 	let customFieldKeys = $derived(
 		frequencies(
 			data.pages
@@ -66,13 +95,30 @@
 <Row class="mb-4">
 	<Col>
 		<h2>Tags</h2>
-		{#if tags.length === 0}
+		{#if tagGroups.withNorm.length === 0 && !tagGroups.withoutNorm}
 			<p>None</p>
 		{:else}
 			<ul>
-				{#each tags as [tag, freq]}
-					<li>{tag}: {freq}</li>
+				{#each tagGroups.withNorm as [normalized, group]}
+					<li>
+						<strong>{normalized}</strong> ({group.total}):
+						<ul>
+							{#each [...group.raws.entries()] as [raw, freq]}
+								<li>{raw}: {freq}</li>
+							{/each}
+						</ul>
+					</li>
 				{/each}
+				{#if tagGroups.withoutNorm}
+					<li>
+						<strong>(no normalization)</strong> ({tagGroups.withoutNorm.total}):
+						<ul>
+							{#each [...tagGroups.withoutNorm.raws.entries()].sort((a, b) => b[1] - a[1]) as [raw, freq]}
+								<li>{raw}: {freq}</li>
+							{/each}
+						</ul>
+					</li>
+				{/if}
 			</ul>
 		{/if}
 	</Col>

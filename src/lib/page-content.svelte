@@ -466,13 +466,18 @@
 										{page.title}
 									</span>
 									{#if page.subtitle}<br />{page.subtitle}{/if}
-									{#if recipe?.tags?.length}{#each recipe.tags as tag (tag)}<span
-												class="badge text-bg-primary recipe-tag">{tag}</span
-											>{/each}{/if}
+									{#if recipe?.tags?.length || page.page}<span class="meta-row"
+											>{#if recipe?.tags?.length}{#each recipe.tags as tag (tag.raw)}{#if tag.normalized.length}<a
+															href="/{edition}/Obsah#{tag.normalized[0]}"
+															class="badge text-bg-primary recipe-tag recipe-tag-link">{tag.raw}</a
+														>{:else}<span class="badge text-bg-primary recipe-tag">{tag.raw}</span
+														>{/if}{/each}{/if}{#if page.page}<span class="page-ref"
+													>📖 str.&nbsp;{page.page}</span
+												>{/if}</span
+										>{/if}
 								</div>
 								<div class="star"><FavouriteStar slug={page.slug} large /></div>
 							</h1>
-							{#if page.page}<div class="page-ref">📖 str.&nbsp;{page.page}</div>{/if}
 
 							{#each page.fields as field, fieldIndex (`${field.kind}-${field.name}-${fieldIndex}`)}
 								{#if isIngredientsField(field)}
@@ -714,16 +719,26 @@
 		font-weight: 500;
 	}
 
+	.meta-row {
+		white-space: nowrap;
+	}
+
+	.recipe-tag-link {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
 	.page-ref {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.25rem;
-		margin-bottom: 0.6rem;
+		margin-left: 0.35rem;
 		padding: 0.15rem 0.55rem;
 		border-radius: 999px;
 		font-size: 0.8rem;
 		color: var(--bs-secondary, #6c757d);
 		border: 1px solid var(--bs-border-color, #dee2e6);
+		vertical-align: middle;
 	}
 
 	h2 {
