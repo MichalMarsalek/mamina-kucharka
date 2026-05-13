@@ -3,8 +3,7 @@
 		isIngredientsField,
 		isRecipe,
 		isStringArrayField,
-		type Content,
-		type RecipeTag
+		type Content
 	} from '$lib/content';
 	import { Col, Row } from '@sveltestrap/sveltestrap';
 	import devmode from '$lib/devmode.svelte';
